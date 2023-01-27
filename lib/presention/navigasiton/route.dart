@@ -1,4 +1,4 @@
-import 'package:loginandsignup/screen/login/login_screen.dart';
+import 'package:loginandsignup/pages//login_screen.dart';
 
 class Routes {
   static const String Splash_Screen = 'splash';
@@ -7,4 +7,5 @@ class Routes {
   static const String RegisterScreen = 'resgis';
   static const String AutentikasiScreen = 'auten';
   static const String SuccesScreen = 'succes';
+  static const String HomeScreen = 'homescreen';
 }

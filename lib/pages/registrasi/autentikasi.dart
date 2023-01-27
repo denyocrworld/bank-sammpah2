@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+part of '../pages.dart';
 
 class AutentikasiScreen extends StatefulWidget {
   const AutentikasiScreen({super.key});

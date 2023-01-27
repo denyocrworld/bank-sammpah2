@@ -1,8 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import '../../model/costum_shapes.dart';
+part of '../pages.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -119,16 +115,17 @@ class _HomePageState extends State<HomePage> {
                                 child: Padding(
                                   padding: const EdgeInsets.only(right: 12),
                                   child: ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                          shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(8)),
-                                          backgroundColor: Color(0xFFFF7F33)),
-                                      onPressed: () {},
-                                      child: Text(
-                                        'Isi saldo',
-                                        style: TextStyle(fontSize: 12),
-                                      )),
+                                    style: ElevatedButton.styleFrom(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(8)),
+                                        backgroundColor: Color(0xFFFF7F33)),
+                                    onPressed: () {},
+                                    child: Text(
+                                      'Isi saldo',
+                                      style: TextStyle(fontSize: 12),
+                                    ),
+                                  ),
                                 ),
                               )
                             ],

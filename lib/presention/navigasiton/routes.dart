@@ -1,13 +1,8 @@
 import 'package:go_router/go_router.dart';
-import 'package:loginandsignup/screen/home/homescreen.dart';
-import 'package:loginandsignup/screen/login/login_screen.dart';
-import 'package:loginandsignup/screen/registrasi/register_screen.dart';
-import 'package:loginandsignup/screen/splash_screen.dart';
+import '../../pages/pages.dart';
+import '../../screen/splash_screen.dart';
 
-import '../../screen/autentifikasi/autentikasi.dart';
-import '../../screen/autentifikasi/succes_screen.dart';
-
-final GoRouter router = GoRouter(initialLocation: "/SuccesScreen", routes: [
+final GoRouter router = GoRouter(initialLocation: "/HomeScreen", routes: [
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",
@@ -37,5 +32,10 @@ final GoRouter router = GoRouter(initialLocation: "/SuccesScreen", routes: [
     path: "/SuccesScreen",
     name: "succes",
     builder: (context, state) => SuccesScreen(),
+  ),
+  GoRoute(
+    path: "/HomeScreen",
+    name: "homescreen",
+    builder: (context, state) => HomeScreen(),
   )
 ]);

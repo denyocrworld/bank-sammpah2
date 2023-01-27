@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of '../pages.dart';
 
 class SuccesScreen extends StatelessWidget {
   const SuccesScreen({super.key});
