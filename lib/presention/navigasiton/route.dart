@@ -1,5 +1,3 @@
-import 'package:loginandsignup/pages//login_screen.dart';
-
 class Routes {
   static const String Splash_Screen = 'splash';
   static const String LoginScreen = 'login';

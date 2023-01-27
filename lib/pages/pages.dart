@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 
@@ -11,3 +10,4 @@ part 'login/login_screen.dart';
 part 'registrasi/autentikasi.dart';
 part 'registrasi/register_screen.dart';
 part 'registrasi/succes_screen.dart';
+part 'splash_screen/splash_screen.dart';

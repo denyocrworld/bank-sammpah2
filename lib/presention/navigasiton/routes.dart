@@ -1,6 +1,5 @@
 import 'package:go_router/go_router.dart';
 import '../../pages/pages.dart';
-import '../../screen/splash_screen.dart';
 
 final GoRouter router = GoRouter(initialLocation: "/HomeScreen", routes: [
   GoRoute(
