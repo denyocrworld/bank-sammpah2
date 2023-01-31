@@ -13,16 +13,6 @@ final GoRouter router = GoRouter(initialLocation: "/HomeScreen", routes: [
     builder: (context, state) => LoginScreen(),
   ),
   GoRoute(
-    path: "/HomePage",
-    name: "home",
-    builder: (context, state) => HomePage(),
-  ),
-  GoRoute(
-    path: "/RegisterScreen",
-    name: "regis",
-    builder: (context, state) => RegisterScreen(),
-  ),
-  GoRoute(
     path: "/AutentikasiScreen",
     name: "auten",
     builder: (context, state) => AutentikasiScreen(),

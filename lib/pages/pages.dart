@@ -6,9 +6,9 @@ import 'package:flutter/cupertino.dart';
 import '../model/costum_shapes.dart';
 
 part 'home/home_page.dart';
-part 'home/homescreen.dart';
+
 part 'login/login_screen.dart';
 part 'registrasi/autentikasi.dart';
-part 'registrasi/register_screen.dart';
+
 part 'registrasi/succes_screen.dart';
 part 'splash_screen/splash_screen.dart';
