@@ -9,6 +9,7 @@ part 'home/home_page.dart';
 
 part 'login/login_screen.dart';
 part 'registrasi/autentikasi.dart';
+part 'registrasi/registrasi.dart';
 
 part 'registrasi/succes_screen.dart';
 part 'splash_screen/splash_screen.dart';
