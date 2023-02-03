@@ -9,17 +9,25 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   bool hidePassword = true;
+  bool hideConfirmPassword = true;
+  
 
   TextEditingController namaController = TextEditingController();
   TextEditingController whatssapController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmController = TextEditingController();
-  
+
 
   void changePasswordVisibility() {
     setState(() {
       hidePassword = !hidePassword;
+    });
+  }
+
+  changeConfirmPasswordVisibility(){
+    setState(() {
+      hideConfirmPassword = !hideConfirmPassword;
     });
   }
 
@@ -45,7 +53,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: Align (
                   alignment: Alignment.center,
                     child : Text('Ayo daftar sekarang untuk mengumpulkan koin \n penjemputan sampah!',
-                      style: TextStyle(fontSize: 14, color: Colors.white),textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 14, color: Colors.white, height: 1.5),textAlign: TextAlign.center,
                     ),
                   ),
             ),
@@ -173,6 +181,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   changePasswordVisibility();
                                 },
                                 child: Icon(
+                                  color: Color(0xff72777F),
                                   (hidePassword)
                                       ? Icons.visibility_off
                                       : Icons.visibility,
@@ -203,22 +212,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         child: TextFormField(
                           controller: confirmController,
                           keyboardType: TextInputType.visiblePassword,
-                          obscureText: hidePassword,
+                          obscureText: hideConfirmPassword,
                           style: TextStyle(fontSize: 14),
                           decoration: InputDecoration(
                             suffixIcon: GestureDetector(
                                 onTap: () {
-                                  changePasswordVisibility();
+                                  changeConfirmPasswordVisibility();
                                 },
                                 child: Icon(
-                                  (hidePassword)
+                                  color: Color(0xff72777F),
+                                  (hideConfirmPassword)
                                       ? Icons.visibility_off
                                       : Icons.visibility,
                                 )),
                             contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                             filled: true,
                             fillColor: Colors.white,
-                            hintText: "Password",
+                            hintText: "Confirm Password",
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                             ),
@@ -236,7 +246,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xFFFF7F33),
                             shape: ContinuousRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(16),
                             ),
                           ),
                           onPressed: () {

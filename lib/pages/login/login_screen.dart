@@ -63,7 +63,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       padding: const EdgeInsets.only(top: 16, left: 16),
                       child: Align(
                           alignment: Alignment.centerLeft,
-                          child: Text('Nomor Whatssap/Email')),
+                          child: Text('Nomor Whatsapp/Email')),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 8),
@@ -109,6 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   changePasswordVisibility();
                                 },
                                 child: Icon(
+                                  color: Color(0xff72777F),
                                   (hidePassword)
                                       ? Icons.visibility_off
                                       : Icons.visibility,
@@ -134,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xFFFF7F33),
                             shape: ContinuousRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(16),
                             ),
                           ),
                           onPressed: () {
@@ -158,15 +159,15 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 16),
                             child: Divider(
-                              thickness: 0.5,
-                              color: Colors.grey[400],
+                              thickness: 2,
+                              color: Color(0xffB3BCC5),
                             ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 50.0),
                           child: Text(
-                            'Tidak Memiliki Akun',
+                            'Tidak Memiliki Akun ?',
                             style: TextStyle(color: Color(0xFFB3BCC5)),
                           ),
                         ),
@@ -174,8 +175,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Padding(
                             padding: const EdgeInsets.only(right: 16),
                             child: Divider(
-                              thickness: 0.5,
-                              color: Colors.grey[400],
+                              thickness: 2,
+                              color: Color(0xffB3BCC5),
                             ),
                           ),
                         ),
@@ -192,7 +193,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             foregroundColor: Color(0xFFFF7F33),
                             shape: RoundedRectangleBorder(
                               borderRadius:
-                                  BorderRadius.circular(12), // <-- Radius
+                                  BorderRadius.circular(16), // <-- Radius
                             ),
                           ),
                           onPressed: () {
