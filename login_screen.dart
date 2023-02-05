@@ -19,15 +19,6 @@ class _LoginScreenState extends State<LoginScreen> {
     });
   }
 
-  bool isProfileCompleted() {
-    if (whatssapController.text.isNotEmpty &&
-        passwordController.text.isNotEmpty) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,10 +42,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: TextStyle(fontSize: 14, color: Colors.white)),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 16, left: 20, right: 20),
+              padding: const EdgeInsets.only(top: 16),
               child: Container(
                 height: 440,
-                width: MediaQuery.of(context).size.width * 1,
+                width: 321,
                 decoration: BoxDecoration(
                     color: Color(0xFFF8FCFF),
                     borderRadius: BorderRadius.circular(16)),
@@ -64,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       padding: const EdgeInsets.only(top: 32),
                       child: Image.asset(
                         'asset/images/kasek.png',
-                        width: MediaQuery.of(context).size.width * 1,
+                        width: 64,
                         height: 32,
                       ),
                     ),
@@ -72,14 +63,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       padding: const EdgeInsets.only(top: 16, left: 16),
                       child: Align(
                           alignment: Alignment.centerLeft,
-                          child: Text('Nomor Whatsapp/Email')),
+                          child: Text('Nomor Whatssap/Email')),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsets.only(top: 8, left: 16, right: 16),
-                      child: SizedBox(
+                      padding: const EdgeInsets.only(top: 8),
+                      child: Container(
                         height: 36,
-                        width: MediaQuery.of(context).size.width * 1,
+                        width: 289,
                         child: TextFormField(
                           controller: whatssapController,
                           keyboardType: TextInputType.multiline,
@@ -101,17 +91,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       padding: const EdgeInsets.only(top: 16, left: 16),
                       child: Align(
                           alignment: Alignment.centerLeft,
-                          child: Text(
-                            'Password',
-                            style: TextStyle(fontSize: 14),
-                          )),
+                          child: Text('Password')),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsets.only(top: 8, left: 16, right: 16),
-                      child: SizedBox(
+                      padding: const EdgeInsets.only(top: 8),
+                      child: Container(
                         height: 36,
-                        width: MediaQuery.of(context).size.width * 1,
+                        width: 289,
                         child: TextFormField(
                           controller: passwordController,
                           keyboardType: TextInputType.visiblePassword,
@@ -123,7 +109,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                   changePasswordVisibility();
                                 },
                                 child: Icon(
-                                  color: Color(0xff72777F),
                                   (hidePassword)
                                       ? Icons.visibility_off
                                       : Icons.visibility,
@@ -141,23 +126,20 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsets.only(top: 16, left: 16, right: 16),
-                      child: SizedBox(
+                      padding: const EdgeInsets.only(top: 16),
+                      child: Container(
                         height: 40,
-                        width: MediaQuery.of(context).size.width * 1,
+                        width: 289,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xFFFF7F33),
                             shape: ContinuousRectangleBorder(
-                              borderRadius: BorderRadius.circular(16),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                           ),
-                          onPressed: isProfileCompleted()
-                              ? () {
-                                  context.go('/NavigasiBar');
-                                }
-                              : null,
+                          onPressed: () {
+                            context.go('/HomePage');
+                          },
                           child: const Text("Masuk"),
                         ),
                       ),
@@ -176,15 +158,15 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 16),
                             child: Divider(
-                              thickness: 2,
-                              color: Color(0xffB3BCC5),
+                              thickness: 0.5,
+                              color: Colors.grey[400],
                             ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 50.0),
+                          padding: const EdgeInsets.symmetric(horizontal: 25.0),
                           child: Text(
-                            'Tidak Memiliki Akun ?',
+                            'Tidak Memiliki Akun',
                             style: TextStyle(color: Color(0xFFB3BCC5)),
                           ),
                         ),
@@ -192,18 +174,17 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Padding(
                             padding: const EdgeInsets.only(right: 16),
                             child: Divider(
-                              thickness: 2,
-                              color: Color(0xffB3BCC5),
+                              thickness: 0.5,
+                              color: Colors.grey[400],
                             ),
                           ),
                         ),
                       ],
                     ),
                     Padding(
-                      padding:
-                          const EdgeInsets.only(top: 16, left: 16, right: 16),
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 1,
+                      padding: const EdgeInsets.only(top: 16),
+                      child: Container(
+                        width: 289,
                         height: 40,
                         child: OutlinedButton(
                           style: OutlinedButton.styleFrom(
@@ -211,7 +192,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             foregroundColor: Color(0xFFFF7F33),
                             shape: RoundedRectangleBorder(
                               borderRadius:
-                                  BorderRadius.circular(16), // <-- Radius
+                                  BorderRadius.circular(12), // <-- Radius
                             ),
                           ),
                           onPressed: () {
