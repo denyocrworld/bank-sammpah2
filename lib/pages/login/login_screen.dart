@@ -211,7 +211,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             foregroundColor: Color(0xFFFF7F33),
                             shape: RoundedRectangleBorder(
                               borderRadius:
-                                  BorderRadius.circular(16), // <-- Radius
+                                  BorderRadius.circular(8), // <-- Radius
                             ),
                           ),
                           onPressed: () {
