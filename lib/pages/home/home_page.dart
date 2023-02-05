@@ -331,9 +331,10 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 10),
+                            padding: const EdgeInsets.only(
+                                top: 10, right: 16, left: 16),
                             child: Container(
-                              width: 289,
+                              width: MediaQuery.of(context).size.width * 1,
                               height: 40,
                               child: OutlinedButton(
                                 style: OutlinedButton.styleFrom(
