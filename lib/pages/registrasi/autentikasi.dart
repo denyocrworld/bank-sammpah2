@@ -171,7 +171,7 @@ class _AutentikasiScreenState extends State<AutentikasiScreen> {
                         textAlign: TextAlign.center,
                         onChanged: (value) {
                           if (value.length == 1) {
-                            FocusScope.of(context).nextFocus();
+                            context.go('/LoginScreen');
                           }
                         },
                         decoration: InputDecoration(

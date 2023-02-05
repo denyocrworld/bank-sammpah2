@@ -9,18 +9,36 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   bool hidePassword = true;
+  bool hideConfigPassword = true;
 
   TextEditingController namaController = TextEditingController();
   TextEditingController whatssapController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController confirmController = TextEditingController();
-  
+  TextEditingController passController = TextEditingController();
+  TextEditingController configpassController = TextEditingController();
 
   void changePasswordVisibility() {
     setState(() {
       hidePassword = !hidePassword;
     });
+  }
+
+  void changeConfigPasswordVisibility() {
+    setState(() {
+      hideConfigPassword = !hideConfigPassword;
+    });
+  }
+
+  bool isProfileCompleted() {
+    if (whatssapController.text.isNotEmpty &&
+        namaController.text.isNotEmpty &&
+        emailController.text.isNotEmpty &&
+        passController.text.isNotEmpty &&
+        configpassController.text.isNotEmpty) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   @override
@@ -31,32 +49,29 @@ class _RegisterScreenState extends State<RegisterScreen> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 132),
-              child: Align(
-                alignment: Alignment.center,
-                child: Text(
-                  'Masuk Akun',
-                  style: TextStyle(fontSize: 32, color: Colors.white),
-                ),
+              padding: const EdgeInsets.only(top: 56),
+              child: Text(
+                'Daftar Akun',
+                style: TextStyle(fontSize: 31, color: Colors.white),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8),
-              child: Align (
-                  alignment: Alignment.center,
-                    child : Text('Ayo daftar sekarang untuk mengumpulkan koin \n penjemputan sampah!',
-                      style: TextStyle(fontSize: 14, color: Colors.white),textAlign: TextAlign.center,
-                    ),
-                  ),
+              child: Text(
+                'Ayo daftar sekarang untuk mengumpukan koin penjemputan sampah!',
+                style: TextStyle(fontSize: 14, color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 16),
+              padding: const EdgeInsets.only(top: 16, left: 20, right: 20),
               child: Container(
-                height: 580,
-                width: 321,
+                width: MediaQuery.of(context).size.width * 1,
+                height: 588,
                 decoration: BoxDecoration(
-                    color: Color(0xFFF8FCFF),
-                    borderRadius: BorderRadius.circular(16)),
+                  borderRadius: BorderRadius.circular(16),
+                  color: Color(0xffF8FCFF),
+                ),
                 child: Column(
                   children: [
                     Padding(
@@ -67,106 +82,134 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         height: 32,
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 16, left: 16),
-                      child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text('Nama'),),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 16, left: 16),
+                        child: Text(
+                          'Nama',
+                          style: TextStyle(fontSize: 14),
+                        ),
+                      ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 8),
+                      padding:
+                          const EdgeInsets.only(top: 8, left: 16, right: 16),
                       child: Container(
+                        width: MediaQuery.of(context).size.width * 1,
                         height: 36,
-                        width: 289,
                         child: TextFormField(
                           controller: namaController,
-                          keyboardType: TextInputType.multiline,
-                          style: TextStyle(fontSize: 14),
+                          keyboardType: TextInputType.name,
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                             filled: true,
                             fillColor: Colors.white,
-                            hintText: "Nama Anda Disini",
+                            hintText: "Nama anda disini",
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                           ),
                           onChanged: (value) {},
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 16, left: 16),
-                      child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text('Nomor Whatsapp')),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 16, left: 16),
+                        child: Text(
+                          'Nomor Whatssap',
+                          style: TextStyle(fontSize: 14),
+                        ),
+                      ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 8),
+                      padding:
+                          const EdgeInsets.only(top: 8, left: 16, right: 16),
                       child: Container(
+                        width: MediaQuery.of(context).size.width * 1,
                         height: 36,
-                        width: 289,
                         child: TextFormField(
                           controller: whatssapController,
-                          keyboardType: TextInputType.multiline,
-                          style: TextStyle(fontSize: 14),
+                          keyboardType: TextInputType.number,
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                             filled: true,
                             fillColor: Colors.white,
                             hintText: "081234567890",
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                           ),
                           onChanged: (value) {},
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 16, left: 16),
-                      child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text('Email')),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 16, left: 16),
+                        child: Text(
+                          'Email',
+                          style: TextStyle(fontSize: 14),
+                        ),
+                      ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 8),
+                      padding:
+                          const EdgeInsets.only(top: 8, left: 16, right: 16),
                       child: Container(
+                        width: MediaQuery.of(context).size.width * 1,
                         height: 36,
-                        width: 289,
                         child: TextFormField(
                           controller: emailController,
-                          keyboardType: TextInputType.multiline,
-                          style: TextStyle(fontSize: 14),
+                          keyboardType: TextInputType.emailAddress,
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                             filled: true,
                             fillColor: Colors.white,
-                            hintText: "Email Anda Disini",
+                            hintText: "Email anda disini",
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                           ),
                           onChanged: (value) {},
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 16, left: 16),
-                      child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text('Password')),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 16, left: 16),
+                        child: Text(
+                          'Password',
+                          style: TextStyle(fontSize: 14),
+                        ),
+                      ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 8),
+                      padding:
+                          const EdgeInsets.only(top: 8, left: 16, right: 16),
                       child: Container(
+                        width: MediaQuery.of(context).size.width * 1,
                         height: 36,
-                        width: 289,
                         child: TextFormField(
-                          controller: passwordController,
+                          controller: passController,
                           keyboardType: TextInputType.visiblePassword,
                           obscureText: hidePassword,
-                          style: TextStyle(fontSize: 14),
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
                           decoration: InputDecoration(
                             suffixIcon: GestureDetector(
                                 onTap: () {
@@ -176,51 +219,60 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   (hidePassword)
                                       ? Icons.visibility_off
                                       : Icons.visibility,
+                                  color: Colors.grey,
                                 )),
                             contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                             filled: true,
                             fillColor: Colors.white,
                             hintText: "Password",
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                           ),
                           onChanged: (value) {},
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 16, left: 16),
-                      child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text('Konfirmasi Password')),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 16, left: 16),
+                        child: Text(
+                          'Konfirmasi Password',
+                          style: TextStyle(fontSize: 14),
+                        ),
+                      ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 8),
+                      padding:
+                          const EdgeInsets.only(top: 8, left: 16, right: 16),
                       child: Container(
+                        width: MediaQuery.of(context).size.width * 1,
                         height: 36,
-                        width: 289,
                         child: TextFormField(
-                          controller: confirmController,
+                          controller: configpassController,
                           keyboardType: TextInputType.visiblePassword,
-                          obscureText: hidePassword,
-                          style: TextStyle(fontSize: 14),
+                          obscureText: hideConfigPassword,
+                          style: TextStyle(
+                            fontSize: 14,
+                          ),
                           decoration: InputDecoration(
                             suffixIcon: GestureDetector(
                                 onTap: () {
-                                  changePasswordVisibility();
+                                  changeConfigPasswordVisibility();
                                 },
                                 child: Icon(
-                                  (hidePassword)
+                                  (hideConfigPassword)
                                       ? Icons.visibility_off
                                       : Icons.visibility,
+                                  color: Colors.grey,
                                 )),
                             contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                             filled: true,
                             fillColor: Colors.white,
-                            hintText: "Password",
+                            hintText: "Konfirmasi Password",
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                           ),
                           onChanged: (value) {},
@@ -228,10 +280,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 16),
+                      padding:
+                          const EdgeInsets.only(top: 16, left: 16, right: 16),
                       child: Container(
                         height: 40,
-                        width: 289,
+                        width: MediaQuery.of(context).size.width * 1,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xFFFF7F33),
@@ -239,24 +292,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               borderRadius: BorderRadius.circular(8),
                             ),
                           ),
-                          onPressed: () {
-                            context.go('/LoginScreen');
-                          },
+                          onPressed: isProfileCompleted()
+                              ? () {
+                                  context.go('/AutentikasiScreen');
+                                }
+                              : null,
                           child: const Text("Daftar"),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child :TextButton(
-                        onPressed: () {},
+                    TextButton(
+                        onPressed: () {
+                          context.go('/LoginScreen');
+                        },
                         child: Text(
                           'Sudah Punya Akun ?',
-                          style:
-                              TextStyle(fontSize: 16, color: Color(0xFFFF7F33)),
-                        ),
-                      ),
-                    ),
+                          style: TextStyle(color: Color(0xFFFF7F33)),
+                        )),
                   ],
                 ),
               ),

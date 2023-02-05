@@ -19,6 +19,15 @@ class _LoginScreenState extends State<LoginScreen> {
     });
   }
 
+  bool isProfileCompleted() {
+    if (whatssapController.text.isNotEmpty &&
+        passwordController.text.isNotEmpty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,10 +51,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: TextStyle(fontSize: 14, color: Colors.white)),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 16),
+              padding: const EdgeInsets.only(top: 16, left: 20, right: 20),
               child: Container(
                 height: 440,
-                width: 321,
+                width: MediaQuery.of(context).size.width * 1,
                 decoration: BoxDecoration(
                     color: Color(0xFFF8FCFF),
                     borderRadius: BorderRadius.circular(16)),
@@ -55,7 +64,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       padding: const EdgeInsets.only(top: 32),
                       child: Image.asset(
                         'asset/images/kasek.png',
-                        width: 64,
+                        width: MediaQuery.of(context).size.width * 1,
                         height: 32,
                       ),
                     ),
@@ -66,10 +75,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Text('Nomor Whatssap/Email')),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: Container(
+                      padding:
+                          const EdgeInsets.only(top: 8, left: 16, right: 16),
+                      child: SizedBox(
                         height: 36,
-                        width: 289,
+                        width: MediaQuery.of(context).size.width * 1,
                         child: TextFormField(
                           controller: whatssapController,
                           keyboardType: TextInputType.multiline,
@@ -91,13 +101,17 @@ class _LoginScreenState extends State<LoginScreen> {
                       padding: const EdgeInsets.only(top: 16, left: 16),
                       child: Align(
                           alignment: Alignment.centerLeft,
-                          child: Text('Password')),
+                          child: Text(
+                            'Password',
+                            style: TextStyle(fontSize: 14),
+                          )),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: Container(
+                      padding:
+                          const EdgeInsets.only(top: 8, left: 16, right: 16),
+                      child: SizedBox(
                         height: 36,
-                        width: 289,
+                        width: MediaQuery.of(context).size.width * 1,
                         child: TextFormField(
                           controller: passwordController,
                           keyboardType: TextInputType.visiblePassword,
@@ -112,6 +126,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   (hidePassword)
                                       ? Icons.visibility_off
                                       : Icons.visibility,
+                                  color: Colors.grey,
                                 )),
                             contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                             filled: true,
@@ -126,10 +141,11 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 16),
-                      child: Container(
+                      padding:
+                          const EdgeInsets.only(top: 16, left: 16, right: 16),
+                      child: SizedBox(
                         height: 40,
-                        width: 289,
+                        width: MediaQuery.of(context).size.width * 1,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xFFFF7F33),
@@ -137,9 +153,11 @@ class _LoginScreenState extends State<LoginScreen> {
                               borderRadius: BorderRadius.circular(8),
                             ),
                           ),
-                          onPressed: () {
-                            context.go('/HomePage');
-                          },
+                          onPressed: isProfileCompleted()
+                              ? () {
+                                  context.go('/NavigasiBar');
+                                }
+                              : null,
                           child: const Text("Masuk"),
                         ),
                       ),
@@ -182,9 +200,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 16),
-                      child: Container(
-                        width: 289,
+                      padding:
+                          const EdgeInsets.only(top: 16, left: 16, right: 16),
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 1,
                         height: 40,
                         child: OutlinedButton(
                           style: OutlinedButton.styleFrom(

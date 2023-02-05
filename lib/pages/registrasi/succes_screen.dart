@@ -9,11 +9,12 @@ class SuccesScreen extends StatelessWidget {
       backgroundColor: Colors.blue,
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 244),
+              padding: const EdgeInsets.only(left: 22, right: 22),
               child: Container(
-                width: 316,
+                width: MediaQuery.of(context).size.width * 1,
                 height: 312,
                 decoration: BoxDecoration(
                   color: Colors.white,
