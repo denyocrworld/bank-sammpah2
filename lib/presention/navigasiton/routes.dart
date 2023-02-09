@@ -36,5 +36,5 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
     path: "/NavigasiBar",
     name: "navbar",
     builder: (context, state) => NavigasiBar(),
-  )
+  ),
 ]);

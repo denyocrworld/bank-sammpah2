@@ -45,7 +45,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           Text(
                             'Notifikasi',
                             style: const TextStyle(
-                                color: Colors.black, fontSize: 14),
+                                color: Colors.black,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400),
                           ),
                           // ignore: prefer_const_constructors
                           Icon(
@@ -79,7 +81,13 @@ class _HomeScreenState extends State<HomeScreen> {
                       // ignore: prefer_const_constructors
                       Padding(
                         padding: const EdgeInsets.only(top: 24, left: 16),
-                        child: const Text('Hi, Jond Doe'),
+                        child: const Text(
+                          'Hi, Jond Doe',
+                          style: TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.black),
+                        ),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -87,19 +95,27 @@ class _HomeScreenState extends State<HomeScreen> {
                           // ignore: prefer_const_constructors
                           Padding(
                             padding: const EdgeInsets.only(top: 6, left: 16),
-                            child: const Text('Saldo Anda :'),
+                            child: const Text(
+                              'Saldo Anda :',
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w500),
+                            ),
                           ),
                           // ignore: prefer_const_constructors
                           Expanded(
                             // ignore: prefer_const_constructors
                             child: Padding(
-                              padding: const EdgeInsets.only(top: 6),
+                              padding: const EdgeInsets.only(top: 6, left: 8),
                               // ignore: prefer_const_constructors
                               child: Text(
                                 'Rp 37.500',
                                 // ignore: prefer_const_constructors
-                                style:
-                                    TextStyle(color: Colors.blue, fontSize: 16),
+                                style: TextStyle(
+                                    color: Colors.blue,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500),
                                 textAlign: TextAlign.left,
                               ),
                             ),
@@ -116,7 +132,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                 onPressed: () {},
                                 child: const Text(
                                   "Isi Saldo",
-                                  style: TextStyle(fontSize: 12),
+                                  style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.white),
                                 ),
                               ),
                             ),
@@ -152,7 +171,12 @@ class _HomeScreenState extends State<HomeScreen> {
                   Padding(
                     padding: const EdgeInsets.only(left: 20),
                     child: GestureDetector(
-                        onTap: () {}, child: const Text('Layanan')),
+                        onTap: () {},
+                        child: const Text('Layanan',
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black))),
                   ),
                   Row(
                     children: [
@@ -179,11 +203,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                     height: 50,
                                   ),
                                 ),
+                                // ignore: prefer_const_constructors
                                 Padding(
                                   padding: const EdgeInsets.only(top: 18),
+                                  // ignore: prefer_const_constructors
                                   child: Text(
                                     "Antar Jemput Sampah",
-                                    style: const TextStyle(fontSize: 16),
+                                    style: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black),
                                     textAlign: TextAlign.center,
                                   ),
                                 )
@@ -216,11 +245,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                     height: 50,
                                   ),
                                 ),
+                                // ignore: prefer_const_constructors
                                 Padding(
                                   padding: const EdgeInsets.only(top: 38),
+                                  // ignore: prefer_const_constructors
                                   child: Text(
                                     "Tukar Koin",
-                                    style: const TextStyle(fontSize: 16),
+                                    style: const TextStyle(
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w500,
+                                        color: Colors.black),
                                     textAlign: TextAlign.center,
                                   ),
                                 )
@@ -234,24 +268,35 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      // ignore: prefer_const_constructors
                       Padding(
                         padding: const EdgeInsets.only(top: 12, left: 20),
-                        child: Text('Riwayat'),
+                        child: const Text('Riwayat',
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.black)),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 12, right: 20),
                         child: TextButton(
                           onPressed: () {},
                           child: Row(
+                            // ignore: prefer_const_literals_to_create_immutables
                             children: [
+                              // ignore: prefer_const_constructors
                               Text(
                                 'Lihat semua',
-                                style: TextStyle(color: Color(0xFFFF7F33)),
+                                style: const TextStyle(
+                                    color: Color(0xFFFF7F33),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400),
                               ),
+                              // ignore: prefer_const_constructors
                               Icon(
                                 Icons.arrow_forward_ios_outlined,
                                 size: 14,
-                                color: Color(0xFFFF7F33),
+                                color: const Color(0xFFFF7F33),
                               ),
                             ],
                           ),
@@ -265,7 +310,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       width: MediaQuery.of(context).size.width,
                       height: 120,
                       decoration: BoxDecoration(
-                        color: Color(0xFFFAFDFF),
+                        color: const Color(0xFFFAFDFF),
                         borderRadius: BorderRadius.circular(16),
                         border: Border.all(color: Colors.black, width: 0.1),
                       ),
@@ -273,14 +318,20 @@ class _HomeScreenState extends State<HomeScreen> {
                         children: [
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            // ignore: prefer_const_literals_to_create_immutables
                             children: [
+                              // ignore: prefer_const_constructors
                               Padding(
                                 padding:
                                     const EdgeInsets.only(top: 16, left: 16),
+                                // ignore: prefer_const_constructors
                                 child: Text(
                                   '12 Januari 2023',
+                                  // ignore: prefer_const_constructors
                                   style: TextStyle(
-                                      fontSize: 12, color: Color(0xFFA7ABB3)),
+                                      fontSize: 12,
+                                      color: const Color(0xFFA7ABB3),
+                                      fontWeight: FontWeight.w400),
                                 ),
                               ),
                               Padding(
@@ -289,7 +340,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Text(
                                   '+150pt',
                                   style: TextStyle(
-                                      fontSize: 12, color: Color(0xFFA7ABB3)),
+                                      fontSize: 12,
+                                      color: Color(0xFFA7ABB3),
+                                      fontWeight: FontWeight.w400),
                                 ),
                               ),
                             ],
@@ -303,7 +356,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Text(
                                   'Berat Sampah :',
                                   style: TextStyle(
-                                      fontSize: 16, color: Color(0xFF001F29)),
+                                      fontSize: 16,
+                                      color: Color(0xFF001F29),
+                                      fontWeight: FontWeight.w400),
                                 ),
                               ),
                               Expanded(
@@ -313,7 +368,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                   child: Text(
                                     '4kg',
                                     style: TextStyle(
-                                        fontSize: 16, color: Color(0xFF001F29)),
+                                        fontSize: 16,
+                                        color: Color(0xFF001F29),
+                                        fontWeight: FontWeight.w400),
                                   ),
                                 ),
                               ),
@@ -325,7 +382,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Text(
                                   'Rp 15.000',
                                   style: TextStyle(
-                                      fontSize: 16, color: Color(0xFF019BF1)),
+                                      fontSize: 16,
+                                      color: Color(0xFF019BF1),
+                                      fontWeight: FontWeight.w500),
                                 ),
                               ),
                             ],
@@ -346,7 +405,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
                                 onPressed: () {},
-                                child: const Text("Lihat Detail"),
+                                child: const Text("Lihat Detail",
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        fontWeight: FontWeight.w400)),
                               ),
                             ),
                           ),
@@ -357,9 +419,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      // ignore: prefer_const_constructors
                       Padding(
                         padding: const EdgeInsets.only(top: 12, left: 20),
-                        child: Text('Artikel'),
+                        child: const Text('Artikel',
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500)),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(
@@ -369,15 +436,20 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: TextButton(
                           onPressed: () {},
                           child: Row(
+                            // ignore: prefer_const_literals_to_create_immutables
                             children: [
-                              Text(
+                              const Text(
                                 'Lihat semua',
-                                style: TextStyle(color: Color(0xFFFF7F33)),
+                                style: TextStyle(
+                                    color: Color(0xFFFF7F33),
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500),
                               ),
+                              // ignore: prefer_const_constructors
                               Icon(
                                 Icons.arrow_forward_ios_outlined,
                                 size: 14,
-                                color: Color(0xFFFF7F33),
+                                color: const Color(0xFFFF7F33),
                               ),
                             ],
                           ),
@@ -396,7 +468,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 200,
                               width: 200,
                               decoration: BoxDecoration(
-                                color: Color(0xFFFAFDFF),
+                                color: const Color(0xFFFAFDFF),
                                 borderRadius: BorderRadius.circular(16),
                                 border:
                                     Border.all(color: Colors.black, width: 0.1),
@@ -411,22 +483,31 @@ class _HomeScreenState extends State<HomeScreen> {
                                       width: 200,
                                     ),
                                   ),
+                                  // ignore: prefer_const_constructors
                                   Padding(
                                     padding: const EdgeInsets.only(
                                         top: 16, left: 16),
+                                    // ignore: prefer_const_constructors
                                     child: Text(
                                       '5 Tips to clean your home easily',
-                                      style: TextStyle(fontSize: 16),
+                                      style: const TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w500,
+                                          color: Colors.black),
                                     ),
                                   ),
+                                  // ignore: prefer_const_constructors
                                   Padding(
                                     padding:
                                         const EdgeInsets.only(top: 8, left: 16),
+                                    // ignore: prefer_const_constructors
                                     child: Text(
                                       'This is description for card title, you can edit it as you want',
+                                      // ignore: prefer_const_constructors
                                       style: TextStyle(
                                           fontSize: 12,
-                                          color: Color(0xFF72777F)),
+                                          color: const Color(0xFF72777F),
+                                          fontWeight: FontWeight.w400),
                                     ),
                                   )
                                 ],
@@ -441,7 +522,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 200,
                               width: 200,
                               decoration: BoxDecoration(
-                                color: Color(0xFFFAFDFF),
+                                color: const Color(0xFFFAFDFF),
                                 borderRadius: BorderRadius.circular(16),
                                 border:
                                     Border.all(color: Colors.black, width: 0.1),
@@ -456,22 +537,31 @@ class _HomeScreenState extends State<HomeScreen> {
                                       width: 200,
                                     ),
                                   ),
+                                  // ignore: prefer_const_constructors
                                   Padding(
                                     padding: const EdgeInsets.only(
                                         top: 16, left: 16),
+                                    // ignore: prefer_const_constructors
                                     child: Text(
                                       '5 Tips to clean your home easily',
-                                      style: TextStyle(fontSize: 16),
+                                      style: const TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.w500),
                                     ),
                                   ),
+                                  // ignore: prefer_const_constructors
                                   Padding(
                                     padding:
                                         const EdgeInsets.only(top: 8, left: 16),
+                                    // ignore: prefer_const_constructors
                                     child: Text(
                                       'This is description for card title, you can edit it as you want',
+                                      // ignore: prefer_const_constructors
                                       style: TextStyle(
                                           fontSize: 12,
-                                          color: Color(0xFF72777F)),
+                                          color: const Color(0xFF72777F),
+                                          fontWeight: FontWeight.w400),
                                     ),
                                   )
                                 ],

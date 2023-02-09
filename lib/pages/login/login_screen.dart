@@ -41,14 +41,20 @@ class _LoginScreenState extends State<LoginScreen> {
                 alignment: Alignment.center,
                 child: Text(
                   'Masuk Akun',
-                  style: TextStyle(fontSize: 32, color: Colors.white),
+                  style: TextStyle(
+                      fontSize: 32,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w400),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8),
               child: Text('Ayo kumpulkan koin penjemputan sampah!',
-                  style: TextStyle(fontSize: 14, color: Colors.white)),
+                  style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.white,
+                      fontWeight: FontWeight.w400)),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 16, left: 20, right: 20),
@@ -72,7 +78,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       padding: const EdgeInsets.only(top: 16, left: 16),
                       child: Align(
                           alignment: Alignment.centerLeft,
-                          child: Text('Nomor Whatsapp/Email')),
+                          child: Text(
+                            'Nomor Whatsapp/Email',
+                            style: TextStyle(
+                                fontSize: 14,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500),
+                          )),
                     ),
                     Padding(
                       padding:
@@ -83,7 +95,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: TextFormField(
                           controller: whatssapController,
                           keyboardType: TextInputType.multiline,
-                          style: TextStyle(fontSize: 14),
+                          style: TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.w400),
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                             filled: true,
@@ -103,7 +116,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           alignment: Alignment.centerLeft,
                           child: Text(
                             'Password',
-                            style: TextStyle(fontSize: 14),
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.black),
                           )),
                     ),
                     Padding(
@@ -158,7 +174,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                   context.go('/NavigasiBar');
                                 }
                               : null,
-                          child: const Text("Masuk"),
+                          child: const Text(
+                            "Masuk",
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w400),
+                          ),
                         ),
                       ),
                     ),
@@ -166,8 +188,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       onPressed: () {},
                       child: Text(
                         'Lupa Password?',
-                        style:
-                            TextStyle(fontSize: 16, color: Color(0xFFFF7F33)),
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Color(0xFFFF7F33),
+                            fontWeight: FontWeight.w500),
                       ),
                     ),
                     Row(
@@ -185,7 +209,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           padding: const EdgeInsets.symmetric(horizontal: 50.0),
                           child: Text(
                             'Tidak Memiliki Akun ?',
-                            style: TextStyle(color: Color(0xFFB3BCC5)),
+                            style: TextStyle(
+                                color: Color(0xFFB3BCC5),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500),
                           ),
                         ),
                         Expanded(
@@ -217,7 +244,11 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             context.go('/RegisterScreen');
                           },
-                          child: const Text("Daftar Akun"),
+                          child: const Text(
+                            "Daftar Akun",
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.w400),
+                          ),
                         ),
                       ),
                     ),
