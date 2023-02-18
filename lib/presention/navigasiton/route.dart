@@ -8,4 +8,5 @@ class Routes {
   static const String HomeScreen = 'homescreen';
   static const String NavigasiBar = 'navbar';
   static const String LayananScreen = 'layanan';
+  static const String PenjemputanScreen = 'penjemputan';
 }
