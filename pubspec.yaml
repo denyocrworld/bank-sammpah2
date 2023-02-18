@@ -38,6 +38,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   go_router: ^6.0.1
   velocity_x: ^3.6.0
+  rounded_expansion_tile: ^0.0.13
+  flutter_bloc: ^8.0.1
 
 dev_dependencies:
   flutter_test:

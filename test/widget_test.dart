@@ -1,77 +1,30 @@
-import 'dart:io';
+// This is a basic Flutter widget test.
+//
+// To perform an interaction with a widget in your test, use the WidgetTester
+// utility in the flutter_test package. For example, you can send tap and scroll
+// gestures. You can also use WidgetTester to find child widgets in the widget
+// tree, read text, and verify that the values of widget properties are correct.
 
-abstract class Hewan {
-  //properti atau params
-  String? nama;
-  int? berat;
-  int? umur;
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 
-  Hewan({
-    this.nama,
-    this.berat,
-    this.umur,
-  });
-
-  void makan(int banyak) {
-    berat = berat! + banyak;
-  }
-
-  void pup(int banyak) {
-    berat = berat! - banyak;
-  }
-
-  void timeskip(int banyak) {
-    umur = umur! + banyak;
-  }
-
-  void tidur() {}
-}
-
-class Kucing extends Hewan {
-  int? jumlahKaki;
-
-  Kucing({
-    this.jumlahKaki,
-    String? namanya,
-    int? beratnya,
-    int? umurnya,
-  }) : super(nama: namanya, berat: beratnya, umur: umurnya);
-
-  void berjalan(){}
-}
-
-class Burung extends Hewan {
-  int? jumlahKaki;
-
-  Burung({
-    this.jumlahKaki,
-    String? namanya,
-    int? beratnya,
-    int? umurnya,
-  }) : super(nama: namanya, berat: beratnya, umur: umurnya);
-
-  void berjalan(){}
-}
+import 'package:loginandsignup/main.dart';
 
 void main() {
-  var burung1 = Burung(namanya : "Alfi", beratnya: 5, jumlahKaki: 2, umurnya: 10);
-  print("-Saat bangun tidur-");
-  print(
-    "nama = ${burung1.nama}, berat = ${burung1.berat}, umur = ${burung1.umur}, jumlah kaki = ${burung1.jumlahKaki}"
-    );
-  burung1.makan(10);
-  print("-Setelah  Sarapan-");
-  print(
-    "nama = ${burung1.nama}, berat = ${burung1.berat}, umur = ${burung1.umur}, jumlah kaki = ${burung1.jumlahKaki}"
-    );
-  burung1.makan(7);
-  print("-Setelah  Makan Siang-");
-  print(
-    "nama = ${burung1.nama}, berat = ${burung1.berat}, umur = ${burung1.umur}, jumlah kaki = ${burung1.jumlahKaki}"
-    );
-  burung1.timeskip(2);
-  print("-2 Tahun Kemudian-");
-  print(
-    "nama = ${burung1.nama}, berat = ${burung1.berat}, umur = ${burung1.umur}, jumlah kaki = ${burung1.jumlahKaki}"
-    );
+  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(const MyApp());
+
+    // Verify that our counter starts at 0.
+    expect(find.text('0'), findsOneWidget);
+    expect(find.text('1'), findsNothing);
+
+    // Tap the '+' icon and trigger a frame.
+    await tester.tap(find.byIcon(Icons.add));
+    await tester.pump();
+
+    // Verify that our counter has incremented.
+    expect(find.text('0'), findsNothing);
+    expect(find.text('1'), findsOneWidget);
+  });
 }
