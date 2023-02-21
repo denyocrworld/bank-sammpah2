@@ -13,4 +13,6 @@ class Routes {
   static const String SuccesPass = 'succespass';
   static const String BankSampahScreen = "bank";
   static const String TukarPoint1 = 'point1';
+  static const String SampahPenjemputan = 'sampahpenjemputan';
+  static const String SuccesPenjemputan = 'succespenjemputan';
 }

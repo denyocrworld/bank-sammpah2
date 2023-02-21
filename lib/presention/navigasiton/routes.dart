@@ -1,7 +1,8 @@
 import 'package:go_router/go_router.dart';
 import '../pages/pages.dart';
 
-final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
+final GoRouter router =
+    GoRouter(initialLocation: "/SuccessPenjemputan", routes: [
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",
@@ -61,5 +62,15 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
     path: "/TukarPoint1",
     name: "point1",
     builder: (context, state) => TukarPoint1(),
+  ),
+  GoRoute(
+    path: "/SampahPenjemputan",
+    name: "sampahpenjemputan",
+    builder: (context, state) => SampahPenjemputan(),
+  ),
+  GoRoute(
+    path: "/SuccessPenjemputan",
+    name: "successpenjemputan",
+    builder: (context, state) => SuccessPenjemputan(),
   ),
 ]);
