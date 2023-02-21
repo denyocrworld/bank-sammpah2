@@ -16,6 +16,7 @@ part 'config_pass/config_pass_screen.dart';
 part 'success_password/success_pass_screen.dart';
 part 'lupa_password/lupa_password.dart';
 part 'bank_sampah/bank_sampah_screen.dart';
+part 'penjemputan/penjemputan_screen.dart';
 part 'tukar_poin/tukar_poin1.dart';
 
 part 'success_auntentikasi/succes_screen.dart';

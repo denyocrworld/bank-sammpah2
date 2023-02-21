@@ -1,7 +1,8 @@
 import 'package:go_router/go_router.dart';
-import '../pages/pages.dart';
+// import 'package:loginandsignup/pages/pages.dart';
+import 'package:loginandsignup/presention/pages/pages.dart';
 
-final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
+final GoRouter router = GoRouter(initialLocation: "/Penjemputan", routes: [
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",
@@ -38,11 +39,6 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
     builder: (context, state) => NavigasiBar(),
   ),
   GoRoute(
-<<<<<<< HEAD
-    path: "/PenjemputanScreen",
-    name: "penjemputan",
-    builder: (context, state) => PenjemputanScreen(),
-=======
     path: "/LupaPassword",
     name: "lupa",
     builder: (context, state) => LupaPassword(),
@@ -66,6 +62,10 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
     path: "/TukarPoint1",
     name: "point1",
     builder: (context, state) => TukarPoint1(),
->>>>>>> b7036c4878e68569720a719221bc9001dab702d6
+  ),
+  GoRoute(
+    path: "/Penjemputan",
+    name: "penjemputan",
+    builder: (context, state) => PenjemputanScreen(),
   ),
 ]);
