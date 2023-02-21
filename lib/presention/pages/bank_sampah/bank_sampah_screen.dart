@@ -8,6 +8,23 @@ class BankSampahScreen extends StatefulWidget {
 }
 
 class _BankSampahScreenState extends State<BankSampahScreen> {
+  bool _isRadioSelected = false;
+  String? groupValue;
+
+  int _counter = 0;
+
+  tambah() {
+    setState(() {
+      _counter >= 0 ? _counter++ : null;
+    });
+  }
+
+  kurang() {
+    setState(() {
+      _counter >= 1 ? _counter-- : null;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -97,124 +114,534 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
               padding: const EdgeInsets.only(top: 24),
               // ignore: prefer_const_constructors
               child: Text(
-                "Lokasi LESTAREE",
+                "Jumlah Sampah",
                 // ignore: prefer_const_constructors
                 style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w400),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 16, left: 20, right: 20),
+              padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
               child: Container(
-                height: 36,
+                height: 75,
                 width: MediaQuery.of(context).size.width * 1,
-                padding: const EdgeInsets.symmetric(
-                  vertical: 6.0,
-                  horizontal: 12.0,
-                ),
                 decoration: BoxDecoration(
-                  color: Color(0xFFF5F5F5),
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(8),
-                  ),
+                  color: Color(0xFFFAFDFF),
+                  borderRadius: BorderRadius.circular(16),
                   border: Border.all(
-                    width: 1.0,
-                    color: Colors.grey[400]!,
+                    width: 0.5,
+                    color: Colors.grey,
                   ),
                 ),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Image.asset(
+                        "asset/images/botol_plastik.png",
+                        width: 40,
+                        height: 40,
+                      ),
+                    ),
                     Expanded(
-                      child: TextFormField(
-                        style: TextStyle(fontSize: 14),
-                        initialValue: null,
-                        decoration: const InputDecoration.collapsed(
-                          filled: true,
-                          fillColor: Colors.transparent,
-                          hintText: "Cari lokasi terdekat",
-                          hoverColor: Colors.transparent,
-                        ),
-                        onFieldSubmitted: (value) {},
-                      ),
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      child: Icon(
-                        Icons.location_on,
-                        size: 20.0,
-                        color: Color(0xFFA7ABB3),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 39, left: 20, right: 20),
-              child: Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Jakarta Timur",
-                      style:
-                          TextStyle(fontSize: 16.0, color: Color(0xFF019BF1)),
-                    ),
-                    Text(
-                      "Jalan Hankam Raya, Perumahan Jaka Permai blok A16 no.22 RT002/RW002 \nJakarta Timur 17412",
-                      style: TextStyle(
-                        fontSize: 14.0,
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          "Jam Operasional:\n08:00 - 18:00",
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 16),
+                        child: Text(
+                          "Plastik",
                           style: TextStyle(
-                              fontSize: 14.0, color: Color(0xFF019BF1)),
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          textAlign: TextAlign.start,
                         ),
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
                         Padding(
-                          padding: const EdgeInsets.only(right: 16),
-                          child: SizedBox(
-                            width: 100,
-                            height: 32,
-                            child: OutlinedButton(
-                              style: OutlinedButton.styleFrom(
-                                side: BorderSide(color: Color(0xFFFF7F33)),
-                                foregroundColor: Color(0xFFFF7F33),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.circular(8), // <-- Radius
-                                ),
-                              ),
-                              onPressed: () {},
-                              child: const Text("Lihat Map"),
-                            ),
+                          padding: const EdgeInsets.only(bottom: 5),
+                          child: Text(
+                            "Berat/KG",
+                            style: TextStyle(
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xFF5A5F66)),
                           ),
                         ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 25,
+                              height: 25,
+                              child: FittedBox(
+                                child: FloatingActionButton(
+                                  onPressed: () {
+                                    kurang();
+                                  },
+                                  child: Icon(
+                                    CupertinoIcons.minus,
+                                    size: 30.0,
+                                    color: Colors.white,
+                                  ),
+                                  backgroundColor: Color(0xFFFF7F33),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 22, right: 22),
+                              child: Text(
+                                '$_counter',
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: SizedBox(
+                                width: 25,
+                                height: 25,
+                                child: FittedBox(
+                                  child: FloatingActionButton(
+                                    onPressed: () {
+                                      tambah();
+                                    },
+                                    child: Icon(
+                                      CupertinoIcons.plus,
+                                      size: 30.0,
+                                      color: Colors.white,
+                                    ),
+                                    backgroundColor: Color(0xFFFF7F33),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
                       ],
-                    ),
+                    )
                   ],
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 24),
-              child: SizedBox(
-                width: 140,
-                height: 32,
+              padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
+              child: Container(
+                height: 75,
+                width: MediaQuery.of(context).size.width * 1,
+                decoration: BoxDecoration(
+                  color: Color(0xFFFAFDFF),
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                    width: 0.5,
+                    color: Colors.grey,
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Image.asset(
+                        "asset/images/botol_kaca.png",
+                        width: 40,
+                        height: 40,
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 16),
+                        child: Text(
+                          "Kaca/Beling",
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          textAlign: TextAlign.start,
+                        ),
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 5),
+                          child: Text(
+                            "Berat/KG",
+                            style: TextStyle(
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xFF5A5F66)),
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 25,
+                              height: 25,
+                              child: FittedBox(
+                                child: FloatingActionButton(
+                                  onPressed: () {
+                                    kurang();
+                                  },
+                                  child: Icon(
+                                    CupertinoIcons.minus,
+                                    size: 30.0,
+                                    color: Colors.white,
+                                  ),
+                                  backgroundColor: Color(0xFFFF7F33),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 22, right: 22),
+                              child: Text(
+                                '$_counter',
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: SizedBox(
+                                width: 25,
+                                height: 25,
+                                child: FittedBox(
+                                  child: FloatingActionButton(
+                                    onPressed: () {
+                                      tambah();
+                                    },
+                                    child: Icon(
+                                      CupertinoIcons.plus,
+                                      size: 30.0,
+                                      color: Colors.white,
+                                    ),
+                                    backgroundColor: Color(0xFFFF7F33),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
+              child: Container(
+                height: 75,
+                width: MediaQuery.of(context).size.width * 1,
+                decoration: BoxDecoration(
+                  color: Color(0xFFFAFDFF),
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                    width: 0.5,
+                    color: Colors.grey,
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Image.asset(
+                        "asset/images/botol_kaleng.png",
+                        width: 40,
+                        height: 40,
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 16),
+                        child: Text(
+                          "Kaleng/Besi",
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          textAlign: TextAlign.start,
+                        ),
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 5),
+                          child: Text(
+                            "Berat/KG",
+                            style: TextStyle(
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xFF5A5F66)),
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 25,
+                              height: 25,
+                              child: FittedBox(
+                                child: FloatingActionButton(
+                                  onPressed: () {
+                                    kurang();
+                                  },
+                                  child: Icon(
+                                    CupertinoIcons.minus,
+                                    size: 30.0,
+                                    color: Colors.white,
+                                  ),
+                                  backgroundColor: Color(0xFFFF7F33),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 22, right: 22),
+                              child: Text(
+                                '$_counter',
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: SizedBox(
+                                width: 25,
+                                height: 25,
+                                child: FittedBox(
+                                  child: FloatingActionButton(
+                                    onPressed: () {
+                                      tambah();
+                                    },
+                                    child: Icon(
+                                      CupertinoIcons.plus,
+                                      size: 30.0,
+                                      color: Colors.white,
+                                    ),
+                                    backgroundColor: Color(0xFFFF7F33),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
+              child: Container(
+                height: 75,
+                width: MediaQuery.of(context).size.width * 1,
+                decoration: BoxDecoration(
+                  color: Color(0xFFFAFDFF),
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                    width: 0.5,
+                    color: Colors.grey,
+                  ),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Image.asset(
+                        "asset/images/kertas.png",
+                        width: 40,
+                        height: 40,
+                      ),
+                    ),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 16),
+                        child: Text(
+                          "Kertas/Karton",
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w500,
+                          ),
+                          textAlign: TextAlign.start,
+                        ),
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 5),
+                          child: Text(
+                            "Berat/KG",
+                            style: TextStyle(
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xFF5A5F66)),
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 25,
+                              height: 25,
+                              child: FittedBox(
+                                child: FloatingActionButton(
+                                  onPressed: () {
+                                    kurang();
+                                  },
+                                  child: Icon(
+                                    CupertinoIcons.minus,
+                                    size: 30.0,
+                                    color: Colors.white,
+                                  ),
+                                  backgroundColor: Color(0xFFFF7F33),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 22, right: 22),
+                              child: Text(
+                                '$_counter',
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: SizedBox(
+                                width: 25,
+                                height: 25,
+                                child: FittedBox(
+                                  child: FloatingActionButton(
+                                    onPressed: () {
+                                      tambah();
+                                    },
+                                    child: Icon(
+                                      CupertinoIcons.plus,
+                                      size: 30.0,
+                                      color: Colors.white,
+                                    ),
+                                    backgroundColor: Color(0xFFFF7F33),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Total point yang didapat :",
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                  Text(
+                    "12.000",
+                    style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w400,
+                        color: Color(0xFF019BF1)),
+                  ),
+                ],
+              ),
+            ),
+            LinkedLabelRadio(
+              label: 'Tukar di titik antar',
+              padding: const EdgeInsets.symmetric(horizontal: 5.0),
+              value: false,
+              groupValue: _isRadioSelected,
+              onChanged: (bool newValue) {
+                setState(() {
+                  _isRadioSelected = newValue;
+                });
+              },
+            ),
+            // Flexible(
+            //   fit: FlexFit.loose,
+            //   child: RadioListTile(
+            //     value: "Tukar di titik antar",
+            //     groupValue: groupValue,
+            //     title: const Text("Atur titik penjemputan"),
+            //     controlAffinity: ListTileControlAffinity.platform,
+            //     onChanged: (value) {
+            //       setState(() {
+            //         groupValue = value;
+            //       });
+            //     },
+            //   ),
+            // ),
+
+            LinkedLabelRadio(
+              label: 'Tukar di titik antar (Drop Point)',
+              padding: const EdgeInsets.symmetric(horizontal: 5.0),
+              value: true,
+              groupValue: _isRadioSelected,
+              onChanged: (bool newValue) {
+                setState(() {
+                  _isRadioSelected = newValue;
+                });
+              },
+            ),
+            // Container(
+            //   child: RadioListTile(
+            //     value: "Tukar di titik antar (Drop Point)",
+            //     groupValue: groupValue,
+            //     title: const Text("Tukar di titik antar (Drop Point)"),
+            //     controlAffinity: ListTileControlAffinity.platform,
+            //     onChanged: (value) {
+            //       setState(() {
+            //         groupValue = value;
+            //       });
+            //     },
+            //   ),
+            // ),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 16, right: 16),
+              child: Container(
+                height: 40,
+                width: MediaQuery.of(context).size.width * 1,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFF7F33),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8), // <-- Radius
+                    backgroundColor: Color(0xFFFF7F33),
+                    shape: ContinuousRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
                     ),
                   ),
                   onPressed: () {},
-                  child: const Text(
-                    "Lihat lebih banyak",
-                    style: TextStyle(fontSize: 12),
-                  ),
+                  child: const Text("Selanjutnya"),
                 ),
               ),
             ),

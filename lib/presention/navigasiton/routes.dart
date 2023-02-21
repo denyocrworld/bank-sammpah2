@@ -68,4 +68,14 @@ final GoRouter router = GoRouter(initialLocation: "/Penjemputan", routes: [
     name: "penjemputan",
     builder: (context, state) => PenjemputanScreen(),
   ),
+  GoRoute(
+    path: "/SampahPenjemputan",
+    name: "sampahpenjemputan",
+    builder: (context, state) => SampahPenjemputan(),
+  ),
+  GoRoute(
+    path: "/SuccessPenjemputan",
+    name: "successpenjemputan",
+    builder: (context, state) => SuccessPenjemputan(),
+  ),
 ]);
