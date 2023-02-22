@@ -19,6 +19,7 @@ part 'lupa_password/lupa_password.dart';
 part 'bank_sampah/bank_sampah_screen.dart';
 part 'bank_sampah/bank_sampah_penjemputan.dart';
 part 'bank_sampah/success_penjemputan_screen.dart';
+part 'penjemputan/penjemputan_screen.dart';
 part 'tukar_poin/tukar_poin1.dart';
 
 part 'success_auntentikasi/succes_screen.dart';

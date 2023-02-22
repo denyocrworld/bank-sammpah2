@@ -13,6 +13,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   bool hideConfigPassword = true;
   bool hideConfirmPassword = true;
 
+  String? jeniskelaminValue;
+
   TextEditingController namaController = TextEditingController();
   TextEditingController whatssapController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -203,6 +205,37 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                       ),
                     ),
+                     Align(
+                      alignment: Alignment.centerLeft,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 16, left: 16),
+                        child: Text(
+                          'Jenis Kelamin',
+                          style: TextStyle(fontSize: 14),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8, left: 16, right: 16),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width * 1,
+                        height: 36,
+                        child: 
+                          Expanded(
+                            child: 
+                            RadioListTile(
+                              value: "Laki-Laki",
+                              groupValue: jeniskelaminValue,
+                              title: const Text("Laki-Laki"),
+                              onChanged: (value) {
+                                setState(() {
+                                  jeniskelaminValue = value;
+                                });
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Padding(

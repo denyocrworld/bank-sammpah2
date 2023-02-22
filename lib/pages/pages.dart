@@ -14,5 +14,5 @@ part 'registrasi/registrasi.dart';
 part 'registrasi/succes_screen.dart';
 part 'splash_screen/splash_screen.dart';
 
-part 'penjemputan/detail_penjemputan.dart';
+// part 'penjemputan/detail_penjemputan.dart';
 part 'navigasibar.dart';
