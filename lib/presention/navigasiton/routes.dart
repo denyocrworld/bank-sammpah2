@@ -38,12 +38,12 @@ final GoRouter router =
     name: "navbar",
     builder: (context, state) => NavigasiBar(),
   ),
+  // GoRoute(
+  //   path: "/PenjemputanScreen",
+  //   name: "penjemputan",
+  //   builder: (context, state) => PenjemputanScreen(),
+  // ),
   GoRoute(
-<<<<<<< HEAD
-    path: "/PenjemputanScreen",
-    name: "penjemputan",
-    builder: (context, state) => PenjemputanScreen(),
-=======
     path: "/LupaPassword",
     name: "lupa",
     builder: (context, state) => LupaPassword(),
@@ -67,7 +67,6 @@ final GoRouter router =
     path: "/TukarPoint1",
     name: "point1",
     builder: (context, state) => TukarPoint1(),
->>>>>>> b7036c4878e68569720a719221bc9001dab702d6
   ),
   GoRoute(
     path: "/SampahPenjemputan",
