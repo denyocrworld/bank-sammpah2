@@ -11,18 +11,26 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
   bool _isRadioSelected = false;
   String? groupValue;
 
-  int _counter = 0;
+  // int _counter = 0;
 
-  tambah() {
-    setState(() {
-      _counter >= 0 ? _counter++ : null;
-    });
-  }
+  // tambah() {
+  //   setState(() {
+  //     _counter >= 0 ? _counter++ : null;
+  //   });
+  // }
 
-  kurang() {
-    setState(() {
-      _counter >= 1 ? _counter-- : null;
-    });
+  // kurang() {
+  //   setState(() {
+  //     _counter >= 1 ? _counter-- : null;
+  //   });
+  // }
+
+  CounterBloc bloc = CounterBloc();
+
+  @override
+  void dispose() {
+    bloc.dispose();
+    super.dispose();
   }
 
   @override
@@ -177,9 +185,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                               height: 25,
                               child: FittedBox(
                                 child: FloatingActionButton(
-                                  onPressed: () {
-                                    kurang();
-                                  },
+                                  onPressed: () {},
                                   child: Icon(
                                     CupertinoIcons.minus,
                                     size: 30.0,
@@ -193,7 +199,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                               padding:
                                   const EdgeInsets.only(left: 22, right: 22),
                               child: Text(
-                                '$_counter',
+                                '0',
                                 style: TextStyle(
                                   fontSize: 16.0,
                                   fontWeight: FontWeight.w400,
@@ -207,9 +213,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                 height: 25,
                                 child: FittedBox(
                                   child: FloatingActionButton(
-                                    onPressed: () {
-                                      tambah();
-                                    },
+                                    onPressed: () {},
                                     child: Icon(
                                       CupertinoIcons.plus,
                                       size: 30.0,
@@ -287,7 +291,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                               child: FittedBox(
                                 child: FloatingActionButton(
                                   onPressed: () {
-                                    kurang();
+                                    bloc.inputan.add('minus');
                                   },
                                   child: Icon(
                                     CupertinoIcons.minus,
@@ -301,11 +305,15 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                             Padding(
                               padding:
                                   const EdgeInsets.only(left: 22, right: 22),
-                              child: Text(
-                                '$_counter',
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w400,
+                              child: StreamBuilder(
+                                stream: bloc.output,
+                                initialData: bloc.counter,
+                                builder: (context, snapshot) => Text(
+                                  '${snapshot.data}',
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w400,
+                                  ),
                                 ),
                               ),
                             ),
@@ -317,7 +325,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                 child: FittedBox(
                                   child: FloatingActionButton(
                                     onPressed: () {
-                                      tambah();
+                                      bloc.inputan.add('add');
                                     },
                                     child: Icon(
                                       CupertinoIcons.plus,
@@ -395,9 +403,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                               height: 25,
                               child: FittedBox(
                                 child: FloatingActionButton(
-                                  onPressed: () {
-                                    kurang();
-                                  },
+                                  onPressed: () {},
                                   child: Icon(
                                     CupertinoIcons.minus,
                                     size: 30.0,
@@ -411,7 +417,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                               padding:
                                   const EdgeInsets.only(left: 22, right: 22),
                               child: Text(
-                                '$_counter',
+                                '0',
                                 style: TextStyle(
                                   fontSize: 16.0,
                                   fontWeight: FontWeight.w400,
@@ -425,9 +431,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                 height: 25,
                                 child: FittedBox(
                                   child: FloatingActionButton(
-                                    onPressed: () {
-                                      tambah();
-                                    },
+                                    onPressed: () {},
                                     child: Icon(
                                       CupertinoIcons.plus,
                                       size: 30.0,
@@ -504,9 +508,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                               height: 25,
                               child: FittedBox(
                                 child: FloatingActionButton(
-                                  onPressed: () {
-                                    kurang();
-                                  },
+                                  onPressed: () {},
                                   child: Icon(
                                     CupertinoIcons.minus,
                                     size: 30.0,
@@ -520,7 +522,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                               padding:
                                   const EdgeInsets.only(left: 22, right: 22),
                               child: Text(
-                                '$_counter',
+                                '0',
                                 style: TextStyle(
                                   fontSize: 16.0,
                                   fontWeight: FontWeight.w400,
@@ -534,9 +536,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                 height: 25,
                                 child: FittedBox(
                                   child: FloatingActionButton(
-                                    onPressed: () {
-                                      tambah();
-                                    },
+                                    onPressed: () {},
                                     child: Icon(
                                       CupertinoIcons.plus,
                                       size: 30.0,

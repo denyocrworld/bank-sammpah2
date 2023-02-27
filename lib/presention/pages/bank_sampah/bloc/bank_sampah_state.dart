@@ -1,6 +1,7 @@
-part of 'bank_sampah_bloc.dart';
+// part of 'bank_sampah_bloc.dart';
 
-@immutable
-abstract class BankSampahState {}
+// class CounterState {
+//   final int count;
 
-class BankSampahInitial extends BankSampahState {}
+//   CounterState(this.count);
+// }

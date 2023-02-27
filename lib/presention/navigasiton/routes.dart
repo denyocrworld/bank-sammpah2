@@ -2,7 +2,7 @@ import 'package:go_router/go_router.dart';
 // import 'package:loginandsignup/pages/pages.dart';
 import 'package:loginandsignup/presention/pages/pages.dart';
 
-final GoRouter router = GoRouter(initialLocation: "/Penjemputan", routes: [
+final GoRouter router = GoRouter(initialLocation: "/BankSampahScreen", routes: [
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",
@@ -77,5 +77,10 @@ final GoRouter router = GoRouter(initialLocation: "/Penjemputan", routes: [
     path: "/SuccessPenjemputan",
     name: "successpenjemputan",
     builder: (context, state) => SuccessPenjemputan(),
+  ),
+  GoRoute(
+    path: "/DetailRiwayat",
+    name: "detailriwayat",
+    builder: (context, state) => DetailRiwayat(),
   ),
 ]);

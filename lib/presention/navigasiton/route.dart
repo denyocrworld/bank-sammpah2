@@ -16,4 +16,5 @@ class Routes {
   static const String TukarPoint1 = 'point1';
   static const String SampahPenjemputan = 'sampahpenjemputan';
   static const String SuccesPenjemputan = 'succespenjemputan';
+  static const String DetailRiwayat = 'detailriwayat';
 }

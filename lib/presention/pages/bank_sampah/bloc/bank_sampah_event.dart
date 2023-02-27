@@ -1,4 +1,7 @@
-part of 'bank_sampah_bloc.dart';
+// part of 'bank_sampah_bloc.dart';
 
-@immutable
-abstract class BankSampahEvent {}
+// abstract class CounterEvent {}
+
+// class IncrementEvent extends CounterEvent {}
+
+// class DecrementEvent extends CounterEvent {}

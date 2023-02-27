@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:loginandsignup/presention/pages/bank_sampah/bloc/bank_sampah_bloc.dart';
+import 'package:loginandsignup/presention/pages/bank_sampah/bloc/counter.dart';
 import 'package:loginandsignup/presention/pages/bank_sampah/radiotile.dart';
 import 'package:rounded_expansion_tile/rounded_expansion_tile.dart';
 
+import 'bank_sampah/bloc/counter.dart';
 import '../../model/costum_shapes.dart';
 
 part 'home/home_page.dart';
@@ -25,3 +29,4 @@ part 'tukar_poin/tukar_poin1.dart';
 part 'success_auntentikasi/succes_screen.dart';
 part 'splash_screen/splash_screen.dart';
 part 'navigasibar.dart';
+part 'detail_riwayat/detail_riawayat_screen.dart';
