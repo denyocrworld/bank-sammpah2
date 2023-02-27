@@ -2,7 +2,7 @@ import 'package:go_router/go_router.dart';
 // import 'package:loginandsignup/pages/pages.dart';
 import 'package:loginandsignup/presention/pages/pages.dart';
 
-final GoRouter router = GoRouter(initialLocation: "/BankSampahScreen", routes: [
+final GoRouter router = GoRouter(initialLocation: "/HomeScreen", routes: [
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",

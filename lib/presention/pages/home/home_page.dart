@@ -178,60 +178,17 @@ class _HomeScreenState extends State<HomeScreen> {
                                 fontWeight: FontWeight.w500,
                                 color: Colors.black))),
                   ),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8, left: 20),
-                        child: Expanded(
-                          child: Container(
-                            height: 150,
-                            width: 150,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              color: const Color(0xFFF3FAFF),
-                            ),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                CircleAvatar(
-                                  backgroundColor:
-                                      const Color.fromARGB(99, 157, 238, 254),
-                                  radius: 30,
-                                  child: Image.asset(
-                                    'asset/images/motr1.png',
-                                    width: 50,
-                                    height: 50,
-                                  ),
-                                ),
-                                // ignore: prefer_const_constructors
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 18),
-                                  // ignore: prefer_const_constructors
-                                  child: Text(
-                                    "Antar Jemput Sampah",
-                                    style: const TextStyle(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w500,
-                                        color: Colors.black),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 8, right: 20, left: 20),
-                        child: Expanded(
-                          child: GestureDetector(
-                            onTap: () {
-                              context.go("/BankSampahScreen");
-                            },
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 8, left: 20),
+                          child: Expanded(
                             child: Container(
                               height: 150,
-                              width: 150,
+                              width: MediaQuery.of(context).size.width * 0.5,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(16),
                                 color: const Color(0xFFF3FAFF),
@@ -244,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         const Color.fromARGB(99, 157, 238, 254),
                                     radius: 30,
                                     child: Image.asset(
-                                      'asset/images/uang.png',
+                                      'asset/images/motr1.png',
                                       width: 50,
                                       height: 50,
                                     ),
@@ -254,7 +211,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     padding: const EdgeInsets.only(top: 18),
                                     // ignore: prefer_const_constructors
                                     child: Text(
-                                      "Bank Sampah /& Tukar Poin",
+                                      "Antar Jemput Sampah",
                                       style: const TextStyle(
                                           fontSize: 16,
                                           fontWeight: FontWeight.w500,
@@ -267,8 +224,55 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 8, right: 20, left: 20),
+                          child: Expanded(
+                            child: GestureDetector(
+                              onTap: () {
+                                context.go("/BankSampahScreen");
+                              },
+                              child: Container(
+                                height: 150,
+                                width: MediaQuery.of(context).size.width * 0.5,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16),
+                                  color: const Color(0xFFF3FAFF),
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    CircleAvatar(
+                                      backgroundColor: const Color.fromARGB(
+                                          99, 157, 238, 254),
+                                      radius: 30,
+                                      child: Image.asset(
+                                        'asset/images/uang.png',
+                                        width: 50,
+                                        height: 50,
+                                      ),
+                                    ),
+                                    // ignore: prefer_const_constructors
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 18),
+                                      // ignore: prefer_const_constructors
+                                      child: Text(
+                                        "Bank Sampah /& Tukar Poin",
+                                        style: const TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w500,
+                                            color: Colors.black),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -409,7 +413,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                         BorderRadius.circular(12), // <-- Radius
                                   ),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  context.go('/DetailRiwayat');
+                                },
                                 child: const Text("Lihat Detail",
                                     style: TextStyle(
                                         fontSize: 12,
@@ -471,7 +477,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Expanded(
                             child: Container(
                               height: 200,
-                              width: 200,
+                              width: MediaQuery.of(context).size.width * 0.7,
                               decoration: BoxDecoration(
                                 color: const Color(0xFFFAFDFF),
                                 borderRadius: BorderRadius.circular(16),
@@ -525,7 +531,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Expanded(
                             child: Container(
                               height: 200,
-                              width: 200,
+                              width: MediaQuery.of(context).size.width * 0.7,
                               decoration: BoxDecoration(
                                 color: const Color(0xFFFAFDFF),
                                 borderRadius: BorderRadius.circular(16),
