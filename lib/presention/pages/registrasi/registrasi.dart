@@ -85,7 +85,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               padding: const EdgeInsets.only(top: 16, left: 20, right: 20),
               child: Container(
                 width: MediaQuery.of(context).size.width * 1,
-                height: 588,
+                height: 652,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
                   color: Color(0xffF8FCFF),
@@ -215,18 +215,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8, left: 16, right: 16),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width * 1,
-                        height: 36,
-                        child: 
-                          Expanded(
+                    Row(
+                      children: [
+                        Expanded(
                             child: 
                             RadioListTile(
-                              value: "Laki-Laki",
+                              value: "Pria",
                               groupValue: jeniskelaminValue,
-                              title: const Text("Laki-Laki"),
+                              title: const Text("Pria"),
                               onChanged: (value) {
                                 setState(() {
                                   jeniskelaminValue = value;
@@ -234,12 +230,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               },
                             ),
                           ),
+                        Expanded(
+                          child: RadioListTile(
+                            value: "Perempuan",
+                                  groupValue: jeniskelaminValue,
+                                  title: const Text("Perempuan"),
+                                  onChanged: (value) {
+                                    setState(() {
+                                      jeniskelaminValue = value;
+                                    });
+                                  },
+                          ),
                         ),
-                      ),
+                      ],
+                    ),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Padding(
-                        padding: const EdgeInsets.only(top: 16, left: 16),
+                        padding: const EdgeInsets.only(top: 10, left: 16),
                         child: Text(
                           'Password',
                           style: TextStyle(fontSize: 14),
@@ -354,7 +362,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         },
                         child: Text(
                           'Sudah Punya Akun ?',
-                          style: TextStyle(color: Color(0xFFFF7F33)),
+                          style: TextStyle(color: Color(0xFFFF7F33), fontSize: 16, fontWeight: FontWeight.w500),
                         )),
                   ],
                 ),
