@@ -185,7 +185,9 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                               height: 25,
                               child: FittedBox(
                                 child: FloatingActionButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    bloc.inputan3.add('minus3');
+                                  },
                                   child: Icon(
                                     CupertinoIcons.minus,
                                     size: 30.0,
@@ -198,11 +200,15 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                             Padding(
                               padding:
                                   const EdgeInsets.only(left: 22, right: 22),
-                              child: Text(
-                                '0',
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w400,
+                              child: StreamBuilder(
+                                stream: bloc.output3,
+                                initialData: bloc.counter3,
+                                builder: (context, snapshot) => Text(
+                                  '${snapshot.data}',
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w400,
+                                  ),
                                 ),
                               ),
                             ),
@@ -213,7 +219,9 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                 height: 25,
                                 child: FittedBox(
                                   child: FloatingActionButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      bloc.inputan3.add('add3');
+                                    },
                                     child: Icon(
                                       CupertinoIcons.plus,
                                       size: 30.0,
@@ -403,7 +411,9 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                               height: 25,
                               child: FittedBox(
                                 child: FloatingActionButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    bloc.inputan1.add('minus1');
+                                  },
                                   child: Icon(
                                     CupertinoIcons.minus,
                                     size: 30.0,
@@ -416,11 +426,15 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                             Padding(
                               padding:
                                   const EdgeInsets.only(left: 22, right: 22),
-                              child: Text(
-                                '0',
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w400,
+                              child: StreamBuilder(
+                                stream: bloc.output1,
+                                initialData: bloc.counter1,
+                                builder: (context, snapshot) => Text(
+                                  '${snapshot.data}',
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w400,
+                                  ),
                                 ),
                               ),
                             ),
@@ -431,7 +445,9 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                 height: 25,
                                 child: FittedBox(
                                   child: FloatingActionButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      bloc.inputan1.add('add1');
+                                    },
                                     child: Icon(
                                       CupertinoIcons.plus,
                                       size: 30.0,
@@ -508,7 +524,9 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                               height: 25,
                               child: FittedBox(
                                 child: FloatingActionButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    bloc.inputan2.add('minus2');
+                                  },
                                   child: Icon(
                                     CupertinoIcons.minus,
                                     size: 30.0,
@@ -521,11 +539,15 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                             Padding(
                               padding:
                                   const EdgeInsets.only(left: 22, right: 22),
-                              child: Text(
-                                '0',
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w400,
+                              child: StreamBuilder(
+                                stream: bloc.output2,
+                                initialData: bloc.counter2,
+                                builder: (context, snapshot) => Text(
+                                  '${snapshot.data}',
+                                  style: TextStyle(
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.w400,
+                                  ),
                                 ),
                               ),
                             ),
@@ -536,7 +558,9 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                 height: 25,
                                 child: FittedBox(
                                   child: FloatingActionButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      bloc.inputan2.add('add2');
+                                    },
                                     child: Icon(
                                       CupertinoIcons.plus,
                                       size: 30.0,
