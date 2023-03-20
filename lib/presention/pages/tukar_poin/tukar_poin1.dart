@@ -8,6 +8,17 @@ class TukarPoint1 extends StatefulWidget {
 }
 
 class _TukarPoint1State extends State<TukarPoint1> {
+
+TextEditingController tokenController = TextEditingController();
+TextEditingController namaTokenController = TextEditingController();
+TextEditingController nomorTokenController = TextEditingController();
+TextEditingController nominalTokenController = TextEditingController();
+
+TextEditingController BPJSController = TextEditingController();
+TextEditingController namaBPJSController = TextEditingController();
+TextEditingController nomorBPJSController = TextEditingController();
+TextEditingController nominalBPJSController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,8 +76,8 @@ class _TukarPoint1State extends State<TukarPoint1> {
                     child: Card(
                       elevation: 3,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16)),
-                      // color: Colors.red.shade100,
+                      side: BorderSide(color: Color(0xffCEE5FF)),
+                      borderRadius: BorderRadius.circular(16)),
                       child: RoundedExpansionTile(
                         title: Text(
                           "Rekening Bank",
@@ -346,8 +357,8 @@ class _TukarPoint1State extends State<TukarPoint1> {
                     child: Card(
                       elevation: 3,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16)),
-                      // color: Colors.red.shade100,
+                        side: BorderSide(color: Color(0xffCEE5FF)),
+                        borderRadius: BorderRadius.circular(16)),
                       child: RoundedExpansionTile(
                         title: Text(
                           "Dompet Elektronik",
@@ -506,8 +517,8 @@ class _TukarPoint1State extends State<TukarPoint1> {
                     child: Card(
                       elevation: 3,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16)),
-                      // color: Colors.red.shade100,
+                        side: BorderSide(color: Color(0xffCEE5FF)),
+                        borderRadius: BorderRadius.circular(16)),
                       child: RoundedExpansionTile(
                         title: Text(
                           "Pulsa/Paket Data",
@@ -547,13 +558,13 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                             children: [
                                               Image(
                                                 image: AssetImage(
-                                                    'asset/images/Ovo.png'),
+                                                    'asset/images/XL.png'),
                                               ),
                                             ],
                                           ),
                                         ),
                                         Text(
-                                          "OVO",
+                                          "XL",
                                           style: TextStyle(
                                             fontSize: 12.0,
                                           ),
@@ -575,13 +586,13 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                             children: [
                                               Image(
                                                 image: AssetImage(
-                                                    'asset/images/gopay.png'),
+                                                    'asset/images/Telkomsel.png'),
                                               ),
                                             ],
                                           ),
                                         ),
                                         Text(
-                                          "Gopay",
+                                          "Telkomsel",
                                           style: TextStyle(
                                             fontSize: 12.0,
                                           ),
@@ -603,13 +614,13 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                             children: [
                                               Image(
                                                 image: AssetImage(
-                                                    'asset/images/dana.png'),
+                                                    'asset/images/Indosat.png'),
                                               ),
                                             ],
                                           ),
                                         ),
                                         Text(
-                                          "Dana",
+                                          "Indosat",
                                           style: TextStyle(
                                             fontSize: 12.0,
                                           ),
@@ -631,13 +642,13 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                             children: [
                                               Image(
                                                 image: AssetImage(
-                                                    'asset/images/link_aja.png'),
+                                                    'asset/images/Tri.png'),
                                               ),
                                             ],
                                           ),
                                         ),
                                         Text(
-                                          "Link Aja",
+                                          "Tri",
                                           style: TextStyle(
                                             fontSize: 12.0,
                                           ),
@@ -666,8 +677,8 @@ class _TukarPoint1State extends State<TukarPoint1> {
                     child: Card(
                       elevation: 3,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16)),
-                      // color: Colors.red.shade100,
+                        side: BorderSide(color: Color(0xffCEE5FF)),
+                        borderRadius: BorderRadius.circular(16)),
                       child: RoundedExpansionTile(
                         title: Text(
                           "Token Listrik PLN",
@@ -687,122 +698,164 @@ class _TukarPoint1State extends State<TukarPoint1> {
                           Column(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.all(13),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                padding: const EdgeInsets.all(15),
+                                child: Column(
                                   children: [
-                                    Column(
-                                      children: [
-                                        Container(
-                                          width: 64,
-                                          height: 64,
-                                          decoration: BoxDecoration(
-                                              color: Color(0xFFF9FAFB),
-                                              borderRadius:
-                                                  BorderRadius.circular(8)),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Image(
-                                                image: AssetImage(
-                                                    'asset/images/Ovo.png'),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Text(
-                                          "OVO",
+                                  //  Padding(
+                                  //         padding: const EdgeInsets.only(top: 16)
+                                  //   ), 
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        'Tarik ke',
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ), 
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(top : 8),
+                                      child: SizedBox(
+                                        height: 36,
+                                        width: MediaQuery.of(context).size.width * 0.87,
+                                        child: TextFormField(
+                                          enabled : false,
+                                          controller: tokenController,
+                                          keyboardType: TextInputType.multiline,
                                           style: TextStyle(
-                                            fontSize: 12.0,
+                                              fontSize: 14, fontWeight: FontWeight.w400),
+                                          decoration: InputDecoration(
+                                            contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                            filled: true,
+                                            fillColor: Colors.white,
+                                            hintText: "Token PLN",
+                                            border: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(10),
+                                            ),
                                           ),
+                                          onChanged: (value) {},
                                         ),
-                                      ],
+                                      ),
+                                    ), 
+                                    Padding(
+                                          padding: const EdgeInsets.only(top: 16)
                                     ),
-                                    Column(
-                                      children: [
-                                        Container(
-                                          width: 64,
-                                          height: 64,
-                                          decoration: BoxDecoration(
-                                              color: Color(0xFFF9FAFB),
-                                              borderRadius:
-                                                  BorderRadius.circular(8)),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Image(
-                                                image: AssetImage(
-                                                    'asset/images/gopay.png'),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Text(
-                                          "Gopay",
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        'Nama Pemilik atau pelanggan',
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ), 
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(top : 8),
+                                      child: SizedBox(
+                                        height: 36,
+                                        width: MediaQuery.of(context).size.width * 0.87,
+                                        child: TextFormField(
+                                          controller: namaTokenController,
+                                          keyboardType: TextInputType.multiline,
+                                          inputFormatters: [ FilteringTextInputFormatter.allow(RegExp("[a-zA-Z]")), ],
                                           style: TextStyle(
-                                            fontSize: 12.0,
+                                              fontSize: 14, fontWeight: FontWeight.w400),
+                                          decoration: InputDecoration(
+                                            contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                            filled: true,
+                                            fillColor: Colors.white,
+                                            hintText: "Isi nama lengkapmu",
+                                            border: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(10),
+                                            ),
                                           ),
+                                          onChanged: (value) {},
                                         ),
-                                      ],
+                                      ),
                                     ),
-                                    Column(
-                                      children: [
-                                        Container(
-                                          width: 64,
-                                          height: 64,
-                                          decoration: BoxDecoration(
-                                              color: Color(0xFFF9FAFB),
-                                              borderRadius:
-                                                  BorderRadius.circular(8)),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Image(
-                                                image: AssetImage(
-                                                    'asset/images/dana.png'),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Text(
-                                          "Dana",
-                                          style: TextStyle(
-                                            fontSize: 12.0,
-                                          ),
-                                        ),
-                                      ],
+                                    Padding(
+                                          padding: const EdgeInsets.only(top: 16)
                                     ),
-                                    Column(
-                                      children: [
-                                        Container(
-                                          width: 64,
-                                          height: 64,
-                                          decoration: BoxDecoration(
-                                              color: Color(0xFFF9FAFB),
-                                              borderRadius:
-                                                  BorderRadius.circular(8)),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Image(
-                                                image: AssetImage(
-                                                    'asset/images/link_aja.png'),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Text(
-                                          "Link Aja",
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        'Nomor Pelanggan',
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ), 
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(top : 8),
+                                      child: SizedBox(
+                                        height: 36,
+                                        width: MediaQuery.of(context).size.width * 0.87,
+                                        child: TextFormField(
+                                          controller: nomorTokenController,
+                                          keyboardType: TextInputType.multiline,
+                                          inputFormatters: <TextInputFormatter>[
+                                          FilteringTextInputFormatter.digitsOnly
+                                          ],
                                           style: TextStyle(
-                                            fontSize: 12.0,
+                                              fontSize: 14, fontWeight: FontWeight.w400),
+                                          decoration: InputDecoration(
+                                            contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                            filled: true,
+                                            fillColor: Colors.white,
+                                            hintText: "123456789",
+                                            border: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(10),
+                                            ),
                                           ),
+                                          onChanged: (value) {},
                                         ),
-                                      ],
+                                      ),
+                                    ),
+                                    Padding(
+                                          padding: const EdgeInsets.only(top: 16)
+                                    ),
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        'Nominal Point Ditarik',
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ), 
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(top : 8),
+                                      child: SizedBox(
+                                        height: 36,
+                                        width: MediaQuery.of(context).size.width * 0.87,
+                                        child: TextFormField(
+                                          controller: nominalTokenController,
+                                          keyboardType: TextInputType.multiline,
+                                          inputFormatters: <TextInputFormatter>[
+                                          FilteringTextInputFormatter.digitsOnly
+                                          ],
+                                          style: TextStyle(
+                                              fontSize: 14, fontWeight: FontWeight.w400),
+                                          decoration: InputDecoration(
+                                            contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                            filled: true,
+                                            fillColor: Colors.white,
+                                            hintText: "Rp",
+                                            border: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(10),
+                                            ),
+                                          ),
+                                          onChanged: (value) {},
+                                        ),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -826,8 +879,8 @@ class _TukarPoint1State extends State<TukarPoint1> {
                     child: Card(
                       elevation: 3,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16)),
-                      // color: Colors.red.shade100,
+                        side: BorderSide(color: Color(0xffCEE5FF)),
+                        borderRadius: BorderRadius.circular(16)),
                       child: RoundedExpansionTile(
                         title: Text(
                           "BPJS",
@@ -848,121 +901,163 @@ class _TukarPoint1State extends State<TukarPoint1> {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.all(13),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                child: Column(
                                   children: [
-                                    Column(
-                                      children: [
-                                        Container(
-                                          width: 64,
-                                          height: 64,
-                                          decoration: BoxDecoration(
-                                              color: Color(0xFFF9FAFB),
-                                              borderRadius:
-                                                  BorderRadius.circular(8)),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Image(
-                                                image: AssetImage(
-                                                    'asset/images/Ovo.png'),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Text(
-                                          "OVO",
-                                          style: TextStyle(
-                                            fontSize: 12.0,
-                                          ),
-                                        ),
-                                      ],
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 16)
                                     ),
-                                    Column(
-                                      children: [
-                                        Container(
-                                          width: 64,
-                                          height: 64,
-                                          decoration: BoxDecoration(
-                                              color: Color(0xFFF9FAFB),
-                                              borderRadius:
-                                                  BorderRadius.circular(8)),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Image(
-                                                image: AssetImage(
-                                                    'asset/images/gopay.png'),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Text(
-                                          "Gopay",
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        'Tarik ke',
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ), 
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(top : 8),
+                                      child: SizedBox(
+                                        height: 36,
+                                        width: MediaQuery.of(context).size.width * 0.87,
+                                        child: TextFormField(
+                                          enabled : false,
+                                          controller: BPJSController,
+                                          keyboardType: TextInputType.multiline,
                                           style: TextStyle(
-                                            fontSize: 12.0,
+                                              fontSize: 14, fontWeight: FontWeight.w400),
+                                          decoration: InputDecoration(
+                                            contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                            filled: true,
+                                            fillColor: Colors.white,
+                                            hintText: "BPJS",
+                                            border: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(10),
+                                            ),
                                           ),
+                                          onChanged: (value) {},
                                         ),
-                                      ],
+                                      ),
                                     ),
-                                    Column(
-                                      children: [
-                                        Container(
-                                          width: 64,
-                                          height: 64,
-                                          decoration: BoxDecoration(
-                                              color: Color(0xFFF9FAFB),
-                                              borderRadius:
-                                                  BorderRadius.circular(8)),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Image(
-                                                image: AssetImage(
-                                                    'asset/images/dana.png'),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Text(
-                                          "Dana",
-                                          style: TextStyle(
-                                            fontSize: 12.0,
-                                          ),
-                                        ),
-                                      ],
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 16)
                                     ),
-                                    Column(
-                                      children: [
-                                        Container(
-                                          width: 64,
-                                          height: 64,
-                                          decoration: BoxDecoration(
-                                              color: Color(0xFFF9FAFB),
-                                              borderRadius:
-                                                  BorderRadius.circular(8)),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              Image(
-                                                image: AssetImage(
-                                                    'asset/images/link_aja.png'),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Text(
-                                          "Link Aja",
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        'Nama Pemilik atau pelanggan',
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ), 
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(top : 8),
+                                      child: SizedBox(
+                                        height: 36,
+                                        width: MediaQuery.of(context).size.width * 0.87,
+                                        child: TextFormField(
+                                          controller: namaBPJSController,
+                                          keyboardType: TextInputType.multiline,
+                                          inputFormatters: [ FilteringTextInputFormatter.allow(RegExp("[a-zA-Z]")), ],
                                           style: TextStyle(
-                                            fontSize: 12.0,
+                                              fontSize: 14, fontWeight: FontWeight.w400),
+                                          decoration: InputDecoration(
+                                            contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                            filled: true,
+                                            fillColor: Colors.white,
+                                            hintText: "Isi nama lengkapmu",
+                                            border: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(10),
+                                            ),
                                           ),
+                                          onChanged: (value) {},
                                         ),
-                                      ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 16)
+                                    ),
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        'Nomor BPJS',
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ), 
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(top : 8),
+                                      child: SizedBox(
+                                        height: 36,
+                                        width: MediaQuery.of(context).size.width * 0.87,
+                                        child: TextFormField(
+                                          controller: nomorBPJSController,
+                                          keyboardType: TextInputType.multiline,
+                                          inputFormatters: <TextInputFormatter>[
+                                          FilteringTextInputFormatter.digitsOnly
+                                          ],
+                                          style: TextStyle(
+                                              fontSize: 14, fontWeight: FontWeight.w400),
+                                          decoration: InputDecoration(
+                                            contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                            filled: true,
+                                            fillColor: Colors.white,
+                                            hintText: "123456789",
+                                            border: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(10),
+                                            ),
+                                          ),
+                                          onChanged: (value) {},
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 16)
+                                    ),
+                                    Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        'Nominal Point Ditarik',
+                                        style: TextStyle(
+                                            fontSize: 14,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ), 
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(top : 8),
+                                      child: SizedBox(
+                                        height: 36,
+                                        width: MediaQuery.of(context).size.width * 0.87,
+                                        child: TextFormField(
+                                          controller: nominalBPJSController,
+                                          keyboardType: TextInputType.multiline,
+                                          inputFormatters: <TextInputFormatter>[
+                                          FilteringTextInputFormatter.digitsOnly
+                                          ],
+                                          style: TextStyle(
+                                              fontSize: 14, fontWeight: FontWeight.w400),
+                                          decoration: InputDecoration(
+                                            contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                            filled: true,
+                                            fillColor: Colors.white,
+                                            hintText: "Rp",
+                                            border: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(10),
+                                            ),
+                                          ),
+                                          onChanged: (value) {},
+                                        ),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -986,8 +1081,8 @@ class _TukarPoint1State extends State<TukarPoint1> {
                     child: Card(
                       elevation: 3,
                       shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16)),
-                      // color: Colors.red.shade100,
+                        side: BorderSide(color: Color(0xffCEE5FF)),
+                        borderRadius: BorderRadius.circular(16)),
                       child: RoundedExpansionTile(
                         title: Text(
                           "Toko LESTAREE",

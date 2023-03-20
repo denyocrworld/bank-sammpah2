@@ -77,7 +77,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 20, left: 20),
-              child: Text('Detail Penjemputan', style: TextStyle(fontSize: 14)),
+              child: Text('Tanggal Penjemputan', style: TextStyle(fontSize: 14)),
             ),
             Container(
               height: 50,
@@ -114,7 +114,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 24, left: 20),
-              child: Text('Detail Penjemputan', style: TextStyle(fontSize: 14)),
+              child: Text('Pilih Waktu', style: TextStyle(fontSize: 14)),
             ),
             Row(
               children: [
