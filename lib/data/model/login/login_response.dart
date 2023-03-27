@@ -1,5 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:loginandsignup/domain/model/login/login_data.dart';
+import 'package:loginandsignup/domain/model/data/login/login_data.dart';
 
 part 'login_response.g.dart';
 
@@ -17,6 +17,7 @@ class LoginResponse implements LoginResponseMapper {
 
   factory LoginResponse.fromJson(Map<String, dynamic> json) =>
       _$LoginResponseFromJson(json);
+
   Map<String, dynamic> toJson() => _$LoginResponseToJson(this);
   @override
   LoginData toLoginData() {

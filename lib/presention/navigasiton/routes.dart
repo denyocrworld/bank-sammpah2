@@ -1,8 +1,10 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 // import 'package:loginandsignup/pages/pages.dart';
 import 'package:loginandsignup/presention/pages/pages.dart';
 
-final GoRouter router = GoRouter(initialLocation: "/BankSampahScreen", routes: [
+final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",
@@ -26,7 +28,10 @@ final GoRouter router = GoRouter(initialLocation: "/BankSampahScreen", routes: [
   GoRoute(
     path: "/HomeScreen",
     name: "homescreen",
-    builder: (context, state) => HomeScreen(),
+    builder: (context, state) {
+      BlocProvider.of<HomeCubit>(context).fecthHome();
+      return const HomeScreen();
+    },
   ),
   GoRoute(
     path: "/RegisterScreen",

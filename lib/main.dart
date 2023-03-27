@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:loginandsignup/data/repository/home/home_repository_impl.dart';
+import 'package:loginandsignup/data/repository/login/login_repository_impl.dart';
 import 'package:loginandsignup/presention/navigasiton/routes.dart';
+import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
+
+import 'presention/pages/login/cubit/login_cubit.dart';
 
 void main() {
-  runApp(const MyApp()); 
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -11,11 +17,21 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      routerDelegate: router.routerDelegate,
-      routeInformationParser: router.routeInformationParser,
-      routeInformationProvider: router.routeInformationProvider,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => LoginCubit(LoginRepositoryImpl()),
+        ),
+        BlocProvider(
+          create: (context) => HomeCubit(HomeRespositoryImpl()),
+        )
+      ],
+      child: MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        routerDelegate: router.routerDelegate,
+        routeInformationParser: router.routeInformationParser,
+        routeInformationProvider: router.routeInformationProvider,
+      ),
     );
   }
 }

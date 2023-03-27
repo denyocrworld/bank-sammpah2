@@ -8,10 +8,23 @@ class SampahPenjemputan extends StatefulWidget {
 }
 
 class _SampahPenjemputanState extends State<SampahPenjemputan> {
+  var _image;
+  var imagePicker;
+  var type;
+
   String? groupValue;
 
   TextEditingController lokasiController = TextEditingController();
   TextEditingController penjemputandController = TextEditingController();
+
+  ImagePicker picker = ImagePicker();
+  XFile? image;
+  @override
+  void initState() {
+    super.initState();
+    imagePicker = new ImagePicker();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -235,22 +248,36 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8, left: 20, right: 20),
-              child: Container(
-                height: 125.0,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('asset/images/sampah.png'),
-                      fit: BoxFit.fill),
-                  color: Colors.blueAccent,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(
-                      8.0,
-                    ),
-                  ),
-                ),
-              ),
+              child: GestureDetector(
+                  onTap: () async {
+                    image = await picker.pickImage(source: ImageSource.gallery);
+                    setState(() {
+                      //update UI
+                      _image = File(image!.path);
+                    });
+                  },
+                  child: _image != null
+                      ? Image.file(_image,
+                          height: 125.0,
+                          width: MediaQuery.of(context).size.width,
+                          fit: BoxFit.fill)
+                      : Container(
+                          height: 125.0,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage('asset/images/sampah.png'),
+                                fit: BoxFit.fill),
+                            color: Colors.blueAccent,
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(
+                                8.0,
+                              ),
+                            ),
+                          ),
+                        )),
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Flexible(
                   flex: 1,
@@ -269,9 +296,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                        top: 80,
-                      ),
+                      padding: const EdgeInsets.only(top: 80, right: 20),
                       child: Text(
                         "Rp. 25,000",
                         style:
