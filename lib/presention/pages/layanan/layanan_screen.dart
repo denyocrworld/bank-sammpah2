@@ -14,7 +14,11 @@ class LayananScreen extends StatelessWidget {
           "Layanan",
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
-        leading: Icon(CupertinoIcons.arrow_left, color: Colors.black),
+        leading: GestureDetector(
+            onTap: () {
+              context.go("/HomeScreen");
+            },
+            child: const Icon(CupertinoIcons.arrow_left, color: Colors.black)),
       ),
       backgroundColor: Colors.white,
       body: Center(
@@ -36,16 +40,21 @@ class LayananScreen extends StatelessWidget {
                       children: [
                         Stack(
                           children: [
-                            Container(
-                              height: 80,
-                              width: 80,
-                              decoration: BoxDecoration(
-                                color: Color(0xffCEE5FF),
-                                borderRadius: BorderRadius.circular(50),
+                            GestureDetector(
+                              onTap: () {
+                                context.go("/PenjemputanScreen");
+                              },
+                              child: Container(
+                                height: 80,
+                                width: 80,
+                                decoration: BoxDecoration(
+                                  color: Color(0xffCEE5FF),
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                child: Image(
+                                    image: AssetImage(
+                                        "asset/images/langganan.png")),
                               ),
-                              child: Image(
-                                  image:
-                                      AssetImage("asset/images/langganan.png")),
                             ),
                           ],
                         ),
@@ -76,16 +85,21 @@ class LayananScreen extends StatelessWidget {
                       children: [
                         Stack(
                           children: [
-                            Container(
-                              height: 80,
-                              width: 80,
-                              decoration: BoxDecoration(
-                                color: Color(0xffCEE5FF),
-                                borderRadius: BorderRadius.circular(50),
+                            GestureDetector(
+                              onTap: () {
+                                context.go("/PenjemputanScreen");
+                              },
+                              child: Container(
+                                height: 80,
+                                width: 80,
+                                decoration: BoxDecoration(
+                                  color: Color(0xffCEE5FF),
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                child: Image(
+                                    image:
+                                        AssetImage("asset/images/hajatan.png")),
                               ),
-                              child: Image(
-                                  image:
-                                      AssetImage("asset/images/hajatan.png")),
                             ),
                           ],
                         ),
@@ -116,16 +130,21 @@ class LayananScreen extends StatelessWidget {
                       children: [
                         Stack(
                           children: [
-                            Container(
-                              height: 80,
-                              width: 80,
-                              decoration: BoxDecoration(
-                                color: Color(0xffCEE5FF),
-                                borderRadius: BorderRadius.circular(50),
+                            GestureDetector(
+                              onTap: () {
+                                context.go("/PenjemputanScreen");
+                              },
+                              child: Container(
+                                height: 80,
+                                width: 80,
+                                decoration: BoxDecoration(
+                                  color: Color(0xffCEE5FF),
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                child: Image(
+                                    image: AssetImage(
+                                        "asset/images/sekali_angkut.png")),
                               ),
-                              child: Image(
-                                  image: AssetImage(
-                                      "asset/images/sekali_angkut.png")),
                             ),
                           ],
                         ),
@@ -154,16 +173,21 @@ class LayananScreen extends StatelessWidget {
                       children: [
                         Stack(
                           children: [
-                            Container(
-                              height: 80,
-                              width: 80,
-                              decoration: BoxDecoration(
-                                color: Color(0xffCEE5FF),
-                                borderRadius: BorderRadius.circular(50),
+                            GestureDetector(
+                              onTap: () {
+                                context.go("/PenjemputanScreen");
+                              },
+                              child: Container(
+                                height: 80,
+                                width: 80,
+                                decoration: BoxDecoration(
+                                  color: Color(0xffCEE5FF),
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                child: Image(
+                                    image: AssetImage(
+                                        "asset/images/acara_lainnya.png")),
                               ),
-                              child: Image(
-                                  image: AssetImage(
-                                      "asset/images/acara_lainnya.png")),
                             ),
                           ],
                         ),

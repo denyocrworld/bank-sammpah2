@@ -34,6 +34,11 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
     },
   ),
   GoRoute(
+    path: "/LayananScreen",
+    name: "layanan",
+    builder: (context, state) => LayananScreen(),
+  ),
+  GoRoute(
     path: "/RegisterScreen",
     name: "resgis",
     builder: (context, state) => RegisterScreen(),
@@ -69,7 +74,7 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
     builder: (context, state) => TukarPoint1(),
   ),
   GoRoute(
-    path: "/Penjemputan",
+    path: "/PenjemputanScreen",
     name: "penjemputan",
     builder: (context, state) => PenjemputanScreen(),
   ),

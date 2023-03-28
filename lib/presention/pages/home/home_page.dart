@@ -101,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Padding(
                               padding: const EdgeInsets.only(top: 24, left: 16),
                               child: Text(
-                                'Hi,${homeState.data.profile.username}',
+                                "Hi,${homeState.data.profile.username}",
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500,
@@ -209,43 +209,49 @@ class _HomeScreenState extends State<HomeScreen> {
                                 padding:
                                     const EdgeInsets.only(top: 8, left: 20),
                                 child: Expanded(
-                                  child: Container(
-                                    height: 150,
-                                    width:
-                                        MediaQuery.of(context).size.width * 0.5,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(16),
-                                      color: const Color(0xFFF3FAFF),
-                                    ),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        CircleAvatar(
-                                          backgroundColor: const Color.fromARGB(
-                                              99, 157, 238, 254),
-                                          radius: 30,
-                                          child: Image.asset(
-                                            'asset/images/motr1.png',
-                                            width: 50,
-                                            height: 50,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      context.go("/LayananScreen");
+                                    },
+                                    child: Container(
+                                      height: 150,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.5,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(16),
+                                        color: const Color(0xFFF3FAFF),
+                                      ),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          CircleAvatar(
+                                            backgroundColor:
+                                                const Color.fromARGB(
+                                                    99, 157, 238, 254),
+                                            radius: 30,
+                                            child: Image.asset(
+                                              'asset/images/motr1.png',
+                                              width: 50,
+                                              height: 50,
+                                            ),
                                           ),
-                                        ),
-                                        // ignore: prefer_const_constructors
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(top: 18),
                                           // ignore: prefer_const_constructors
-                                          child: Text(
-                                            "Antar Jemput Sampah",
-                                            style: const TextStyle(
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w500,
-                                                color: Colors.black),
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        )
-                                      ],
+                                          Padding(
+                                            padding:
+                                                const EdgeInsets.only(top: 18),
+                                            // ignore: prefer_const_constructors
+                                            child: Text(
+                                              "Antar Jemput Sampah",
+                                              style: const TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: Colors.black),
+                                              textAlign: TextAlign.center,
+                                            ),
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
@@ -653,6 +659,7 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           } else if (homeState is HomeIsLoading) {
             return Container(
+              alignment: Alignment.center,
               child: CircularProgressIndicator(),
             );
           }
