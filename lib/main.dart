@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:loginandsignup/data/repository/forgot-password/forgot_password_repository.impl.dart';
 import 'package:loginandsignup/data/repository/home/home_repository_impl.dart';
 import 'package:loginandsignup/data/repository/login/login_repository_impl.dart';
 import 'package:loginandsignup/presention/navigasiton/routes.dart';
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
+import 'package:loginandsignup/presention/pages/lupa_password/cubit/forgot_pass_cubit.dart';
 
 import 'presention/pages/login/cubit/login_cubit.dart';
 
@@ -24,6 +26,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => HomeCubit(HomeRespositoryImpl()),
+        ),
+        BlocProvider(
+          create: (context) => ForgotPassCubit(ForgotPasswordRepositoryImpl()),
         )
       ],
       child: MaterialApp.router(

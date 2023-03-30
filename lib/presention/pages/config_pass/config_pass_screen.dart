@@ -119,10 +119,13 @@ class _ConfigPassState extends State<ConfigPass> {
                                 fontSize: 14.0,
                               ),
                             ),
-                            Text(
-                              "Kirim Ulang",
-                              style:
-                                  TextStyle(fontSize: 14.0, color: Colors.blue),
+                            GestureDetector(
+                              onTap: () {},
+                              child: Text(
+                                "Kirim Ulang",
+                                style: TextStyle(
+                                    fontSize: 14.0, color: Colors.blue),
+                              ),
                             ),
                           ],
                         ),

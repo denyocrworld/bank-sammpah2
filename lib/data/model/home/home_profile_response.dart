@@ -11,11 +11,11 @@ abstract class HomeProfileResponseMapper {
 @JsonSerializable()
 class HomeProfileResponse implements HomeProfileResponseMapper {
   String? image;
-  String? userName;
+  String? username;
   int? balance;
   HomeProfileResponse({
     this.image,
-    this.userName,
+    this.username,
     this.balance,
   });
 
@@ -24,6 +24,6 @@ class HomeProfileResponse implements HomeProfileResponseMapper {
   Map<String, dynamic> toJson() => _$HomeProfileResponseToJson(this);
   @override
   HomeProfileData toHomeProfileData() {
-    return HomeProfileData(image ?? "", userName ?? "", balance ?? 0);
+    return HomeProfileData(image ?? "", username ?? "", balance ?? 0);
   }
 }
