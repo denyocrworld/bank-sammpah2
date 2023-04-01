@@ -386,7 +386,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       padding: const EdgeInsets.only(
                                           top: 16, right: 16),
                                       child: Text(
-                                        '${homeState.data.riwayat.point}',
+                                        '+${homeState.data.riwayat.point}pt',
                                         style: TextStyle(
                                             fontSize: 12,
                                             color: Color(0xFFA7ABB3),

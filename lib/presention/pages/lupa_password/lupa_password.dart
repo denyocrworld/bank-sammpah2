@@ -9,6 +9,15 @@ class LupaPassword extends StatefulWidget {
 
 class _LupaPasswordState extends State<LupaPassword> {
   TextEditingController whatssapController = TextEditingController();
+
+  bool isProfileCompleted() {
+    if (whatssapController.text.isNotEmpty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   late ForgotPassCubit _forgotpassCubit;
 
   @override
@@ -127,11 +136,13 @@ class _LupaPasswordState extends State<LupaPassword> {
                                 borderRadius: BorderRadius.circular(8),
                               ),
                             ),
-                            onPressed: () {
-                              BlocProvider.of<ForgotPassCubit>(context)
-                                  .submitForgotPassword(
-                                      whatssapController.text);
-                            },
+                            onPressed: isProfileCompleted()
+                                ? () {
+                                    BlocProvider.of<ForgotPassCubit>(context)
+                                        .submitForgotPassword(
+                                            whatssapController.text);
+                                  }
+                                : null,
                             child:
                                 BlocBuilder<ForgotPassCubit, ForgotPassState>(
                               builder: (context, forgotPassState) {

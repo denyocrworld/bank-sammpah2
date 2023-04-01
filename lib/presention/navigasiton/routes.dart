@@ -4,7 +4,7 @@ import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 // import 'package:loginandsignup/pages/pages.dart';
 import 'package:loginandsignup/presention/pages/pages.dart';
 
-final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
+final GoRouter router = GoRouter(initialLocation: "/RiwayatScreen", routes: [
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",
@@ -92,5 +92,10 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
     path: "/DetailRiwayat",
     name: "detailriwayat",
     builder: (context, state) => DetailRiwayat(),
+  ),
+  GoRoute(
+    path: "/RiwayatScreen",
+    name: "riwayat",
+    builder: (context, state) => RiwayatScreen(),
   ),
 ]);

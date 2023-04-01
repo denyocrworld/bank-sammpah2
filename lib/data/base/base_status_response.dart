@@ -5,6 +5,8 @@ abstract class BaseConfig {
   static const String BASE_PATH = '/api/v1';
   static const String LOGIN_URL = '/login';
   static const String FORGOT_PASSWORD = '/forgot-password';
+  static const String CONFIG_KODE = '/confirmation-code';
   static const String HOME_URL = '/home';
+  static const String HISTORY = '/history';
   static const String REGISTER_URL = "/v1/register";
 }
