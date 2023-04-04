@@ -8,5 +8,6 @@ abstract class BaseConfig {
   static const String CONFIG_KODE = '/confirmation-code';
   static const String HOME_URL = '/home';
   static const String HISTORY = '/history';
+  static const String DETAIL_HISTORY = '/history/:id';
   static const String REGISTER_URL = "/v1/register";
 }

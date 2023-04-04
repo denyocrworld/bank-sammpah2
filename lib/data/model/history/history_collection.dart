@@ -1,17 +1,19 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:json_annotation/json_annotation.dart';
-import 'package:loginandsignup/data/model/history/history_response.dart';
-import 'package:loginandsignup/domain/model/data/history/history_data.dart';
+
+import 'package:loginandsignup/data/model/home/home_riwayat_response.dart';
+
+import 'package:loginandsignup/domain/model/data/home/home_riwayat_data.dart';
 
 part 'history_collection.g.dart';
 
 abstract class HistoryCollectionResponseMapper {
-  List<HistoryData> toHistoryData();
+  List<HomeRiwayatData> toHomeRiwayatData();
 }
 
 @JsonSerializable()
 class HistoryCollectionResponse implements HistoryCollectionResponseMapper {
-  List<HistoryResponse>? history;
+  List<HomeRiwayatResponse>? history;
   HistoryCollectionResponse({
     this.history,
   });
@@ -21,8 +23,8 @@ class HistoryCollectionResponse implements HistoryCollectionResponseMapper {
   Map<String, dynamic> toJson() => _$HistoryCollectionResponseToJson(this);
 
   @override
-  List<HistoryData> toHistoryData() {
+  List<HomeRiwayatData> toHomeRiwayatData() {
     // TODO: implement toHistoryData
-    return history!.map((e) => e.toHistoryData()).toList();
+    return history!.map((e) => e.toHomeRiwayatData()).toList();
   }
 }

@@ -10,7 +10,7 @@ HistoryCollectionResponse _$HistoryCollectionResponseFromJson(
         Map<String, dynamic> json) =>
     HistoryCollectionResponse(
       history: (json['history'] as List<dynamic>?)
-          ?.map((e) => HistoryResponse.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => HomeRiwayatResponse.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 

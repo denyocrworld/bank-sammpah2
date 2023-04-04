@@ -326,7 +326,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               padding:
                                   const EdgeInsets.only(top: 12, right: 20),
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  context.go("/RiwayatScreen");
+                                },
                                 child: Row(
                                   // ignore: prefer_const_literals_to_create_immutables
                                   children: [

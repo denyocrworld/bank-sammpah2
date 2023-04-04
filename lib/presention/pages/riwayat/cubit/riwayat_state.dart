@@ -13,9 +13,9 @@ class RiwayatInitial extends RiwayatState {}
 class RiwayatIsLoading extends RiwayatState {}
 
 class RiwayatIsSuccess extends RiwayatState {
-  final List<HistoryData> history;
+  final List<HomeRiwayatData> data;
   RiwayatIsSuccess(
-    this.history,
+    this.data,
   );
 }
 

@@ -32,9 +32,7 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
         title: const Text(
           "Riwayat",
           style: TextStyle(
-            fontSize: 14.0,
-            fontWeight: FontWeight.bold,
-          ),
+              fontSize: 14.0, fontWeight: FontWeight.bold, color: Colors.black),
         ),
         leading: GestureDetector(
           onTap: () {
@@ -50,15 +48,15 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
         builder: (context, riwayatState) {
           if (riwayatState is RiwayatIsSuccess) {
             return ListView.builder(
-                shrinkWrap: true,
-                itemCount: riwayatState.history.length,
+                itemCount: riwayatState.data.length,
                 itemBuilder: (context, index) {
-                  final history = riwayatState.history[index];
+                  final history = riwayatState.data[index];
                   return Center(
                     child: Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 20, right: 20),
+                          padding: const EdgeInsets.only(
+                              left: 20, right: 20, top: 10),
                           child: Container(
                             width: MediaQuery.of(context).size.width,
                             height: 120,
