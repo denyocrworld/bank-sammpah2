@@ -205,7 +205,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                       ),
                     ),
-                     Align(
+                    Align(
                       alignment: Alignment.centerLeft,
                       child: Padding(
                         padding: const EdgeInsets.only(top: 16, left: 16),
@@ -218,28 +218,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     Row(
                       children: [
                         Expanded(
-                            child: 
-                            RadioListTile(
-                              value: "Pria",
-                              groupValue: jeniskelaminValue,
-                              title: const Text("Pria"),
-                              onChanged: (value) {
-                                setState(() {
-                                  jeniskelaminValue = value;
-                                });
-                              },
-                            ),
+                          child: RadioListTile(
+                            value: "Pria",
+                            groupValue: jeniskelaminValue,
+                            title: const Text("Pria"),
+                            onChanged: (value) {
+                              setState(() {
+                                jeniskelaminValue = value;
+                              });
+                            },
                           ),
+                        ),
                         Expanded(
                           child: RadioListTile(
                             value: "Perempuan",
-                                  groupValue: jeniskelaminValue,
-                                  title: const Text("Perempuan"),
-                                  onChanged: (value) {
-                                    setState(() {
-                                      jeniskelaminValue = value;
-                                    });
-                                  },
+                            groupValue: jeniskelaminValue,
+                            title: const Text("Perempuan"),
+                            onChanged: (value) {
+                              setState(() {
+                                jeniskelaminValue = value;
+                              });
+                            },
                           ),
                         ),
                       ],
@@ -362,7 +361,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         },
                         child: Text(
                           'Sudah Punya Akun ?',
-                          style: TextStyle(color: Color(0xFFFF7F33), fontSize: 16, fontWeight: FontWeight.w500),
+                          style: TextStyle(
+                              color: Color(0xFFFF7F33),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500),
                         )),
                   ],
                 ),
