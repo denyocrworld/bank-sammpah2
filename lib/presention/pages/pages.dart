@@ -22,6 +22,7 @@ import 'package:loginandsignup/data/utilities/commons.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import '../../model/costum_shapes.dart';
+import 'package:readmore/readmore.dart';
 
 part 'home/home_page.dart';
 part 'login/login_screen.dart';
@@ -41,3 +42,4 @@ part 'splash_screen/splash_screen.dart';
 part 'navigasibar.dart';
 part 'detail_riwayat/detail_riawayat_screen.dart';
 part 'riwayat/riwayat_screen.dart';
+part 'article/article_screen.dart';

@@ -6,7 +6,7 @@ import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 import 'package:loginandsignup/presention/pages/pages.dart';
 import 'package:loginandsignup/presention/pages/riwayat/cubit/riwayat_cubit.dart';
 
-final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
+final GoRouter router = GoRouter(initialLocation: "/ArticleScreen", routes: [
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",
@@ -106,4 +106,9 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
         BlocProvider.of<RiwayatCubit>(context).fecthHistory("History");
         return const RiwayatScreen();
       }),
+  GoRoute(
+    path: "/ArticleScreen",
+    name: "article",
+    builder: (context, state) => ArticleScreen(),
+  ),
 ]);
