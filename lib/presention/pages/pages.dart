@@ -43,3 +43,4 @@ part 'navigasibar.dart';
 part 'detail_riwayat/detail_riawayat_screen.dart';
 part 'riwayat/riwayat_screen.dart';
 part 'article/article_screen.dart';
+part 'detail_article/detail_article.dart';

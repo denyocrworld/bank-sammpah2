@@ -6,7 +6,7 @@ import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 import 'package:loginandsignup/presention/pages/pages.dart';
 import 'package:loginandsignup/presention/pages/riwayat/cubit/riwayat_cubit.dart';
 
-final GoRouter router = GoRouter(initialLocation: "/ArticleScreen", routes: [
+final GoRouter router = GoRouter(initialLocation: "/TukarPoint1", routes: [
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",
@@ -115,5 +115,10 @@ final GoRouter router = GoRouter(initialLocation: "/ArticleScreen", routes: [
     path: "/ArticleScreen",
     name: "article",
     builder: (context, state) => ArticleScreen(),
+  ),
+  GoRoute(
+    path: "/DetailArticle",
+    name: "detailarticle",
+    builder: (context, state) => DetailArticle(),
   ),
 ]);

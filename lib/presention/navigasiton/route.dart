@@ -19,4 +19,5 @@ class Routes {
   static const String DetailRiwayat = 'detailriwayat';
   static const String RiwayatScreen = 'riwayat';
   static const String ArticleScreen = 'article';
+  static const String DetailArticle = 'detailarticle';
 }

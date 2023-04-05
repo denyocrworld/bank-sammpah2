@@ -8,16 +8,15 @@ class TukarPoint1 extends StatefulWidget {
 }
 
 class _TukarPoint1State extends State<TukarPoint1> {
+  TextEditingController tokenController = TextEditingController();
+  TextEditingController namaTokenController = TextEditingController();
+  TextEditingController nomorTokenController = TextEditingController();
+  TextEditingController nominalTokenController = TextEditingController();
 
-TextEditingController tokenController = TextEditingController();
-TextEditingController namaTokenController = TextEditingController();
-TextEditingController nomorTokenController = TextEditingController();
-TextEditingController nominalTokenController = TextEditingController();
-
-TextEditingController BPJSController = TextEditingController();
-TextEditingController namaBPJSController = TextEditingController();
-TextEditingController nomorBPJSController = TextEditingController();
-TextEditingController nominalBPJSController = TextEditingController();
+  TextEditingController BPJSController = TextEditingController();
+  TextEditingController namaBPJSController = TextEditingController();
+  TextEditingController nomorBPJSController = TextEditingController();
+  TextEditingController nominalBPJSController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -76,8 +75,8 @@ TextEditingController nominalBPJSController = TextEditingController();
                     child: Card(
                       elevation: 3,
                       shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Color(0xffCEE5FF)),
-                      borderRadius: BorderRadius.circular(16)),
+                          side: BorderSide(color: Color(0xffCEE5FF)),
+                          borderRadius: BorderRadius.circular(16)),
                       child: RoundedExpansionTile(
                         title: Text(
                           "Rekening Bank",
@@ -357,8 +356,8 @@ TextEditingController nominalBPJSController = TextEditingController();
                     child: Card(
                       elevation: 3,
                       shape: RoundedRectangleBorder(
-                        side: BorderSide(color: Color(0xffCEE5FF)),
-                        borderRadius: BorderRadius.circular(16)),
+                          side: BorderSide(color: Color(0xffCEE5FF)),
+                          borderRadius: BorderRadius.circular(16)),
                       child: RoundedExpansionTile(
                         title: Text(
                           "Dompet Elektronik",
@@ -517,8 +516,8 @@ TextEditingController nominalBPJSController = TextEditingController();
                     child: Card(
                       elevation: 3,
                       shape: RoundedRectangleBorder(
-                        side: BorderSide(color: Color(0xffCEE5FF)),
-                        borderRadius: BorderRadius.circular(16)),
+                          side: BorderSide(color: Color(0xffCEE5FF)),
+                          borderRadius: BorderRadius.circular(16)),
                       child: RoundedExpansionTile(
                         title: Text(
                           "Pulsa/Paket Data",
@@ -558,7 +557,7 @@ TextEditingController nominalBPJSController = TextEditingController();
                                             children: [
                                               Image(
                                                 image: AssetImage(
-                                                    'asset/images/XL.png'),
+                                                    'asset/images/xl.png'),
                                               ),
                                             ],
                                           ),
@@ -586,7 +585,7 @@ TextEditingController nominalBPJSController = TextEditingController();
                                             children: [
                                               Image(
                                                 image: AssetImage(
-                                                    'asset/images/Telkomsel.png'),
+                                                    'asset/images/telkomsel.png'),
                                               ),
                                             ],
                                           ),
@@ -614,7 +613,7 @@ TextEditingController nominalBPJSController = TextEditingController();
                                             children: [
                                               Image(
                                                 image: AssetImage(
-                                                    'asset/images/Indosat.png'),
+                                                    'asset/images/indosat.png'),
                                               ),
                                             ],
                                           ),
@@ -642,7 +641,7 @@ TextEditingController nominalBPJSController = TextEditingController();
                                             children: [
                                               Image(
                                                 image: AssetImage(
-                                                    'asset/images/Tri.png'),
+                                                    'asset/images/tri.png'),
                                               ),
                                             ],
                                           ),
@@ -677,8 +676,8 @@ TextEditingController nominalBPJSController = TextEditingController();
                     child: Card(
                       elevation: 3,
                       shape: RoundedRectangleBorder(
-                        side: BorderSide(color: Color(0xffCEE5FF)),
-                        borderRadius: BorderRadius.circular(16)),
+                          side: BorderSide(color: Color(0xffCEE5FF)),
+                          borderRadius: BorderRadius.circular(16)),
                       child: RoundedExpansionTile(
                         title: Text(
                           "Token Listrik PLN",
@@ -701,9 +700,9 @@ TextEditingController nominalBPJSController = TextEditingController();
                                 padding: const EdgeInsets.all(15),
                                 child: Column(
                                   children: [
-                                  //  Padding(
-                                  //         padding: const EdgeInsets.only(top: 16)
-                                  //   ), 
+                                    //  Padding(
+                                    //         padding: const EdgeInsets.only(top: 16)
+                                    //   ),
                                     Align(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
@@ -713,35 +712,39 @@ TextEditingController nominalBPJSController = TextEditingController();
                                             color: Colors.black,
                                             fontWeight: FontWeight.w500),
                                       ),
-                                    ), 
+                                    ),
                                     Padding(
-                                      padding:
-                                          const EdgeInsets.only(top : 8),
+                                      padding: const EdgeInsets.only(top: 8),
                                       child: SizedBox(
                                         height: 36,
-                                        width: MediaQuery.of(context).size.width * 0.87,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.87,
                                         child: TextFormField(
-                                          enabled : false,
+                                          enabled: false,
                                           controller: tokenController,
                                           keyboardType: TextInputType.multiline,
                                           style: TextStyle(
-                                              fontSize: 14, fontWeight: FontWeight.w400),
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400),
                                           decoration: InputDecoration(
-                                            contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                            contentPadding: EdgeInsets.fromLTRB(
+                                                10, 0, 0, 0),
                                             filled: true,
                                             fillColor: Colors.white,
                                             hintText: "Token PLN",
                                             border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(10),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                           onChanged: (value) {},
                                         ),
                                       ),
-                                    ), 
-                                    Padding(
-                                          padding: const EdgeInsets.only(top: 16)
                                     ),
+                                    Padding(
+                                        padding:
+                                            const EdgeInsets.only(top: 16)),
                                     Align(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
@@ -751,26 +754,33 @@ TextEditingController nominalBPJSController = TextEditingController();
                                             color: Colors.black,
                                             fontWeight: FontWeight.w500),
                                       ),
-                                    ), 
+                                    ),
                                     Padding(
-                                      padding:
-                                          const EdgeInsets.only(top : 8),
+                                      padding: const EdgeInsets.only(top: 8),
                                       child: SizedBox(
                                         height: 36,
-                                        width: MediaQuery.of(context).size.width * 0.87,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.87,
                                         child: TextFormField(
                                           controller: namaTokenController,
                                           keyboardType: TextInputType.multiline,
-                                          inputFormatters: [ FilteringTextInputFormatter.allow(RegExp("[a-zA-Z]")), ],
+                                          inputFormatters: [
+                                            FilteringTextInputFormatter.allow(
+                                                RegExp("[a-zA-Z]")),
+                                          ],
                                           style: TextStyle(
-                                              fontSize: 14, fontWeight: FontWeight.w400),
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400),
                                           decoration: InputDecoration(
-                                            contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                            contentPadding: EdgeInsets.fromLTRB(
+                                                10, 0, 0, 0),
                                             filled: true,
                                             fillColor: Colors.white,
                                             hintText: "Isi nama lengkapmu",
                                             border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(10),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                           onChanged: (value) {},
@@ -778,8 +788,8 @@ TextEditingController nominalBPJSController = TextEditingController();
                                       ),
                                     ),
                                     Padding(
-                                          padding: const EdgeInsets.only(top: 16)
-                                    ),
+                                        padding:
+                                            const EdgeInsets.only(top: 16)),
                                     Align(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
@@ -789,28 +799,33 @@ TextEditingController nominalBPJSController = TextEditingController();
                                             color: Colors.black,
                                             fontWeight: FontWeight.w500),
                                       ),
-                                    ), 
+                                    ),
                                     Padding(
-                                      padding:
-                                          const EdgeInsets.only(top : 8),
+                                      padding: const EdgeInsets.only(top: 8),
                                       child: SizedBox(
                                         height: 36,
-                                        width: MediaQuery.of(context).size.width * 0.87,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.87,
                                         child: TextFormField(
                                           controller: nomorTokenController,
                                           keyboardType: TextInputType.multiline,
                                           inputFormatters: <TextInputFormatter>[
-                                          FilteringTextInputFormatter.digitsOnly
+                                            FilteringTextInputFormatter
+                                                .digitsOnly
                                           ],
                                           style: TextStyle(
-                                              fontSize: 14, fontWeight: FontWeight.w400),
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400),
                                           decoration: InputDecoration(
-                                            contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                            contentPadding: EdgeInsets.fromLTRB(
+                                                10, 0, 0, 0),
                                             filled: true,
                                             fillColor: Colors.white,
                                             hintText: "123456789",
                                             border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(10),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                           onChanged: (value) {},
@@ -818,8 +833,8 @@ TextEditingController nominalBPJSController = TextEditingController();
                                       ),
                                     ),
                                     Padding(
-                                          padding: const EdgeInsets.only(top: 16)
-                                    ),
+                                        padding:
+                                            const EdgeInsets.only(top: 16)),
                                     Align(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
@@ -829,28 +844,33 @@ TextEditingController nominalBPJSController = TextEditingController();
                                             color: Colors.black,
                                             fontWeight: FontWeight.w500),
                                       ),
-                                    ), 
+                                    ),
                                     Padding(
-                                      padding:
-                                          const EdgeInsets.only(top : 8),
+                                      padding: const EdgeInsets.only(top: 8),
                                       child: SizedBox(
                                         height: 36,
-                                        width: MediaQuery.of(context).size.width * 0.87,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.87,
                                         child: TextFormField(
                                           controller: nominalTokenController,
                                           keyboardType: TextInputType.multiline,
                                           inputFormatters: <TextInputFormatter>[
-                                          FilteringTextInputFormatter.digitsOnly
+                                            FilteringTextInputFormatter
+                                                .digitsOnly
                                           ],
                                           style: TextStyle(
-                                              fontSize: 14, fontWeight: FontWeight.w400),
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400),
                                           decoration: InputDecoration(
-                                            contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                            contentPadding: EdgeInsets.fromLTRB(
+                                                10, 0, 0, 0),
                                             filled: true,
                                             fillColor: Colors.white,
                                             hintText: "Rp",
                                             border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(10),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                           onChanged: (value) {},
@@ -879,8 +899,8 @@ TextEditingController nominalBPJSController = TextEditingController();
                     child: Card(
                       elevation: 3,
                       shape: RoundedRectangleBorder(
-                        side: BorderSide(color: Color(0xffCEE5FF)),
-                        borderRadius: BorderRadius.circular(16)),
+                          side: BorderSide(color: Color(0xffCEE5FF)),
+                          borderRadius: BorderRadius.circular(16)),
                       child: RoundedExpansionTile(
                         title: Text(
                           "BPJS",
@@ -904,8 +924,8 @@ TextEditingController nominalBPJSController = TextEditingController();
                                 child: Column(
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.only(top: 16)
-                                    ),
+                                        padding:
+                                            const EdgeInsets.only(top: 16)),
                                     Align(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
@@ -915,26 +935,30 @@ TextEditingController nominalBPJSController = TextEditingController();
                                             color: Colors.black,
                                             fontWeight: FontWeight.w500),
                                       ),
-                                    ), 
+                                    ),
                                     Padding(
-                                      padding:
-                                          const EdgeInsets.only(top : 8),
+                                      padding: const EdgeInsets.only(top: 8),
                                       child: SizedBox(
                                         height: 36,
-                                        width: MediaQuery.of(context).size.width * 0.87,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.87,
                                         child: TextFormField(
-                                          enabled : false,
+                                          enabled: false,
                                           controller: BPJSController,
                                           keyboardType: TextInputType.multiline,
                                           style: TextStyle(
-                                              fontSize: 14, fontWeight: FontWeight.w400),
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400),
                                           decoration: InputDecoration(
-                                            contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                            contentPadding: EdgeInsets.fromLTRB(
+                                                10, 0, 0, 0),
                                             filled: true,
                                             fillColor: Colors.white,
                                             hintText: "BPJS",
                                             border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(10),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                           onChanged: (value) {},
@@ -942,8 +966,8 @@ TextEditingController nominalBPJSController = TextEditingController();
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.only(top: 16)
-                                    ),
+                                        padding:
+                                            const EdgeInsets.only(top: 16)),
                                     Align(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
@@ -953,26 +977,33 @@ TextEditingController nominalBPJSController = TextEditingController();
                                             color: Colors.black,
                                             fontWeight: FontWeight.w500),
                                       ),
-                                    ), 
+                                    ),
                                     Padding(
-                                      padding:
-                                          const EdgeInsets.only(top : 8),
+                                      padding: const EdgeInsets.only(top: 8),
                                       child: SizedBox(
                                         height: 36,
-                                        width: MediaQuery.of(context).size.width * 0.87,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.87,
                                         child: TextFormField(
                                           controller: namaBPJSController,
                                           keyboardType: TextInputType.multiline,
-                                          inputFormatters: [ FilteringTextInputFormatter.allow(RegExp("[a-zA-Z]")), ],
+                                          inputFormatters: [
+                                            FilteringTextInputFormatter.allow(
+                                                RegExp("[a-zA-Z]")),
+                                          ],
                                           style: TextStyle(
-                                              fontSize: 14, fontWeight: FontWeight.w400),
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400),
                                           decoration: InputDecoration(
-                                            contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                            contentPadding: EdgeInsets.fromLTRB(
+                                                10, 0, 0, 0),
                                             filled: true,
                                             fillColor: Colors.white,
                                             hintText: "Isi nama lengkapmu",
                                             border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(10),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                           onChanged: (value) {},
@@ -980,8 +1011,8 @@ TextEditingController nominalBPJSController = TextEditingController();
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.only(top: 16)
-                                    ),
+                                        padding:
+                                            const EdgeInsets.only(top: 16)),
                                     Align(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
@@ -991,28 +1022,33 @@ TextEditingController nominalBPJSController = TextEditingController();
                                             color: Colors.black,
                                             fontWeight: FontWeight.w500),
                                       ),
-                                    ), 
+                                    ),
                                     Padding(
-                                      padding:
-                                          const EdgeInsets.only(top : 8),
+                                      padding: const EdgeInsets.only(top: 8),
                                       child: SizedBox(
                                         height: 36,
-                                        width: MediaQuery.of(context).size.width * 0.87,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.87,
                                         child: TextFormField(
                                           controller: nomorBPJSController,
                                           keyboardType: TextInputType.multiline,
                                           inputFormatters: <TextInputFormatter>[
-                                          FilteringTextInputFormatter.digitsOnly
+                                            FilteringTextInputFormatter
+                                                .digitsOnly
                                           ],
                                           style: TextStyle(
-                                              fontSize: 14, fontWeight: FontWeight.w400),
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400),
                                           decoration: InputDecoration(
-                                            contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                            contentPadding: EdgeInsets.fromLTRB(
+                                                10, 0, 0, 0),
                                             filled: true,
                                             fillColor: Colors.white,
                                             hintText: "123456789",
                                             border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(10),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                           onChanged: (value) {},
@@ -1020,8 +1056,8 @@ TextEditingController nominalBPJSController = TextEditingController();
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.only(top: 16)
-                                    ),
+                                        padding:
+                                            const EdgeInsets.only(top: 16)),
                                     Align(
                                       alignment: Alignment.centerLeft,
                                       child: Text(
@@ -1031,28 +1067,33 @@ TextEditingController nominalBPJSController = TextEditingController();
                                             color: Colors.black,
                                             fontWeight: FontWeight.w500),
                                       ),
-                                    ), 
+                                    ),
                                     Padding(
-                                      padding:
-                                          const EdgeInsets.only(top : 8),
+                                      padding: const EdgeInsets.only(top: 8),
                                       child: SizedBox(
                                         height: 36,
-                                        width: MediaQuery.of(context).size.width * 0.87,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.87,
                                         child: TextFormField(
                                           controller: nominalBPJSController,
                                           keyboardType: TextInputType.multiline,
                                           inputFormatters: <TextInputFormatter>[
-                                          FilteringTextInputFormatter.digitsOnly
+                                            FilteringTextInputFormatter
+                                                .digitsOnly
                                           ],
                                           style: TextStyle(
-                                              fontSize: 14, fontWeight: FontWeight.w400),
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400),
                                           decoration: InputDecoration(
-                                            contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                            contentPadding: EdgeInsets.fromLTRB(
+                                                10, 0, 0, 0),
                                             filled: true,
                                             fillColor: Colors.white,
                                             hintText: "Rp",
                                             border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(10),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                           onChanged: (value) {},
@@ -1081,8 +1122,8 @@ TextEditingController nominalBPJSController = TextEditingController();
                     child: Card(
                       elevation: 3,
                       shape: RoundedRectangleBorder(
-                        side: BorderSide(color: Color(0xffCEE5FF)),
-                        borderRadius: BorderRadius.circular(16)),
+                          side: BorderSide(color: Color(0xffCEE5FF)),
+                          borderRadius: BorderRadius.circular(16)),
                       child: RoundedExpansionTile(
                         title: Text(
                           "Toko LESTAREE",
