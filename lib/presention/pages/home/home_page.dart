@@ -326,7 +326,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               padding:
                                   const EdgeInsets.only(top: 12, right: 20),
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  context.go("/RiwayatScreen");
+                                },
                                 child: Row(
                                   // ignore: prefer_const_literals_to_create_immutables
                                   children: [
@@ -386,7 +388,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       padding: const EdgeInsets.only(
                                           top: 16, right: 16),
                                       child: Text(
-                                        '${homeState.data.riwayat.point}',
+                                        '+${homeState.data.riwayat.point}pt',
                                         style: TextStyle(
                                             fontSize: 12,
                                             color: Color(0xFFA7ABB3),
@@ -539,30 +541,35 @@ class _HomeScreenState extends State<HomeScreen> {
                                           child: Column(
                                             mainAxisAlignment:
                                                 MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.stretch,
                                             children: [
-                                              Align(
-                                                alignment: Alignment.topCenter,
-                                                child: Image.asset(
-                                                  'asset/images/pencuci.png',
-                                                  height: 100,
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .width *
-                                                      1,
-                                                ),
+                                              Image.network(
+                                                '${news.newImage}',
+                                                height: 100,
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    1,
                                               ),
                                               // ignore: prefer_const_constructors
                                               Padding(
                                                 padding: const EdgeInsets.only(
                                                     top: 16, left: 16),
                                                 // ignore: prefer_const_constructors
-                                                child: Text(
+                                                child: ReadMoreText(
                                                   '${news.title}',
-                                                  style: const TextStyle(
-                                                      fontSize: 16,
+                                                  trimLines: 2,
+                                                  colorClickableText:
+                                                      Colors.grey,
+                                                  trimMode: TrimMode.Line,
+                                                  trimCollapsedText:
+                                                      'Show more',
+                                                  trimExpandedText: 'Show less',
+                                                  moreStyle: TextStyle(
+                                                      fontSize: 14,
                                                       fontWeight:
-                                                          FontWeight.w500,
-                                                      color: Colors.black),
+                                                          FontWeight.bold),
                                                 ),
                                               ),
                                               // ignore: prefer_const_constructors
@@ -570,15 +577,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 padding: const EdgeInsets.only(
                                                     top: 8, left: 16),
                                                 // ignore: prefer_const_constructors
-                                                child: Text(
+                                                child: ReadMoreText(
                                                   '${news.content}',
-                                                  // ignore: prefer_const_constructors
-                                                  style: TextStyle(
-                                                      fontSize: 12,
-                                                      color: const Color(
-                                                          0xFF72777F),
+                                                  trimLines: 2,
+                                                  colorClickableText:
+                                                      Colors.grey,
+                                                  trimMode: TrimMode.Line,
+                                                  trimCollapsedText:
+                                                      'Show more',
+                                                  trimExpandedText: 'Show less',
+                                                  moreStyle: TextStyle(
+                                                      fontSize: 14,
                                                       fontWeight:
-                                                          FontWeight.w400),
+                                                          FontWeight.bold),
                                                 ),
                                               )
                                             ],
@@ -594,7 +605,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           width: MediaQuery.of(context)
                                                   .size
                                                   .width *
-                                              0.7,
+                                              0.5,
                                           decoration: BoxDecoration(
                                             color: const Color(0xFFFAFDFF),
                                             borderRadius:
@@ -604,26 +615,32 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 width: 0.1),
                                           ),
                                           child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.stretch,
                                             children: [
-                                              Align(
-                                                alignment: Alignment.topCenter,
-                                                child: Image.asset(
-                                                    'asset/images/pencuci.png',
-                                                    height: 100,
-                                                    fit: BoxFit.contain),
-                                              ),
+                                              Image.network('${news.newImage}',
+                                                  height: 200,
+                                                  fit: BoxFit.fill),
                                               // ignore: prefer_const_constructors
                                               Padding(
                                                 padding: const EdgeInsets.only(
                                                     top: 16, left: 16),
                                                 // ignore: prefer_const_constructors
-                                                child: Text(
+                                                child: ReadMoreText(
                                                   '${news.title}',
-                                                  style: const TextStyle(
-                                                      fontSize: 16,
-                                                      color: Colors.black,
+                                                  trimLines: 2,
+                                                  colorClickableText:
+                                                      Colors.grey,
+                                                  trimMode: TrimMode.Line,
+                                                  trimCollapsedText:
+                                                      'Show more',
+                                                  trimExpandedText: 'Show less',
+                                                  moreStyle: TextStyle(
+                                                      fontSize: 14,
                                                       fontWeight:
-                                                          FontWeight.w500),
+                                                          FontWeight.bold),
                                                 ),
                                               ),
                                               // ignore: prefer_const_constructors
@@ -631,15 +648,20 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 padding: const EdgeInsets.only(
                                                     top: 8, left: 16),
                                                 // ignore: prefer_const_constructors
-                                                child: Text(
+                                                child: ReadMoreText(
                                                   '${news.content}',
-                                                  // ignore: prefer_const_constructors
-                                                  style: TextStyle(
-                                                      fontSize: 12,
-                                                      color: const Color(
-                                                          0xFF72777F),
+                                                  trimLines: 2,
+                                                  colorClickableText:
+                                                      Colors.grey,
+                                                  trimMode: TrimMode.Line,
+                                                  trimCollapsedText:
+                                                      'Show more',
+                                                  trimExpandedText: 'Show less',
+                                                  moreStyle: TextStyle(
+                                                      fontSize: 14,
                                                       fontWeight:
-                                                          FontWeight.w400),
+                                                          FontWeight.bold),
+                                                  // ignore: prefer_const_constructors
                                                 ),
                                               )
                                             ],

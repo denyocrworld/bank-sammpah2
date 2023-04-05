@@ -36,6 +36,9 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
     }
   }
 
+  DateTime now = DateTime.now();
+  String formatDate = DateFormat.yMMMEd().format(DateTime.now());
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -96,7 +99,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(top: 24, left: 20),
                 child: Text(
-                  'Tanggal Penjemputan',
+                  formatDate.toString(),
                   style: TextStyle(fontSize: 14),
                 ),
               ),
@@ -107,14 +110,27 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                 width: MediaQuery.of(context).size.width * 1,
                 height: 36,
                 child: TextFormField(
-                  controller: lokasiController,
+                  controller: tanggalController,
                   keyboardType: TextInputType.name,
                   style: TextStyle(
                     fontSize: 14,
                   ),
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                    suffixIcon: const Icon(Icons.calendar_month),
+                    suffixIcon: GestureDetector(
+                        onTap: () {
+                          showDatePicker(
+                            context: context,
+                            initialDate: now,
+                            firstDate: DateTime(1911),
+                            lastDate: DateTime(2100),
+                          ).then((value) {
+                            return print(value);
+                          });
+                          print("pickedDate: $formatDate");
+                          print("pickedDate: $now");
+                        },
+                        child: const Icon(Icons.calendar_month)),
                     filled: true,
                     fillColor: Colors.white,
                     hintText: "dd/mm/yy",

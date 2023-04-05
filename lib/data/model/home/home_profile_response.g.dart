@@ -9,7 +9,7 @@ part of 'home_profile_response.dart';
 HomeProfileResponse _$HomeProfileResponseFromJson(Map<String, dynamic> json) =>
     HomeProfileResponse(
       image: json['image'] as String?,
-      userName: json['userName'] as String?,
+      username: json['username'] as String?,
       balance: json['balance'] as int?,
     );
 
@@ -17,6 +17,6 @@ Map<String, dynamic> _$HomeProfileResponseToJson(
         HomeProfileResponse instance) =>
     <String, dynamic>{
       'image': instance.image,
-      'userName': instance.userName,
+      'username': instance.username,
       'balance': instance.balance,
     };

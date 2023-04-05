@@ -5,7 +5,6 @@ import 'package:loginandsignup/data/model/base_response/base_remote_response.dar
 import 'package:loginandsignup/data/model/login/login_response.dart';
 import 'package:loginandsignup/data/service/remote/login/login_remote_service.dart';
 import 'package:loginandsignup/domain/model/data/login/login_data.dart';
-import 'package:loginandsignup/domain/model/request/login/login_request.dart';
 import 'package:loginandsignup/domain/repository/login/login_repository.dart';
 
 class LoginRepositoryImpl implements LoginRepository {

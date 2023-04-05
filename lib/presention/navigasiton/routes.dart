@@ -1,10 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:loginandsignup/presention/pages/detail_riwayat/cubit/detal_history_cubit.dart';
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 // import 'package:loginandsignup/pages/pages.dart';
 import 'package:loginandsignup/presention/pages/pages.dart';
+import 'package:loginandsignup/presention/pages/riwayat/cubit/riwayat_cubit.dart';
 
-final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
+final GoRouter router = GoRouter(initialLocation: "/ArticleScreen", routes: [
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",
@@ -96,6 +98,22 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
   GoRoute(
     path: "/DetailRiwayat",
     name: "detailriwayat",
-    builder: (context, state) => DetailRiwayat(),
+    builder: (context, state) {
+      BlocProvider.of<DetalHistoryCubit>(context)
+          .fecthDetailHistory("Detail History");
+      return const DetailRiwayat();
+    },
+  ),
+  GoRoute(
+      path: "/RiwayatScreen",
+      name: "riwayat",
+      builder: (context, state) {
+        BlocProvider.of<RiwayatCubit>(context).fecthHistory("History");
+        return const RiwayatScreen();
+      }),
+  GoRoute(
+    path: "/ArticleScreen",
+    name: "article",
+    builder: (context, state) => ArticleScreen(),
   ),
 ]);

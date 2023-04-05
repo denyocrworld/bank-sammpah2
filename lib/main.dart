@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:loginandsignup/data/repository/config-code/config_code_repository_impl.dart';
+import 'package:loginandsignup/data/repository/detail_riwayat/detail_history_repository_impl.dart';
+import 'package:loginandsignup/data/repository/forgot-password/forgot_password_repository.impl.dart';
+import 'package:loginandsignup/data/repository/history/history_repository_impl.dart';
 import 'package:loginandsignup/data/repository/home/home_repository_impl.dart';
 import 'package:loginandsignup/data/repository/login/login_repository_impl.dart';
 import 'package:loginandsignup/presention/navigasiton/routes.dart';
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
+import 'package:loginandsignup/presention/pages/lupa_password/cubit/forgot_pass_cubit.dart';
+import 'package:loginandsignup/presention/pages/riwayat/cubit/riwayat_cubit.dart';
 
+import 'presention/pages/config_pass/cubit/config_pass_cubit.dart';
+import 'presention/pages/detail_riwayat/cubit/detal_history_cubit.dart';
 import 'presention/pages/login/cubit/login_cubit.dart';
 
 void main() {
@@ -24,6 +32,18 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => HomeCubit(HomeRespositoryImpl()),
+        ),
+        BlocProvider(
+          create: (context) => ForgotPassCubit(ForgotPasswordRepositoryImpl()),
+        ),
+        BlocProvider(
+          create: (context) => ConfigPassCubit(ConfigCodeRepositoryImpl()),
+        ),
+        BlocProvider(
+          create: (context) => RiwayatCubit(HistoryRepositoryImpl()),
+        ),
+        BlocProvider(
+          create: (context) => DetalHistoryCubit(DetailHistoryRepositoryImpl()),
         )
       ],
       child: MaterialApp.router(
