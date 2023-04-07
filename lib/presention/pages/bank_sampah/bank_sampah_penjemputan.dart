@@ -27,6 +27,8 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
     imagePicker = new ImagePicker();
   }
 
+  DateTime pickDate = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +41,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
           'Bank Sampah',
           style: TextStyle(
             color: Color(0xFF001F29),
+            fontWeight: FontWeight.bold,
           ),
         ),
         leading: GestureDetector(
@@ -105,9 +108,29 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                 style: TextStyle(fontSize: 14, color: Color(0xFF72777F)),
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                  suffixIcon: Icon(
-                    Icons.date_range_outlined,
-                    color: Colors.grey,
+                  suffixIcon: GestureDetector(
+                    onTap: () async {
+                      await showDatePicker(
+                              context: context,
+                              initialDate: pickDate,
+                              firstDate: DateTime(1800),
+                              lastDate: DateTime(2100))
+                          .then((value) {
+                        if (value != null)
+                          setState(() {
+                            pickDate = value;
+                          });
+                      });
+                      if (pickDate != null) {
+                        String dateFormat =
+                            DateFormat("dd/MM/yyyy").format(pickDate);
+                        penjemputandController.text = dateFormat.toString();
+                      }
+                    },
+                    child: Icon(
+                      Icons.date_range_outlined,
+                      color: Colors.grey,
+                    ),
                   ),
                   filled: true,
                   fillColor: Colors.white,

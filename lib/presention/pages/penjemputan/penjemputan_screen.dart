@@ -38,7 +38,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
 
   DateTime pickDate = DateTime.now();
   // String formatDate = DateFormat.yMMMEd().format(DateTime.now());
-
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -135,19 +135,6 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                                 DateFormat("dd/MM/yyyy").format(pickDate);
                             tanggalController.text = dateFormat.toString();
                           }
-                          // showDatePicker(
-                          //   context: context,
-                          //   initialDate: DateTime.now(),
-                          //   firstDate: DateTime(1911),
-                          //   lastDate: DateTime(2100),
-                          // ).then((now) {
-                          //   if (now != null) {
-                          //     tanggalController.text = formatDate;
-                          //   }
-                          // });
-
-                          // print("pickedDate: $formatDate");
-                          // print("pickedDate: $now");
                         },
                         child: const Icon(Icons.calendar_month)),
                     filled: true,
@@ -351,13 +338,82 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
             Padding(
               padding: const EdgeInsets.only(top: 8, left: 20, right: 20),
               child: GestureDetector(
-                  onTap: () async {
-                    image = await picker.pickImage(source: ImageSource.gallery);
-                    setState(() {
-                      //update UI
-                      _image = File(image!.path);
-                    });
+                  onTap: () {
+                    showModalBottomSheet(
+                        context: context,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(25.0),
+                          ),
+                        ),
+                        backgroundColor: Colors.white,
+                        builder: (context) {
+                          return SizedBox(
+                            height: 120,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                GestureDetector(
+                                  onTap: () async {
+                                    image = await picker.pickImage(
+                                        source: ImageSource.gallery,
+                                        imageQuality: 50);
+                                    setState(() {
+                                      //update UI
+                                      _image = File(image!.path);
+                                    });
+                                  },
+                                  child: ListTile(
+                                    leading:
+                                        Icon(CupertinoIcons.photo_on_rectangle),
+                                    title: Text(
+                                      "Gallery",
+                                      style: TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () async {
+                                    image = await picker.pickImage(
+                                        source: ImageSource.camera,
+                                        imageQuality: 50);
+                                    setState(() {
+                                      _image = File(image!.path);
+                                    });
+                                  },
+                                  child: ListTile(
+                                    leading:
+                                        Icon(CupertinoIcons.photo_camera_solid),
+                                    title: Text(
+                                      "Camera",
+                                      style: TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          );
+                        });
                   },
+                  // async {
+                  //   image = await picker.pickImage(source: ImageSource.gallery);
+                  //   setState(() {
+                  //     //update UI
+                  //     _image = File(image!.path);
+                  //   });
+                  // },
+                  // child: _image != null
+                  //     ? Image.file(_image,
+                  //         height: 125.0,
+                  //         width: MediaQuery.of(context).size.width,
+                  //         fit: BoxFit.fill)
                   child: _image != null
                       ? Image.file(_image,
                           height: 125.0,
