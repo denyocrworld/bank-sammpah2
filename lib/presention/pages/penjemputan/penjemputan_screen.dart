@@ -36,8 +36,8 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
     }
   }
 
-  DateTime now = DateTime.now();
-  String formatDate = DateFormat.yMMMEd().format(DateTime.now());
+  DateTime pickDate = DateTime.now();
+  // String formatDate = DateFormat.yMMMEd().format(DateTime.now());
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,7 +99,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
               child: Padding(
                 padding: const EdgeInsets.only(top: 24, left: 20),
                 child: Text(
-                  formatDate.toString(),
+                  "Tanggal Penjemputan",
                   style: TextStyle(fontSize: 14),
                 ),
               ),
@@ -118,17 +118,36 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                     suffixIcon: GestureDetector(
-                        onTap: () {
-                          showDatePicker(
-                            context: context,
-                            initialDate: now,
-                            firstDate: DateTime(1911),
-                            lastDate: DateTime(2100),
-                          ).then((value) {
-                            return print(value);
+                        onTap: () async {
+                          await showDatePicker(
+                                  context: context,
+                                  initialDate: pickDate,
+                                  firstDate: DateTime(1800),
+                                  lastDate: DateTime(2100))
+                              .then((value) {
+                            if (value != null)
+                              setState(() {
+                                pickDate = value;
+                              });
                           });
-                          print("pickedDate: $formatDate");
-                          print("pickedDate: $now");
+                          if (pickDate != null) {
+                            String dateFormat =
+                                DateFormat("dd/MM/yyyy").format(pickDate);
+                            tanggalController.text = dateFormat.toString();
+                          }
+                          // showDatePicker(
+                          //   context: context,
+                          //   initialDate: DateTime.now(),
+                          //   firstDate: DateTime(1911),
+                          //   lastDate: DateTime(2100),
+                          // ).then((now) {
+                          //   if (now != null) {
+                          //     tanggalController.text = formatDate;
+                          //   }
+                          // });
+
+                          // print("pickedDate: $formatDate");
+                          // print("pickedDate: $now");
                         },
                         child: const Icon(Icons.calendar_month)),
                     filled: true,

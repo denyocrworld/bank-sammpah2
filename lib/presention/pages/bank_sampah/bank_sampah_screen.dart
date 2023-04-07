@@ -46,7 +46,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                   color: Color(0xFF001F29), fontWeight: FontWeight.w500)),
           leading: GestureDetector(
               onTap: () {
-                context.go("/HomeScreen");
+                context.go("/NavigasiBar");
               },
               child: const Icon(CupertinoIcons.arrow_left,
                   color: Color(0xFF001F29)))),

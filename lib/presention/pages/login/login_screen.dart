@@ -59,7 +59,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Commons().setUid("${loginState.data.token}");
             print("Token: ${loginState.data.token}");
             Commons().showSnackbarInfo(context, "Login Berhasil");
-            context.go('/HomeScreen');
+            context.go('/NavigasiBar');
           }
           // TODO: implement listener
         },

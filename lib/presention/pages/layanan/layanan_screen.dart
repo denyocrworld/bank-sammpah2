@@ -16,7 +16,7 @@ class LayananScreen extends StatelessWidget {
         ),
         leading: GestureDetector(
             onTap: () {
-              context.go("/HomeScreen");
+              context.go("/NavigasiBar");
             },
             child: const Icon(CupertinoIcons.arrow_left, color: Colors.black)),
       ),

@@ -11,6 +11,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
   var _image;
   var imagePicker;
   var type;
+  var _photo;
 
   String? groupValue;
 
@@ -19,6 +20,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
 
   ImagePicker picker = ImagePicker();
   XFile? image;
+  XFile? photo;
   @override
   void initState() {
     super.initState();
@@ -250,24 +252,83 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
             Padding(
               padding: const EdgeInsets.only(top: 8, left: 20, right: 20),
               child: GestureDetector(
-                  onTap: () async {
-                    image = await picker.pickImage(source: ImageSource.gallery);
-                    setState(() {
-                      //update UI
-                      _image = File(image!.path);
-                    });
+                  onTap: () {
+                    showModalBottomSheet(
+                        context: context,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.vertical(
+                            top: Radius.circular(25.0),
+                          ),
+                        ),
+                        backgroundColor: Colors.white,
+                        builder: (context) {
+                          return SizedBox(
+                            height: 120,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                GestureDetector(
+                                  onTap: () async {
+                                    image = await picker.pickImage(
+                                        source: ImageSource.gallery,
+                                        imageQuality: 50);
+                                    setState(() {
+                                      //update UI
+                                      _image = File(image!.path);
+                                    });
+                                  },
+                                  child: ListTile(
+                                    leading:
+                                        Icon(CupertinoIcons.photo_on_rectangle),
+                                    title: Text(
+                                      "Gallery",
+                                      style: TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () async {
+                                    image = await picker.pickImage(
+                                        source: ImageSource.camera,
+                                        imageQuality: 50);
+                                    setState(() {
+                                      _image = File(image!.path);
+                                    });
+                                  },
+                                  child: ListTile(
+                                    leading:
+                                        Icon(CupertinoIcons.photo_camera_solid),
+                                    title: Text(
+                                      "Camera",
+                                      style: TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          );
+                        });
                   },
+                  //
+                  //
                   child: _image != null
                       ? Image.file(_image,
                           height: 125.0,
                           width: MediaQuery.of(context).size.width,
                           fit: BoxFit.fill)
                       : Container(
-                          height: 125.0,
+                          height: 200.0,
                           decoration: const BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage('asset/images/sampah.png'),
-                                fit: BoxFit.fill),
+                                fit: BoxFit.cover),
                             color: Colors.blueAccent,
                             borderRadius: BorderRadius.all(
                               Radius.circular(
