@@ -17,6 +17,8 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
 
   TextEditingController lokasiController = TextEditingController();
   TextEditingController penjemputandController = TextEditingController();
+  TextEditingController jamController = TextEditingController();
+  TextEditingController menitController = TextEditingController();
 
   ImagePicker picker = ImagePicker();
   XFile? image;
@@ -163,6 +165,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                     width: 40,
                     height: 40,
                     child: TextFormField(
+                      controller: jamController,
                       style: const TextStyle(fontSize: 14, color: Colors.black),
                       textAlign: TextAlign.center,
                       onChanged: (value) {
@@ -211,6 +214,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                     width: 40,
                     height: 40,
                     child: TextFormField(
+                      controller: menitController,
                       style: const TextStyle(fontSize: 14, color: Colors.black),
                       textAlign: TextAlign.center,
                       onChanged: (value) {

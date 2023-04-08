@@ -6,6 +6,7 @@ import 'package:loginandsignup/data/repository/forgot-password/forgot_password_r
 import 'package:loginandsignup/data/repository/history/history_repository_impl.dart';
 import 'package:loginandsignup/data/repository/home/home_repository_impl.dart';
 import 'package:loginandsignup/data/repository/login/login_repository_impl.dart';
+import 'package:loginandsignup/data/repository/tukar_point/tukar_point_repository_impl.dart';
 import 'package:loginandsignup/presention/navigasiton/routes.dart';
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 import 'package:loginandsignup/presention/pages/lupa_password/cubit/forgot_pass_cubit.dart';
@@ -14,6 +15,7 @@ import 'package:loginandsignup/presention/pages/riwayat/cubit/riwayat_cubit.dart
 import 'presention/pages/config_pass/cubit/config_pass_cubit.dart';
 import 'presention/pages/detail_riwayat/cubit/detal_history_cubit.dart';
 import 'presention/pages/login/cubit/login_cubit.dart';
+import 'presention/pages/tukar_poin/cubit/tukarpoint_cubit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,6 +46,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => DetalHistoryCubit(DetailHistoryRepositoryImpl()),
+        ),
+        BlocProvider(
+          create: (context) => TukarpointCubit(TukarPointRepositoryImpl()),
         )
       ],
       child: MaterialApp.router(

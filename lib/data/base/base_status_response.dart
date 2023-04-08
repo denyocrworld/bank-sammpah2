@@ -10,4 +10,5 @@ abstract class BaseConfig {
   static const String HISTORY = '/history';
   static const String DETAIL_HISTORY = '/history/:id';
   static const String REGISTER_URL = "/v1/register";
+  static const String POINT_URL = "/point";
 }

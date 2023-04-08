@@ -5,6 +5,7 @@ import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 // import 'package:loginandsignup/pages/pages.dart';
 import 'package:loginandsignup/presention/pages/pages.dart';
 import 'package:loginandsignup/presention/pages/riwayat/cubit/riwayat_cubit.dart';
+import 'package:loginandsignup/presention/pages/tukar_poin/cubit/tukarpoint_cubit.dart';
 
 final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
   GoRoute(
@@ -80,7 +81,10 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
   GoRoute(
     path: "/TukarPoint1",
     name: "point1",
-    builder: (context, state) => TukarPoint1(),
+    builder: (context, state) {
+      BlocProvider.of<TukarpointCubit>(context).fecthTukarPoint();
+      return const TukarPoint1();
+    },
   ),
   GoRoute(
     path: "/PenjemputanScreen",
