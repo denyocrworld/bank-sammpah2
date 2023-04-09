@@ -11,6 +11,7 @@ class _NavigasiBarState extends State<NavigasiBar> {
   int navigasiBar = 0;
   final screen = [
     HomeScreen(),
+    // ProfileChange(),
     Text(
       'Reward',
       style: TextStyle(fontSize: 36),
