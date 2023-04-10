@@ -127,4 +127,9 @@ final GoRouter router = GoRouter(initialLocation: "/NavigasiBar", routes: [
     name: "detailarticle",
     builder: (context, state) => DetailArticle(),
   ),
+  GoRoute(
+    path: "/ChangeProfile",
+    name: "changeProfile",
+    builder: (context, state) => ChangeProfile(),
+  ),
 ]);
