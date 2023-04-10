@@ -27,7 +27,7 @@ class DetailHistoryRepositoryImpl implements DetailHistoryRepository {
         if (baseResponseObject.status == null) {
           return ResultError(message: "Status Null");
         } else if (baseResponseObject.status!.code != 0) {
-          return ResultError(message: "Statur Code Not Null");
+          return ResultError(message: "Status Code Not Null");
         } else {
           return ResultSuccess(baseResponseObject.data!.toDetailHistoryData());
         }

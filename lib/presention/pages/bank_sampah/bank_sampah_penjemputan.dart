@@ -48,7 +48,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
         ),
         leading: GestureDetector(
           onTap: () {
-            context.go('/LayananScreen');
+            context.go('/BankSampahScreen');
           },
           child: Icon(
             CupertinoIcons.arrow_left,
@@ -415,7 +415,9 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    context.go("/SuccessPenjemputan");
+                  },
                   child: const Text("Proses Penjemputan"),
                 ),
               ),

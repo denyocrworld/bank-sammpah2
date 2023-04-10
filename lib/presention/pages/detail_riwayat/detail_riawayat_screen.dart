@@ -22,7 +22,7 @@ class _DetailRiwayatState extends State<DetailRiwayat> {
                 color: Color(0xFF001F29), fontWeight: FontWeight.w500)),
         leading: GestureDetector(
           onTap: () {
-            context.go('/HomeScreen');
+            context.go('/RiwayatScreen');
           },
           child: const Icon(
             CupertinoIcons.arrow_left,

@@ -57,7 +57,9 @@ class SuccessPenjemputan extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    context.go("/NavigasiBar");
+                  },
                   child: const Text("Kembali ke Home"),
                 ),
               ),

@@ -36,7 +36,7 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
         ),
         leading: GestureDetector(
           onTap: () {
-            context.go('/HomeScreen');
+            context.go('/NavigasiBar');
           },
           child: const Icon(
             CupertinoIcons.arrow_left,

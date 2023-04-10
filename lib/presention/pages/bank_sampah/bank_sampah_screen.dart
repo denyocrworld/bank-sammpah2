@@ -664,7 +664,9 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                       borderRadius: BorderRadius.circular(16),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    context.go("/SampahPenjemputan");
+                  },
                   child: const Text("Selanjutnya"),
                 ),
               ),

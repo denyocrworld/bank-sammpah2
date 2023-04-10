@@ -674,7 +674,9 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   children: [
                                                     Image(
                                                       image: AssetImage(
-                                                          'asset/images/tri.png'),
+                                                        'asset/images/tri.png',
+                                                      ),
+                                                      height: 50,
                                                     ),
                                                   ],
                                                 ),
