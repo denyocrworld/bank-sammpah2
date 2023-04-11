@@ -21,4 +21,5 @@ class Routes {
   static const String ArticleScreen = 'article';
   static const String DetailArticle = 'detailarticle';
   static const String ChangeProfile = 'changeprofile';
+  static const String Profile = 'profile';
 }
