@@ -197,121 +197,6 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                   child: FittedBox(
                                     child: FloatingActionButton(
                                       onPressed: () {
-                                        bloc.inputan3.add('minus3');
-                                        countPoint();
-                                      },
-                                      child: Icon(
-                                        CupertinoIcons.minus,
-                                        size: 30.0,
-                                        color: Colors.white,
-                                      ),
-                                      backgroundColor: Color(0xFFFF7F33),
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 22, right: 22),
-                                  child: StreamBuilder(
-                                    stream: bloc.output3,
-                                    initialData: bloc.counter3,
-                                    builder: (context, snapshot) => Text(
-                                      '${snapshot.data}',
-                                      style: TextStyle(
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.w400,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 20),
-                                  child: SizedBox(
-                                    width: 25,
-                                    height: 25,
-                                    child: FittedBox(
-                                      child: FloatingActionButton(
-                                        onPressed: () {
-                                          bloc.inputan3.add('add3');
-                                          countPoint();
-                                        },
-                                        child: Icon(
-                                          CupertinoIcons.plus,
-                                          size: 30.0,
-                                          color: Colors.white,
-                                        ),
-                                        backgroundColor: Color(0xFFFF7F33),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
-                  child: Container(
-                    height: 75,
-                    width: MediaQuery.of(context).size.width * 1,
-                    decoration: BoxDecoration(
-                      color: Color(0xFFFAFDFF),
-                      borderRadius: BorderRadius.circular(16),
-                      border: Border.all(
-                        width: 0.5,
-                        color: Colors.grey,
-                      ),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Image.asset(
-                            "asset/images/botol_kaca.png",
-                            width: 40,
-                            height: 40,
-                          ),
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 16),
-                            child: Text(
-                              "Kaca/Beling",
-                              style: TextStyle(
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.w500,
-                              ),
-                              textAlign: TextAlign.start,
-                            ),
-                          ),
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(bottom: 5),
-                              child: Text(
-                                "Berat/KG",
-                                style: TextStyle(
-                                    fontSize: 12.0,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color(0xFF5A5F66)),
-                              ),
-                            ),
-                            Row(
-                              children: [
-                                SizedBox(
-                                  width: 25,
-                                  height: 25,
-                                  child: FittedBox(
-                                    child: FloatingActionButton(
-                                      onPressed: () {
                                         bloc.inputan.add('minus');
                                         countPoint();
                                       },
@@ -387,7 +272,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                         Padding(
                           padding: const EdgeInsets.only(left: 15),
                           child: Image.asset(
-                            "asset/images/botol_kaleng.png",
+                            "asset/images/botol_kaca.png",
                             width: 40,
                             height: 40,
                           ),
@@ -396,7 +281,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 16),
                             child: Text(
-                              "Kaleng/Besi",
+                              "Kaca/Beling",
                               style: TextStyle(
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.w500,
@@ -502,7 +387,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                         Padding(
                           padding: const EdgeInsets.only(left: 15),
                           child: Image.asset(
-                            "asset/images/kertas.png",
+                            "asset/images/botol_kaleng.png",
                             width: 40,
                             height: 40,
                           ),
@@ -511,7 +396,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                           child: Padding(
                             padding: const EdgeInsets.only(left: 16),
                             child: Text(
-                              "Kertas/Karton",
+                              "Kaleng/Besi",
                               style: TextStyle(
                                 fontSize: 16.0,
                                 fontWeight: FontWeight.w500,
@@ -578,6 +463,121 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                       child: FloatingActionButton(
                                         onPressed: () {
                                           bloc.inputan2.add('add2');
+                                          countPoint();
+                                        },
+                                        child: Icon(
+                                          CupertinoIcons.plus,
+                                          size: 30.0,
+                                          color: Colors.white,
+                                        ),
+                                        backgroundColor: Color(0xFFFF7F33),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10, left: 20, right: 20),
+                  child: Container(
+                    height: 75,
+                    width: MediaQuery.of(context).size.width * 1,
+                    decoration: BoxDecoration(
+                      color: Color(0xFFFAFDFF),
+                      borderRadius: BorderRadius.circular(16),
+                      border: Border.all(
+                        width: 0.5,
+                        color: Colors.grey,
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: Image.asset(
+                            "asset/images/kertas.png",
+                            width: 40,
+                            height: 40,
+                          ),
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 16),
+                            child: Text(
+                              "Kertas/Karton",
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              textAlign: TextAlign.start,
+                            ),
+                          ),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(bottom: 5),
+                              child: Text(
+                                "Berat/KG",
+                                style: TextStyle(
+                                    fontSize: 12.0,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xFF5A5F66)),
+                              ),
+                            ),
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 25,
+                                  height: 25,
+                                  child: FittedBox(
+                                    child: FloatingActionButton(
+                                      onPressed: () {
+                                        bloc.inputan3.add('minus3');
+                                        countPoint();
+                                      },
+                                      child: Icon(
+                                        CupertinoIcons.minus,
+                                        size: 30.0,
+                                        color: Colors.white,
+                                      ),
+                                      backgroundColor: Color(0xFFFF7F33),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 22, right: 22),
+                                  child: StreamBuilder(
+                                    stream: bloc.output3,
+                                    initialData: bloc.counter3,
+                                    builder: (context, snapshot) => Text(
+                                      '${snapshot.data}',
+                                      style: TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 20),
+                                  child: SizedBox(
+                                    width: 25,
+                                    height: 25,
+                                    child: FittedBox(
+                                      child: FloatingActionButton(
+                                        onPressed: () {
+                                          bloc.inputan3.add('add3');
                                           countPoint();
                                         },
                                         child: Icon(

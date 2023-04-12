@@ -173,7 +173,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 Padding(
                   padding: const EdgeInsets.only(top: 65, left: 36),
                   child: FloatingActionButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.go("/Profile");
+                    },
                     child: Icon(
                       Icons.account_circle,
                       size: 30.0,
@@ -216,7 +218,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     child: Container(
                                       height: 150,
                                       width: MediaQuery.of(context).size.width *
-                                          0.5,
+                                          0.4,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(16),
                                         color: const Color(0xFFF3FAFF),
@@ -267,7 +269,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     child: Container(
                                       height: 150,
                                       width: MediaQuery.of(context).size.width *
-                                          0.5,
+                                          0.4,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(16),
                                         color: const Color(0xFFF3FAFF),
@@ -519,6 +521,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               final news = homeState.data.news[index];
                               return SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,
+                                physics: const BouncingScrollPhysics(),
                                 child: Row(
                                   children: [
                                     Padding(
@@ -529,7 +532,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           width: MediaQuery.of(context)
                                                   .size
                                                   .width *
-                                              0.7,
+                                              0.5,
                                           decoration: BoxDecoration(
                                             color: const Color(0xFFFAFDFF),
                                             borderRadius:
@@ -538,60 +541,52 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 color: Colors.black,
                                                 width: 0.1),
                                           ),
-                                          child: SingleChildScrollView(
-                                            controller: ScrollController(),
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.stretch,
-                                              children: [
-                                                Image.asset(
-                                                    'asset/images/pencuci.png',
-                                                    height: 100,
-                                                    fit: BoxFit.fill),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          top: 16, left: 16),
-                                                  child: ReadMoreText(
-                                                    '${news.title}',
-                                                    trimLines: 2,
-                                                    colorClickableText:
-                                                        Colors.grey,
-                                                    trimMode: TrimMode.Line,
-                                                    trimCollapsedText:
-                                                        'Show more',
-                                                    trimExpandedText:
-                                                        'Show less',
-                                                    moreStyle: TextStyle(
-                                                        fontSize: 14,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.stretch,
+                                            children: [
+                                              Image.asset(
+                                                  'asset/images/pencuci.png',
+                                                  height: 100,
+                                                  fit: BoxFit.fill),
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 16, left: 16),
+                                                child: ReadMoreText(
+                                                  '${news.title}',
+                                                  trimLines: 1,
+                                                  colorClickableText:
+                                                      Colors.grey,
+                                                  trimMode: TrimMode.Line,
+                                                  trimCollapsedText: '',
+                                                  trimExpandedText: 'Show less',
+                                                  moreStyle: TextStyle(
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.bold),
                                                 ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          top: 8, left: 16),
-                                                  child: ReadMoreText(
-                                                    '${news.content}',
-                                                    trimLines: 2,
-                                                    colorClickableText:
-                                                        Colors.grey,
-                                                    trimMode: TrimMode.Line,
-                                                    trimCollapsedText:
-                                                        'Show more',
-                                                    trimExpandedText:
-                                                        'Show less',
-                                                    moreStyle: TextStyle(
-                                                        fontSize: 14,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
+                                              ),
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 8, left: 16),
+                                                child: ReadMoreText(
+                                                  '${news.content}',
+                                                  trimLines: 2,
+                                                  colorClickableText:
+                                                      Colors.grey,
+                                                  trimMode: TrimMode.Line,
+                                                  trimCollapsedText:
+                                                      'Show more',
+                                                  trimExpandedText: 'Show less',
+                                                  moreStyle: TextStyle(
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ),
+                                              )
+                                            ],
                                           ),
                                         ),
                                       ),
@@ -604,7 +599,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           width: MediaQuery.of(context)
                                                   .size
                                                   .width *
-                                              0.7,
+                                              0.5,
                                           decoration: BoxDecoration(
                                             color: const Color(0xFFFAFDFF),
                                             borderRadius:
@@ -613,65 +608,57 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 color: Colors.black,
                                                 width: 0.1),
                                           ),
-                                          child: SingleChildScrollView(
-                                            controller: ScrollController(),
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.start,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.stretch,
-                                              children: [
-                                                Image.asset(
-                                                    'asset/images/pencuci.png',
-                                                    height: 100,
-                                                    fit: BoxFit.fill),
+                                          child: Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.stretch,
+                                            children: [
+                                              Image.asset(
+                                                  'asset/images/pencuci.png',
+                                                  height: 100,
+                                                  fit: BoxFit.fill),
+                                              // ignore: prefer_const_constructors
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 16, left: 16),
                                                 // ignore: prefer_const_constructors
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          top: 16, left: 16),
-                                                  // ignore: prefer_const_constructors
-                                                  child: ReadMoreText(
-                                                    '${news.title}',
-                                                    trimLines: 2,
-                                                    colorClickableText:
-                                                        Colors.grey,
-                                                    trimMode: TrimMode.Line,
-                                                    trimCollapsedText:
-                                                        'Show more',
-                                                    trimExpandedText:
-                                                        'Show less',
-                                                    moreStyle: TextStyle(
-                                                        fontSize: 14,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
+                                                child: ReadMoreText(
+                                                  '${news.title}',
+                                                  trimLines: 1,
+                                                  colorClickableText:
+                                                      Colors.grey,
+                                                  trimMode: TrimMode.Line,
+                                                  trimCollapsedText: '',
+                                                  trimExpandedText: 'Show less',
+                                                  moreStyle: TextStyle(
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.bold),
                                                 ),
+                                              ),
+                                              // ignore: prefer_const_constructors
+                                              Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 8, left: 16),
                                                 // ignore: prefer_const_constructors
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          top: 8, left: 16),
+                                                child: ReadMoreText(
+                                                  '${news.content}',
+                                                  trimLines: 2,
+                                                  colorClickableText:
+                                                      Colors.grey,
+                                                  trimMode: TrimMode.Line,
+                                                  trimCollapsedText:
+                                                      'Show more',
+                                                  trimExpandedText: 'Show less',
+                                                  moreStyle: TextStyle(
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.bold),
                                                   // ignore: prefer_const_constructors
-                                                  child: ReadMoreText(
-                                                    '${news.content}',
-                                                    trimLines: 2,
-                                                    colorClickableText:
-                                                        Colors.grey,
-                                                    trimMode: TrimMode.Line,
-                                                    trimCollapsedText:
-                                                        'Show more',
-                                                    trimExpandedText:
-                                                        'Show less',
-                                                    moreStyle: TextStyle(
-                                                        fontSize: 14,
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                    // ignore: prefer_const_constructors
-                                                  ),
-                                                )
-                                              ],
-                                            ),
+                                                ),
+                                              )
+                                            ],
                                           ),
                                         ),
                                       ),
