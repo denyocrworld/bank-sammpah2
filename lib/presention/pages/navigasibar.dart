@@ -17,11 +17,8 @@ class _NavigasiBarState extends State<NavigasiBar> {
       style: TextStyle(fontSize: 36),
       textAlign: TextAlign.center,
     ),
-    Text(
-      'Reward',
-      style: TextStyle(fontSize: 36),
-      textAlign: TextAlign.center,
-    )
+    Profile(),
+    ChangeProfile(),
   ];
   @override
   Widget build(BuildContext context) {

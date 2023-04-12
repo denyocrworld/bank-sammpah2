@@ -53,15 +53,23 @@ class _ProfileState extends State<Profile> {
                                   color: Colors.grey,
                                 ),
                                 Expanded(
-                                  child: Text(
-                                    'John Doe',
-                                    style: TextStyle(fontSize: 22),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 8),
+                                    child: Text(
+                                      'John Doe',
+                                      style: TextStyle(fontSize: 22),
+                                    ),
                                   ),
                                 ),
-                                Icon(
-                                  Icons.edit,
-                                  size: 16,
-                                  color: Colors.grey,
+                                GestureDetector(
+                                  onTap: () {
+                                    context.go("/ChangeProfile");
+                                  },
+                                  child: Icon(
+                                    Icons.edit,
+                                    size: 16,
+                                    color: Colors.grey,
+                                  ),
                                 ),
                               ],
                             ),
@@ -184,7 +192,7 @@ class _ProfileState extends State<Profile> {
                   children: [
                     // ignore: prefer_const_constructors
                     Padding(
-                      padding: const EdgeInsets.only(top: 12, left: 20),
+                      padding: const EdgeInsets.only(top: 12, left: 0),
                       child: const Text('Riwayat',
                           style: TextStyle(
                               fontSize: 14,
@@ -192,7 +200,7 @@ class _ProfileState extends State<Profile> {
                               color: Colors.black)),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 12, right: 20),
+                      padding: const EdgeInsets.only(top: 12, right: 0),
                       child: TextButton(
                         onPressed: () {
                           context.go("/RiwayatScreen");
@@ -223,8 +231,7 @@ class _ProfileState extends State<Profile> {
                 Column(
                   children: [
                     Padding(
-                      padding:
-                          const EdgeInsets.only(left: 20, right: 20, top: 10),
+                      padding: const EdgeInsets.only(left: 0, right: 0, top: 0),
                       child: Container(
                         width: MediaQuery.of(context).size.width,
                         height: 120,
