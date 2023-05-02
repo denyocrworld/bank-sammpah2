@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:loginandsignup/presention/pages/bank_sampah/cubit/bank_sampah_cubit.dart';
 import 'package:loginandsignup/presention/pages/detail_riwayat/cubit/detal_history_cubit.dart';
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 // import 'package:loginandsignup/pages/pages.dart';
@@ -8,7 +9,11 @@ import 'package:loginandsignup/presention/pages/pembayaran/cubit/pilih_pembayara
 import 'package:loginandsignup/presention/pages/riwayat/cubit/riwayat_cubit.dart';
 import 'package:loginandsignup/presention/pages/tukar_poin/cubit/tukarpoint_cubit.dart';
 
+<<<<<<< HEAD
 final GoRouter router = GoRouter(initialLocation: "/KonfirmasiPembayaran", routes: [
+=======
+final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
+>>>>>>> 22bcab84aa19dce1401f5a06320bcde2a6d16b06
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",
@@ -77,7 +82,10 @@ final GoRouter router = GoRouter(initialLocation: "/KonfirmasiPembayaran", route
   GoRoute(
     path: "/BankSampahScreen",
     name: "bank",
-    builder: (context, state) => BankSampahScreen(),
+    builder: (context, state) {
+      BlocProvider.of<BankSampahCubit>(context).fecthBankSampah("");
+      return const BankSampahScreen();
+    },
   ),
   GoRoute(
     path: "/TukarPoint1",
