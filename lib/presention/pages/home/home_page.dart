@@ -516,6 +516,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                         ListView.builder(
                             shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
                             itemCount: homeState.data.news.length,
                             itemBuilder: (context, index) {
                               final news = homeState.data.news[index];

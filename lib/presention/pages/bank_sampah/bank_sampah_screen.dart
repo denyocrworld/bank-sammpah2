@@ -236,6 +236,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                         onPressed: () {
                                           bloc.inputan.add('add');
                                           countPoint();
+                                          
                                         },
                                         child: Icon(
                                           CupertinoIcons.plus,
