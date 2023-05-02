@@ -17,6 +17,7 @@ import 'package:loginandsignup/presention/pages/detail_riwayat/cubit/detal_histo
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 import 'package:loginandsignup/presention/pages/login/cubit/login_cubit.dart';
 import 'package:loginandsignup/presention/pages/lupa_password/cubit/forgot_pass_cubit.dart';
+import 'package:loginandsignup/presention/pages/profile/cubit/profile_change_cubit.dart';
 import 'package:loginandsignup/presention/pages/riwayat/cubit/riwayat_cubit.dart';
 import 'package:loginandsignup/presention/pages/tukar_poin/cubit/tukarpoint_cubit.dart';
 import 'package:rounded_expansion_tile/rounded_expansion_tile.dart';
@@ -48,3 +49,5 @@ part 'article/article_screen.dart';
 part 'detail_article/detail_article.dart';
 part 'profile/profile_change_screen.dart';
 part 'profile/profile_screen.dart';
+part 'pembayaran/pilih_pembayaran_screen.dart';
+part 'pembayaran/konfirmasi_pembayaran_screen.dart';
