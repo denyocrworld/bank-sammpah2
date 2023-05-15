@@ -7,7 +7,12 @@ class Profile extends StatefulWidget {
   State<Profile> createState() => _ProfileState();
 }
 
+<<<<<<< HEAD
+class _ProfileState extends State<Profile>{
+  
+=======
 class _ProfileState extends State<Profile> {
+>>>>>>> 22bcab84aa19dce1401f5a06320bcde2a6d16b06
   @override
   Widget build(BuildContext context) {
     return Scaffold(
