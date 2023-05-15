@@ -196,7 +196,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                   height: 25,
                                   child: FittedBox(
                                     child: FloatingActionButton(
-                                      heroTag: "f1",
+                                      heroTag: null,
                                       onPressed: () {
                                         bloc.inputan.add('minus');
                                         countPoint();
@@ -232,11 +232,10 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                     height: 25,
                                     child: FittedBox(
                                       child: FloatingActionButton(
-                                        heroTag: "f1",
+                                        heroTag: null,
                                         onPressed: () {
                                           bloc.inputan.add('add');
                                           countPoint();
-                                          
                                         },
                                         child: Icon(
                                           CupertinoIcons.plus,
@@ -314,7 +313,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                   height: 25,
                                   child: FittedBox(
                                     child: FloatingActionButton(
-                                      heroTag: "f1",
+                                      heroTag: null,
                                       onPressed: () {
                                         bloc.inputan1.add('minus1');
                                         countPoint();
@@ -350,7 +349,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                     height: 25,
                                     child: FittedBox(
                                       child: FloatingActionButton(
-                                        heroTag: "f1",
+                                        heroTag: null,
                                         onPressed: () {
                                           bloc.inputan1.add('add1');
                                           countPoint();
@@ -431,7 +430,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                   height: 25,
                                   child: FittedBox(
                                     child: FloatingActionButton(
-                                      heroTag: "f1",
+                                      heroTag: null,
                                       onPressed: () {
                                         bloc.inputan2.add('minus2');
                                         countPoint();
@@ -467,7 +466,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                     height: 25,
                                     child: FittedBox(
                                       child: FloatingActionButton(
-                                        heroTag: "f1",
+                                        heroTag: null,
                                         onPressed: () {
                                           bloc.inputan2.add('add2');
                                           countPoint();
@@ -548,7 +547,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                   height: 25,
                                   child: FittedBox(
                                     child: FloatingActionButton(
-                                      heroTag: "f1",
+                                      heroTag: null,
                                       onPressed: () {
                                         bloc.inputan3.add('minus3');
                                         countPoint();
@@ -584,7 +583,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                     height: 25,
                                     child: FittedBox(
                                       child: FloatingActionButton(
-                                        heroTag: "f1",
+                                        heroTag: null,
                                         onPressed: () {
                                           bloc.inputan3.add('add3');
                                           countPoint();
@@ -626,6 +625,16 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                             fontWeight: FontWeight.w400,
                             color: Color(0xFF019BF1)),
                       ),
+                      // StreamBuilder(
+                      //   stream: ,
+                      //   builder: (context, AsyncSnapshot snapshot) {
+                      //     if (snapshot.connectionState ==
+                      //         ConnectionState.done) {
+                      //       return Text("$point");
+                      //     }
+                      //     return Text("0");
+                      //   },
+                      // )
                     ],
                   ),
                 ),

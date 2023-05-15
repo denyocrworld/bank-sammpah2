@@ -1,7 +1,23 @@
 part of '../pages.dart';
 
-class SuccesScreen extends StatelessWidget {
+class SuccesScreen extends StatefulWidget {
   const SuccesScreen({super.key});
+
+  @override
+  State<SuccesScreen> createState() => _SuccesScreenState();
+}
+
+class _SuccesScreenState extends State<SuccesScreen> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(
+      Duration(seconds: 5),
+      () {
+        context.go("/NavigasiBar");
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +52,7 @@ class SuccesScreen extends StatelessWidget {
                         padding:
                             const EdgeInsets.only(top: 16, left: 32, right: 32),
                         child: Text(
-                          'Selamat pendaftaran kamu berhasil!',
+                          'Selamat Pendaftaran Kamu Berhasil!',
                           style: TextStyle(fontSize: 22),
                           textAlign: TextAlign.center,
                         ),

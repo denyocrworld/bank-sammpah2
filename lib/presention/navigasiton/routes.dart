@@ -12,22 +12,22 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",
-    builder: (context, state) => SplashScreen(),
+    builder: (context, state) => const SplashScreen(),
   ),
   GoRoute(
     path: "/LoginScreen",
     name: "login",
-    builder: (context, state) => LoginScreen(),
+    builder: (context, state) => const LoginScreen(),
   ),
   GoRoute(
     path: "/AutentikasiScreen",
     name: "auten",
-    builder: (context, state) => AutentikasiScreen(),
+    builder: (context, state) => const AutentikasiScreen(),
   ),
   GoRoute(
     path: "/SuccesScreen",
     name: "succes",
-    builder: (context, state) => SuccesScreen(),
+    builder: (context, state) => const SuccesScreen(),
   ),
   GoRoute(
     path: "/HomeScreen",
@@ -40,12 +40,12 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
   GoRoute(
     path: "/LayananScreen",
     name: "layanan",
-    builder: (context, state) => LayananScreen(),
+    builder: (context, state) => const LayananScreen(),
   ),
   GoRoute(
     path: "/RegisterScreen",
     name: "resgis",
-    builder: (context, state) => RegisterScreen(),
+    builder: (context, state) => const RegisterScreen(),
   ),
   GoRoute(
       path: "/NavigasiBar",
@@ -57,22 +57,22 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
   GoRoute(
     path: "/LupaPassword",
     name: "lupa",
-    builder: (context, state) => LupaPassword(),
+    builder: (context, state) => const LupaPassword(),
   ),
   GoRoute(
     path: "/ConfigPass",
     name: "configpass",
-    builder: (context, state) => ConfigPass(),
+    builder: (context, state) => const ConfigPass(),
   ),
   GoRoute(
     path: "/SuccesPass",
     name: "succespass",
-    builder: (context, state) => SuccesPass(),
+    builder: (context, state) => const SuccesPass(),
   ),
   GoRoute(
     path: "/LayananScreen",
     name: "layananscreen",
-    builder: (context, state) => SuccesPass(),
+    builder: (context, state) => const SuccesPass(),
   ),
   GoRoute(
     path: "/BankSampahScreen",
@@ -93,17 +93,17 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
   GoRoute(
     path: "/PenjemputanScreen",
     name: "penjemputan",
-    builder: (context, state) => PenjemputanScreen(),
+    builder: (context, state) => const PenjemputanScreen(),
   ),
   GoRoute(
     path: "/SampahPenjemputan",
     name: "sampahpenjemputan",
-    builder: (context, state) => SampahPenjemputan(),
+    builder: (context, state) => const SampahPenjemputan(),
   ),
   GoRoute(
     path: "/SuccessPenjemputan",
     name: "successpenjemputan",
-    builder: (context, state) => SuccessPenjemputan(),
+    builder: (context, state) => const SuccessPenjemputan(),
   ),
   GoRoute(
     path: "/DetailRiwayat",
@@ -124,21 +124,21 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
   GoRoute(
     path: "/ArticleScreen",
     name: "article",
-    builder: (context, state) => ArticleScreen(),
+    builder: (context, state) => const ArticleScreen(),
   ),
   GoRoute(
     path: "/DetailArticle",
     name: "detailarticle",
-    builder: (context, state) => DetailArticle(),
+    builder: (context, state) => const DetailArticle(),
   ),
   GoRoute(
     path: "/ChangeProfile",
     name: "changeProfile",
-    builder: (context, state) => ChangeProfile(),
+    builder: (context, state) => const ChangeProfile(),
   ),
   GoRoute(
     path: "/Profile",
     name: "Profile",
-    builder: (context, state) => Profile(),
+    builder: (context, state) => const Profile(),
   ),
 ]);

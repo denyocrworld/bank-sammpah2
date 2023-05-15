@@ -231,9 +231,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         ),
                         Expanded(
                           child: RadioListTile(
-                            value: "Perempuan",
+                            value: "Wanita",
                             groupValue: jeniskelaminValue,
-                            title: const Text("Perempuan"),
+                            title: const Text("Wanita"),
                             onChanged: (value) {
                               setState(() {
                                 jeniskelaminValue = value;
