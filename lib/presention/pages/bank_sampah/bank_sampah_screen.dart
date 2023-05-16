@@ -314,27 +314,33 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                   ],
                 ),
               ),
-              LinkedLabelRadio(
-                label: 'Tukar di titik antar',
-                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                value: false,
-                groupValue: _isRadioSelected,
-                onChanged: (bool newValue) {
-                  setState(() {
-                    _isRadioSelected = newValue;
-                  });
-                },
+              Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10.0),
+                child: LinkedLabelRadio(
+                  label: 'Tukar di titik antar',
+                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                  value: false,
+                  groupValue: _isRadioSelected,
+                  onChanged: (bool newValue) {
+                    setState(() {
+                      _isRadioSelected = newValue;
+                    });
+                  },
+                ),
               ),
-              LinkedLabelRadio(
-                label: 'Tukar di titik antar (Drop Point)',
-                padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                value: true,
-                groupValue: _isRadioSelected,
-                onChanged: (bool newValue) {
-                  setState(() {
-                    _isRadioSelected = newValue;
-                  });
-                },
+              Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10.0),
+                child: LinkedLabelRadio(
+                  label: 'Tukar di titik antar (Drop Point)',
+                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                  value: true,
+                  groupValue: _isRadioSelected,
+                  onChanged: (bool newValue) {
+                    setState(() {
+                      _isRadioSelected = newValue;
+                    });
+                  },
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16),
