@@ -7,12 +7,11 @@ import 'package:loginandsignup/presention/pages/detail_riwayat/cubit/detal_histo
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 // import 'package:loginandsignup/pages/pages.dart';
 import 'package:loginandsignup/presention/pages/pages.dart';
-import 'package:loginandsignup/presention/pages/pembayaran/cubit/pilih_pembayaran_cubit.dart';
+// import 'package:loginandsignup/presention/pages/pembayaran/cubit/pilih_pembayaran_cubit.dart';
 import 'package:loginandsignup/presention/pages/riwayat/cubit/riwayat_cubit.dart';
 import 'package:loginandsignup/presention/pages/tukar_poin/cubit/tukarpoint_cubit.dart';
 
-final GoRouter router =
-    GoRouter(initialLocation: "/ConditionalFormWidget", routes: [
+final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",
