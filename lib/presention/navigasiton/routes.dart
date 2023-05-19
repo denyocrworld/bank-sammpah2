@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+
 import 'package:loginandsignup/presention/pages/bank_sampah/cubit/bank_sampah_cubit.dart';
 
 import 'package:loginandsignup/presention/pages/detail_riwayat/cubit/detal_history_cubit.dart';
@@ -10,7 +11,8 @@ import 'package:loginandsignup/presention/pages/pembayaran/cubit/pilih_pembayara
 import 'package:loginandsignup/presention/pages/riwayat/cubit/riwayat_cubit.dart';
 import 'package:loginandsignup/presention/pages/tukar_poin/cubit/tukarpoint_cubit.dart';
 
-final GoRouter router = GoRouter(initialLocation: "/BankSampahScreen", routes: [
+final GoRouter router =
+    GoRouter(initialLocation: "/ConditionalFormWidget", routes: [
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",
@@ -146,6 +148,6 @@ final GoRouter router = GoRouter(initialLocation: "/BankSampahScreen", routes: [
   GoRoute(
     path: "/KonfirmasiPembayaran",
     name: "KonfirmasiPembayaranScreen",
-    builder: (context, state) => KonfirmasiPembayaranScreen(),
+    builder: (context, state) => const KonfirmasiPembayaranScreen(),
   ),
 ]);

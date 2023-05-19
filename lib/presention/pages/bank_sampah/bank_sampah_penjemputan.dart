@@ -31,6 +31,25 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
 
   DateTime pickDate = DateTime.now();
 
+  TimeOfDay _timeOfDay = TimeOfDay(hour: 8, minute: 30);
+
+  void _showTimePicker() {
+    showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.now(),
+    ).then((value) {
+      setState(() {
+        _timeOfDay = value!;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    jamController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +91,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
               child: TextFormField(
                 controller: lokasiController,
                 keyboardType: TextInputType.name,
-                style: TextStyle(fontSize: 14, color: Color(0xFF72777F)),
+                style: TextStyle(fontSize: 14, color: Colors.black),
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                   suffixIcon: Icon(Icons.location_on, color: Colors.grey),
@@ -105,13 +124,14 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
               width: MediaQuery.of(context).size.width * 1,
               padding: const EdgeInsets.only(top: 8, left: 20, right: 20),
               child: TextFormField(
+                readOnly: true,
                 controller: penjemputandController,
                 keyboardType: TextInputType.datetime,
-                style: TextStyle(fontSize: 14, color: Color(0xFF72777F)),
+                style: TextStyle(fontSize: 14, color: Colors.black),
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                  suffixIcon: GestureDetector(
-                    onTap: () async {
+                  suffixIcon: IconButton(
+                    onPressed: () async {
                       await showDatePicker(
                               context: context,
                               initialDate: pickDate,
@@ -129,7 +149,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                         penjemputandController.text = dateFormat.toString();
                       }
                     },
-                    child: Icon(
+                    icon: const Icon(
                       Icons.date_range_outlined,
                       color: Colors.grey,
                     ),
@@ -169,6 +189,16 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                       style: const TextStyle(fontSize: 14, color: Colors.black),
                       textAlign: TextAlign.center,
                       onChanged: (value) {
+                        setState(() {
+                          var intValue = int.tryParse(value) ?? 0;
+                          // var value = 0;
+                          if (intValue < 01) {
+                            intValue = 01;
+                          } else if (intValue > 12) {
+                            intValue = 12;
+                            jamController.text = intValue.toString();
+                          }
+                        });
                         if (value.length == 2) {
                           FocusScope.of(context).nextFocus();
                         }
@@ -218,6 +248,16 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                       style: const TextStyle(fontSize: 14, color: Colors.black),
                       textAlign: TextAlign.center,
                       onChanged: (value) {
+                        setState(() {
+                          var intValue = int.tryParse(value) ?? 0;
+                          // var value = 0;
+                          if (intValue < 00) {
+                            intValue = 00;
+                          } else if (intValue > 59) {
+                            intValue = 59;
+                            menitController.text = intValue.toString();
+                          }
+                        });
                         if (value.length == 2) {
                           FocusScope.of(context).nextFocus();
                         }
@@ -305,7 +345,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                                       _image = File(image!.path);
                                     });
                                   },
-                                  child: ListTile(
+                                  child: const ListTile(
                                     leading:
                                         Icon(CupertinoIcons.photo_on_rectangle),
                                     title: Text(
@@ -326,7 +366,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                                       _image = File(image!.path);
                                     });
                                   },
-                                  child: ListTile(
+                                  child: const ListTile(
                                     leading:
                                         Icon(CupertinoIcons.photo_camera_solid),
                                     title: Text(
@@ -351,7 +391,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                           width: MediaQuery.of(context).size.width,
                           fit: BoxFit.fill)
                       : Container(
-                          height: 200.0,
+                          height: 150.0,
                           decoration: const BoxDecoration(
                             image: DecorationImage(
                                 image: AssetImage('asset/images/sampah.png'),
@@ -368,7 +408,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Flexible(
+                const Flexible(
                   flex: 1,
                   child: Padding(
                     padding: const EdgeInsets.only(top: 80, left: 20),
@@ -380,7 +420,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                     ),
                   ),
                 ),
-                Flexible(
+                const Flexible(
                   flex: 2,
                   child: Align(
                     alignment: Alignment.centerRight,
@@ -410,7 +450,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                 height: 40,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFFF8D50),
+                    backgroundColor: const Color(0xFFFF8D50),
                     shape: ContinuousRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),

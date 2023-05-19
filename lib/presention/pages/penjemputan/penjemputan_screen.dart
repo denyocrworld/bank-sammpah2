@@ -22,6 +22,8 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
 
   TextEditingController lokasiController = TextEditingController();
   TextEditingController tanggalController = TextEditingController();
+  TextEditingController jamController = TextEditingController();
+  TextEditingController menitController = TextEditingController();
 
   String? groupValue;
 
@@ -110,6 +112,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                 width: MediaQuery.of(context).size.width * 1,
                 height: 36,
                 child: TextFormField(
+                  readOnly: true,
                   controller: tanggalController,
                   keyboardType: TextInputType.name,
                   style: TextStyle(
@@ -117,26 +120,30 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                   ),
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                    suffixIcon: GestureDetector(
-                        onTap: () async {
-                          await showDatePicker(
-                                  context: context,
-                                  initialDate: pickDate,
-                                  firstDate: DateTime(1800),
-                                  lastDate: DateTime(2100))
-                              .then((value) {
-                            if (value != null)
-                              setState(() {
-                                pickDate = value;
-                              });
-                          });
-                          if (pickDate != null) {
-                            String dateFormat =
-                                DateFormat("dd/MM/yyyy").format(pickDate);
-                            tanggalController.text = dateFormat.toString();
-                          }
-                        },
-                        child: const Icon(Icons.calendar_month)),
+                    suffixIcon: IconButton(
+                      onPressed: () async {
+                        await showDatePicker(
+                                context: context,
+                                initialDate: pickDate,
+                                firstDate: DateTime(1800),
+                                lastDate: DateTime(2100))
+                            .then((value) {
+                          if (value != null)
+                            setState(() {
+                              pickDate = value;
+                            });
+                        });
+                        if (pickDate != null) {
+                          String dateFormat =
+                              DateFormat("dd/MM/yyyy").format(pickDate);
+                          tanggalController.text = dateFormat.toString();
+                        }
+                      },
+                      icon: const Icon(
+                        Icons.calendar_month,
+                        color: Colors.grey,
+                      ),
+                    ),
                     filled: true,
                     fillColor: Colors.white,
                     hintText: "dd/mm/yy",
@@ -160,9 +167,20 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                     width: 40,
                     height: 40,
                     child: TextFormField(
+                      controller: jamController,
                       style: const TextStyle(fontSize: 14, color: Colors.black),
                       textAlign: TextAlign.center,
                       onChanged: (value) {
+                        setState(() {
+                          var intValue = int.tryParse(value) ?? 0;
+                          // var value = 0;
+                          if (intValue < 01) {
+                            intValue = 01;
+                          } else if (intValue > 12) {
+                            intValue = 12;
+                            jamController.text = intValue.toString();
+                          }
+                        });
                         if (value.length == 2) {
                           FocusScope.of(context).nextFocus();
                         }
@@ -208,9 +226,20 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                     width: 40,
                     height: 40,
                     child: TextFormField(
+                      controller: menitController,
                       style: const TextStyle(fontSize: 14, color: Colors.black),
                       textAlign: TextAlign.center,
                       onChanged: (value) {
+                        setState(() {
+                          var intValue = int.tryParse(value) ?? 0;
+                          // var value = 0;
+                          if (intValue < 00) {
+                            intValue = 00;
+                          } else if (intValue > 59) {
+                            intValue = 59;
+                            menitController.text = intValue.toString();
+                          }
+                        });
                         if (value.length == 2) {
                           FocusScope.of(context).nextFocus();
                         }
