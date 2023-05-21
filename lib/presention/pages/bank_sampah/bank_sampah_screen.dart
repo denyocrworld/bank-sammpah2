@@ -23,31 +23,48 @@ class BankSampahScreen extends StatefulWidget {
 
 class _BankSampahScreenState extends State<BankSampahScreen> {
   int point = 0;
+  List<Item> items = [];
+
+  @override
+  void initState() {
+    super.initState();
+    items = [item1, item2, item3, item4];
+  }
+
+  @override
+  void dispose() {
+    for (var item in items) {
+      item.count = 0;
+      item.tPoint = 0;
+    }
+    super.dispose();
+  }
 
   //cara 1 -----------------------------------------------
-  List<Item> item = [item1, item2, item3, item4];
+  // List<Item> item = [item1, item2, item3, item4];
   void grow1(index, name) {
-    print(item[index].count);
+    print(items[index].count);
     setState(() {
-      item[index!].count = item[index].count! + 1;
-      item[index!].tPoint = item[index].count! * item[index].value!;
+      items[index!].count = items[index].count! + 1;
+      items[index!].tPoint = items[index].count! * items[index].value!;
     });
-    print(item[index].count);
-    var allPoint = item.fold(0, (sum, e) => sum + e.tPoint!);
+    print(items[index].count);
+    var allPoint = items.fold(0, (sum, e) => sum + e.tPoint!);
     setState(() {
       point = allPoint;
     });
   }
 
-  void decrease(index) {
+  void decrease(int index) {
     setState(() {
-      if (item[index].count! > 0) {
-        item[index!].count = item[index].count! - 1;
+      if (items[index].count! > 0) {
+        items[index].count = items[index].count! - 1;
+        point = point - items[index].value!;
       }
     });
-    setState(() {
-      point = point - item[index].value!;
-    });
+    // setState(() {
+    //   point = point - items[index].value!;
+    // });
   }
 
   //cara 2 -----------------------------------------------
@@ -176,8 +193,9 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                 ),
               ),
               ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
-                  itemBuilder: (BuildContext context, int index) {
+                  itemBuilder: (context, index) {
                     return Padding(
                       padding:
                           const EdgeInsets.only(top: 20, left: 20, right: 20),
@@ -254,7 +272,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                       padding: const EdgeInsets.only(
                                           left: 22, right: 22),
                                       child: Text(
-                                        "${item[index].count}",
+                                        "${items[index].count}",
                                         style: TextStyle(
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.w400,
@@ -270,7 +288,8 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                           child: FloatingActionButton(
                                             heroTag: null,
                                             onPressed: () {
-                                              grow1(index, name[index]);
+                                              grow1(index,
+                                                  items[index].itemName!);
                                             },
                                             child: Icon(
                                               CupertinoIcons.plus,
@@ -291,7 +310,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                       ),
                     );
                   },
-                  itemCount: size.length),
+                  itemCount: items.length),
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
                 child: Row(
@@ -343,7 +362,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16),
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
                 child: Container(
                   height: 40,
                   width: MediaQuery.of(context).size.width * 1,

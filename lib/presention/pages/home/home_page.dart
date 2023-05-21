@@ -176,11 +176,23 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () {
                       context.go("/Profile");
                     },
-                    child: Icon(
-                      Icons.account_circle,
-                      size: 30.0,
-                      color: Colors.grey,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                '${homeState.data.profile.image}',
+                              ),
+                              fit: BoxFit.cover),
+                          borderRadius: BorderRadius.all(Radius.circular(50)),
+                          border: Border.all(color: Colors.white, width: 1.5)),
+                      //
                     ),
+                    // Image.network('${homeState.data.profile.image}'),
+                    // Icon(
+                    //   Icons.account_circle,
+                    //   size: 30.0,
+                    //   color: Colors.grey,
+                    // ),
                     mini: true,
                     backgroundColor: Colors.white,
                     elevation: 1,
@@ -515,6 +527,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                         ListView.builder(
+                            padding: EdgeInsets.zero,
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
                             itemCount: homeState.data.news.length,
