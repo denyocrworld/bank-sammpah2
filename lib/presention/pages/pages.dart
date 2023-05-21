@@ -11,7 +11,7 @@ import 'package:loginandsignup/data/repository/home/home_repository_impl.dart';
 import 'package:loginandsignup/data/repository/login/login_repository_impl.dart';
 import 'package:loginandsignup/data/repository/tukar_point/tukar_point_repository_impl.dart';
 import 'package:loginandsignup/domain/model/data/bank_sampah/bank_sampah_data.dart';
-import 'package:loginandsignup/presention/pages/bank_sampah/counter.dart';
+
 import 'package:loginandsignup/presention/pages/bank_sampah/cubit/bank_sampah_cubit.dart';
 import 'package:loginandsignup/presention/pages/bank_sampah/radiotile.dart';
 import 'package:loginandsignup/presention/pages/config_pass/cubit/config_pass_cubit.dart';
@@ -28,6 +28,7 @@ import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import '../../model/costum_shapes.dart';
 import 'package:readmore/readmore.dart';
+import 'dart:async';
 
 part 'home/home_page.dart';
 part 'login/login_screen.dart';

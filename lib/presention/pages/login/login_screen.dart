@@ -256,7 +256,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               padding: const EdgeInsets.only(right: 16),
                               child: Divider(
                                 thickness: 2,
-                                color: Color(0xffB3BCC5),
+                                color: const Color(0xffB3BCC5),
                               ),
                             ),
                           ),
@@ -270,8 +270,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 40,
                           child: OutlinedButton(
                             style: OutlinedButton.styleFrom(
-                              side: BorderSide(color: Color(0xFFFF7F33)),
-                              foregroundColor: Color(0xFFFF7F33),
+                              side: const BorderSide(color: Color(0xFFFF7F33)),
+                              foregroundColor: const Color(0xFFFF7F33),
                               shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.circular(8), // <-- Radius

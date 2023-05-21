@@ -10,15 +10,14 @@ class NavigasiBar extends StatefulWidget {
 class _NavigasiBarState extends State<NavigasiBar> {
   int navigasiBar = 0;
   final screen = [
-    HomeScreen(),
+    const HomeScreen(),
     // ProfileChange(),
-    Text(
-      'Reward',
-      style: TextStyle(fontSize: 36),
-      textAlign: TextAlign.center,
-    ),
-    Profile(),
-    ChangeProfile(),
+    // Text(
+    //   'Reward',
+    //   style: TextStyle(fontSize: 36),
+    //   textAlign: TextAlign.center,
+    // ),
+    const Profile(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -38,10 +37,10 @@ class _NavigasiBarState extends State<NavigasiBar> {
             label: 'Beranda',
           ),
           // ignore: prefer_const_constructors
-          BottomNavigationBarItem(
-            icon: const Icon(CupertinoIcons.ticket),
-            label: 'Reward',
-          ),
+          // BottomNavigationBarItem(
+          //   icon: const Icon(CupertinoIcons.ticket),
+          //   label: 'Reward',
+          // ),
           // ignore: prefer_const_constructors
           BottomNavigationBarItem(
             icon: const Icon(Icons.person),

@@ -234,9 +234,10 @@ class _DetailRiwayatState extends State<DetailRiwayat> {
                       padding: const EdgeInsets.only(top: 8, right: 20),
                       child: Container(
                         height: 125.0,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           image: DecorationImage(
-                              image: AssetImage('asset/images/sampah.png'),
+                              image: NetworkImage(
+                                  "${detalHistoryState.data.image}"),
                               fit: BoxFit.fill),
                           color: Colors.blueAccent,
                           borderRadius: BorderRadius.all(
