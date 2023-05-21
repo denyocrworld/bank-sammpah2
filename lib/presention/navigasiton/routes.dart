@@ -9,11 +9,7 @@ import 'package:loginandsignup/presention/pages/pembayaran/cubit/pilih_pembayara
 import 'package:loginandsignup/presention/pages/riwayat/cubit/riwayat_cubit.dart';
 import 'package:loginandsignup/presention/pages/tukar_poin/cubit/tukarpoint_cubit.dart';
 
-<<<<<<< HEAD
-final GoRouter router = GoRouter(initialLocation: "/KonfirmasiPembayaran", routes: [
-=======
-final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
->>>>>>> 22bcab84aa19dce1401f5a06320bcde2a6d16b06
+final GoRouter router = GoRouter(initialLocation: "/PilihPembayaran", routes: [
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",
@@ -150,5 +146,10 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
     path: "/KonfirmasiPembayaran",
     name: "KonfirmasiPembayaranScreen",
     builder: (context, state) => KonfirmasiPembayaranScreen(),
+  ),
+  GoRoute(
+    path: "/PilihPembayaran",
+    name: "PilihPembayaranScreen",
+    builder: (context, state) => PilihPembayaranScreen(),
   ),
 ]);

@@ -23,4 +23,5 @@ class Routes {
   static const String ChangeProfile = 'changeprofile';
   static const String Profile = 'profile';
   static const String KonfirmasiPembayaranScreen = 'konfirmasipembayaranscreen';
+  static const String PilihPembayaranScreen = 'pilihpembayaranscreen';
 }
