@@ -9,11 +9,7 @@ import 'package:loginandsignup/presention/pages/pages.dart';
 import 'package:loginandsignup/presention/pages/riwayat/cubit/riwayat_cubit.dart';
 import 'package:loginandsignup/presention/pages/tukar_poin/cubit/tukarpoint_cubit.dart';
 
-<<<<<<< HEAD
-final GoRouter router = GoRouter(initialLocation: "/PilihPembayaran", routes: [
-=======
-final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
->>>>>>> 0e5b7d0c4bd49608cd28bb80694586eba53d3539
+final GoRouter router = GoRouter(initialLocation: "/KonfirmasiPembayaran", routes: [
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",

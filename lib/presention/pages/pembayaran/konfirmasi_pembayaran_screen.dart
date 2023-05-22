@@ -7,8 +7,14 @@ class KonfirmasiPembayaranScreen extends StatefulWidget {
   State<KonfirmasiPembayaranScreen> createState() => _KonfirmasiPembayaranScreenState();
 }
 
-class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen> {
-  
+class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen> with TickerProviderStateMixin  {
+  TabController? _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = new TabController(vsync: this, length: 3);
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,7 +25,7 @@ class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen>
         title: const Text(
           "Konfirmasi Pembayaran",
           style: TextStyle(
-              fontSize: 14.0, fontWeight: FontWeight.bold, color: Colors.black),
+              fontSize: 20.0, fontWeight: FontWeight.w500, color: Colors.black),
         ),
         leading: GestureDetector(
           onTap: () {
@@ -31,7 +37,8 @@ class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen>
           ),
         ),
       ),
-      body: BlocListener<LoginCubit, LoginState>(
+      body: 
+      BlocListener<LoginCubit, LoginState>(
         listener: (context, loginState) {
           if (loginState is LoginIsError) {
             ((loginState.message == ""
@@ -49,6 +56,7 @@ class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen>
           // TODO: implement listener
         },
           child: SingleChildScrollView(
+            
             child : Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
               child : Column(
@@ -280,78 +288,103 @@ class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen>
                       'Jika anda sudah melakukan pembayaran, maka akan terkonfirmasi secara otomatis', style: TextStyle(fontSize: 18),
                     textAlign: TextAlign.center,
                     ),
-                  ),
-                  // Padding(
-                  //   padding: const EdgeInsets.only(top: 24, right: 20, left: 20),
-                  //   child : Container(
-                  //     height: 421,
-                  //     width: MediaQuery.of(context).size.width * 1,
-                  //         decoration: BoxDecoration(
-                  //           color: Color(0xFFF8FCFF),
-                  //           borderRadius: BorderRadius.circular(16)),
-                  //         child : MaterialApp(
-                  //           home : DefaultTabController(
-                  //             length : 3,
-                  //             child : TabBar(
-                  //               tabs: [
-                  //                 Tab(
-                  //                   child : Text(
-                  //                     'M-Banking', style: TextStyle(fontSize: 18),
-                  //                   ),
-                  //                 ),
-                  //                 Tab(
-                  //                   child : Text(
-                  //                     'KlikBCA', style: TextStyle(fontSize: 18),
-                  //                   ),
-                  //                 ),
-                  //                 Tab(
-                  //                   child : Text(
-                  //                     'ATM', style: TextStyle(fontSize: 18),
-                  //                   ),
-                  //                 ),
-                  //               ],
-                  //             ),
-                  //           ), 
-                  //         ),
-                  //   ),          
-                  // ),
+                  ),  
                   Padding(
                     padding: const EdgeInsets.only(top: 24, right: 20, left: 20),
-                    child : Container(
-                      height: 421,
-                      width: MediaQuery.of(context).size.width * 1,
-                          decoration: BoxDecoration(
-                            color: Color(0xFF019BF1),
-                            borderRadius: BorderRadius.circular(16)),
-                          child : Column(
-                            children: [
-                              Padding(
-                              padding: const EdgeInsets.only(top: 20, left :10),
-                              child: Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 10, left: 10),
-                                      child : Text(
-                                        'M-Banking', style: TextStyle(fontSize: 18),
-                                        ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 10, left: 10),
-                                      child : Text(
-                                        'KlikBCA', style: TextStyle(fontSize: 18),
-                                        ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 10, left: 10),
-                                      child : Text(
-                                        'ATM', style: TextStyle(fontSize: 18),
-                                        ),
-                                    ),
-                                  ],
-                                ),
-                              ),  
-                            ],
-                          ),
+                    child : Column(
+                      // resizeToAvoidBottomInset: false,
+                      children: [ 
+                        Container(
+                        height: 49,
+                        width: 320,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFF3FAFF),
+                              border: Border.all(
+                              color: const Color(0xFF019BF1),
+                              width: 1.0,
+                              style: BorderStyle.solid),
+                              borderRadius: BorderRadius.only(topLeft : Radius.circular(10), topRight: Radius.circular(10)),),
+                            child : 
+                                Padding(
+                                padding: const EdgeInsets.only(),
+                                child: 
+                                  TabBar(
+                                    controller: _tabController,
+                                    labelColor: Color(0xFFFFFFFF),
+                                    unselectedLabelColor: Color(0xFF72777F),
+                                    indicator : BoxDecoration( color: const Color(0xFF019BF1),),
+                                    tabs: [
+                                      Tab(
+                                        child : Text( 'M-Banking', style: TextStyle(fontSize: 15,),),
+                                      ),
+                                      Tab(
+                                        child : Text( 'KlikBCA', style: TextStyle(fontSize: 15,),),
+                                      ),
+                                      Tab(
+                                        child : Text( 'ATM', style: TextStyle(fontSize: 15,),),
+                                      ),
+                                    ]
+                                  ),
+                                ),         
+                        ),
+                        Container(
+                          height: 372,
+                          width: 320, //320, //MediaQuery.of(context).size.width * 1,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFF3FAFF),
+                              border: Border.all(
+                              color: const Color(0xFF019BF1),
+                              width: 1.0,
+                              style: BorderStyle.solid),
+                              borderRadius: BorderRadius.only(bottomLeft : Radius.circular(10), bottomRight: Radius.circular(10)),),
+                            child : 
+                              TabBarView(
+                                controller: _tabController,
+                                children: [
+                                  Image(
+                                    image: AssetImage(
+                                        'asset/images/Desc_Bank.png'),
+                                  ),
+                                  Image(
+                                    image: AssetImage(
+                                        'asset/images/Desc_Bank.png'),
+                                  ),
+                                  Image(
+                                    image: AssetImage(
+                                        'asset/images/Desc_Bank.png'),
+                                  ),
+                                  // Column(
+                                  //   children : [Text( 'KlikBCA', style: TextStyle(fontSize: 18, color: Color(0xFF72777F),),),]
+                                  // ),
+                                  // Column(
+                                  //   children : [Text( 'ATM', style: TextStyle(fontSize: 18, color: Color(0xFF72777F),),),]
+                                  // ),
+                                ]
+                              ),
+                              // Column(
+                              //   children: [
+                              //     Padding(
+                              //     padding: const EdgeInsets.only(top: 20, left :10),
+                              //     child: 
+                              //       TabBarView(
+                              //         controller: _tabController,
+                              //         children: [
+                              //           Column(
+                              //             children : [Text( 'M-Banking', style: TextStyle(fontSize: 18, color: Color(0xFF72777F),),),]
+                              //           ),
+                              //           Column(
+                              //             children : [Text( 'KlikBCA', style: TextStyle(fontSize: 18, color: Color(0xFF72777F),),),]
+                              //           ),
+                              //           Column(
+                              //             children : [Text( 'ATM', style: TextStyle(fontSize: 18, color: Color(0xFF72777F),),),]
+                              //           ),
+                              //         ]
+                              //       ),
+                              //     ),  
+                              //   ],
+                              // ),
+                        ),
+                      ]
                     ),          
                   ),
                 ],
