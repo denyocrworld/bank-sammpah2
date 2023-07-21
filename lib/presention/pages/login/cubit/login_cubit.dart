@@ -1,6 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:http/http.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loginandsignup/data/base/result_entity.dart';
 import 'package:loginandsignup/data/utilities/commons.dart';
 import 'package:loginandsignup/domain/model/data/login/login_data.dart';
@@ -14,21 +13,19 @@ class LoginCubit extends Cubit<LoginState> {
   final LoginRepository repository;
   LoginCubit(this.repository) : super(LoginInitial());
 
-  Future<void> LoginUser(String? whatsappEmail, String? pass) async {
+  Future<void> btnLogin(LoginRequest request) async {
     print('Fecth Login ');
     emit(LoginIsLoading());
-    final request = LoginRequest(whatsappEmail!, pass!);
     final response = await repository.submitLogin(request);
+
     if (response is ResultSuccess) {
-      emit(LoginIsSuccess(
-        data: (response as ResultSuccess).data,
-      ));
-      final token = (response as ResultSuccess).data;
-      print(token);
+      emit(
+        LoginSucces(data: (response as ResultSuccess).data),
+      );
+      final data = (state as LoginSucces).data;
+      Commons().setUid(data.token.toString());
     } else {
       emit(LoginIsError(message: (response as ResultError).message));
     }
   }
 }
-
-

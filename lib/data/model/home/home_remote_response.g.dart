@@ -12,18 +12,11 @@ HomeRemoteResponse _$HomeRemoteResponseFromJson(Map<String, dynamic> json) =>
           ? null
           : HomeProfileResponse.fromJson(
               json['profile'] as Map<String, dynamic>),
-      riwayat: json['riwayat'] == null
-          ? null
-          : HomeRiwayatResponse.fromJson(
-              json['riwayat'] as Map<String, dynamic>),
-      news: (json['news'] as List<dynamic>?)
-          ?.map((e) => HomeArticleResponse.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      riwayat: json['riwayat'] as List<dynamic>?,
     );
 
 Map<String, dynamic> _$HomeRemoteResponseToJson(HomeRemoteResponse instance) =>
     <String, dynamic>{
       'profile': instance.profile,
       'riwayat': instance.riwayat,
-      'news': instance.news,
     };

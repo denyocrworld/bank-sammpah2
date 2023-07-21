@@ -6,8 +6,6 @@ class AuthenticationHeaderRequest {
   );
 
   Map<String, String> toHeader() {
-    return <String, String>{'Authentication': accesToken};
+    return {'Cookie': 'token=$accesToken'};
   }
 }
-
-class TokenHeaderRequest {}

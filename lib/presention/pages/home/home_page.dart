@@ -116,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   padding:
                                       const EdgeInsets.only(top: 6, left: 16),
                                   child: Text(
-                                    'Saldo Anda :',
+                                    'Saldo Anda : ${homeState.data.profile.balance}',
                                     style: TextStyle(
                                         fontSize: 14,
                                         color: Colors.black,
@@ -390,7 +390,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           top: 16, left: 16),
                                       // ignore: prefer_const_constructors
                                       child: Text(
-                                        "${homeState.data.riwayat.date}",
+                                        "12-04-2023",
                                         // ignore: prefer_const_constructors
                                         style: TextStyle(
                                             fontSize: 12,
@@ -402,7 +402,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       padding: const EdgeInsets.only(
                                           top: 16, right: 16),
                                       child: Text(
-                                        '+${homeState.data.riwayat.point}pt',
+                                        '+150pt',
                                         style: TextStyle(
                                             fontSize: 12,
                                             color: Color(0xFFA7ABB3),
@@ -431,7 +431,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         padding: const EdgeInsets.only(
                                             top: 4, left: 5),
                                         child: Text(
-                                          '${homeState.data.riwayat.weight}kg',
+                                          '6kg',
                                           style: TextStyle(
                                               fontSize: 16,
                                               color: Color(0xFF001F29),
@@ -445,7 +445,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         right: 16,
                                       ),
                                       child: Text(
-                                        'Rp${homeState.data.riwayat.price}',
+                                        'Rp150000',
                                         style: TextStyle(
                                             fontSize: 16,
                                             color: Color(0xFF019BF1),
@@ -530,9 +530,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             padding: EdgeInsets.zero,
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
-                            itemCount: homeState.data.news.length,
+                            itemCount: 3,
                             itemBuilder: (context, index) {
-                              final news = homeState.data.news[index];
                               return SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,
                                 physics: const BouncingScrollPhysics(),
@@ -569,7 +568,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 padding: const EdgeInsets.only(
                                                     top: 16, left: 16),
                                                 child: ReadMoreText(
-                                                  '${news.title}',
+                                                  'Bank Sampah',
                                                   trimLines: 1,
                                                   colorClickableText:
                                                       Colors.grey,
@@ -586,7 +585,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 padding: const EdgeInsets.only(
                                                     top: 8, left: 16),
                                                 child: ReadMoreText(
-                                                  '${news.content}',
+                                                  'Bank sampah adalah aplikasi pengelolaan ',
                                                   trimLines: 2,
                                                   colorClickableText:
                                                       Colors.grey,
@@ -638,7 +637,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     top: 16, left: 16),
                                                 // ignore: prefer_const_constructors
                                                 child: ReadMoreText(
-                                                  '${news.title}',
+                                                  'Bank sampah',
                                                   trimLines: 1,
                                                   colorClickableText:
                                                       Colors.grey,
@@ -657,7 +656,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                     top: 8, left: 16),
                                                 // ignore: prefer_const_constructors
                                                 child: ReadMoreText(
-                                                  '${news.content}',
+                                                  'bank sampah adalah',
                                                   trimLines: 2,
                                                   colorClickableText:
                                                       Colors.grey,

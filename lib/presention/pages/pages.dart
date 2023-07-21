@@ -6,21 +6,21 @@ import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:loginandsignup/data/repository/config-code/config_code_repository_impl.dart';
 import 'package:loginandsignup/data/repository/forgot-password/forgot_password_repository.impl.dart';
-import 'package:loginandsignup/data/repository/history/history_repository_impl.dart';
+
 import 'package:loginandsignup/data/repository/home/home_repository_impl.dart';
 import 'package:loginandsignup/data/repository/login/login_repository_impl.dart';
 import 'package:loginandsignup/data/repository/tukar_point/tukar_point_repository_impl.dart';
-import 'package:loginandsignup/domain/model/data/bank_sampah/bank_sampah_data.dart';
-
-import 'package:loginandsignup/presention/pages/bank_sampah/cubit/bank_sampah_cubit.dart';
+import 'package:loginandsignup/domain/model/request/confirm_code_request/confirm_code.dart';
+import 'package:loginandsignup/domain/model/request/forgot_request/forgot_password.dart';
+import 'package:loginandsignup/domain/model/request/login/login_request.dart';
 import 'package:loginandsignup/presention/pages/bank_sampah/radiotile.dart';
 import 'package:loginandsignup/presention/pages/config_pass/cubit/config_pass_cubit.dart';
 import 'package:loginandsignup/presention/pages/detail_riwayat/cubit/detal_history_cubit.dart';
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 import 'package:loginandsignup/presention/pages/login/cubit/login_cubit.dart';
+
 import 'package:loginandsignup/presention/pages/lupa_password/cubit/forgot_pass_cubit.dart';
-import 'package:loginandsignup/presention/pages/profile/cubit/profile_change_cubit.dart';
-import 'package:loginandsignup/presention/pages/riwayat/cubit/riwayat_cubit.dart';
+
 import 'package:loginandsignup/presention/pages/tukar_poin/cubit/tukarpoint_cubit.dart';
 import 'package:rounded_expansion_tile/rounded_expansion_tile.dart';
 import 'package:loginandsignup/data/utilities/commons.dart';

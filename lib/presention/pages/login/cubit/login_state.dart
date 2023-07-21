@@ -12,9 +12,9 @@ class LoginInitial extends LoginState {}
 
 class LoginIsLoading extends LoginState {}
 
-class LoginIsSuccess extends LoginState {
+class LoginSucces extends LoginState {
   final LoginData data;
-  LoginIsSuccess({
+  const LoginSucces({
     required this.data,
   });
 }

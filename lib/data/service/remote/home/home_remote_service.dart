@@ -6,9 +6,14 @@ class HomeRemoteService {
   Client client = Client();
 
   Future<Response> fecthHome(AuthenticationHeaderRequest header) async {
-    final url = Uri.https(BaseConfig.BASE_DOMAIN_Mockapi,
-        BaseConfig.BASE_PATH + BaseConfig.HOME_URL);
-    print(url);
-    return Client().get(url, headers: header.toHeader());
+    final url = Uri.http(
+        BaseConfig.BASE_DOMAIN, BaseConfig.BASE_PATH + BaseConfig.HOME_URL);
+
+    print("URL : ${url.toString()}");
+
+    return Client().get(
+      url,
+      headers: header.toHeader(),
+    );
   }
 }

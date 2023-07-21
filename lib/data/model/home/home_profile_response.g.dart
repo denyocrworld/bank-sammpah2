@@ -11,6 +11,9 @@ HomeProfileResponse _$HomeProfileResponseFromJson(Map<String, dynamic> json) =>
       image: json['image'] as String?,
       username: json['username'] as String?,
       balance: json['balance'] as int?,
+      email: json['email'] as String?,
+      phone: json['phone'] as String?,
+      address: json['address'] as String?,
     );
 
 Map<String, dynamic> _$HomeProfileResponseToJson(
@@ -19,4 +22,7 @@ Map<String, dynamic> _$HomeProfileResponseToJson(
       'image': instance.image,
       'username': instance.username,
       'balance': instance.balance,
+      'email': instance.email,
+      'phone': instance.phone,
+      'address': instance.address,
     };

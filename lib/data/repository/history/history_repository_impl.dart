@@ -5,13 +5,12 @@ import 'package:loginandsignup/data/model/base_response/base_remote_response.dar
 import 'package:loginandsignup/data/model/history/history_collection.dart';
 import 'package:loginandsignup/data/service/remote/history/history_remote_service.dart';
 import 'package:loginandsignup/domain/base/authentication_header_request.dart';
-import 'package:loginandsignup/domain/model/data/home/home_riwayat_data.dart';
 import 'package:loginandsignup/domain/repository/history/history_repository.dart';
 
 class HistoryRepositoryImpl implements HistoryRepository {
   final historyService = HistoryRemoteService();
   @override
-  Future<ResultEntity<List<HomeRiwayatData>>> fecthHistory(
+  Future<ResultEntity<List>> fecthHistory(
       AuthenticationHeaderRequest header) async {
     // TODO: implement fecthHistory
     try {

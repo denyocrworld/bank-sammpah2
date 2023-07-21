@@ -21,8 +21,6 @@ class LoginResponse implements LoginResponseMapper {
   Map<String, dynamic> toJson() => _$LoginResponseToJson(this);
   @override
   LoginData toLoginData() {
-    return LoginData(
-      token ?? "",
-    );
+    return LoginData(token: token ?? '');
   }
 }

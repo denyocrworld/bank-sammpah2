@@ -1,13 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 class TokenHeaderRequest {
-  Future<String> token;
+  Future<String> accesToken;
   TokenHeaderRequest({
-    required this.token,
+    required this.accesToken,
   });
 
-  Map<String, Future<String>> toHeader() {
-    return <String, Future<String>>{
-      'Authentikasi': token,
+  Map<String, String> toHeader() {
+    return <String, String>{
+      'Cookie': 'token=$accesToken',
     };
   }
 }

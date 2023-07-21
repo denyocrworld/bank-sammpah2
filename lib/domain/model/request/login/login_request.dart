@@ -4,11 +4,11 @@ part 'login_request.g.dart';
 
 @JsonSerializable()
 class LoginRequest {
-  String whatsappEmail;
-  String pass;
+  String username;
+  String password;
   LoginRequest(
-    this.whatsappEmail,
-    this.pass,
+    this.username,
+    this.password,
   );
 
   factory LoginRequest.fromJson(Map<String, dynamic> json) =>

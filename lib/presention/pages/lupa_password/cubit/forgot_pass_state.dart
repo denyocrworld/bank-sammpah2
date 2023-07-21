@@ -14,14 +14,14 @@ class ForgotPassIsLoading extends ForgotPassState {}
 
 class ForgotPassIsError extends ForgotPassState {
   final String message;
-  ForgotPassIsError({
+  const ForgotPassIsError({
     required this.message,
   });
 }
 
 class ForgotPassIsSuccess extends ForgotPassState {
   final String message;
-  ForgotPassIsSuccess({
+  const ForgotPassIsSuccess({
     required this.message,
   });
 }

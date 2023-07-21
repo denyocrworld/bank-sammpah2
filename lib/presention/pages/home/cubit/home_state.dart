@@ -17,6 +17,10 @@ class HomeIsSuccess extends HomeState {
   HomeIsSuccess(
     this.data,
   );
+
+  @override
+  // TODO: implement props
+  List<Object> get props => [data];
 }
 
 class HomeIsError extends HomeState {

@@ -9,9 +9,7 @@ part of 'history_collection.dart';
 HistoryCollectionResponse _$HistoryCollectionResponseFromJson(
         Map<String, dynamic> json) =>
     HistoryCollectionResponse(
-      history: (json['history'] as List<dynamic>?)
-          ?.map((e) => HomeRiwayatResponse.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      history: json['history'] as List<dynamic>?,
     );
 
 Map<String, dynamic> _$HistoryCollectionResponseToJson(

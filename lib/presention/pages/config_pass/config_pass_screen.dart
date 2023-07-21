@@ -138,8 +138,8 @@ class _ConfigPassState extends State<ConfigPass> {
                               onPressed: isProfileCompleted()
                                   ? () {
                                       BlocProvider.of<ConfigPassCubit>(context)
-                                          .sumbitConfigCode(
-                                              whatssapController.text);
+                                          .btnConfirmCode(ConfirmCodeRequest(
+                                              code: whatssapController.text));
                                     }
                                   : null,
                               child:

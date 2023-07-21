@@ -1,15 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:loginandsignup/presention/navigasiton/route.dart';
 import 'package:loginandsignup/presention/pages/bank_sampah/cubit/bank_sampah_cubit.dart';
 import 'package:loginandsignup/presention/pages/detail_riwayat/cubit/detal_history_cubit.dart';
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 // import 'package:loginandsignup/pages/pages.dart';
 import 'package:loginandsignup/presention/pages/pages.dart';
 // import 'package:loginandsignup/presention/pages/pembayaran/cubit/pilih_pembayaran_cubit.dart';
-import 'package:loginandsignup/presention/pages/riwayat/cubit/riwayat_cubit.dart';
 import 'package:loginandsignup/presention/pages/tukar_poin/cubit/tukarpoint_cubit.dart';
 
-final GoRouter router = GoRouter(initialLocation: "/KonfirmasiPembayaran", routes: [
+final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",
@@ -50,7 +50,7 @@ final GoRouter router = GoRouter(initialLocation: "/KonfirmasiPembayaran", route
   ),
   GoRoute(
       path: "/NavigasiBar",
-      name: "navbar",
+      name: 'navbar',
       builder: (context, state) {
         BlocProvider.of<HomeCubit>(context).fecthHome();
         return NavigasiBar();
@@ -118,10 +118,7 @@ final GoRouter router = GoRouter(initialLocation: "/KonfirmasiPembayaran", route
   GoRoute(
       path: "/RiwayatScreen",
       name: "riwayat",
-      builder: (context, state) {
-        BlocProvider.of<RiwayatCubit>(context).fecthHistory("History");
-        return const RiwayatScreen();
-      }),
+      builder: (context, state) => const RiwayatScreen()),
   GoRoute(
     path: "/ArticleScreen",
     name: "article",

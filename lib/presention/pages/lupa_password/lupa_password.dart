@@ -131,7 +131,7 @@ class _LupaPasswordState extends State<LupaPassword> {
                           width: MediaQuery.of(context).size.width * 1,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFFFF7F33),
+                              backgroundColor: const Color(0xFFFF7F33),
                               shape: ContinuousRectangleBorder(
                                 borderRadius: BorderRadius.circular(8),
                               ),
@@ -139,18 +139,17 @@ class _LupaPasswordState extends State<LupaPassword> {
                             onPressed: isProfileCompleted()
                                 ? () {
                                     BlocProvider.of<ForgotPassCubit>(context)
-                                        .submitForgotPassword(
-                                            whatssapController.text);
+                                        .btnForgotPass(ForgotPassword(whatssapController.text));
                                   }
                                 : null,
                             child:
                                 BlocBuilder<ForgotPassCubit, ForgotPassState>(
                               builder: (context, forgotPassState) {
                                 if (forgotPassState is ForgotPassIsLoading) {
-                                  return Center(
+                                  return const Center(
                                       child: CircularProgressIndicator());
                                 }
-                                return Text("Kirim Kode Konfirmasi");
+                                return const Text("Kirim Kode Konfirmasi");
                               },
                             ),
                           ),

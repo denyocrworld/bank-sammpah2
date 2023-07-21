@@ -13,8 +13,7 @@ BaseRemoteResponse<R> _$BaseRemoteResponseFromJson<R>(
     BaseRemoteResponse<R>(
       status: json['status'] == null
           ? null
-          : LoginStatusResponse.fromJson(
-              json['status'] as Map<String, dynamic>),
+          : StatusResponse.fromJson(json['status'] as Map<String, dynamic>),
       data: _$nullableGenericFromJson(json['data'], fromJsonR),
     );
 

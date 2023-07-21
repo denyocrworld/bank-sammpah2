@@ -1,19 +1,18 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'login_status_response.dart';
+part of 'status_response.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-LoginStatusResponse _$LoginStatusResponseFromJson(Map<String, dynamic> json) =>
-    LoginStatusResponse(
+StatusResponse _$StatusResponseFromJson(Map<String, dynamic> json) =>
+    StatusResponse(
       code: json['code'] as int?,
       message: json['message'] as String?,
     );
 
-Map<String, dynamic> _$LoginStatusResponseToJson(
-        LoginStatusResponse instance) =>
+Map<String, dynamic> _$StatusResponseToJson(StatusResponse instance) =>
     <String, dynamic>{
       'code': instance.code,
       'message': instance.message,

@@ -49,7 +49,7 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                 : Commons().showSnackbarError(context, loginState.message!)));
 
             print(loginState.message);
-          } else if (loginState is LoginIsSuccess) {
+          } else if (loginState is LoginSucces) {
             Commons().setUid("${loginState.data.token}");
             print("Token: ${loginState.data.token}");
             Commons().showSnackbarInfo(context, "Login Berhasil");

@@ -13,33 +13,38 @@ class HomeRespositoryImpl implements HomeRepository {
 
   @override
   Future<ResultEntity<HomeData>> fecthHome(
-      AuthenticationHeaderRequest header) async {
+      AuthenticationHeaderRequest headerRequest) async {
     // TODO: implement fecthHome
     try {
-      final response = await homeService.fecthHome(header);
+      final response = await homeService.fecthHome(headerRequest);
+      print("STATUS CODE :${response.statusCode} ");
+      print("DATA :${response.body} ");
+
       if (response.statusCode == 200 || response.statusCode == 201) {
         BaseRemoteResponse<HomeRemoteResponse> baseResponseObject =
             BaseRemoteResponse<HomeRemoteResponse>.fromJson(
-                jsonDecode(response.body),
-                (json) =>
-                    HomeRemoteResponse.fromJson(json as Map<String, dynamic>));
+          jsonDecode(response.body),
+          (json) => HomeRemoteResponse.fromJson(json as Map<String, dynamic>),
+        );
+
+        HomeRemoteResponse.fromJson(
+          jsonDecode(response.body),
+        );
         if (baseResponseObject.status == null) {
-          print(baseResponseObject.status);
           return ResultError(message: baseResponseObject.status!.message);
         } else if (baseResponseObject.status?.code != 0) {
-          print(baseResponseObject.status!.code);
-          // return ResultError(message: baseResponseObject.status?.message);
-          return ResultError<HomeData>(message: "Error");
+          return ResultError(message: baseResponseObject.status?.message);
+          // return ResultError<HomeData>(message: "Error");
+        } else if (baseResponseObject.data == null) {
+          return ResultError(message: baseResponseObject.status?.message);
         } else {
-          print(baseResponseObject.data);
           return ResultSuccess(baseResponseObject.data!.toHomeData());
         }
       } else {
-        print(response.statusCode);
-        return ResultError<HomeData>(message: "Error");
+        return ResultError(message: " ");
       }
     } catch (e) {
-      print(e.toString());
+      print("ERROR IMPL: ${e.toString()}");
       return ResultError(message: e.toString());
     }
   }
