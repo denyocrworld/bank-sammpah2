@@ -2,6 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http/http.dart';
 import 'package:loginandsignup/data/base/result_entity.dart';
+import 'package:loginandsignup/data/utilities/commons.dart';
+import 'package:loginandsignup/domain/model/data/home/home_profile_data.dart';
 import 'package:loginandsignup/domain/model/request/confirm_code_request/confirm_code.dart';
 import 'package:loginandsignup/domain/repository/confrim_code/config_code_repository.dart';
 import 'package:loginandsignup/presention/pages/lupa_password/cubit/forgot_pass_cubit.dart';
@@ -16,14 +18,15 @@ class ConfigPassCubit extends Cubit<ConfigPassState> {
     print('Fetch Confirm Code ');
     emit(ConfigPassIsLoading());
     final response = await repository.submitConfirmCode(request);
+
     if (response is ResultSuccess) {
-      if (response.data == null) {
-        emit(ConfigPassIsSuccess(message: "Confirmation Code Success"));
-      } else {
-        emit(ConfigPassIsError(message: 'Confirmation Code Failed'));
-      }
+      emit(
+        ConfigPassIsSuccess(data: (response as ResultSuccess).data),
+      );
+      final data = (state as ConfigPassIsSuccess).data;
+      Commons().setUid(data.toString());
     } else if (response is ResultError) {
-      emit(ConfigPassIsError(message: response.message!));
+      emit(ConfigPassIsError(message: (response as ResultError).message));
     }
   }
 }

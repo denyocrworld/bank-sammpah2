@@ -18,6 +18,7 @@ class LoginRepositoryImpl implements LoginRepository {
       final response = await loginRemoteService.postlogin(request);
 
       print("STATUS CODE: ${response.statusCode}");
+      print(response.body);
 
       if (response.statusCode == 200) {
         BaseRemoteResponse<LoginResponse> baseResponseObject =
@@ -29,10 +30,10 @@ class LoginRepositoryImpl implements LoginRepository {
         LoginResponse.fromJson(
           jsonDecode(response.body),
         );
-
+        print(baseResponseObject.data);
         if (baseResponseObject.status == null) {
           return ResultError();
-        } else if (baseResponseObject.status?.code != 0) {
+        } else if (baseResponseObject.status?.code != 1) {
           return ResultError(message: baseResponseObject.status?.message);
         } else if (baseResponseObject.data == null) {
           return ResultError(message: baseResponseObject.status?.message);

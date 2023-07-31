@@ -13,15 +13,15 @@ class ConfigPassInitial extends ConfigPassState {}
 class ConfigPassIsLoading extends ConfigPassState {}
 
 class ConfigPassIsError extends ConfigPassState {
-  final String message;
+  String? message;
   ConfigPassIsError({
     required this.message,
   });
 }
 
 class ConfigPassIsSuccess extends ConfigPassState {
-  final String message;
+  final HomeProfileData data;
   ConfigPassIsSuccess({
-    required this.message,
+    required this.data,
   });
 }

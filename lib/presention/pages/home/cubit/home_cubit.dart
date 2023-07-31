@@ -12,35 +12,16 @@ class HomeCubit extends Cubit<HomeState> {
   final HomeRepository repository;
   HomeCubit(this.repository) : super(HomeInitial());
 
-//   Future<void> fecthHome() async {
-//     print('Fecth HomePage');
-//     emit(HomeIsLoading());
-//     final token = await Commons().getUid();
-//     final response =
-//         await repository.fecthHome(AuthenticationHeaderRequest(token!));
-//     if (response is ResultSuccess) {
-//       emit(HomeIsSuccess((response as HomeIsSuccess).data));
-//     } else {
-//       emit(HomeIsError(message: (response as ResultError).message));
-//     }
-//   }
-// }
-
   Future<void> fecthHome() async {
     print('Fecth HomePage');
     emit(HomeIsLoading());
     final token = await Commons().getUid();
-    if (token != null) {
-      final response =
-          await repository.fecthHome(AuthenticationHeaderRequest(token));
-      if (response is ResultSuccess) {
-        emit(HomeIsSuccess((response as HomeIsSuccess).data));
-      } else {
-        emit(HomeIsError(message: (response as ResultError).message));
-      }
+    final response =
+        await repository.fecthHome(AuthenticationHeaderRequest(token ?? ''));
+    if (response is ResultSuccess<HomeData>) {
+      emit(HomeIsSuccess(response.data));
     } else {
-      emit(HomeIsError(
-          message: "Token is null")); // Atau pesan lain sesuai kebutuhan
+      emit(HomeIsError(message: (response as ResultError).message));
     }
   }
 }

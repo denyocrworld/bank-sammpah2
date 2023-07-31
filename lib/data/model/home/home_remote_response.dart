@@ -28,7 +28,7 @@ class HomeRemoteResponse implements HomeRemoteResponseMapper {
     // TODO: implement toHomeData
     return HomeData(
       profile!.toHomeProfileData(),
-      riwayat ?? [],
+      riwayat!,
     );
   }
 }

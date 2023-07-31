@@ -15,16 +15,19 @@ class ForgotPasswordRepositoryImpl implements ForgotPasswordRepository {
   Future<ResultEntity> forgotPassword(ForgotPassword request) async {
     // TODO: implement submitForgotPassword
     try {
-      final response = await forgotPasswordService.submitForgotPassword(request);
+      final response =
+          await forgotPasswordService.submitForgotPassword(request);
       print("STATUS CODE: ${response.statusCode}");
+      print(response.body);
       if (response.statusCode == 200 || response.statusCode == 201) {
         BaseRemoteResponse baseResponseObject = BaseRemoteResponse.fromJson(
             jsonDecode(response.body), (json) => null);
 
-            jsonDecode(response.body);
+        jsonDecode(response.body);
+        print(baseResponseObject.data);
         if (baseResponseObject.status == null) {
           return ResultError(message: baseResponseObject.status!.message);
-        } else if (baseResponseObject.status!.code != 0) {
+        } else if (baseResponseObject.status!.code != 1) {
           return ResultError(message: baseResponseObject.status!.message);
         } else {
           return ResultSuccess(baseResponseObject.data);

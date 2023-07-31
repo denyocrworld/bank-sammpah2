@@ -6,7 +6,6 @@ import 'package:loginandsignup/domain/model/request/login/login_request.dart';
 
 class LoginRemoteService {
   Client client = Client();
-  
 
   Future<Response> postlogin(LoginRequest request) async {
     final url = Uri.http(
@@ -20,7 +19,9 @@ class LoginRemoteService {
     return client.post(
       url,
       body: jsonEncode(request.toJson()),
-      headers: {'Content-Type': 'application/json', },
+      headers: {
+        'Content-Type': 'application/json',
+      },
     );
   }
 }

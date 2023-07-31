@@ -39,7 +39,7 @@ class _ConfigPassState extends State<ConfigPass> {
         listener: (context, configPassState) {
           // TODO: implement listener
           if (configPassState is ConfigPassIsError) {
-            Commons().showSnackbarError(context, configPassState.message);
+            Commons().showSnackbarError(context, 'Gagal');
           } else if (configPassState is ConfigPassIsSuccess) {
             Commons().showSnackbarInfo(context, "Terverifikasi");
             context.go('/SuccesPass');

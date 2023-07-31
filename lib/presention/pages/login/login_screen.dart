@@ -53,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Commons().showSnackbarError(context, "Login Gagal");
             } else if (state is LoginSucces) {
               Commons().showSnackbarInfo(context, "Login Berhasil");
-              context.go('/Navigator');
+              context.go('/NavigasiBar');
             }
           },
           builder: (context, state) {

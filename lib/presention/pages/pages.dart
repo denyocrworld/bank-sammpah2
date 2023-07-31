@@ -10,6 +10,7 @@ import 'package:loginandsignup/data/repository/forgot-password/forgot_password_r
 import 'package:loginandsignup/data/repository/home/home_repository_impl.dart';
 import 'package:loginandsignup/data/repository/login/login_repository_impl.dart';
 import 'package:loginandsignup/data/repository/tukar_point/tukar_point_repository_impl.dart';
+import 'package:loginandsignup/domain/base/authentication_header_request.dart';
 import 'package:loginandsignup/domain/model/request/confirm_code_request/confirm_code.dart';
 import 'package:loginandsignup/domain/model/request/forgot_request/forgot_password.dart';
 import 'package:loginandsignup/domain/model/request/login/login_request.dart';
