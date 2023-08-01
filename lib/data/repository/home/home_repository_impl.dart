@@ -34,6 +34,7 @@ class HomeRespositoryImpl implements HomeRepository {
           return ResultError(message: baseResponseObject.status?.message);
           // return ResultError<HomeData>(message: "Error");
         } else {
+          print(baseResponseObject.data);
           return ResultSuccess(baseResponseObject.data!.toHomeData());
         }
       } else {

@@ -101,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Padding(
                               padding: const EdgeInsets.only(top: 24, left: 16),
                               child: Text(
-                                "Hi,${homeState.data.profile.username}",
+                                "Hi,${homeState.data.profile}",
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500,

@@ -16,12 +16,14 @@ class HomeCubit extends Cubit<HomeState> {
     print('Fecth HomePage');
     emit(HomeIsLoading());
     final token = await Commons().getUid();
+    print('Token Home = ${token}');
     final response =
-        await repository.fecthHome(AuthenticationHeaderRequest(token ?? ''));
-    if (response is ResultSuccess<HomeData>) {
-      emit(HomeIsSuccess(response.data));
+        await repository.fecthHome(AuthenticationHeaderRequest(token));
+    if (response is ResultSuccess) {
+      emit(HomeIsSuccess((response as ResultSuccess).data));
     } else {
       emit(HomeIsError(message: (response as ResultError).message));
+      print((response as ResultError).message);
     }
   }
 }

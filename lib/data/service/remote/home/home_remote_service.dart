@@ -12,6 +12,6 @@ class HomeRemoteService {
 
     print("URL : ${url.toString()}");
 
-    return Client().get(url, headers: header.toHeader());
+    return client.get(url, headers: header.toHeader());
   }
 }

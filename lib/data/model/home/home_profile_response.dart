@@ -1,8 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:json_annotation/json_annotation.dart';
-
 import 'package:loginandsignup/domain/model/data/home/home_profile_data.dart';
-
 part 'home_profile_response.g.dart';
 
 abstract class HomeProfileResponseMapper {
