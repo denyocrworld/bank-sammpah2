@@ -101,7 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Padding(
                               padding: const EdgeInsets.only(top: 24, left: 16),
                               child: Text(
-                                "Hi,${homeState.data.profile}",
+                                "Hi,${homeState.data.profile.username}",
                                 style: TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500,
@@ -116,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   padding:
                                       const EdgeInsets.only(top: 6, left: 16),
                                   child: Text(
-                                    'Saldo Anda : ${homeState.data.profile.balance}',
+                                    'Saldo Anda : ',
                                     style: TextStyle(
                                         fontSize: 14,
                                         color: Colors.black,

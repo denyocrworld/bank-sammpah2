@@ -7,7 +7,7 @@ class Commons {
   // final prefs = SharedPreferences.getInstance();
   final prefs = SharedPreferences.getInstance();
 
-  void setUid(String token) async {
+  void setUid(String token, ) async {
     final storage = await prefs;
     await storage.setString("token", token);
   }

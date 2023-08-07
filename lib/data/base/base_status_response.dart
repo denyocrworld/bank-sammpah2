@@ -9,7 +9,7 @@ abstract class BaseConfig {
   static const String HOME_URL = '/user-data';
   static const String HISTORY = '/history';
   static const String DETAIL_HISTORY = '/history/:id';
-  static const String REGISTER_URL = "/v1/register";
+  static const String REGISTER_URL = "/signup";
   static const String POINT_URL = "/point";
   static const String BANK_SAMPAH = "/trash";
 }

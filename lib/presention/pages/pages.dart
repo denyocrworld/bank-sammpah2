@@ -9,8 +9,10 @@ import 'package:loginandsignup/data/repository/forgot-password/forgot_password_r
 
 import 'package:loginandsignup/data/repository/home/home_repository_impl.dart';
 import 'package:loginandsignup/data/repository/login/login_repository_impl.dart';
+import 'package:loginandsignup/data/repository/registrasi/registrasi_repository_impl.dart';
 import 'package:loginandsignup/data/repository/tukar_point/tukar_point_repository_impl.dart';
 import 'package:loginandsignup/domain/base/authentication_header_request.dart';
+import 'package:loginandsignup/domain/model/request/Register/register_request.dart';
 import 'package:loginandsignup/domain/model/request/confirm_code_request/confirm_code.dart';
 import 'package:loginandsignup/domain/model/request/forgot_request/forgot_password.dart';
 import 'package:loginandsignup/domain/model/request/login/login_request.dart';
@@ -21,6 +23,7 @@ import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 import 'package:loginandsignup/presention/pages/login/cubit/login_cubit.dart';
 
 import 'package:loginandsignup/presention/pages/lupa_password/cubit/forgot_pass_cubit.dart';
+import 'package:loginandsignup/presention/pages/registrasi/cubit/registrasi_cubit.dart';
 
 import 'package:loginandsignup/presention/pages/tukar_poin/cubit/tukarpoint_cubit.dart';
 import 'package:rounded_expansion_tile/rounded_expansion_tile.dart';

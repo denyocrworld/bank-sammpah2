@@ -20,8 +20,10 @@ class ForgotPassIsError extends ForgotPassState {
 }
 
 class ForgotPassIsSuccess extends ForgotPassState {
-  final String message;
+  final String? message;
+  final HomeProfileData? data;
   const ForgotPassIsSuccess({
-    required this.message,
+    this.data,
+    this.message,
   });
 }

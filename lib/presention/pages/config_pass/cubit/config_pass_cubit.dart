@@ -18,13 +18,15 @@ class ConfigPassCubit extends Cubit<ConfigPassState> {
     print('Fetch Confirm Code ');
     emit(ConfigPassIsLoading());
     final response = await repository.submitConfirmCode(request);
+    final token = await Commons().getUid();
+    print('Token : ${token}');
 
     if (response is ResultSuccess) {
       emit(
         ConfigPassIsSuccess(data: (response as ResultSuccess).data),
       );
       final data = (state as ConfigPassIsSuccess).data;
-      Commons().setUid(data.toString());
+      Commons().setUid(data.email.toString());
     } else if (response is ResultError) {
       emit(ConfigPassIsError(message: (response as ResultError).message));
     }
