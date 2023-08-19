@@ -44,6 +44,8 @@ class _ChangeProfileState extends State<ChangeProfile> {
 
               print(loginState.message);
             } else if (loginState is LoginSucces) {
+              // namaController.text = loginState.data.token;
+              // alamatController.text = "";
               Commons().setUid("${loginState.data.token}");
               print("Token: ${loginState.data.token}");
               Commons().showSnackbarInfo(context, "Login Berhasil");

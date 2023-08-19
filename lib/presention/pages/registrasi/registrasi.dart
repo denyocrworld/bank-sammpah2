@@ -79,7 +79,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
             Commons().showSnackbarError(context, 'Registrasi Gagal');
           } else if (state is RegistrasiIsSucces) {
             Commons().showSnackbarInfo(context, "Registrasi Berhasil");
-            context.go('/LoginScreen');
+            context.go('/AutentikasiScreen');
           }
         },
         builder: (context, state) {

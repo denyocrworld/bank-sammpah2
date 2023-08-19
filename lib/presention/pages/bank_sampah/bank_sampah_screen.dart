@@ -9,10 +9,10 @@ class Item {
   Item({this.itemName, this.value, this.count = 0, this.tPoint = 0});
 }
 
-var item1 = Item(itemName: 'plastik', value: 100, count: 0, tPoint: 0);
-var item2 = Item(itemName: 'beling', value: 200, count: 0, tPoint: 0);
-var item3 = Item(itemName: 'besi', value: 300, count: 0, tPoint: 0);
-var item4 = Item(itemName: 'karton', value: 400, count: 0, tPoint: 0);
+var itemPlastik = Item(itemName: 'plastik', value: 100, count: 0, tPoint: 0);
+var itemKaca = Item(itemName: 'beling', value: 200, count: 0, tPoint: 0);
+var itemBesi = Item(itemName: 'besi', value: 300, count: 0, tPoint: 0);
+var itemKertas = Item(itemName: 'karton', value: 400, count: 0, tPoint: 0);
 
 class BankSampahScreen extends StatefulWidget {
   const BankSampahScreen({super.key});
@@ -28,7 +28,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
   @override
   void initState() {
     super.initState();
-    items = [item1, item2, item3, item4];
+    items = [itemPlastik, itemKaca, itemBesi, itemKertas];
   }
 
   @override
@@ -192,125 +192,153 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                   style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w400),
                 ),
               ),
-              ListView.builder(
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding:
-                          const EdgeInsets.only(top: 20, left: 20, right: 20),
-                      child: Container(
-                        height: 75,
-                        // width: MediaQuery.of(context).size.width * 1,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFFAFDFF),
-                          borderRadius: BorderRadius.circular(16),
-                          border: Border.all(
-                            width: 0.5,
-                            color: Colors.grey,
-                          ),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 15),
-                              child: Image.asset(
-                                "${image[index]}",
-                                width: 40,
-                                height: 40,
+              BlocConsumer<BankSampahCubit, BankSampahState>(
+                listener: (context, state) {
+                  // TODO: implement listener
+                  if (state is BankSampahIsSuccess) {
+                    state.data.forEach((element) {
+                      switch (element.type) {
+                        case 1:
+                          itemPlastik.value = element.point;
+                          break;
+                        case 2:
+                          itemKaca.value = element.point;
+                          break;
+                        case 3:
+                          itemBesi.value = element.point;
+                          break;
+                        case 4:
+                          itemKertas.value = element.point;
+                          break;
+                      }
+                    });
+                  }
+                },
+                builder: (context, state) {
+                  return ListView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(
+                              top: 20, left: 20, right: 20),
+                          child: Container(
+                            height: 75,
+                            // width: MediaQuery.of(context).size.width * 1,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFFAFDFF),
+                              borderRadius: BorderRadius.circular(16),
+                              border: Border.all(
+                                width: 0.5,
+                                color: Colors.grey,
                               ),
                             ),
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 16),
-                                child: Text(
-                                  "${name[index]}",
-                                  style: TextStyle(
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                  textAlign: TextAlign.start,
-                                ),
-                              ),
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(bottom: 5),
-                                  child: Text(
-                                    "Berat/KG",
-                                    style: TextStyle(
-                                        fontSize: 12.0,
-                                        fontWeight: FontWeight.w500,
-                                        color: Color(0xFF5A5F66)),
+                                  padding: const EdgeInsets.only(left: 15),
+                                  child: Image.asset(
+                                    "${image[index]}",
+                                    width: 40,
+                                    height: 40,
                                   ),
                                 ),
-                                Row(
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 16),
+                                    child: Text(
+                                      "${name[index]}",
+                                      style: TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      textAlign: TextAlign.start,
+                                    ),
+                                  ),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    SizedBox(
-                                      width: 25,
-                                      height: 25,
-                                      child: FittedBox(
-                                        child: FloatingActionButton(
-                                          heroTag: null,
-                                          onPressed: () {
-                                            decrease(index);
-                                          },
-                                          child: Icon(
-                                            CupertinoIcons.minus,
-                                            size: 30.0,
-                                            color: Colors.white,
-                                          ),
-                                          backgroundColor: Color(0xFFFF7F33),
-                                        ),
-                                      ),
-                                    ),
                                     Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 22, right: 22),
+                                      padding: const EdgeInsets.only(bottom: 5),
                                       child: Text(
-                                        "${items[index].count}",
+                                        "Berat/KG",
                                         style: TextStyle(
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.w400,
-                                        ),
+                                            fontSize: 12.0,
+                                            fontWeight: FontWeight.w500,
+                                            color: Color(0xFF5A5F66)),
                                       ),
                                     ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(right: 20),
-                                      child: SizedBox(
-                                        width: 25,
-                                        height: 25,
-                                        child: FittedBox(
-                                          child: FloatingActionButton(
-                                            heroTag: null,
-                                            onPressed: () {
-                                              grow1(index,
-                                                  items[index].itemName!);
-                                            },
-                                            child: Icon(
-                                              CupertinoIcons.plus,
-                                              size: 30.0,
-                                              color: Colors.white,
+                                    Row(
+                                      children: [
+                                        SizedBox(
+                                          width: 25,
+                                          height: 25,
+                                          child: FittedBox(
+                                            child: FloatingActionButton(
+                                              heroTag: null,
+                                              onPressed: () {
+                                                decrease(index);
+                                              },
+                                              child: Icon(
+                                                CupertinoIcons.minus,
+                                                size: 30.0,
+                                                color: Colors.white,
+                                              ),
+                                              backgroundColor:
+                                                  Color(0xFFFF7F33),
                                             ),
-                                            backgroundColor: Color(0xFFFF7F33),
                                           ),
                                         ),
-                                      ),
-                                    ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 22, right: 22),
+                                          child: Text(
+                                            "${items[index].count}",
+                                            style: TextStyle(
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 20),
+                                          child: SizedBox(
+                                            width: 25,
+                                            height: 25,
+                                            child: FittedBox(
+                                              child: FloatingActionButton(
+                                                heroTag: null,
+                                                onPressed: () {
+                                                  grow1(index,
+                                                      items[index].itemName!);
+                                                },
+                                                child: Icon(
+                                                  CupertinoIcons.plus,
+                                                  size: 30.0,
+                                                  color: Colors.white,
+                                                ),
+                                                backgroundColor:
+                                                    Color(0xFFFF7F33),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    )
                                   ],
                                 )
                               ],
-                            )
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                  itemCount: items.length),
+                            ),
+                          ),
+                        );
+                      },
+                      itemCount: items.length);
+                },
+              ),
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
                 child: Row(
