@@ -1,7 +1,14 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 part of '../pages.dart';
 
 class ChangeProfile extends StatefulWidget {
-  const ChangeProfile({super.key});
+  // final Map profileData;
+  const ChangeProfile({
+    Key? key,
+    // required this.profileData,
+  }) : super(key: key);
 
   @override
   State<ChangeProfile> createState() => _ChangeProfileState();
@@ -70,12 +77,12 @@ class _ChangeProfileState extends State<ChangeProfile> {
                           padding: const EdgeInsets.only(
                               top: 30, left: 16, right: 16),
                           child: Row(children: [
-                            Padding(
+                            Container(
                               padding: const EdgeInsets.only(left: 9),
-                              child: Icon(
-                                Icons.account_circle,
-                                size: 30,
-                                color: Colors.grey,
+                              height: 45,
+                              width: 45,
+                              child: CircleAvatar(
+                                radius: 50,
                               ),
                             ),
                             Padding(
@@ -85,14 +92,13 @@ class _ChangeProfileState extends State<ChangeProfile> {
                                 style: TextStyle(fontSize: 12),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 10),
-                              child: Icon(
-                                Icons.camera,
-                                size: 16,
-                                color: Colors.grey,
-                              ),
-                            ),
+                            IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.camera,
+                                  size: 16,
+                                  color: Colors.grey,
+                                )),
                           ]),
                         ),
                         Padding(
@@ -124,7 +130,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                                     EdgeInsets.fromLTRB(10, 0, 0, 0),
                                 filled: true,
                                 fillColor: Colors.white,
-                                hintText: "John Doe",
+                                hintText: "",
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
@@ -153,7 +159,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                             height: 36,
                             width: MediaQuery.of(context).size.width * 1,
                             child: TextFormField(
-                              controller: namaController,
+                              controller: alamatController,
                               keyboardType: TextInputType.multiline,
                               style: TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.w400),

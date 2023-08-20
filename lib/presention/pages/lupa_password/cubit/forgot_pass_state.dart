@@ -21,9 +21,8 @@ class ForgotPassIsError extends ForgotPassState {
 
 class ForgotPassIsSuccess extends ForgotPassState {
   final String? message;
-  final HomeProfileData? data;
+
   const ForgotPassIsSuccess({
-    this.data,
     this.message,
   });
 }

@@ -37,6 +37,9 @@ import '../../model/costum_shapes.dart';
 import 'package:readmore/readmore.dart';
 import 'dart:async';
 
+import 'bank_sampah/cubit/bank_sampah_cubit.dart';
+import 'profile/cubit/logout_cubit.dart';
+
 part 'home/home_page.dart';
 part 'login/login_screen.dart';
 part 'autentikasi/autentikasi.dart';

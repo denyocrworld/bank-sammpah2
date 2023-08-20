@@ -10,7 +10,7 @@ part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   final HomeRepository repository;
-  HomeCubit(this.repository) : super(HomeInitial());
+  HomeCubit(this.repository) : super(const HomeState());
 
   Future<void> fecthHome() async {
     print('Fecth HomePage');
@@ -20,7 +20,7 @@ class HomeCubit extends Cubit<HomeState> {
     final response =
         await repository.fecthHome(AuthenticationHeaderRequest(token));
     if (response is ResultSuccess) {
-      emit(HomeIsSuccess((response as ResultSuccess).data));
+      emit(HomeIsSuccess(data: (response as ResultSuccess).data));
     } else {
       emit(HomeIsError(message: (response as ResultError).message));
       print((response as ResultError).message);

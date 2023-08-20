@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 abstract class BaseConfig {
   static const String BASE_DOMAIN = '103-175-216-13.cprapid.com:8822';
   static const String BASE_DOMAIN_Mockapi =

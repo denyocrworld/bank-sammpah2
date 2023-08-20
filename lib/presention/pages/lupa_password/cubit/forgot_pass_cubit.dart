@@ -24,10 +24,12 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
         );
       } else {
         emit(
-          ForgotPassIsSuccess(data: (response as ResultSuccess).data),
+          ForgotPassIsSuccess(message: (response as ResultSuccess).data),
         );
-        final data = (state as ForgotPassIsSuccess).data;
-        Commons().setUid(data!.email.toString());
+        final data = (state as ForgotPassIsSuccess).message;
+        final token = (state as ForgotPassIsSuccess).message;
+
+        Commons().setEmail(data!, token!);
       }
     } else if (response is ResultError) {
       emit(ForgotPassIsError(message: "Email tidak terdaftar"));

@@ -7,7 +7,7 @@ import 'package:loginandsignup/domain/base/token_request_header.dart';
 import 'package:loginandsignup/domain/model/data/home/home_profile_data.dart';
 import 'package:loginandsignup/domain/model/request/confirm_code_request/confirm_code.dart';
 import 'package:loginandsignup/domain/repository/confrim_code/config_code_repository.dart';
-import 'package:loginandsignup/presention/pages/lupa_password/cubit/forgot_pass_cubit.dart';
+
 
 part 'config_pass_state.dart';
 

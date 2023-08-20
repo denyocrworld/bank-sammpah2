@@ -78,7 +78,7 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
     path: "/BankSampahScreen",
     name: "bank",
     builder: (context, state) {
-      BlocProvider.of<BankSampahCubit>(context).fecthBankSampah("");
+      BlocProvider.of<BankSampahCubit>(context).fecthBankSampah();
       return const BankSampahScreen();
     },
   ),
@@ -131,7 +131,12 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
   GoRoute(
     path: "/ChangeProfile",
     name: "changeProfile",
-    builder: (context, state) => const ChangeProfile(),
+    builder: (context, state) {
+      // BlocProvider.of<HomeCubit>(context)
+      //     .fecthHome();
+
+      return const ChangeProfile();
+    },
   ),
   GoRoute(
     path: "/Profile",

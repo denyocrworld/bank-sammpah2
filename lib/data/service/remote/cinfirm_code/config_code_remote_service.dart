@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_brace_in_string_interps, await_only_futures
+
 import 'dart:convert';
 
 import 'package:http/http.dart';

@@ -29,7 +29,12 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.white,
       body: BlocBuilder<HomeCubit, HomeState>(
         builder: (context, homeState) {
-          if (homeState is HomeIsSuccess) {
+          if (homeState is HomeIsLoading) {
+            return const Center(
+                child: CircularProgressIndicator(
+              color: Colors.blue,
+            ));
+          } else if (homeState is HomeIsSuccess) {
             return Stack(
               children: <Widget>[
                 ClipPath(
@@ -55,13 +60,13 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: ElevatedButton(
                             onPressed: () {},
                             // ignore: sort_child_properties_last
-                            child: Row(
+                            child: const Row(
                               // ignore: prefer_const_literals_to_create_immutables
                               children: [
                                 // ignore: prefer_const_constructors
                                 Text(
                                   'Notifikasi',
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                       color: Colors.black,
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400),
@@ -102,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               padding: const EdgeInsets.only(top: 24, left: 16),
                               child: Text(
                                 "Hi,${homeState.data.profile.username}",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500,
                                     color: Colors.black),
@@ -115,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Padding(
                                   padding:
                                       const EdgeInsets.only(top: 6, left: 16),
-                                  child: Text(
+                                  child: const Text(
                                     'Saldo Anda : ',
                                     style: TextStyle(
                                         fontSize: 14,
@@ -183,7 +188,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                 '${homeState.data.profile.image}',
                               ),
                               fit: BoxFit.cover),
-                          borderRadius: BorderRadius.all(Radius.circular(50)),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(50)),
                           border: Border.all(color: Colors.white, width: 1.5)),
                       //
                     ),
@@ -343,13 +349,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                 onPressed: () {
                                   context.go("/RiwayatScreen");
                                 },
-                                child: Row(
+                                child: const Row(
                                   // ignore: prefer_const_literals_to_create_immutables
                                   children: [
                                     // ignore: prefer_const_constructors
                                     Text(
                                       'Lihat semua',
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                           color: Color(0xFFFF7F33),
                                           fontSize: 14,
                                           fontWeight: FontWeight.w400),
@@ -358,7 +364,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Icon(
                                       Icons.arrow_forward_ios_outlined,
                                       size: 14,
-                                      color: const Color(0xFFFF7F33),
+                                      color: Color(0xFFFF7F33),
                                     ),
                                   ],
                                 ),
@@ -379,28 +385,28 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             child: Column(
                               children: [
-                                Row(
+                                const Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   // ignore: prefer_const_literals_to_create_immutables
                                   children: [
                                     // ignore: prefer_const_constructors
                                     Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 16, left: 16),
+                                      padding:
+                                          EdgeInsets.only(top: 16, left: 16),
                                       // ignore: prefer_const_constructors
                                       child: Text(
                                         "12-04-2023",
                                         // ignore: prefer_const_constructors
                                         style: TextStyle(
                                             fontSize: 12,
-                                            color: const Color(0xFFA7ABB3),
+                                            color: Color(0xFFA7ABB3),
                                             fontWeight: FontWeight.w400),
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 16, right: 16),
+                                      padding:
+                                          EdgeInsets.only(top: 16, right: 16),
                                       child: Text(
                                         '+150pt',
                                         style: TextStyle(
@@ -411,13 +417,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                   ],
                                 ),
-                                Row(
+                                const Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.only(
-                                          top: 4, left: 16),
+                                      padding:
+                                          EdgeInsets.only(top: 4, left: 16),
                                       child: Text(
                                         'Berat Sampah :',
                                         style: TextStyle(
@@ -428,8 +434,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     ),
                                     Expanded(
                                       child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 4, left: 5),
+                                        padding:
+                                            EdgeInsets.only(top: 4, left: 5),
                                         child: Text(
                                           '6kg',
                                           style: TextStyle(
@@ -440,7 +446,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.only(
+                                      padding: EdgeInsets.only(
                                         top: 4,
                                         right: 16,
                                       ),
@@ -463,9 +469,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                     height: 40,
                                     child: OutlinedButton(
                                       style: OutlinedButton.styleFrom(
-                                        side: BorderSide(
+                                        side: const BorderSide(
                                             color: Color(0xFFFF7F33)),
-                                        foregroundColor: Color(0xFFFF7F33),
+                                        foregroundColor:
+                                            const Color(0xFFFF7F33),
                                         shape: RoundedRectangleBorder(
                                           borderRadius: BorderRadius.circular(
                                               12), // <-- Radius
@@ -504,10 +511,10 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                               child: TextButton(
                                 onPressed: () {},
-                                child: Row(
+                                child: const Row(
                                   // ignore: prefer_const_literals_to_create_immutables
                                   children: [
-                                    const Text(
+                                    Text(
                                       'Lihat semua',
                                       style: TextStyle(
                                           color: Color(0xFFFF7F33),
@@ -518,7 +525,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Icon(
                                       Icons.arrow_forward_ios_outlined,
                                       size: 14,
-                                      color: const Color(0xFFFF7F33),
+                                      color: Color(0xFFFF7F33),
                                     ),
                                   ],
                                 ),
@@ -564,8 +571,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   'asset/images/pencuci.png',
                                                   height: 100,
                                                   fit: BoxFit.fill),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
+                                              const Padding(
+                                                padding: EdgeInsets.only(
                                                     top: 16, left: 16),
                                                 child: ReadMoreText(
                                                   'Bank Sampah',
@@ -581,8 +588,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                           FontWeight.bold),
                                                 ),
                                               ),
-                                              Padding(
-                                                padding: const EdgeInsets.only(
+                                              const Padding(
+                                                padding: EdgeInsets.only(
                                                     top: 8, left: 16),
                                                 child: ReadMoreText(
                                                   'Bank sampah adalah aplikasi pengelolaan ',
@@ -644,7 +651,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   trimMode: TrimMode.Line,
                                                   trimCollapsedText: '',
                                                   trimExpandedText: 'Show less',
-                                                  moreStyle: TextStyle(
+                                                  moreStyle: const TextStyle(
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.bold),
@@ -664,7 +671,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   trimCollapsedText:
                                                       'Show more',
                                                   trimExpandedText: 'Show less',
-                                                  moreStyle: TextStyle(
+                                                  moreStyle: const TextStyle(
                                                       fontSize: 14,
                                                       fontWeight:
                                                           FontWeight.bold),
@@ -689,11 +696,11 @@ class _HomeScreenState extends State<HomeScreen> {
           } else if (homeState is HomeIsLoading) {
             return Container(
               alignment: Alignment.center,
-              child: CircularProgressIndicator(),
+              child: const CircularProgressIndicator(),
             );
           }
           return Container(
-            child: Text(
+            child: const Text(
               "Kosong",
               style: TextStyle(
                 fontSize: 10.0,

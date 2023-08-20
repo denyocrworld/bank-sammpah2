@@ -1,26 +1,30 @@
+// ignore_for_file: prefer_const_constructors, avoid_print, unnecessary_brace_in_string_interps, unnecessary_brace_in_string_interps
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:loginandsignup/data/base/result_entity.dart';
 import 'package:loginandsignup/domain/base/authentication_header_request.dart';
-import 'package:loginandsignup/domain/model/data/bank_sampah/bank_sampah_data.dart';
-import 'package:loginandsignup/domain/repository/bank_sampah/bank_sampah_repository.dart';
+import '../../../../data/utilities/commons.dart';
+import '../../../../domain/model/data/layanan/layananData.dart';
+import '../../../../domain/repository/layanan/layanan_repository.dart';
 
 part 'bank_sampah_state.dart';
 
 class BankSampahCubit extends Cubit<BankSampahState> {
-  BankSampahRepository repository;
+  final LayananRepository repository;
   BankSampahCubit(this.repository) : super(BankSampahInitial());
 
-  Future<void> fecthBankSampah(header) async {
+  Future<void> fecthBankSampah() async {
     emit(BankSampahIsLoading());
-    final response = await repository
-        .fecthBankSampah(AuthenticationHeaderRequest("accesToken"));
+    final token = await Commons().getUid();
+    print('Token Bank Sampah = ${token}');
+    final response =
+        await repository.fetchLayanan(AuthenticationHeaderRequest(token));
     if (response is ResultSuccess) {
-      print("Success");
-      emit(BankSampahIsSuccess((response as ResultSuccess).data));
+      emit(BankSampahIsSuccess(data: (response as ResultSuccess).data));
     } else {
-      print("error");
       emit(BankSampahIsError(message: (response as ResultError).message));
+      print((response as ResultError).message);
     }
   }
 }

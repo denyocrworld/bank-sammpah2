@@ -94,12 +94,12 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> name = [
-      "Plastik",
-      "Kaca/Beling",
-      "Kaleng/Besi",
-      "Kertas/Karton"
-    ];
+    // List<String> name = [
+    //   // "Plastik",
+    //   // "Kaca/Beling",
+    //   // "Kaleng/Besi",
+    //   // "Kertas/Karton"
+    // ];
     List<String> image = [
       "asset/images/botol_plastik.png",
       "asset/images/botol_kaca.png",
@@ -404,14 +404,85 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                     onPressed: () {
                       context.go("/SampahPenjemputan");
                     },
-                    child: const Text("Selanjutnya"),
                   ),
-                ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 20, right: 20, top: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Total point yang didapat :",
+                          style: TextStyle(
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        Text(
+                          '$point',
+                          style: const TextStyle(
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w400,
+                              color: Color(0xFF019BF1)),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10.0),
+                    child: LinkedLabelRadio(
+                      label: 'Tukar di titik antar',
+                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                      value: false,
+                      groupValue: _isRadioSelected,
+                      onChanged: (bool newValue) {
+                        setState(() {
+                          _isRadioSelected = newValue;
+                        });
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10.0),
+                    child: LinkedLabelRadio(
+                      label: 'Tukar di titik antar (Drop Point)',
+                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                      value: true,
+                      groupValue: _isRadioSelected,
+                      onChanged: (bool newValue) {
+                        setState(() {
+                          _isRadioSelected = newValue;
+                        });
+                      },
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                    child: Container(
+                      height: 40,
+                      width: MediaQuery.of(context).size.width * 1,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: const Color(0xFFFF7F33),
+                          shape: ContinuousRectangleBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                        ),
+                        onPressed: () {
+                          context.go("/SampahPenjemputan");
+                        },
+                        child: const Text("Selanjutnya"),
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
-        ),
-      ),
+            ),
+          );
+        }
+        return const Center(child: Text("Data Not Found"));
+      }),
     );
   }
 }

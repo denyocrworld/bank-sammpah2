@@ -7,7 +7,9 @@ class Commons {
   // final prefs = SharedPreferences.getInstance();
   final prefs = SharedPreferences.getInstance();
 
-  void setUid(String token, ) async {
+  void setUid(
+    String token,
+  ) async {
     final storage = await prefs;
     await storage.setString("token", token);
   }
@@ -15,6 +17,16 @@ class Commons {
   Future<String> getUid() async {
     final storage = await prefs;
     return storage.getString("token") ?? '';
+  }
+
+  void setEmail(String email, String token) async {
+    final storage = await prefs;
+    await storage.setString("email", "token");
+  }
+
+  Future<String> getEmail() async {
+    final storage = await prefs;
+    return storage.getString("email") ?? '';
   }
 
   Future<bool> removeUid() async {
