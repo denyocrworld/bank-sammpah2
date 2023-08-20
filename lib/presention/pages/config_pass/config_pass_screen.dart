@@ -139,7 +139,7 @@ class _ConfigPassState extends State<ConfigPass> {
                                   ? () {
                                       BlocProvider.of<ConfigPassCubit>(context)
                                           .btnConfirmCode(ConfirmCodeRequest(
-                                              code: whatssapController.text));
+                                              code: whatssapController.text ));
                                     }
                                   : null,
                               child:

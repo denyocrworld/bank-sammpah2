@@ -4,12 +4,12 @@ class TokenHeaderRequest {
   String email;
   TokenHeaderRequest(
     this.accesToken,
-    this.email,
+    this.email
   );
 
   Map<String, String> toHeader() {
     return <String, String>{
-      'Cookie': 'email=$email;token=$accesToken',
+      'Cookie': 'email=$email;token=$accesToken' ,
     };
   }
 }

@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:loginandsignup/data/repository/autentikasi/autentikasi_repository_impl.dart';
 import 'package:loginandsignup/data/repository/config-code/config_code_repository_impl.dart';
 import 'package:loginandsignup/data/repository/forgot-password/forgot_password_repository.impl.dart';
 
@@ -16,6 +17,8 @@ import 'package:loginandsignup/domain/model/request/Register/register_request.da
 import 'package:loginandsignup/domain/model/request/confirm_code_request/confirm_code.dart';
 import 'package:loginandsignup/domain/model/request/forgot_request/forgot_password.dart';
 import 'package:loginandsignup/domain/model/request/login/login_request.dart';
+import 'package:loginandsignup/presention/pages/autentikasi/cubit/autentikasi_cubit.dart';
+import 'package:loginandsignup/presention/pages/bank_sampah/cubit/bank_sampah_cubit.dart';
 import 'package:loginandsignup/presention/pages/bank_sampah/radiotile.dart';
 import 'package:loginandsignup/presention/pages/config_pass/cubit/config_pass_cubit.dart';
 import 'package:loginandsignup/presention/pages/detail_riwayat/cubit/detal_history_cubit.dart';

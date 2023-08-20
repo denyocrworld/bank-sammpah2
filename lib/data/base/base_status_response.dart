@@ -14,5 +14,5 @@ abstract class BaseConfig {
   static const String REGISTER_URL = "/signup";
   static const String POINT_URL = "/point";
   static const String BANK_SAMPAH = "/trash";
-  static const String fetchLayanan = "/layanan";
+  static const String AUTENTIKASI = '/validate-otp';
 }

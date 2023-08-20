@@ -9,10 +9,10 @@ class Item {
   Item({this.itemName, this.value, this.count = 0, this.tPoint = 0});
 }
 
-var item1 = Item(itemName: 'plastik', value: 100, count: 0, tPoint: 0);
-var item2 = Item(itemName: 'beling', value: 200, count: 0, tPoint: 0);
-var item3 = Item(itemName: 'besi', value: 300, count: 0, tPoint: 0);
-var item4 = Item(itemName: 'karton', value: 400, count: 0, tPoint: 0);
+var itemPlastik = Item(itemName: 'plastik', value: 100, count: 0, tPoint: 0);
+var itemKaca = Item(itemName: 'beling', value: 200, count: 0, tPoint: 0);
+var itemBesi = Item(itemName: 'besi', value: 300, count: 0, tPoint: 0);
+var itemKertas = Item(itemName: 'karton', value: 400, count: 0, tPoint: 0);
 
 class BankSampahScreen extends StatefulWidget {
   const BankSampahScreen({super.key});
@@ -28,7 +28,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
   @override
   void initState() {
     super.initState();
-    items = [item1, item2, item3, item4];
+    items = [itemPlastik, itemKaca, itemBesi, itemKertas];
   }
 
   @override
@@ -121,244 +121,288 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
               },
               child: const Icon(CupertinoIcons.arrow_left,
                   color: Color(0xFF001F29)))),
-      body: BlocConsumer<BankSampahCubit, BankSampahState>(
-          listener: (context, state) {
-        if (state is BankSampahIsError) {
-          Commons().showSnackbarError(context, state.message!);
-        }
-      }, builder: (context, state) {
-        if (state is BankSampahIsLoading) {
-          return const Center(
-              child: CircularProgressIndicator(
-            color: Colors.blue,
-          ));
-        } else if (state is BankSampahIsSuccess) {
-          return SingleChildScrollView(
-            controller: ScrollController(),
-            child: Center(
-              child: Column(
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 26, left: 20, right: 20),
-                    child: Container(
-                      height: 64,
-                      width: MediaQuery.of(context).size.width * 1,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                          color: const Color(0xFFF5F5F5),
-                          border: Border.all(color: Colors.grey, width: 0.3)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(left: 16),
-                            child: Text(
-                              "Poin anda :",
-                              style: TextStyle(
-                                  fontSize: 14.0, fontWeight: FontWeight.w500),
-                            ),
-                          ),
-                          const Expanded(
-                            child: Padding(
-                              padding: EdgeInsets.only(left: 8),
-                              child: Text(
-                                "25.000",
-                                style: TextStyle(
-                                    fontSize: 16.0,
-                                    color: Color(0xFF019BF1),
-                                    fontWeight: FontWeight.w500),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 16),
-                            child: SizedBox(
-                              width: 100,
-                              height: 32,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: const Color(0xFFFF7F33),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius:
-                                        BorderRadius.circular(8), // <-- Radius
-                                  ),
-                                ),
-                                onPressed: () {
-                                  context.go('/TukarPoint1');
-                                },
-                                child: const Text(
-                                  "Tukar Point",
-                                  style: TextStyle(fontSize: 12),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
+      body: SingleChildScrollView(
+        controller: ScrollController(),
+        child: Center(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 26, left: 20, right: 20),
+                child: Container(
+                  height: 64,
+                  width: MediaQuery.of(context).size.width * 1,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: Color(0xFFF5F5F5),
+                      border: Border.all(color: Colors.grey, width: 0.3)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 16),
+                        child: const Text(
+                          "Poin anda :",
+                          style: TextStyle(
+                              fontSize: 14.0, fontWeight: FontWeight.w500),
+                        ),
                       ),
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 24),
-                    child: Text(
-                      "Jumlah Sampah",
-                      style: TextStyle(
-                          fontSize: 22.0, fontWeight: FontWeight.w400),
-                    ),
-                  ),
-                  ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: state.data.bank_sampah.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      var data = state.data.bank_sampah[index];
-                      int point1 = data.point;
-
-                      ;
-                      void grow1(index, itemss) {
-                        setState(() {
-                          itemss[index!].count = itemss[index].count! + 1;
-                          itemss[index!].tPoint =
-                              itemss[index].count! * itemss[index].point1;
-                        });
-                        var allPoint =
-                            itemss.fold(0, (sum, e) => sum + e.tPoint!);
-                        setState(() {
-                          point = allPoint;
-                        });
-                      }
-
-                      ;
-                      void grow(index, itemss) {
-                        setState(() {
-                          size[index][itemss] += 1;
-                        });
-//     print(index);
-                      }
-
-                      void decreament(index, itemss) {
-                        setState(() {
-                          size[index][itemss] -= 1;
-                        });
-//     print(index);
-                      }
-
-                      return Padding(
-                        padding:
-                            const EdgeInsets.only(top: 20, left: 20, right: 20),
-                        child: Container(
-                          height: 75,
-                          // width: MediaQuery.of(context).size.width * 1,
-                          decoration: BoxDecoration(
-                            color: const Color(0xFFFAFDFF),
-                            borderRadius: BorderRadius.circular(16),
-                            border: Border.all(
-                              width: 0.5,
-                              color: Colors.grey,
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 8),
+                          child: Text(
+                            "25.000",
+                            style: const TextStyle(
+                                fontSize: 16.0,
+                                color: Color(0xFF019BF1),
+                                fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 16),
+                        child: SizedBox(
+                          width: 100,
+                          height: 32,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFFFF7F33),
+                              shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.circular(8), // <-- Radius
+                              ),
+                            ),
+                            onPressed: () {
+                              context.go('/TukarPoint1');
+                            },
+                            child: const Text(
+                              "Tukar Point",
+                              style: TextStyle(fontSize: 12),
                             ),
                           ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 15),
-                                child: Image.asset(
-                                  "${image[index]}",
-                                  width: 40,
-                                  height: 40,
-                                ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 24),
+                child: Text(
+                  "Jumlah Sampah",
+                  style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w400),
+                ),
+              ),
+              BlocConsumer<BankSampahCubit, BankSampahState>(
+                listener: (context, state) {
+                  // TODO: implement listener
+                  if (state is BankSampahIsSuccess) {
+                    state.data.forEach((element) {
+                      switch (element.type) {
+                        case 1:
+                          itemPlastik.value = element.point;
+                          break;
+                        case 2:
+                          itemKaca.value = element.point;
+                          break;
+                        case 3:
+                          itemBesi.value = element.point;
+                          break;
+                        case 4:
+                          itemKertas.value = element.point;
+                          break;
+                      }
+                    });
+                  }
+                },
+                builder: (context, state) {
+                  return ListView.builder(
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.only(
+                              top: 20, left: 20, right: 20),
+                          child: Container(
+                            height: 75,
+                            // width: MediaQuery.of(context).size.width * 1,
+                            decoration: BoxDecoration(
+                              color: Color(0xFFFAFDFF),
+                              borderRadius: BorderRadius.circular(16),
+                              border: Border.all(
+                                width: 0.5,
+                                color: Colors.grey,
                               ),
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.only(left: 16),
-                                  child: Text(
-                                    "${data.layanan}",
-                                    style: const TextStyle(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                    textAlign: TextAlign.start,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 15),
+                                  child: Image.asset(
+                                    "${image[index]}",
+                                    width: 40,
+                                    height: 40,
                                   ),
                                 ),
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  const Padding(
-                                    padding: EdgeInsets.only(bottom: 5),
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left: 16),
                                     child: Text(
-                                      "Berat/KG",
+                                      "${name[index]}",
                                       style: TextStyle(
-                                          fontSize: 12.0,
-                                          fontWeight: FontWeight.w500,
-                                          color: Color(0xFF5A5F66)),
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                      textAlign: TextAlign.start,
                                     ),
                                   ),
-                                  Row(
-                                    children: [
-                                      SizedBox(
-                                        width: 25,
-                                        height: 25,
-                                        child: FittedBox(
-                                          child: FloatingActionButton(
-                                            heroTag: null,
-                                            onPressed: () {
-                                              decrease(index);
-                                            },
-                                            backgroundColor:
-                                                const Color(0xFFFF7F33),
-                                            child: const Icon(
-                                              CupertinoIcons.minus,
-                                              size: 30.0,
-                                              color: Colors.white,
-                                            ),
-                                          ),
-                                        ),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(bottom: 5),
+                                      child: Text(
+                                        "Berat/KG",
+                                        style: TextStyle(
+                                            fontSize: 12.0,
+                                            fontWeight: FontWeight.w500,
+                                            color: Color(0xFF5A5F66)),
                                       ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 22, right: 22),
-                                        child: Text(
-                                          "${items[index].count}",
-                                          style: const TextStyle(
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.w400,
-                                          ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(right: 20),
-                                        child: SizedBox(
+                                    ),
+                                    Row(
+                                      children: [
+                                        SizedBox(
                                           width: 25,
                                           height: 25,
                                           child: FittedBox(
                                             child: FloatingActionButton(
                                               heroTag: null,
                                               onPressed: () {
-                                                grow1(index,
-                                                    items[index].itemName!);
+                                                decrease(index);
                                               },
-                                              backgroundColor:
-                                                  const Color(0xFFFF7F33),
-                                              child: const Icon(
-                                                CupertinoIcons.plus,
+                                              child: Icon(
+                                                CupertinoIcons.minus,
                                                 size: 30.0,
                                                 color: Colors.white,
+                                              ),
+                                              backgroundColor:
+                                                  Color(0xFFFF7F33),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 22, right: 22),
+                                          child: Text(
+                                            "${items[index].count}",
+                                            style: TextStyle(
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 20),
+                                          child: SizedBox(
+                                            width: 25,
+                                            height: 25,
+                                            child: FittedBox(
+                                              child: FloatingActionButton(
+                                                heroTag: null,
+                                                onPressed: () {
+                                                  grow1(index,
+                                                      items[index].itemName!);
+                                                },
+                                                child: Icon(
+                                                  CupertinoIcons.plus,
+                                                  size: 30.0,
+                                                  color: Colors.white,
+                                                ),
+                                                backgroundColor:
+                                                    Color(0xFFFF7F33),
                                               ),
                                             ),
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              )
-                            ],
+                                      ],
+                                    )
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
-                        ),
-                      );
+                        );
+                      },
+                      itemCount: items.length);
+                },
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Total point yang didapat :",
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    Text(
+                      '$point',
+                      style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w400,
+                          color: Color(0xFF019BF1)),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10.0),
+                child: LinkedLabelRadio(
+                  label: 'Tukar di titik antar',
+                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                  value: false,
+                  groupValue: _isRadioSelected,
+                  onChanged: (bool newValue) {
+                    setState(() {
+                      _isRadioSelected = newValue;
+                    });
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 10, right: 10.0),
+                child: LinkedLabelRadio(
+                  label: 'Tukar di titik antar (Drop Point)',
+                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                  value: true,
+                  groupValue: _isRadioSelected,
+                  onChanged: (bool newValue) {
+                    setState(() {
+                      _isRadioSelected = newValue;
+                    });
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                child: Container(
+                  height: 40,
+                  width: MediaQuery.of(context).size.width * 1,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFFFF7F33),
+                      shape: ContinuousRectangleBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                    ),
+                    onPressed: () {
+                      context.go("/SampahPenjemputan");
                     },
                   ),
                   Padding(

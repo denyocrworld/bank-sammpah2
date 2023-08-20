@@ -4,6 +4,7 @@ import 'package:loginandsignup/data/base/result_entity.dart';
 import 'package:loginandsignup/data/model/base_response/base_remote_response.dart';
 import 'package:loginandsignup/data/model/home/home_profile_response.dart';
 import 'package:loginandsignup/data/service/remote/cinfirm_code/config_code_remote_service.dart';
+import 'package:loginandsignup/domain/base/token_request_header.dart';
 import 'package:loginandsignup/domain/model/data/home/home_profile_data.dart';
 import 'package:loginandsignup/domain/model/request/confirm_code_request/confirm_code.dart';
 import 'package:loginandsignup/domain/repository/confrim_code/config_code_repository.dart';
@@ -11,14 +12,14 @@ import 'package:loginandsignup/domain/repository/confrim_code/config_code_reposi
 import '../../../domain/base/token_request_header.dart';
 
 class ConfigCodeRepositoryImpl implements ConfigCodeRepository {
-  final configCodeService = ConfigCodeRemoteService();
+  final configCodeService = ConfigCodeRemoteService(email: '');
 
   @override
   Future<ResultEntity<HomeProfileData>> submitConfirmCode(
-      ConfirmCodeRequest request) async {
+      ConfirmCodeRequest request, TokenHeaderRequest email) async {
     // TODO: implement submitConfigCode
     try {
-      final response = await configCodeService.submitConfigCode(request);
+      final response = await configCodeService.submitConfigCode(request, email);
 
       print("STATUS CODE: ${response.statusCode}");
       print(response.body);
