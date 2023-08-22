@@ -196,8 +196,8 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                 listener: (context, state) {
                   // TODO: implement listener
                   if (state is BankSampahIsSuccess) {
-                    state.data.forEach((element) {
-                      switch (element.type) {
+                    state.data.bank_sampah.forEach((element) {
+                      switch (element.point) {
                         case 1:
                           itemPlastik.value = element.point;
                           break;
@@ -248,7 +248,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                   child: Padding(
                                     padding: const EdgeInsets.only(left: 16),
                                     child: Text(
-                                      "${name[index]}",
+                                      "${items[index]}",
                                       style: TextStyle(
                                         fontSize: 16.0,
                                         fontWeight: FontWeight.w500,
