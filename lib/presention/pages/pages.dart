@@ -23,6 +23,7 @@ import 'package:loginandsignup/presention/pages/bank_sampah/radiotile.dart';
 import 'package:loginandsignup/presention/pages/config_pass/cubit/config_pass_cubit.dart';
 import 'package:loginandsignup/presention/pages/detail_riwayat/cubit/detal_history_cubit.dart';
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
+import 'package:loginandsignup/presention/pages/layanan/cubit/layanan_cubit.dart';
 import 'package:loginandsignup/presention/pages/login/cubit/login_cubit.dart';
 
 import 'package:loginandsignup/presention/pages/lupa_password/cubit/forgot_pass_cubit.dart';
@@ -64,3 +65,4 @@ part 'profile/profile_change_screen.dart';
 part 'profile/profile_screen.dart';
 part 'pembayaran/pilih_pembayaran_screen.dart';
 part 'pembayaran/konfirmasi_pembayaran_screen.dart';
+// part 'ubah_password/ubah_password_screen.dart';

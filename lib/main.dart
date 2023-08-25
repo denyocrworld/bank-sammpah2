@@ -13,8 +13,11 @@ import 'package:loginandsignup/data/repository/tukar_point/tukar_point_repositor
 import 'package:loginandsignup/presention/navigasiton/routes.dart';
 import 'package:loginandsignup/presention/pages/autentikasi/cubit/autentikasi_cubit.dart';
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
+import 'package:loginandsignup/presention/pages/layanan/cubit/layanan_cubit.dart';
 import 'package:loginandsignup/presention/pages/login/cubit/login_cubit.dart';
 import 'package:loginandsignup/presention/pages/lupa_password/cubit/forgot_pass_cubit.dart';
+import 'package:loginandsignup/presention/pages/pages.dart';
+import 'package:loginandsignup/presention/pages/profile/cubit/logout_cubit.dart';
 import 'package:loginandsignup/presention/pages/registrasi/cubit/registrasi_cubit.dart';
 import 'presention/pages/bank_sampah/cubit/bank_sampah_cubit.dart';
 import 'presention/pages/config_pass/cubit/config_pass_cubit.dart';
@@ -60,6 +63,13 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => AutentikasiCubit(AutentikasiRepositoryImpl()),
+        ),
+        BlocProvider(
+          create: (context) => LayananCubit(LayananRespositoryImpl()),
+        ),
+        BlocProvider(
+          create: (context) => LogoutCubit(),
+          child: const HomeScreen(),
         )
       ],
       child: MaterialApp.router(

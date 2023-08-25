@@ -26,14 +26,12 @@ class LayananResponse implements LayananResponseMapper {
   Map<String, dynamic> toJson() => _$LayananResponseToJson(this);
   @override
   LayananData toLayananData() {
-    List<BankSampahData> bankSampahDataList = bank_sampah?.map((response) {
-          return BankSampahData("", 0);
-        }).toList() ??
-        [];
-    List<PickUpData> listPickUp = pick_up?.map((response) {
-          return PickUpData("", 0, 0);
-        }).toList() ??
-        [];
+    List<BankSampahData> bankSampahDataList =
+        bank_sampah?.map((response) => response.toBankSampahData()).toList() ??
+            List.empty();
+    List<PickUpData> listPickUp =
+        pick_up?.map((response) => response.toPickUpData()).toList() ??
+            List.empty();
     return LayananData(bankSampahDataList, listPickUp);
   }
 }
