@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 import '../../../domain/base/authentication_header_request.dart';
 import '../../../domain/model/data/layanan/layananData.dart';
@@ -25,6 +27,7 @@ class LayananRespositoryImpl implements LayananRepository {
           (json) => LayananResponse.fromJson(json as Map<String, dynamic>),
         );
 
+        // ignore: avoid_print
         print(baseResponseObject.data);
         if (baseResponseObject.status == null) {
           return ResultError(message: baseResponseObject.status!.message);

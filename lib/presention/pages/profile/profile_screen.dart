@@ -66,7 +66,7 @@ class _ProfileState extends State<Profile> {
                                       child: Padding(
                                         padding: const EdgeInsets.only(left: 8),
                                         child: Text(
-                                          "${state.data.profile.username}",
+                                          state.data.profile.username,
                                           style: TextStyle(fontSize: 22),
                                         ),
                                       ),
@@ -100,7 +100,7 @@ class _ProfileState extends State<Profile> {
                                               color: Colors.grey,
                                             ),
                                             Text(
-                                              "${state.data.profile.address}",
+                                              state.data.profile.address,
                                               style: TextStyle(fontSize: 14),
                                             ),
                                           ],
@@ -116,7 +116,7 @@ class _ProfileState extends State<Profile> {
                                               color: Colors.grey,
                                             ),
                                             Text(
-                                              "${state.data.profile.phone}",
+                                              state.data.profile.phone,
                                               style: TextStyle(fontSize: 14),
                                             ),
                                           ],
@@ -132,7 +132,7 @@ class _ProfileState extends State<Profile> {
                                               color: Colors.grey,
                                             ),
                                             Text(
-                                              "${state.data.profile.email}",
+                                              state.data.profile.email,
                                               style: TextStyle(fontSize: 14),
                                             ),
                                           ],
@@ -248,10 +248,10 @@ class _ProfileState extends State<Profile> {
                               context.go("/RiwayatScreen");
                             },
                             child: Row(
-                              children: [
+                              children: const [
                                 Text(
                                   'Lihat semua',
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                       color: Color(0xFFFF7F33),
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400),
@@ -259,7 +259,7 @@ class _ProfileState extends State<Profile> {
                                 Icon(
                                   Icons.arrow_forward_ios_outlined,
                                   size: 14,
-                                  color: const Color(0xFFFF7F33),
+                                  color: Color(0xFFFF7F33),
                                 ),
                               ],
                             ),
@@ -358,7 +358,7 @@ class _ProfileState extends State<Profile> {
                                 Padding(
                                   padding: const EdgeInsets.only(
                                       top: 10, right: 16, left: 16),
-                                  child: Container(
+                                  child: SizedBox(
                                     width:
                                         MediaQuery.of(context).size.width * 1,
                                     height: 40,

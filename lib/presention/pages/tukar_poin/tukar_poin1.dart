@@ -64,7 +64,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                       padding: const EdgeInsets.only(top: 20, left: 20),
                       child: Row(
                         children: [
-                          Text(
+                          const Text(
                             "Point anda :",
                             style: TextStyle(
                               fontSize: 22.0,
@@ -74,7 +74,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                             padding: const EdgeInsets.only(left: 8),
                             child: Text(
                               "${tukarpointState.data.point}",
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 22.0, color: Color(0xFF019BF1)),
                             ),
                           ),
@@ -92,10 +92,10 @@ class _TukarPoint1State extends State<TukarPoint1> {
                           child: Card(
                             elevation: 3,
                             shape: RoundedRectangleBorder(
-                                side: BorderSide(color: Color(0xffCEE5FF)),
+                                side: const BorderSide(color: Color(0xffCEE5FF)),
                                 borderRadius: BorderRadius.circular(16)),
                             child: RoundedExpansionTile(
-                              title: Text(
+                              title: const Text(
                                 "Rekening Bank",
                                 style: TextStyle(
                                   fontSize: 14.0,
@@ -103,8 +103,8 @@ class _TukarPoint1State extends State<TukarPoint1> {
                               ),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(16)),
-                              trailing: Icon(Icons.keyboard_arrow_down),
-                              leading: Image(
+                              trailing: const Icon(Icons.keyboard_arrow_down),
+                              leading: const Image(
                                 image: AssetImage('asset/images/Bankkk.png'),
                                 width: 50,
                                 height: 50,
@@ -124,11 +124,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -139,7 +139,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Bank BRI",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -153,11 +153,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -168,7 +168,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Bank BCA",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -182,11 +182,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -197,7 +197,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Mandiri",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -211,11 +211,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -226,7 +226,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Bank BNI",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -249,11 +249,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -264,7 +264,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Bank BTPN",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -278,11 +278,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -293,7 +293,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Permata",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -307,11 +307,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -322,7 +322,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Bank BSI",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -336,11 +336,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -351,7 +351,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Bank Lain",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -381,10 +381,10 @@ class _TukarPoint1State extends State<TukarPoint1> {
                           child: Card(
                             elevation: 3,
                             shape: RoundedRectangleBorder(
-                                side: BorderSide(color: Color(0xffCEE5FF)),
+                                side: const BorderSide(color: Color(0xffCEE5FF)),
                                 borderRadius: BorderRadius.circular(16)),
                             child: RoundedExpansionTile(
-                              title: Text(
+                              title: const Text(
                                 "Dompet Elektronik",
                                 style: TextStyle(
                                   fontSize: 14.0,
@@ -392,8 +392,8 @@ class _TukarPoint1State extends State<TukarPoint1> {
                               ),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(16)),
-                              trailing: Icon(Icons.keyboard_arrow_down),
-                              leading: Image(
+                              trailing: const Icon(Icons.keyboard_arrow_down),
+                              leading: const Image(
                                 image: AssetImage('asset/images/dompet.png'),
                                 width: 50,
                                 height: 50,
@@ -413,11 +413,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -428,7 +428,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "OVO",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -442,11 +442,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -457,7 +457,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Gopay",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -471,11 +471,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -486,7 +486,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Dana",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -500,11 +500,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -515,7 +515,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Link Aja",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -545,10 +545,10 @@ class _TukarPoint1State extends State<TukarPoint1> {
                           child: Card(
                             elevation: 3,
                             shape: RoundedRectangleBorder(
-                                side: BorderSide(color: Color(0xffCEE5FF)),
+                                side: const BorderSide(color: Color(0xffCEE5FF)),
                                 borderRadius: BorderRadius.circular(16)),
                             child: RoundedExpansionTile(
-                              title: Text(
+                              title: const Text(
                                 "Pulsa/Paket Data",
                                 style: TextStyle(
                                   fontSize: 14.0,
@@ -556,8 +556,8 @@ class _TukarPoint1State extends State<TukarPoint1> {
                               ),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(16)),
-                              trailing: Icon(Icons.keyboard_arrow_down),
-                              leading: Image(
+                              trailing: const Icon(Icons.keyboard_arrow_down),
+                              leading: const Image(
                                 image: AssetImage('asset/images/pulsa.png'),
                                 width: 50,
                                 height: 50,
@@ -577,11 +577,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -592,7 +592,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "XL",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -606,11 +606,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -621,7 +621,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Telkomsel",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -635,11 +635,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -650,7 +650,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Indosat",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -664,11 +664,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -681,7 +681,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Tri",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -711,10 +711,10 @@ class _TukarPoint1State extends State<TukarPoint1> {
                           child: Card(
                             elevation: 3,
                             shape: RoundedRectangleBorder(
-                                side: BorderSide(color: Color(0xffCEE5FF)),
+                                side: const BorderSide(color: Color(0xffCEE5FF)),
                                 borderRadius: BorderRadius.circular(16)),
                             child: RoundedExpansionTile(
-                              title: Text(
+                              title: const Text(
                                 "Token Listrik PLN",
                                 style: TextStyle(
                                   fontSize: 14.0,
@@ -722,8 +722,8 @@ class _TukarPoint1State extends State<TukarPoint1> {
                               ),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(16)),
-                              trailing: Icon(Icons.keyboard_arrow_down),
-                              leading: Image(
+                              trailing: const Icon(Icons.keyboard_arrow_down),
+                              leading: const Image(
                                 image: AssetImage('asset/images/token.png'),
                                 width: 50,
                                 height: 50,
@@ -738,7 +738,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                           //  Padding(
                                           //         padding: const EdgeInsets.only(top: 16)
                                           //   ),
-                                          Align(
+                                          const Align(
                                             alignment: Alignment.centerLeft,
                                             child: Text(
                                               'Tarik ke',
@@ -762,13 +762,13 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 controller: tokenController,
                                                 keyboardType:
                                                     TextInputType.multiline,
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontSize: 14,
                                                     fontWeight:
                                                         FontWeight.w400),
                                                 decoration: InputDecoration(
                                                   contentPadding:
-                                                      EdgeInsets.fromLTRB(
+                                                      const EdgeInsets.fromLTRB(
                                                           10, 0, 0, 0),
                                                   filled: true,
                                                   fillColor: Colors.white,
@@ -783,10 +783,10 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                               ),
                                             ),
                                           ),
-                                          Padding(
-                                              padding: const EdgeInsets.only(
+                                          const Padding(
+                                              padding: EdgeInsets.only(
                                                   top: 16)),
-                                          Align(
+                                          const Align(
                                             alignment: Alignment.centerLeft,
                                             child: Text(
                                               'Nama Pemilik atau pelanggan',
@@ -814,13 +814,13 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                       .allow(
                                                           RegExp("[a-zA-Z]")),
                                                 ],
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontSize: 14,
                                                     fontWeight:
                                                         FontWeight.w400),
                                                 decoration: InputDecoration(
                                                   contentPadding:
-                                                      EdgeInsets.fromLTRB(
+                                                      const EdgeInsets.fromLTRB(
                                                           10, 0, 0, 0),
                                                   filled: true,
                                                   fillColor: Colors.white,
@@ -836,10 +836,10 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                               ),
                                             ),
                                           ),
-                                          Padding(
-                                              padding: const EdgeInsets.only(
+                                          const Padding(
+                                              padding: EdgeInsets.only(
                                                   top: 16)),
-                                          Align(
+                                          const Align(
                                             alignment: Alignment.centerLeft,
                                             child: Text(
                                               'Nomor Pelanggan',
@@ -868,13 +868,13 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   FilteringTextInputFormatter
                                                       .digitsOnly
                                                 ],
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontSize: 14,
                                                     fontWeight:
                                                         FontWeight.w400),
                                                 decoration: InputDecoration(
                                                   contentPadding:
-                                                      EdgeInsets.fromLTRB(
+                                                      const EdgeInsets.fromLTRB(
                                                           10, 0, 0, 0),
                                                   filled: true,
                                                   fillColor: Colors.white,
@@ -889,10 +889,10 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                               ),
                                             ),
                                           ),
-                                          Padding(
-                                              padding: const EdgeInsets.only(
+                                          const Padding(
+                                              padding: EdgeInsets.only(
                                                   top: 16)),
-                                          Align(
+                                          const Align(
                                             alignment: Alignment.centerLeft,
                                             child: Text(
                                               'Nominal Point Ditarik',
@@ -921,13 +921,13 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   FilteringTextInputFormatter
                                                       .digitsOnly
                                                 ],
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontSize: 14,
                                                     fontWeight:
                                                         FontWeight.w400),
                                                 decoration: InputDecoration(
                                                   contentPadding:
-                                                      EdgeInsets.fromLTRB(
+                                                      const EdgeInsets.fromLTRB(
                                                           10, 0, 0, 0),
                                                   filled: true,
                                                   fillColor: Colors.white,
@@ -964,10 +964,10 @@ class _TukarPoint1State extends State<TukarPoint1> {
                           child: Card(
                             elevation: 3,
                             shape: RoundedRectangleBorder(
-                                side: BorderSide(color: Color(0xffCEE5FF)),
+                                side: const BorderSide(color: Color(0xffCEE5FF)),
                                 borderRadius: BorderRadius.circular(16)),
                             child: RoundedExpansionTile(
-                              title: Text(
+                              title: const Text(
                                 "BPJS",
                                 style: TextStyle(
                                   fontSize: 14.0,
@@ -975,8 +975,8 @@ class _TukarPoint1State extends State<TukarPoint1> {
                               ),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(16)),
-                              trailing: Icon(Icons.keyboard_arrow_down),
-                              leading: Image(
+                              trailing: const Icon(Icons.keyboard_arrow_down),
+                              leading: const Image(
                                 image: AssetImage('asset/images/bpjs.png'),
                                 width: 50,
                                 height: 50,
@@ -988,10 +988,10 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                       padding: const EdgeInsets.all(13),
                                       child: Column(
                                         children: [
-                                          Padding(
-                                              padding: const EdgeInsets.only(
+                                          const Padding(
+                                              padding: EdgeInsets.only(
                                                   top: 16)),
-                                          Align(
+                                          const Align(
                                             alignment: Alignment.centerLeft,
                                             child: Text(
                                               'Tarik ke',
@@ -1015,13 +1015,13 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 controller: BPJSController,
                                                 keyboardType:
                                                     TextInputType.multiline,
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontSize: 14,
                                                     fontWeight:
                                                         FontWeight.w400),
                                                 decoration: InputDecoration(
                                                   contentPadding:
-                                                      EdgeInsets.fromLTRB(
+                                                      const EdgeInsets.fromLTRB(
                                                           10, 0, 0, 0),
                                                   filled: true,
                                                   fillColor: Colors.white,
@@ -1036,10 +1036,10 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                               ),
                                             ),
                                           ),
-                                          Padding(
-                                              padding: const EdgeInsets.only(
+                                          const Padding(
+                                              padding: EdgeInsets.only(
                                                   top: 16)),
-                                          Align(
+                                          const Align(
                                             alignment: Alignment.centerLeft,
                                             child: Text(
                                               'Nama Pemilik atau pelanggan',
@@ -1067,13 +1067,13 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                       .allow(
                                                           RegExp("[a-zA-Z]")),
                                                 ],
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontSize: 14,
                                                     fontWeight:
                                                         FontWeight.w400),
                                                 decoration: InputDecoration(
                                                   contentPadding:
-                                                      EdgeInsets.fromLTRB(
+                                                      const EdgeInsets.fromLTRB(
                                                           10, 0, 0, 0),
                                                   filled: true,
                                                   fillColor: Colors.white,
@@ -1089,10 +1089,10 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                               ),
                                             ),
                                           ),
-                                          Padding(
-                                              padding: const EdgeInsets.only(
+                                          const Padding(
+                                              padding: EdgeInsets.only(
                                                   top: 16)),
-                                          Align(
+                                          const Align(
                                             alignment: Alignment.centerLeft,
                                             child: Text(
                                               'Nomor BPJS',
@@ -1120,13 +1120,13 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   FilteringTextInputFormatter
                                                       .digitsOnly
                                                 ],
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontSize: 14,
                                                     fontWeight:
                                                         FontWeight.w400),
                                                 decoration: InputDecoration(
                                                   contentPadding:
-                                                      EdgeInsets.fromLTRB(
+                                                      const EdgeInsets.fromLTRB(
                                                           10, 0, 0, 0),
                                                   filled: true,
                                                   fillColor: Colors.white,
@@ -1141,10 +1141,10 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                               ),
                                             ),
                                           ),
-                                          Padding(
-                                              padding: const EdgeInsets.only(
+                                          const Padding(
+                                              padding: EdgeInsets.only(
                                                   top: 16)),
-                                          Align(
+                                          const Align(
                                             alignment: Alignment.centerLeft,
                                             child: Text(
                                               'Nominal Point Ditarik',
@@ -1173,13 +1173,13 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   FilteringTextInputFormatter
                                                       .digitsOnly
                                                 ],
-                                                style: TextStyle(
+                                                style: const TextStyle(
                                                     fontSize: 14,
                                                     fontWeight:
                                                         FontWeight.w400),
                                                 decoration: InputDecoration(
                                                   contentPadding:
-                                                      EdgeInsets.fromLTRB(
+                                                      const EdgeInsets.fromLTRB(
                                                           10, 0, 0, 0),
                                                   filled: true,
                                                   fillColor: Colors.white,
@@ -1216,10 +1216,10 @@ class _TukarPoint1State extends State<TukarPoint1> {
                           child: Card(
                             elevation: 3,
                             shape: RoundedRectangleBorder(
-                                side: BorderSide(color: Color(0xffCEE5FF)),
+                                side: const BorderSide(color: Color(0xffCEE5FF)),
                                 borderRadius: BorderRadius.circular(16)),
                             child: RoundedExpansionTile(
-                              title: Text(
+                              title: const Text(
                                 "Toko LESTAREE",
                                 style: TextStyle(
                                   fontSize: 14.0,
@@ -1227,8 +1227,8 @@ class _TukarPoint1State extends State<TukarPoint1> {
                               ),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(16)),
-                              trailing: Icon(Icons.keyboard_arrow_down),
-                              leading: Image(
+                              trailing: const Icon(Icons.keyboard_arrow_down),
+                              leading: const Image(
                                 image: AssetImage('asset/images/toko.png'),
                                 width: 50,
                                 height: 50,
@@ -1248,11 +1248,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -1263,7 +1263,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "OVO",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -1277,11 +1277,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -1292,7 +1292,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Gopay",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -1306,11 +1306,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -1321,7 +1321,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Dana",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -1335,11 +1335,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                 width: 64,
                                                 height: 64,
                                                 decoration: BoxDecoration(
-                                                    color: Color(0xFFF9FAFB),
+                                                    color: const Color(0xFFF9FAFB),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8)),
-                                                child: Column(
+                                                child: const Column(
                                                   mainAxisAlignment:
                                                       MainAxisAlignment.center,
                                                   children: [
@@ -1350,7 +1350,7 @@ class _TukarPoint1State extends State<TukarPoint1> {
                                                   ],
                                                 ),
                                               ),
-                                              Text(
+                                              const Text(
                                                 "Link Aja",
                                                 style: TextStyle(
                                                   fontSize: 12.0,
@@ -1376,11 +1376,11 @@ class _TukarPoint1State extends State<TukarPoint1> {
           } else if (tukarpointState is TukarpointIsLoading) {
             return Container(
               alignment: Alignment.center,
-              child: CircularProgressIndicator(),
+              child: const CircularProgressIndicator(),
             );
           }
           return Container(
-            child: Text(
+            child: const Text(
               "Kosong",
               style: TextStyle(
                 fontSize: 10.0,

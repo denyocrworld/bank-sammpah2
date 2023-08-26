@@ -17,7 +17,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
   @override
   void initState() {
     super.initState();
-    imagePicker = new ImagePicker();
+    imagePicker = ImagePicker();
   }
 
   TextEditingController lokasiController = TextEditingController();
@@ -47,7 +47,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Text(
+        title: const Text(
           "Detail Penjemputan",
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
@@ -55,16 +55,16 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
             onTap: () {
               context.go("/LayananScreen");
             },
-            child: Icon(CupertinoIcons.arrow_left, color: Colors.black)),
+            child: const Icon(CupertinoIcons.arrow_left, color: Colors.black)),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Align(
+            const Align(
               alignment: Alignment.centerLeft,
               child: Padding(
-                padding: const EdgeInsets.only(top: 26, left: 20),
+                padding: EdgeInsets.only(top: 26, left: 20),
                 child: Text(
                   'Atur Lokasi',
                   style: TextStyle(fontSize: 14),
@@ -73,17 +73,17 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8, left: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width * 1,
                 height: 36,
                 child: TextFormField(
                   controller: lokasiController,
                   keyboardType: TextInputType.name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 14,
                   ),
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                    contentPadding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                     suffixIcon: const Icon(Icons.location_on),
                     filled: true,
                     fillColor: Colors.white,
@@ -96,10 +96,10 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                 ),
               ),
             ),
-            Align(
+            const Align(
               alignment: Alignment.centerLeft,
               child: Padding(
-                padding: const EdgeInsets.only(top: 24, left: 20),
+                padding: EdgeInsets.only(top: 24, left: 20),
                 child: Text(
                   "Tanggal Penjemputan",
                   style: TextStyle(fontSize: 14),
@@ -108,18 +108,18 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8, left: 20, right: 20),
-              child: Container(
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width * 1,
                 height: 36,
                 child: TextFormField(
                   readOnly: true,
                   controller: tanggalController,
                   keyboardType: TextInputType.name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 14,
                   ),
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                    contentPadding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                     suffixIcon: IconButton(
                       onPressed: () async {
                         await showDatePicker(
@@ -128,16 +128,15 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                                 firstDate: DateTime(1800),
                                 lastDate: DateTime(2100))
                             .then((value) {
-                          if (value != null)
+                          if (value != null) {
                             setState(() {
                               pickDate = value;
                             });
+                          }
                         });
-                        if (pickDate != null) {
-                          String dateFormat =
-                              DateFormat("dd/MM/yyyy").format(pickDate);
-                          tanggalController.text = dateFormat.toString();
-                        }
+                        String dateFormat =
+                            DateFormat("dd/MM/yyyy").format(pickDate);
+                        tanggalController.text = dateFormat.toString();
                       },
                       icon: const Icon(
                         Icons.calendar_month,
@@ -155,8 +154,8 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 24, left: 20),
+            const Padding(
+              padding: EdgeInsets.only(top: 24, left: 20),
               child: Text('Pilih Waktu', style: TextStyle(fontSize: 14)),
             ),
             Row(
@@ -186,19 +185,19 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                         }
                       },
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                         filled: true,
                         fillColor: Colors.white,
                         hintText: '00',
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             width: 0.5,
                           ),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             width: 0.5,
                           ),
                         ),
@@ -211,8 +210,8 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 8, left: 6),
+                const Padding(
+                  padding: EdgeInsets.only(top: 8, left: 6),
                   child: Text(
                     ":",
                     style: TextStyle(
@@ -245,19 +244,19 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                         }
                       },
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                         filled: true,
                         fillColor: Colors.white,
                         hintText: '00',
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             width: 0.5,
                           ),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             width: 0.5,
                           ),
                         ),
@@ -298,8 +297,8 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 20, top: 20),
+            const Padding(
+              padding: EdgeInsets.only(left: 20, top: 20),
               child: Text(
                 "Berat dan bentuk sampah",
                 style: TextStyle(
@@ -324,19 +323,19 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                         }
                       },
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                         filled: true,
                         fillColor: Colors.white,
                         hintText: '00',
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             width: 0.5,
                           ),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             width: 0.5,
                           ),
                         ),
@@ -349,8 +348,8 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(
+                const Padding(
+                  padding: EdgeInsets.only(
                     left: 8,
                     top: 5,
                   ),
@@ -393,7 +392,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                                       _image = File(image!.path);
                                     });
                                   },
-                                  child: ListTile(
+                                  child: const ListTile(
                                     leading:
                                         Icon(CupertinoIcons.photo_on_rectangle),
                                     title: Text(
@@ -414,7 +413,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                                       _image = File(image!.path);
                                     });
                                   },
-                                  child: ListTile(
+                                  child: const ListTile(
                                     leading:
                                         Icon(CupertinoIcons.photo_camera_solid),
                                     title: Text(
@@ -463,13 +462,13 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                           ),
                         )),
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Flexible(
                   flex: 1,
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 80, left: 20),
+                    padding: EdgeInsets.only(top: 80, left: 20),
                     child: Text(
                       "Total Biaya",
                       style: TextStyle(
@@ -483,7 +482,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 80, right: 20),
+                      padding: EdgeInsets.only(top: 80, right: 20),
                       child: Text(
                         "Rp. 25,000",
                         style:
@@ -508,7 +507,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                 height: 40,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFFF8D50),
+                    backgroundColor: const Color(0xFFFF8D50),
                     shape: ContinuousRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),

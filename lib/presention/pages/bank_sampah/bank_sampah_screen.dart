@@ -133,25 +133,25 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                   width: MediaQuery.of(context).size.width * 1,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      color: Color(0xFFF5F5F5),
+                      color: const Color(0xFFF5F5F5),
                       border: Border.all(color: Colors.grey, width: 0.3)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16),
-                        child: const Text(
+                      const Padding(
+                        padding: EdgeInsets.only(left: 16),
+                        child: Text(
                           "Poin anda :",
                           style: TextStyle(
                               fontSize: 14.0, fontWeight: FontWeight.w500),
                         ),
                       ),
-                      Expanded(
+                      const Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 8),
+                          padding: EdgeInsets.only(left: 8),
                           child: Text(
                             "25.000",
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontSize: 16.0,
                                 color: Color(0xFF019BF1),
                                 fontWeight: FontWeight.w500),
@@ -185,8 +185,8 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 24),
+              const Padding(
+                padding: EdgeInsets.only(top: 24),
                 child: Text(
                   "Jumlah Sampah",
                   style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w400),
@@ -195,7 +195,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
               BlocConsumer<BankSampahCubit, BankSampahState>(
                   listener: (context, state) {
                 if (state is BankSampahIsSuccess) {
-                  state.data.bank_sampah.forEach((element) {
+                  for (var element in state.data.bank_sampah) {
                     switch (element.point) {
                       case 1:
                         itemPlastik.value = element.point;
@@ -210,7 +210,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                         itemKertas.value = element.point;
                         break;
                     }
-                  });
+                  }
                 }
               }, builder: (context, state) {
                 if (state is BankSampahIsLoading) {
@@ -232,7 +232,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                           height: 75,
                           // width: MediaQuery.of(context).size.width * 1,
                           decoration: BoxDecoration(
-                            color: Color(0xFFFAFDFF),
+                            color: const Color(0xFFFAFDFF),
                             borderRadius: BorderRadius.circular(16),
                             border: Border.all(
                               width: 0.5,
@@ -245,7 +245,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                               Padding(
                                 padding: const EdgeInsets.only(left: 15),
                                 child: Image.asset(
-                                  "${image[index]}",
+                                  image[index],
                                   width: 40,
                                   height: 40,
                                 ),
@@ -267,8 +267,8 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom: 5),
+                                  const Padding(
+                                    padding: EdgeInsets.only(bottom: 5),
                                     child: Text(
                                       "Berat/KG",
                                       style: TextStyle(
@@ -288,12 +288,12 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                             onPressed: () {
                                               decrease(index);
                                             },
-                                            child: Icon(
+                                            backgroundColor: const Color(0xFFFF7F33),
+                                            child: const Icon(
                                               CupertinoIcons.minus,
                                               size: 30.0,
                                               color: Colors.white,
                                             ),
-                                            backgroundColor: Color(0xFFFF7F33),
                                           ),
                                         ),
                                       ),
@@ -302,7 +302,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                             left: 22, right: 22),
                                         child: Text(
                                           "${items[index].count}",
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontSize: 16.0,
                                             fontWeight: FontWeight.w400,
                                           ),
@@ -321,13 +321,13 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                                 grow1(index,
                                                     items[index].itemName!);
                                               },
-                                              child: Icon(
+                                              backgroundColor:
+                                                  const Color(0xFFFF7F33),
+                                              child: const Icon(
                                                 CupertinoIcons.plus,
                                                 size: 30.0,
                                                 color: Colors.white,
                                               ),
-                                              backgroundColor:
-                                                  Color(0xFFFF7F33),
                                             ),
                                           ),
                                         ),
@@ -350,7 +350,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "Total point yang didapat :",
                       style: TextStyle(
                         fontSize: 14.0,
@@ -359,7 +359,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                     ),
                     Text(
                       '$point',
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.w400,
                           color: Color(0xFF019BF1)),
@@ -397,12 +397,12 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
-                child: Container(
+                child: SizedBox(
                   height: 40,
                   width: MediaQuery.of(context).size.width * 1,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFFFF7F33),
+                      backgroundColor: const Color(0xFFFF7F33),
                       shape: ContinuousRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),

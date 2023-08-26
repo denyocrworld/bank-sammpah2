@@ -13,7 +13,7 @@ class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen>
   @override
   void initState() {
     super.initState();
-    _tabController = new TabController(vsync: this, length: 3);
+    _tabController = TabController(vsync: this, length: 3);
   }
   @override
   Widget build(BuildContext context) {
@@ -61,20 +61,20 @@ class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen>
               padding: const EdgeInsets.only(left: 20, right: 20),
               child : Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 26),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 26),
                     child : Text(
                       'Nomor Rekening Bank : ', style: TextStyle(fontSize: 18),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 12),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 12),
                     child : Text(
                       '9016152139000', style: TextStyle(fontSize: 26),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 24),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 24),
                     child : Text(
                       'Segera selesaikan pembayaran anda dalam waktu :', style: TextStyle(fontSize: 18),
                     ),
@@ -85,7 +85,7 @@ class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen>
                       alignment: Alignment.center,
                       child: Row(
                         children: [
-                          Padding(padding: const EdgeInsets.only(right: 100)),
+                          const Padding(padding: EdgeInsets.only(right: 100)),
                           Align(
                             alignment: Alignment.bottomLeft,
                             child: SizedBox(
@@ -100,19 +100,19 @@ class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen>
                                   }
                                 },
                                 decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                  contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                   filled: true,
                                   fillColor: Colors.white,
                                   hintText: '0',
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(8),
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       width: 0.5,
                                     ),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(8),
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       width: 0.5,
                                     ),
                                   ),
@@ -125,8 +125,8 @@ class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen>
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 5)
+                          const Padding(
+                            padding: EdgeInsets.only(right: 5)
                             ),
                           Align(
                             alignment: Alignment.bottomLeft,
@@ -142,19 +142,19 @@ class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen>
                                   }
                                 },
                                 decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                  contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                   filled: true,
                                   fillColor: Colors.white,
                                   hintText: '0',
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(8),
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       width: 0.5,
                                     ),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(8),
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       width: 0.5,
                                     ),
                                   ),
@@ -167,26 +167,26 @@ class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen>
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 4)
+                          const Padding(
+                            padding: EdgeInsets.only(right: 4)
                             ),
-                          Align(
+                          const Align(
                             alignment: Alignment.bottomLeft,
                             child: Text(
                                 'm', style: TextStyle(fontSize: 14),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 15)
+                          const Padding(
+                            padding: EdgeInsets.only(left: 15)
                             ),
-                          Align(
+                          const Align(
                             alignment: Alignment.center,
                             child: Text(
                                 ':', style: TextStyle(fontSize: 45, color: Color(0xFF019BF1), fontWeight: FontWeight.bold),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 15)
+                          const Padding(
+                            padding: EdgeInsets.only(right: 15)
                             ),
                           Align(
                             alignment: Alignment.bottomLeft,
@@ -202,19 +202,19 @@ class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen>
                                   }
                                 },
                                 decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                  contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                   filled: true,
                                   fillColor: Colors.white,
                                   hintText: '0',
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(8),
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       width: 0.5,
                                     ),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(8),
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       width: 0.5,
                                     ),
                                   ),
@@ -227,8 +227,8 @@ class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen>
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 5)
+                          const Padding(
+                            padding: EdgeInsets.only(right: 5)
                             ),
                           Align(
                             alignment: Alignment.bottomLeft,
@@ -244,19 +244,19 @@ class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen>
                                   }
                                 },
                                 decoration: InputDecoration(
-                                  contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                  contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                   filled: true,
                                   fillColor: Colors.white,
                                   hintText: '0',
                                   enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(8),
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       width: 0.5,
                                     ),
                                   ),
                                   focusedBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(8),
-                                    borderSide: BorderSide(
+                                    borderSide: const BorderSide(
                                       width: 0.5,
                                     ),
                                   ),
@@ -269,10 +269,10 @@ class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen>
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 4)
+                          const Padding(
+                            padding: EdgeInsets.only(right: 4)
                             ),
-                          Align(
+                          const Align(
                             alignment: Alignment.bottomLeft,
                             child: Text(
                                 's', style: TextStyle(fontSize: 14),
@@ -282,8 +282,8 @@ class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen>
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 18),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 18),
                     child : Text(
                       'Jika anda sudah melakukan pembayaran, maka akan terkonfirmasi secara otomatis', style: TextStyle(fontSize: 18),
                     textAlign: TextAlign.center,
@@ -298,22 +298,22 @@ class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen>
                         height: 49,
                         width: 320,
                             decoration: BoxDecoration(
-                              color: Color(0xFFF3FAFF),
+                              color: const Color(0xFFF3FAFF),
                               border: Border.all(
                               color: const Color(0xFF019BF1),
                               width: 1.0,
                               style: BorderStyle.solid),
-                              borderRadius: BorderRadius.only(topLeft : Radius.circular(10), topRight: Radius.circular(10)),),
+                              borderRadius: const BorderRadius.only(topLeft : Radius.circular(10), topRight: Radius.circular(10)),),
                             child : 
                                 Padding(
                                 padding: const EdgeInsets.only(),
                                 child: 
                                   TabBar(
                                     controller: _tabController,
-                                    labelColor: Color(0xFFFFFFFF),
-                                    unselectedLabelColor: Color(0xFF72777F),
-                                    indicator : BoxDecoration( color: const Color(0xFF019BF1),),
-                                    tabs: [
+                                    labelColor: const Color(0xFFFFFFFF),
+                                    unselectedLabelColor: const Color(0xFF72777F),
+                                    indicator : const BoxDecoration( color: Color(0xFF019BF1),),
+                                    tabs: const [
                                       Tab(
                                         child : Text( 'M-Banking', style: TextStyle(fontSize: 15,),),
                                       ),
@@ -331,16 +331,16 @@ class _KonfirmasiPembayaranScreenState extends State<KonfirmasiPembayaranScreen>
                           height: 372,
                           width: 320, //320, //MediaQuery.of(context).size.width * 1,
                             decoration: BoxDecoration(
-                              color: Color(0xFFF3FAFF),
+                              color: const Color(0xFFF3FAFF),
                               border: Border.all(
                               color: const Color(0xFF019BF1),
                               width: 1.0,
                               style: BorderStyle.solid),
-                              borderRadius: BorderRadius.only(bottomLeft : Radius.circular(10), bottomRight: Radius.circular(10)),),
+                              borderRadius: const BorderRadius.only(bottomLeft : Radius.circular(10), bottomRight: Radius.circular(10)),),
                             child : 
                               TabBarView(
                                 controller: _tabController,
-                                children: [
+                                children: const [
                                   Image(
                                     image: AssetImage(
                                         'asset/images/Desc_Bank.png'),

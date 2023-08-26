@@ -16,7 +16,7 @@ class HomeCubit extends Cubit<HomeState> {
     print('Fecth HomePage');
     emit(HomeIsLoading());
     final token = await Commons().getUid();
-    print('Token Home = ${token}');
+    print('Token Home = $token');
     final response =
         await repository.fecthHome(AuthenticationHeaderRequest(token));
     if (response is ResultSuccess) {

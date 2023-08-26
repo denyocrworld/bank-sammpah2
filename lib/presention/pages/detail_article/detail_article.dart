@@ -15,8 +15,8 @@ class _DetailArticleState extends State<DetailArticle> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            child: Padding(
-              padding: const EdgeInsets.all(10),
+            child: const Padding(
+              padding: EdgeInsets.all(10),
               child: Text(
                 "Judul",
                 style: TextStyle(
@@ -34,14 +34,14 @@ class _DetailArticleState extends State<DetailArticle> {
       child: Padding(
         padding: const EdgeInsets.all(10),
         child: Text("Deskripsi",
-            style: Theme.of(context).textTheme.bodyText1,
+            style: Theme.of(context).textTheme.bodyLarge,
             softWrap: true,
             textAlign: TextAlign.justify),
       ),
     );
     return Scaffold(
         appBar: AppBar(
-          title: Text(
+          title: const Text(
             "Judul",
             style: TextStyle(
               fontSize: 16.0,

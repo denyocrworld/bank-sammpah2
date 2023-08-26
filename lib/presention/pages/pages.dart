@@ -12,7 +12,6 @@ import 'package:loginandsignup/data/repository/home/home_repository_impl.dart';
 import 'package:loginandsignup/data/repository/login/login_repository_impl.dart';
 import 'package:loginandsignup/data/repository/registrasi/registrasi_repository_impl.dart';
 import 'package:loginandsignup/data/repository/tukar_point/tukar_point_repository_impl.dart';
-import 'package:loginandsignup/domain/base/authentication_header_request.dart';
 import 'package:loginandsignup/domain/model/request/Register/register_request.dart';
 import 'package:loginandsignup/domain/model/request/confirm_code_request/confirm_code.dart';
 import 'package:loginandsignup/domain/model/request/forgot_request/forgot_password.dart';
@@ -38,7 +37,6 @@ import '../../model/costum_shapes.dart';
 import 'package:readmore/readmore.dart';
 import 'dart:async';
 
-import 'bank_sampah/cubit/bank_sampah_cubit.dart';
 import 'profile/cubit/logout_cubit.dart';
 
 part 'home/home_page.dart';

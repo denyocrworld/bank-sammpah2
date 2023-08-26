@@ -181,18 +181,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () {
                       context.go("/Profile");
                     },
-                    child: Container(
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: NetworkImage(
-                                '${homeState.data.profile.image}',
-                              ),
-                              fit: BoxFit.cover),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(50)),
-                          border: Border.all(color: Colors.white, width: 1.5)),
-                      //
-                    ),
                     // Image.network('${homeState.data.profile.image}'),
                     // Icon(
                     //   Icons.account_circle,
@@ -202,6 +190,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     mini: true,
                     backgroundColor: Colors.white,
                     elevation: 1,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                homeState.data.profile.image,
+                              ),
+                              fit: BoxFit.cover),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(50)),
+                          border: Border.all(color: Colors.white, width: 1.5)),
+                      //
+                    ),
                   ),
                 ),
                 Padding(
@@ -463,7 +463,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Padding(
                                   padding: const EdgeInsets.only(
                                       top: 10, right: 16, left: 16),
-                                  child: Container(
+                                  child: SizedBox(
                                     width:
                                         MediaQuery.of(context).size.width * 1,
                                     height: 40,

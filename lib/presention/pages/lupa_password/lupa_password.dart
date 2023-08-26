@@ -82,7 +82,7 @@ class _LupaPasswordState extends State<LupaPassword> {
                   height: 232,
                   width: MediaQuery.of(context).size.width * 1,
                   decoration: BoxDecoration(
-                      color: Color(0xFFF8FCFF),
+                      color: const Color(0xFFF8FCFF),
                       borderRadius: BorderRadius.circular(16)),
                   child: Column(
                     children: [
@@ -94,8 +94,8 @@ class _LupaPasswordState extends State<LupaPassword> {
                           height: 32,
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 16, left: 16),
+                      const Padding(
+                        padding: EdgeInsets.only(top: 16, left: 16),
                         child: Align(
                             alignment: Alignment.centerLeft,
                             child: Text('Nomor Whatssap/Email')),
@@ -109,9 +109,9 @@ class _LupaPasswordState extends State<LupaPassword> {
                           child: TextFormField(
                             controller: whatssapController,
                             keyboardType: TextInputType.multiline,
-                            style: TextStyle(fontSize: 14),
+                            style: const TextStyle(fontSize: 14),
                             decoration: InputDecoration(
-                              contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                              contentPadding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                               filled: true,
                               fillColor: Colors.white,
                               hintText: "Masukan disini",

@@ -52,7 +52,7 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
       name: 'navbar',
       builder: (context, state) {
         BlocProvider.of<HomeCubit>(context).fecthHome();
-        return NavigasiBar();
+        return const NavigasiBar();
       }),
   GoRoute(
     path: "/LupaPassword",
@@ -151,6 +151,6 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
   GoRoute(
     path: "/PilihPembayaran",
     name: "PilihPembayaranScreen",
-    builder: (context, state) => PilihPembayaranScreen(),
+    builder: (context, state) => const PilihPembayaranScreen(),
   ),
 ]);
