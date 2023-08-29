@@ -33,6 +33,10 @@ class Commons {
     final storage = await prefs;
     return storage.remove("token");
   }
+  Future<DateTime?> getTokenExpiration() async {
+    final storage = await prefs;
+    return DateTime.parse(storage.getString('tokenExpiration') ?? '');
+  }
 
   void showSnackbarError(BuildContext context, String msg) {
     showTopSnackBar(context, CustomSnackBar.error(message: msg));

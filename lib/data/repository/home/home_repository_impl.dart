@@ -20,7 +20,7 @@ class HomeRespositoryImpl implements HomeRepository {
       print("STATUS CODE :${response.statusCode} ");
       print("DATA :${response.body} ");
 
-      if (response.statusCode == 200 || response.statusCode == 401) {
+      if (response.statusCode == 200 || response.statusCode == 400) {
         BaseRemoteResponse<HomeRemoteResponse> baseResponseObject =
             BaseRemoteResponse<HomeRemoteResponse>.fromJson(
           jsonDecode(response.body),
@@ -38,12 +38,12 @@ class HomeRespositoryImpl implements HomeRepository {
           return ResultSuccess(baseResponseObject.data!.toHomeData());
         }
       } else {
-        return ResultError(message: "Terjadi kesalahan saat mengambil data");
+        print("Error Impl :${response.toString()}");
+        return ResultError(message: response.toString());
       }
     } catch (e) {
       print("ERROR IMPL: ${e.toString()}");
-      return ResultError(
-          message: 'Terjadi kesalahan saat mengambil data. Silakan coba lagi.');
+      return ResultError(message: e.toString());
     }
   }
 }

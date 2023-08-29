@@ -5,4 +5,5 @@ part 'profile_change_state.dart';
 
 class ProfileChangeCubit extends Cubit<ProfileChangeState> {
   ProfileChangeCubit() : super(ProfileChangeInitial());
+  
 }
