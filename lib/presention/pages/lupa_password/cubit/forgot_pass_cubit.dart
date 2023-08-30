@@ -24,10 +24,10 @@ class ForgotPassCubit extends Cubit<ForgotPassState> {
         emit(
           ForgotPassIsSuccess(message: (response).data),
         );
-        final data = (state as ForgotPassIsSuccess).message;
-        final token = (state as ForgotPassIsSuccess).message;
+        // final data = (state as ForgotPassIsSuccess).message;
+        // final token = (state as ForgotPassIsSuccess).message;
 
-        Commons().setEmail(data!, token!);
+        // Commons().setEmail(data!, token!);
       }
     } else if (response is ResultError) {
       emit(const ForgotPassIsError(message: "Email tidak terdaftar"));

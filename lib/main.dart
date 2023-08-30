@@ -18,9 +18,13 @@ import 'package:loginandsignup/presention/pages/lupa_password/cubit/forgot_pass_
 import 'package:loginandsignup/presention/pages/pages.dart';
 import 'package:loginandsignup/presention/pages/profile/cubit/logout_cubit.dart';
 import 'package:loginandsignup/presention/pages/registrasi/cubit/registrasi_cubit.dart';
+import 'data/repository/change_profile/change_profile_repository_impl.dart';
+import 'data/utilities/auth_cubit.dart';
 import 'presention/pages/bank_sampah/cubit/bank_sampah_cubit.dart';
 import 'presention/pages/config_pass/cubit/config_pass_cubit.dart';
 import 'presention/pages/detail_riwayat/cubit/detal_history_cubit.dart';
+import 'presention/pages/layanan/cubit/layanan_cubit.dart';
+import 'presention/pages/profile/cubit/profile_change_cubit.dart';
 import 'presention/pages/tukar_poin/cubit/tukarpoint_cubit.dart';
 
 void main() {
@@ -35,6 +39,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (_) => AuthCubit(),
+        ),
         BlocProvider(
           create: (context) => LoginCubit(LoginRepositoryImpl()),
         ),

@@ -14,11 +14,7 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body:
-          // body: BlocBuilder<HomeCubit, HomeState>(
-          //   builder: (context, homeState) {
-          // if (homeState is HomeIsSuccess) {
-          BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
+      body: BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
         if (state is HomeIsLoading) {
           return const Center(
               child: CircularProgressIndicator(
@@ -97,7 +93,10 @@ class _ProfileState extends State<Profile> {
                                     ),
                                     GestureDetector(
                                       onTap: () {
-                                        context.go("/ChangeProfile");
+                                        context.pushNamed(
+                                          Routes.ChangeProfile,
+                                        );
+                                        setState(() {});
                                       },
                                       child: Icon(
                                         Icons.edit,
@@ -229,7 +228,7 @@ class _ProfileState extends State<Profile> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 12, left: 0),
+                          padding: EdgeInsets.only(top: 12, left: 0),
                           child: const Text('Riwayat',
                               style: TextStyle(
                                   fontSize: 14,

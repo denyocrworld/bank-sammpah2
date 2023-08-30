@@ -29,7 +29,7 @@ class HomeProfileResponse implements HomeProfileResponseMapper {
   Map<String, dynamic> toJson() => _$HomeProfileResponseToJson(this);
   @override
   HomeProfileData toHomeProfileData() {
-    return HomeProfileData(image ?? " ", username ?? " ", balance ?? 0,
-        email ?? " ", phone ?? " ", address ?? " ");
+    return HomeProfileData(image ?? "", username ?? "", balance ?? 0,
+        email ?? "", phone ?? "", address ?? "");
   }
 }

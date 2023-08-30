@@ -4,6 +4,8 @@ import 'package:json_annotation/json_annotation.dart';
 import 'package:loginandsignup/data/model/home/home_profile_response.dart';
 import 'package:loginandsignup/domain/model/data/home/home_data.dart';
 
+import '../../../domain/model/data/home/home_profile_data.dart';
+
 part 'home_remote_response.g.dart';
 
 abstract class HomeRemoteResponseMapper {
@@ -12,8 +14,8 @@ abstract class HomeRemoteResponseMapper {
 
 @JsonSerializable()
 class HomeRemoteResponse implements HomeRemoteResponseMapper {
-  final HomeProfileResponse? profile;
-  final List<dynamic>? riwayat;
+  HomeProfileResponse? profile;
+  List<dynamic>? riwayat;
   HomeRemoteResponse({
     this.profile,
     this.riwayat,
@@ -25,10 +27,9 @@ class HomeRemoteResponse implements HomeRemoteResponseMapper {
 
   @override
   HomeData toHomeData() {
-    // TODO: implement toHomeData
     return HomeData(
-      profile!.toHomeProfileData(),
-      riwayat!,
+      profile?.toHomeProfileData() ?? HomeProfileData("", "", 0, "", "", ""),
+      [],
     );
   }
 }

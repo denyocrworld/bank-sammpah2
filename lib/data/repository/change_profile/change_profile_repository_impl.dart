@@ -1,7 +1,6 @@
 // ignore_for_file: avoid_print
 
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:loginandsignup/domain/base/authentication_header_request.dart';
 import 'package:loginandsignup/domain/model/request/profile/profileRequest.dart';
@@ -15,11 +14,11 @@ class ChangeProfileRepositoryImpl implements ChangeProfileRepository {
   final changeProfileService = ChangeProfileService();
 
   @override
-  Future<ResultEntity> fetchChangeProfile(ProfileRequest request,
-      AuthenticationHeaderRequest header, File image) async {
+  Future<ResultEntity> fetchChangeProfile(
+      ProfileRequest request, AuthenticationHeaderRequest header) async {
     try {
       final response =
-          await changeProfileService.fetchChangeProfile(request, header, image);
+          await changeProfileService.fetchChangeProfile(request, header);
       print("STATUS CODE: ${response.statusCode}");
       print(response.body);
       if (response.statusCode == 200 || response.statusCode == 201) {

@@ -33,11 +33,14 @@ import 'package:rounded_expansion_tile/rounded_expansion_tile.dart';
 import 'package:loginandsignup/data/utilities/commons.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+import '../../domain/model/data/home/home_profile_data.dart';
+import '../../domain/model/request/profile/profileRequest.dart';
 import '../../model/costum_shapes.dart';
 import 'package:readmore/readmore.dart';
 import 'dart:async';
 
 import 'profile/cubit/logout_cubit.dart';
+import 'profile/cubit/profile_change_cubit.dart';
 
 part 'home/home_page.dart';
 part 'login/login_screen.dart';
