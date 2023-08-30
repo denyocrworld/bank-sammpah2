@@ -8,7 +8,7 @@ import 'package:loginandsignup/presention/pages/pages.dart';
 // import 'package:loginandsignup/presention/pages/pembayaran/cubit/pilih_pembayaran_cubit.dart';
 import 'package:loginandsignup/presention/pages/tukar_poin/cubit/tukarpoint_cubit.dart';
 
-final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
+final GoRouter router = GoRouter(initialLocation: "/UbahPasswordScreen", routes: [
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",
@@ -152,5 +152,10 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
     path: "/PilihPembayaran",
     name: "PilihPembayaranScreen",
     builder: (context, state) => const PilihPembayaranScreen(),
+  ),
+  GoRoute(
+    path: "/UbahPasswordScreen",
+    name: "ubahPasswordScreen",
+    builder: (context, state) => const UbahPasswordScreen(),
   ),
 ]);

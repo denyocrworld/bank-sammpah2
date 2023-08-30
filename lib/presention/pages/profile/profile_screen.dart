@@ -201,38 +201,9 @@ class _ProfileState extends State<Profile> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 15),
-                        width: MediaQuery.of(context).size.width,
-                        height: 40,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: Color(0xFFFF7F33))),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text("Keluar",
-                                style: TextStyle(
-                                  color: Color(0xFFFF7F33),
-                                    fontSize: 16, fontWeight: FontWeight.w600)),
-                            GestureDetector(
-                              onTap: () {
-                                context.go('/LoginScreen');
-                                BlocProvider.of<LogoutCubit>(context).fetchLogout();
-                              },
-                              child: Icon(Icons.arrow_forward_ios_rounded,
-                                  size: 18, color: Color(0xFFFF7F33)),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        // ignore: prefer_const_constructors
                         Padding(
                           padding: const EdgeInsets.only(top: 12, left: 0),
                           child: const Text('Riwayat',

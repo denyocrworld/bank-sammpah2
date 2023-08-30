@@ -699,12 +699,10 @@ class _HomeScreenState extends State<HomeScreen> {
               child: const CircularProgressIndicator(),
             );
           }
-          return Container(
-            child: const Text(
-              "Kosong",
-              style: TextStyle(
-                fontSize: 10.0,
-              ),
+          return const Text(
+            "Kosong",
+            style: TextStyle(
+              fontSize: 10.0,
             ),
           );
         },
