@@ -42,7 +42,7 @@ class _LayananScreenState extends State<LayananScreen> {
         }
       }, builder: (context, state) {
         if (state is LayananIsLoading) {
-          return const Center(
+          return Center(
               child: CircularProgressIndicator(
             color: Colors.blue,
           ));
@@ -76,9 +76,7 @@ class _LayananScreenState extends State<LayananScreen> {
                                   color: Color(0xffCEE5FF),
                                   borderRadius: BorderRadius.circular(50),
                                 ),
-                                child: Image(
-                                    image: AssetImage(
-                                        "asset/images/langganan.png")),
+                                child: Image(image: AssetImage(imageList)),
                               ),
                             ),
                           ],

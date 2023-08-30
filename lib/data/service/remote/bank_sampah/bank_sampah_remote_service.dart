@@ -6,8 +6,8 @@ class BankSampahRemoteService {
   Client client = Client();
 
   Future<Response> fetchBankSampah(AuthenticationHeaderRequest header) async {
-    final url = Uri.https(BaseConfig.BASE_DOMAIN_Mockapi,
-        BaseConfig.BASE_PATH + BaseConfig.BANK_SAMPAH);
+    final url = Uri.https(
+        BaseConfig.BASE_DOMAIN, BaseConfig.BASE_PATH + BaseConfig.BANK_SAMPAH);
     print(url);
     return Client().get(url, headers: header.toHeader());
   }

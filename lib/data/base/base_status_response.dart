@@ -2,8 +2,7 @@
 
 abstract class BaseConfig {
   static const String BASE_DOMAIN = '103-175-216-13.cprapid.com:8822';
-  static const String BASE_DOMAIN_Mockapi =
-      '6418428229e7e36438e38559.mockapi.io';
+
   static const String BASE_PATH = '/server';
   static const String LOGIN_URL = '/signin';
   static const String FORGOT_PASSWORD = '/forget-password';
@@ -17,4 +16,5 @@ abstract class BaseConfig {
   static const String AUTENTIKASI = '/validate-otp';
   static const String fetchLayanan = '/layanan';
 
+  static const String fetchChangeProfile = '/change-profile';
 }

@@ -20,7 +20,7 @@ class LayananCubit extends Cubit<LayananState> {
     final token = await Commons().getUid();
     print('Token Bank Sampah = ${token}');
     final response =
-        await repository.fetchLayanan(AuthenticationHeaderRequest(token));
+        await repository.fetchLayanan(AuthenticationHeaderRequest(token!));
     if (response is ResultSuccess) {
       emit(LayananIsSuccess(data: (response as ResultSuccess).data));
     } else {

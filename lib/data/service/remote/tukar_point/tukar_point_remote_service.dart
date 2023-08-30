@@ -6,8 +6,8 @@ class TukarPointRemoteService {
   Client client = Client();
 
   Future<Response> fecthTukarPoint(AuthenticationHeaderRequest header) async {
-    final url = Uri.https(BaseConfig.BASE_DOMAIN_Mockapi,
-        BaseConfig.BASE_PATH + BaseConfig.POINT_URL);
+    final url = Uri.https(
+        BaseConfig.BASE_DOMAIN, BaseConfig.BASE_PATH + BaseConfig.POINT_URL);
     print(url);
     return Client().get(url, headers: header.toHeader());
   }

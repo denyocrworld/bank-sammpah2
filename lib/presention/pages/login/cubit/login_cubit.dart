@@ -14,7 +14,6 @@ class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this.repository) : super(LoginInitial());
 
   Future<void> btnLogin(LoginRequest request) async {
-    print('Fecth Login ');
     emit(LoginIsLoading());
     final response = await repository.submitLogin(request);
 

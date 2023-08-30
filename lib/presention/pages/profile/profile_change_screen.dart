@@ -4,10 +4,12 @@
 part of '../pages.dart';
 
 class ChangeProfile extends StatefulWidget {
-  // final Map profileData;
+  final HomeProfileData profileData;
+  // final int? id;
   const ChangeProfile({
     Key? key,
-    // required this.profileData,
+    // this.id,
+    required this.profileData,
   }) : super(key: key);
 
   @override
@@ -19,6 +21,49 @@ class _ChangeProfileState extends State<ChangeProfile> {
   TextEditingController alamatController = TextEditingController();
   TextEditingController noController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+  TextEditingController imageController = TextEditingController();
+
+  @override
+  void initState() {
+    // namaController.text = widget.id.toString();
+    // namaController.text = widget.profileData.username;
+    // alamatController.text = widget.profileData.address;
+    // noController.text = widget.profileData.phone;
+    // emailController.text = widget.profileData.email;
+    BlocProvider.of<HomeCubit>(context).fecthHome();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // namaController.text = widget.profileData.username;
+    // alamatController.text = widget.profileData.address;
+    // noController.text = widget.profileData.phone;
+    // emailController.text = widget.profileData.email;
+    super.dispose();
+  }
+
+  File? _image;
+
+  Future<void> _getImageFromCamera(String? idRiwayat) async {
+    final picker = ImagePicker();
+    final pickedImage = await picker.pickImage(source: ImageSource.camera);
+
+    // if (pickedImage != null) {
+    //   setState(
+    //     () {
+    //       _image = File(pickedImage.path);
+    //       context.goNamed(
+    //         // Routes.uploadImageScreen,
+    //         // extra: {
+    //         //   'image': _image,
+    //         //   'idRiwayat': idRiwayat,
+    //         // },
+    //       );
+    //     },
+    //   );
+    // }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,24 +86,23 @@ class _ChangeProfileState extends State<ChangeProfile> {
             ),
           ),
         ),
-        body: BlocListener<LoginCubit, LoginState>(
-          listener: (context, loginState) {
-            if (loginState is LoginIsError) {
-              ((loginState.message == ""
+        body: BlocListener<ProfileChangeCubit, ProfileChangeState>(
+          listener: (context, state) {
+            if (state is ProfileChangeIsError) {
+              ((state.message == ""
                   ? Commons()
                       .showSnackbarError(context, "Username dan Password Salah")
-                  : Commons().showSnackbarError(context, loginState.message!)));
+                  : Commons().showSnackbarError(context, state.message!)));
 
-              print(loginState.message);
-            } else if (loginState is LoginSucces) {
-              // namaController.text = loginState.data.token;
-              // alamatController.text = "";
-              Commons().setUid("${loginState.data.token}");
-              print("Token: ${loginState.data.token}");
-              Commons().showSnackbarInfo(context, "Login Berhasil");
+              print(state.message);
+            } else if (state is ProfileChangeIsSuccess) {
+              namaController.text = state.data.profile.username;
+              alamatController.text = state.data.profile.address;
+              noController.text = state.data.profile.phone;
+              emailController.text = state.data.profile.email;
+
               context.go('/NavigasiBar');
             }
-            // TODO: implement listener
           },
           child: SingleChildScrollView(
               child: Column(
@@ -93,7 +137,12 @@ class _ChangeProfileState extends State<ChangeProfile> {
                               ),
                             ),
                             IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  // _getImageFromCamera(
+                                  //                   data.id.toString(),
+                                  //                 );
+                                  //                 context.pop();
+                                },
                                 icon: Icon(
                                   Icons.camera,
                                   size: 16,
@@ -130,7 +179,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                                     EdgeInsets.fromLTRB(10, 0, 0, 0),
                                 filled: true,
                                 fillColor: Colors.white,
-                                hintText: "",
+                                hintText: namaController.text,
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
@@ -168,7 +217,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                                     EdgeInsets.fromLTRB(10, 0, 0, 0),
                                 filled: true,
                                 fillColor: Colors.white,
-                                hintText: "Address",
+                                hintText: alamatController.text,
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
@@ -206,7 +255,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                                     EdgeInsets.fromLTRB(10, 0, 0, 0),
                                 filled: true,
                                 fillColor: Colors.white,
-                                hintText: "081234567890",
+                                hintText: noController.text,
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
@@ -244,7 +293,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                                     EdgeInsets.fromLTRB(10, 0, 0, 0),
                                 filled: true,
                                 fillColor: Colors.white,
-                                hintText: "Example@email.com",
+                                hintText: emailController.text,
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
@@ -266,7 +315,16 @@ class _ChangeProfileState extends State<ChangeProfile> {
                                   borderRadius: BorderRadius.circular(16),
                                 ),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                context.read<ProfileChangeCubit>().btnLogin(
+                                      ProfileRequest(
+                                          imageController.text,
+                                          namaController.text,
+                                          noController.text,
+                                          alamatController.text,
+                                          emailController.text),
+                                    );
+                              },
                               child: const Text(
                                 "Simpan",
                                 style: TextStyle(

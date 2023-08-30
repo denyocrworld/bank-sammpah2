@@ -6,7 +6,7 @@ class DetailHistoryRemoteService {
   Client client = Client();
   Future<Response> fecthDetailHistory(
       AuthenticationHeaderRequest header) async {
-    final url = Uri.https(BaseConfig.BASE_DOMAIN_Mockapi,
+    final url = Uri.https(BaseConfig.BASE_DOMAIN,
         BaseConfig.BASE_PATH + BaseConfig.DETAIL_HISTORY);
     print(url);
     return client.get(

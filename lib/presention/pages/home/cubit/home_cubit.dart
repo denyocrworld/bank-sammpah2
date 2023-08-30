@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, depend_on_referenced_packages, unnecessary_brace_in_string_interps
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:loginandsignup/data/base/result_entity.dart';
@@ -13,12 +15,11 @@ class HomeCubit extends Cubit<HomeState> {
   HomeCubit(this.repository) : super(const HomeState());
 
   Future<void> fecthHome() async {
-    print('Fecth HomePage');
     emit(HomeIsLoading());
     final token = await Commons().getUid();
     print('Token Home = $token');
     final response =
-        await repository.fecthHome(AuthenticationHeaderRequest(token));
+        await repository.fecthHome(AuthenticationHeaderRequest(token!));
     if (response is ResultSuccess) {
       emit(HomeIsSuccess(data: (response as ResultSuccess).data));
     } else {

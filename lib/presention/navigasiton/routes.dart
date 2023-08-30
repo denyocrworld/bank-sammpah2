@@ -1,23 +1,52 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:loginandsignup/domain/model/data/home/home_profile_data.dart';
 import 'package:loginandsignup/presention/pages/bank_sampah/cubit/bank_sampah_cubit.dart';
 import 'package:loginandsignup/presention/pages/detail_riwayat/cubit/detal_history_cubit.dart';
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 // import 'package:loginandsignup/pages/pages.dart';
 import 'package:loginandsignup/presention/pages/pages.dart';
-// import 'package:loginandsignup/presention/pages/pembayaran/cubit/pilih_pembayaran_cubit.dart';
-import 'package:loginandsignup/presention/pages/tukar_poin/cubit/tukarpoint_cubit.dart';
 
-final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
+import '../pages/layanan/cubit/layanan_cubit.dart';
+import 'route.dart';
+// import 'package:loginandsignup/presention/pages/pembayaran/cubit/pilih_pembayaran_cubit.dart';
+
+final GoRouter router = GoRouter(initialLocation: "/", routes: [
   GoRoute(
     path: "/Splash_Screen",
     name: "splash",
     builder: (context, state) => const SplashScreen(),
   ),
   GoRoute(
-    path: "/LoginScreen",
+    path: "/",
     name: "login",
     builder: (context, state) => const LoginScreen(),
+    // redirect: (context, state) async {
+    //   final isAuth = context.read<AuthCubit>().checkToken();
+    //   if (await isAuth) {
+    //     return '/HomeScreen';
+    //   } else {
+    //     return '/';
+    //   }
+    // },
+  ),
+  GoRoute(
+    path: "/NavigasiBar",
+    name: 'navbar',
+    builder: (context, state) => const NavigasiBar(),
+  ),
+  GoRoute(
+    path: "/HomeScreen",
+    name: Routes.HomeScreen,
+    builder: (context, state) {
+      BlocProvider.of<HomeCubit>(context).fecthHome();
+      return const HomeScreen();
+    },
+  ),
+  GoRoute(
+    path: "/Profile",
+    name: Routes.Profile,
+    builder: (context, state) => const Profile(),
   ),
   GoRoute(
     path: "/AutentikasiScreen",
@@ -30,18 +59,13 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
     builder: (context, state) => const SuccesScreen(),
   ),
   GoRoute(
-    path: "/HomeScreen",
-    name: "homescreen",
-    builder: (context, state) {
-      BlocProvider.of<HomeCubit>(context).fecthHome();
-      return const HomeScreen();
-    },
-  ),
-  GoRoute(
-    path: "/LayananScreen",
-    name: "layanan",
-    builder: (context, state) => const LayananScreen(),
-  ),
+      path: "/LayananScreen",
+      name: "layanan",
+      builder: (context, state) {
+        BlocProvider.of<LayananCubit>(context).fecthLayanan();
+
+        return const LayananScreen();
+      }),
   GoRoute(
     path: "/RegisterScreen",
     name: "resgis",
@@ -86,7 +110,7 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
     path: "/TukarPoint1",
     name: "point1",
     builder: (context, state) {
-      BlocProvider.of<TukarpointCubit>(context).fecthTukarPoint();
+      // BlocProvider.of<TukarpointCubit>(context).fecthTukarPoint();
       return const TukarPoint1();
     },
   ),
@@ -130,18 +154,15 @@ final GoRouter router = GoRouter(initialLocation: "/LoginScreen", routes: [
   ),
   GoRoute(
     path: "/ChangeProfile",
-    name: "changeProfile",
+    name: Routes.ChangeProfile,
     builder: (context, state) {
-      // BlocProvider.of<HomeCubit>(context)
-      //     .fecthHome();
+      BlocProvider.of<HomeCubit>(context).fecthHome();
 
-      return const ChangeProfile();
+      return ChangeProfile(
+        profileData: HomeProfileData(
+            "image", 'username', 0, "email", 'phone', 'address'),
+      );
     },
-  ),
-  GoRoute(
-    path: "/Profile",
-    name: "Profile",
-    builder: (context, state) => const Profile(),
   ),
   GoRoute(
     path: "/KonfirmasiPembayaran",
