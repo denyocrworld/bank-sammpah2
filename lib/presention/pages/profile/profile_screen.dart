@@ -36,6 +36,30 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
               Padding(
+                padding: const EdgeInsets.only(top: 30, bottom: 11, right: 21),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: [
+                    ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.blue,
+                          elevation: 0,
+                        ),
+                        onPressed: () {},
+                        child: Row(
+                          children: [
+                            Text('Logout'),
+                            Icon(
+                              Icons.logout,
+                              color: Colors.white,
+                            )
+                          ],
+                        )),
+                  ],
+                ),
+              ),
+              Padding(
                 padding: const EdgeInsets.only(top: 76, left: 20, right: 21),
                 child: Column(
                   children: [
