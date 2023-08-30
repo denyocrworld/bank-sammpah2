@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 
 import 'package:loginandsignup/data/base/result_entity.dart';
@@ -14,7 +16,6 @@ class HomeRespositoryImpl implements HomeRepository {
   @override
   Future<ResultEntity<HomeData>> fecthHome(
       AuthenticationHeaderRequest header) async {
-    // TODO: implement fecthHome
     try {
       final response = await homeService.fecthHome(header);
       print("STATUS CODE :${response.statusCode} ");
@@ -30,20 +31,25 @@ class HomeRespositoryImpl implements HomeRepository {
         print(baseResponseObject.data);
         if (baseResponseObject.status == null) {
           return ResultError(message: baseResponseObject.status!.message);
-        } else if (baseResponseObject.status?.code != 1) {
-          return ResultError(message: baseResponseObject.status?.message);
-          // return ResultError<HomeData>(message: "Error");
-        } else {
+        }
+
+        // else if (baseResponseObject.status?.code != 1) {
+        //   return ResultError(message: baseResponseObject.status?.message);
+
+        //   // return ResultError<HomeData>(message: "Error");
+        // }
+
+        else {
           print(baseResponseObject.data);
           return ResultSuccess(baseResponseObject.data!.toHomeData());
         }
       } else {
-        return ResultError(message: "Terjadi kesalahan saat mengambil data");
+        print("ini error impl : ${response.toString()}");
+        return ResultError(message: response.toString());
       }
     } catch (e) {
-      print("ERROR IMPL: ${e.toString()}");
-      return ResultError(
-          message: 'Terjadi kesalahan saat mengambil data. Silakan coba lagi.');
+      print("ERROR IMPL catch: ${e.toString()}");
+      return ResultError(message: e.toString());
     }
   }
 }

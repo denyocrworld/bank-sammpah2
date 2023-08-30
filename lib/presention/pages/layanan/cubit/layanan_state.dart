@@ -1,3 +1,6 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: must_be_immutable
+
 part of 'layanan_cubit.dart';
 
 class LayananState extends Equatable {
@@ -9,17 +12,18 @@ class LayananState extends Equatable {
 
 class LayananInitial extends LayananState {}
 
-class LayananIsLoading extends LayananState {}
+class LayananIsLoading extends LayananState {
+  // int futureDelayed;
+  // LayananIsLoading({
+  //   required this.futureDelayed,
+  // });
+}
 
 class LayananIsSuccess extends LayananState {
-  LayananData data;
-  LayananIsSuccess(
-    this.data,
-  );
-
-  // @override
-  // // TODO: implement props
-  // List<Object> get props => [data];
+  final LayananData data;
+  const LayananIsSuccess({
+    required this.data,
+  });
 }
 
 class LayananIsError extends LayananState {

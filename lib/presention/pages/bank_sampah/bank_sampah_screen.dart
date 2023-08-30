@@ -94,12 +94,12 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // List<String> name = [
-    //   // "Plastik",
-    //   // "Kaca/Beling",
-    //   // "Kaleng/Besi",
-    //   // "Kertas/Karton"
-    // ];
+    List<String> name = [
+      "Plastik",
+      "Kaca/Beling",
+      "Kaleng/Besi",
+      "Kertas/Karton"
+    ];
     List<String> image = [
       "asset/images/botol_plastik.png",
       "asset/images/botol_kaca.png",
@@ -133,25 +133,25 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                   width: MediaQuery.of(context).size.width * 1,
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(16),
-                      color: Color(0xFFF5F5F5),
+                      color: const Color(0xFFF5F5F5),
                       border: Border.all(color: Colors.grey, width: 0.3)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16),
-                        child: const Text(
+                      const Padding(
+                        padding: EdgeInsets.only(left: 16),
+                        child: Text(
                           "Poin anda :",
                           style: TextStyle(
                               fontSize: 14.0, fontWeight: FontWeight.w500),
                         ),
                       ),
-                      Expanded(
+                      const Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 8),
+                          padding: EdgeInsets.only(left: 8),
                           child: Text(
                             "25.000",
-                            style: const TextStyle(
+                            style: TextStyle(
                                 fontSize: 16.0,
                                 color: Color(0xFF019BF1),
                                 fontWeight: FontWeight.w500),
@@ -185,166 +185,172 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                   ),
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 24),
+              const Padding(
+                padding: EdgeInsets.only(top: 24),
                 child: Text(
                   "Jumlah Sampah",
                   style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w400),
                 ),
               ),
               BlocConsumer<BankSampahCubit, BankSampahState>(
-                listener: (context, state) {
-                  // TODO: implement listener
-                  if (state is BankSampahIsSuccess) {
-                    state.data.forEach((element) {
-                      switch (element.type) {
-                        case 1:
-                          itemPlastik.value = element.point;
-                          break;
-                        case 2:
-                          itemKaca.value = element.point;
-                          break;
-                        case 3:
-                          itemBesi.value = element.point;
-                          break;
-                        case 4:
-                          itemKertas.value = element.point;
-                          break;
-                      }
-                    });
+                  listener: (context, state) {
+                if (state is BankSampahIsSuccess) {
+                  for (var element in state.data.bank_sampah) {
+                    switch (element.point) {
+                      case 1:
+                        itemPlastik.value = element.point;
+                        break;
+                      case 2:
+                        itemKaca.value = element.point;
+                        break;
+                      case 3:
+                        itemBesi.value = element.point;
+                        break;
+                      case 4:
+                        itemKertas.value = element.point;
+                        break;
+                    }
                   }
-                },
-                builder: (context, state) {
+                }
+              }, builder: (context, state) {
+                if (state is BankSampahIsLoading) {
+                  return const Center(
+                      child: CircularProgressIndicator(
+                    color: Colors.blue,
+                  ));
+                } else if (state is BankSampahIsSuccess) {
                   return ListView.builder(
-                      physics: const NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.only(
-                              top: 20, left: 20, right: 20),
-                          child: Container(
-                            height: 75,
-                            // width: MediaQuery.of(context).size.width * 1,
-                            decoration: BoxDecoration(
-                              color: Color(0xFFFAFDFF),
-                              borderRadius: BorderRadius.circular(16),
-                              border: Border.all(
-                                width: 0.5,
-                                color: Colors.grey,
-                              ),
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: state.data.bank_sampah.length,
+                    itemBuilder: (context, index) {
+                      final data = state.data.bank_sampah[index];
+                      return Padding(
+                        padding:
+                            const EdgeInsets.only(top: 20, left: 20, right: 20),
+                        child: Container(
+                          height: 75,
+                          // width: MediaQuery.of(context).size.width * 1,
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFFAFDFF),
+                            borderRadius: BorderRadius.circular(16),
+                            border: Border.all(
+                              width: 0.5,
+                              color: Colors.grey,
                             ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 15),
-                                  child: Image.asset(
-                                    "${image[index]}",
-                                    width: 40,
-                                    height: 40,
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(left: 15),
+                                child: Image.asset(
+                                  image[index],
+                                  width: 40,
+                                  height: 40,
+                                ),
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 16),
+                                  child: Text(
+                                    data.layanan,
+                                    style: const TextStyle(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                    textAlign: TextAlign.start,
                                   ),
                                 ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 16),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Padding(
+                                    padding: EdgeInsets.only(bottom: 5),
                                     child: Text(
-                                      "${name[index]}",
+                                      "Berat/KG",
                                       style: TextStyle(
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                      textAlign: TextAlign.start,
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.w500,
+                                          color: Color(0xFF5A5F66)),
                                     ),
                                   ),
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(bottom: 5),
-                                      child: Text(
-                                        "Berat/KG",
-                                        style: TextStyle(
-                                            fontSize: 12.0,
-                                            fontWeight: FontWeight.w500,
-                                            color: Color(0xFF5A5F66)),
+                                  Row(
+                                    children: [
+                                      SizedBox(
+                                        width: 25,
+                                        height: 25,
+                                        child: FittedBox(
+                                          child: FloatingActionButton(
+                                            heroTag: null,
+                                            onPressed: () {
+                                              decrease(index);
+                                            },
+                                            backgroundColor: const Color(0xFFFF7F33),
+                                            child: const Icon(
+                                              CupertinoIcons.minus,
+                                              size: 30.0,
+                                              color: Colors.white,
+                                            ),
+                                          ),
+                                        ),
                                       ),
-                                    ),
-                                    Row(
-                                      children: [
-                                        SizedBox(
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 22, right: 22),
+                                        child: Text(
+                                          "${items[index].count}",
+                                          style: const TextStyle(
+                                            fontSize: 16.0,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 20),
+                                        child: SizedBox(
                                           width: 25,
                                           height: 25,
                                           child: FittedBox(
                                             child: FloatingActionButton(
                                               heroTag: null,
                                               onPressed: () {
-                                                decrease(index);
+                                                grow1(index,
+                                                    items[index].itemName!);
                                               },
-                                              child: Icon(
-                                                CupertinoIcons.minus,
+                                              backgroundColor:
+                                                  const Color(0xFFFF7F33),
+                                              child: const Icon(
+                                                CupertinoIcons.plus,
                                                 size: 30.0,
                                                 color: Colors.white,
                                               ),
-                                              backgroundColor:
-                                                  Color(0xFFFF7F33),
                                             ),
                                           ),
                                         ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 22, right: 22),
-                                          child: Text(
-                                            "${items[index].count}",
-                                            style: TextStyle(
-                                              fontSize: 16.0,
-                                              fontWeight: FontWeight.w400,
-                                            ),
-                                          ),
-                                        ),
-                                        Padding(
-                                          padding:
-                                              const EdgeInsets.only(right: 20),
-                                          child: SizedBox(
-                                            width: 25,
-                                            height: 25,
-                                            child: FittedBox(
-                                              child: FloatingActionButton(
-                                                heroTag: null,
-                                                onPressed: () {
-                                                  grow1(index,
-                                                      items[index].itemName!);
-                                                },
-                                                child: Icon(
-                                                  CupertinoIcons.plus,
-                                                  size: 30.0,
-                                                  color: Colors.white,
-                                                ),
-                                                backgroundColor:
-                                                    Color(0xFFFF7F33),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                )
-                              ],
-                            ),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              )
+                            ],
                           ),
-                        );
-                      },
-                      itemCount: items.length);
-                },
-              ),
+                        ),
+                      );
+                    },
+                  );
+                }
+                return Container();
+              }),
               Padding(
                 padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "Total point yang didapat :",
                       style: TextStyle(
                         fontSize: 14.0,
@@ -353,7 +359,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                     ),
                     Text(
                       '$point',
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.w400,
                           color: Color(0xFF019BF1)),
@@ -391,12 +397,12 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
-                child: Container(
+                child: SizedBox(
                   height: 40,
                   width: MediaQuery.of(context).size.width * 1,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFFFF7F33),
+                      backgroundColor: const Color(0xFFFF7F33),
                       shape: ContinuousRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),
@@ -404,85 +410,14 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                     onPressed: () {
                       context.go("/SampahPenjemputan");
                     },
+                    child: const Text("Selanjutnya"),
                   ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 20, right: 20, top: 20),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          "Total point yang didapat :",
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                        Text(
-                          '$point',
-                          style: const TextStyle(
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.w400,
-                              color: Color(0xFF019BF1)),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10, right: 10.0),
-                    child: LinkedLabelRadio(
-                      label: 'Tukar di titik antar',
-                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                      value: false,
-                      groupValue: _isRadioSelected,
-                      onChanged: (bool newValue) {
-                        setState(() {
-                          _isRadioSelected = newValue;
-                        });
-                      },
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10, right: 10.0),
-                    child: LinkedLabelRadio(
-                      label: 'Tukar di titik antar (Drop Point)',
-                      padding: const EdgeInsets.symmetric(horizontal: 5.0),
-                      value: true,
-                      groupValue: _isRadioSelected,
-                      onChanged: (bool newValue) {
-                        setState(() {
-                          _isRadioSelected = newValue;
-                        });
-                      },
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(left: 16, right: 16, bottom: 16),
-                    child: Container(
-                      height: 40,
-                      width: MediaQuery.of(context).size.width * 1,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFFF7F33),
-                          shape: ContinuousRectangleBorder(
-                            borderRadius: BorderRadius.circular(16),
-                          ),
-                        ),
-                        onPressed: () {
-                          context.go("/SampahPenjemputan");
-                        },
-                        child: const Text("Selanjutnya"),
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
-          );
-        }
-        return const Center(child: Text("Data Not Found"));
-      }),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

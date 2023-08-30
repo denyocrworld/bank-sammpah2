@@ -14,11 +14,7 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body:
-          // body: BlocBuilder<HomeCubit, HomeState>(
-          //   builder: (context, homeState) {
-          // if (homeState is HomeIsSuccess) {
-          BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
+      body: BlocBuilder<HomeCubit, HomeState>(builder: (context, state) {
         if (state is HomeIsLoading) {
           return const Center(
               child: CircularProgressIndicator(
@@ -66,14 +62,17 @@ class _ProfileState extends State<Profile> {
                                       child: Padding(
                                         padding: const EdgeInsets.only(left: 8),
                                         child: Text(
-                                          "${state.data.profile.username}",
+                                          state.data.profile.username,
                                           style: TextStyle(fontSize: 22),
                                         ),
                                       ),
                                     ),
                                     GestureDetector(
                                       onTap: () {
-                                        context.go("/ChangeProfile");
+                                        context.pushNamed(
+                                          Routes.ChangeProfile,
+                                        );
+                                        setState(() {});
                                       },
                                       child: Icon(
                                         Icons.edit,
@@ -100,7 +99,7 @@ class _ProfileState extends State<Profile> {
                                               color: Colors.grey,
                                             ),
                                             Text(
-                                              "${state.data.profile.address}",
+                                              state.data.profile.address,
                                               style: TextStyle(fontSize: 14),
                                             ),
                                           ],
@@ -116,7 +115,7 @@ class _ProfileState extends State<Profile> {
                                               color: Colors.grey,
                                             ),
                                             Text(
-                                              "${state.data.profile.phone}",
+                                              state.data.profile.phone,
                                               style: TextStyle(fontSize: 14),
                                             ),
                                           ],
@@ -132,7 +131,7 @@ class _ProfileState extends State<Profile> {
                                               color: Colors.grey,
                                             ),
                                             Text(
-                                              "${state.data.profile.email}",
+                                              state.data.profile.email,
                                               style: TextStyle(fontSize: 14),
                                             ),
                                           ],
@@ -215,12 +214,14 @@ class _ProfileState extends State<Profile> {
                           children: [
                             const Text("Keluar",
                                 style: TextStyle(
-                                  color: Color(0xFFFF7F33),
-                                    fontSize: 16, fontWeight: FontWeight.w600)),
+                                    color: Color(0xFFFF7F33),
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w600)),
                             GestureDetector(
                               onTap: () {
                                 context.go('/LoginScreen');
-                                BlocProvider.of<LogoutCubit>(context).fetchLogout();
+                                BlocProvider.of<LogoutCubit>(context)
+                                    .fetchLogout();
                               },
                               child: Icon(Icons.arrow_forward_ios_rounded,
                                   size: 18, color: Color(0xFFFF7F33)),
@@ -232,9 +233,8 @@ class _ProfileState extends State<Profile> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        // ignore: prefer_const_constructors
                         Padding(
-                          padding: const EdgeInsets.only(top: 12, left: 0),
+                          padding: EdgeInsets.only(top: 12, left: 0),
                           child: const Text('Riwayat',
                               style: TextStyle(
                                   fontSize: 14,
@@ -248,10 +248,10 @@ class _ProfileState extends State<Profile> {
                               context.go("/RiwayatScreen");
                             },
                             child: Row(
-                              children: [
+                              children: const [
                                 Text(
                                   'Lihat semua',
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                       color: Color(0xFFFF7F33),
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400),
@@ -259,7 +259,7 @@ class _ProfileState extends State<Profile> {
                                 Icon(
                                   Icons.arrow_forward_ios_outlined,
                                   size: 14,
-                                  color: const Color(0xFFFF7F33),
+                                  color: Color(0xFFFF7F33),
                                 ),
                               ],
                             ),
@@ -358,7 +358,7 @@ class _ProfileState extends State<Profile> {
                                 Padding(
                                   padding: const EdgeInsets.only(
                                       top: 10, right: 16, left: 16),
-                                  child: Container(
+                                  child: SizedBox(
                                     width:
                                         MediaQuery.of(context).size.width * 1,
                                     height: 40,

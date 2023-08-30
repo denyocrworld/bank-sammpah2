@@ -6,7 +6,7 @@ class SuccessPenjemputan extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF5F5F5),
+      backgroundColor: const Color(0xFFF5F5F5),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -25,16 +25,16 @@ class SuccessPenjemputan extends StatelessWidget {
                         height: 128.0,
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 16),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 16),
                       child: Text(
                         'Selamat!!',
                         style: TextStyle(fontSize: 22),
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 8),
                       child: Text(
                         'Kamu telah berhasil menabung sampah,\ndengan ini kamu sudah membantu\nmenjaga lingkungan',
                         style: TextStyle(fontSize: 14, color: Colors.grey),
@@ -52,7 +52,7 @@ class SuccessPenjemputan extends StatelessWidget {
                 height: 40,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFFFF8D50),
+                    backgroundColor: const Color(0xFFFF8D50),
                     shape: ContinuousRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),

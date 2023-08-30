@@ -80,7 +80,7 @@ class _ConfigPassState extends State<ConfigPass> {
                     height: 268,
                     width: MediaQuery.of(context).size.width * 1,
                     decoration: BoxDecoration(
-                        color: Color(0xFFF8FCFF),
+                        color: const Color(0xFFF8FCFF),
                         borderRadius: BorderRadius.circular(16)),
                     child: Column(
                       children: [
@@ -92,8 +92,8 @@ class _ConfigPassState extends State<ConfigPass> {
                             height: 32,
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 16, left: 16),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 16, left: 16),
                           child: Align(
                               alignment: Alignment.centerLeft,
                               child: Text('Masukan Kode Konfirmasi')),
@@ -107,10 +107,10 @@ class _ConfigPassState extends State<ConfigPass> {
                             child: TextFormField(
                               controller: whatssapController,
                               keyboardType: TextInputType.number,
-                              style: TextStyle(fontSize: 14),
+                              style: const TextStyle(fontSize: 14),
                               decoration: InputDecoration(
                                 contentPadding:
-                                    EdgeInsets.fromLTRB(10, 0, 0, 0),
+                                    const EdgeInsets.fromLTRB(10, 0, 0, 0),
                                 filled: true,
                                 fillColor: Colors.white,
                                 hintText: "Masukkan kode",
@@ -130,7 +130,7 @@ class _ConfigPassState extends State<ConfigPass> {
                             width: MediaQuery.of(context).size.width * 1,
                             child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xFFFF7F33),
+                                backgroundColor: const Color(0xFFFF7F33),
                                 shape: ContinuousRectangleBorder(
                                   borderRadius: BorderRadius.circular(8),
                                 ),
@@ -146,10 +146,10 @@ class _ConfigPassState extends State<ConfigPass> {
                                   BlocBuilder<ConfigPassCubit, ConfigPassState>(
                                 builder: (context, configPassState) {
                                   if (configPassState is ConfigPassIsLoading) {
-                                    return Center(
+                                    return const Center(
                                         child: CircularProgressIndicator());
                                   }
-                                  return Text("Konfirmasi");
+                                  return const Text("Konfirmasi");
                                 },
                               ),
                             ),
@@ -159,7 +159,7 @@ class _ConfigPassState extends State<ConfigPass> {
                           padding: const EdgeInsets.only(top: 16, left: 16),
                           child: Row(
                             children: [
-                              Text(
+                              const Text(
                                 "Belum menerima kode?",
                                 style: TextStyle(
                                   fontSize: 14.0,
@@ -167,7 +167,7 @@ class _ConfigPassState extends State<ConfigPass> {
                               ),
                               GestureDetector(
                                   onTap: () {},
-                                  child: Text(
+                                  child: const Text(
                                     "Kirim Ulang",
                                     style: TextStyle(
                                         fontSize: 14.0, color: Colors.blue),

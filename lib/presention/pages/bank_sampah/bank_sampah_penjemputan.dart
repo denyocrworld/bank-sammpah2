@@ -26,12 +26,12 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
   @override
   void initState() {
     super.initState();
-    imagePicker = new ImagePicker();
+    imagePicker = ImagePicker();
   }
 
   DateTime pickDate = DateTime.now();
 
-  TimeOfDay _timeOfDay = TimeOfDay(hour: 8, minute: 30);
+  TimeOfDay _timeOfDay = const TimeOfDay(hour: 8, minute: 30);
 
   void _showTimePicker() {
     showTimePicker(
@@ -53,12 +53,12 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF5F5F5),
+      backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color(0xFFF5F5F5),
+        backgroundColor: const Color(0xFFF5F5F5),
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Bank Sampah',
           style: TextStyle(
             color: Color(0xFF001F29),
@@ -69,7 +69,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
           onTap: () {
             context.go('/BankSampahScreen');
           },
-          child: Icon(
+          child: const Icon(
             CupertinoIcons.arrow_left,
             size: 20,
             color: Color(0xFF001F29),
@@ -80,8 +80,8 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20, left: 20),
+            const Padding(
+              padding: EdgeInsets.only(top: 20, left: 20),
               child: Text('Atur Lokasi', style: TextStyle(fontSize: 14)),
             ),
             Container(
@@ -91,22 +91,22 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
               child: TextFormField(
                 controller: lokasiController,
                 keyboardType: TextInputType.name,
-                style: TextStyle(fontSize: 14, color: Colors.black),
+                style: const TextStyle(fontSize: 14, color: Colors.black),
                 decoration: InputDecoration(
-                  contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                  suffixIcon: Icon(Icons.location_on, color: Colors.grey),
+                  contentPadding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+                  suffixIcon: const Icon(Icons.location_on, color: Colors.grey),
                   filled: true,
                   fillColor: Colors.white,
                   hintText: "Atur lokasipen jemputan",
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       width: 0.5,
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       width: 0.5,
                     ),
                   ),
@@ -114,8 +114,8 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                 onChanged: (value) {},
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 20, left: 20),
+            const Padding(
+              padding: EdgeInsets.only(top: 20, left: 20),
               child:
                   Text('Tanggal Penjemputan', style: TextStyle(fontSize: 14)),
             ),
@@ -127,9 +127,9 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                 readOnly: true,
                 controller: penjemputandController,
                 keyboardType: TextInputType.datetime,
-                style: TextStyle(fontSize: 14, color: Colors.black),
+                style: const TextStyle(fontSize: 14, color: Colors.black),
                 decoration: InputDecoration(
-                  contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                  contentPadding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                   suffixIcon: IconButton(
                     onPressed: () async {
                       await showDatePicker(
@@ -138,16 +138,15 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                               firstDate: DateTime(1800),
                               lastDate: DateTime(2100))
                           .then((value) {
-                        if (value != null)
+                        if (value != null) {
                           setState(() {
                             pickDate = value;
                           });
+                        }
                       });
-                      if (pickDate != null) {
-                        String dateFormat =
-                            DateFormat("dd/MM/yyyy").format(pickDate);
-                        penjemputandController.text = dateFormat.toString();
-                      }
+                      String dateFormat =
+                          DateFormat("dd/MM/yyyy").format(pickDate);
+                      penjemputandController.text = dateFormat.toString();
                     },
                     icon: const Icon(
                       Icons.date_range_outlined,
@@ -159,13 +158,13 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                   hintText: "dd/mm/yy",
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       width: 0.5,
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
-                    borderSide: BorderSide(
+                    borderSide: const BorderSide(
                       width: 0.5,
                     ),
                   ),
@@ -173,8 +172,8 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                 onChanged: (value) {},
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 24, left: 20),
+            const Padding(
+              padding: EdgeInsets.only(top: 24, left: 20),
               child: Text('Pilih Waktu', style: TextStyle(fontSize: 14)),
             ),
             Row(
@@ -204,19 +203,19 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                         }
                       },
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                         filled: true,
                         fillColor: Colors.white,
                         hintText: '00',
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             width: 0.5,
                           ),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             width: 0.5,
                           ),
                         ),
@@ -229,8 +228,8 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 8, left: 6),
+                const Padding(
+                  padding: EdgeInsets.only(top: 8, left: 6),
                   child: Text(
                     ":",
                     style: TextStyle(
@@ -263,19 +262,19 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                         }
                       },
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                         filled: true,
                         fillColor: Colors.white,
                         hintText: '00',
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             width: 0.5,
                           ),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(8),
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             width: 0.5,
                           ),
                         ),
@@ -405,13 +404,13 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                           ),
                         )),
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Flexible(
+                Flexible(
                   flex: 1,
                   child: Padding(
-                    padding: const EdgeInsets.only(top: 80, left: 20),
+                    padding: EdgeInsets.only(top: 80, left: 20),
                     child: Text(
                       "Total Biaya",
                       style: TextStyle(
@@ -420,12 +419,12 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                     ),
                   ),
                 ),
-                const Flexible(
+                Flexible(
                   flex: 2,
                   child: Align(
                     alignment: Alignment.centerRight,
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 80, right: 20),
+                      padding: EdgeInsets.only(top: 80, right: 20),
                       child: Text(
                         "Rp. 25,000",
                         style:

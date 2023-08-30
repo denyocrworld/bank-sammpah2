@@ -13,16 +13,16 @@ part 'layanan_state.dart';
 
 class LayananCubit extends Cubit<LayananState> {
   final LayananRepository repository;
-  LayananCubit(this.repository) : super(const LayananState());
+  LayananCubit(this.repository) : super(LayananInitial());
 
   Future<void> fecthLayanan() async {
     emit(LayananIsLoading());
     final token = await Commons().getUid();
-    print('Token Layanan = ${token}');
+    print('Token Bank Sampah = ${token}');
     final response =
-        await repository.fetchLayanan(AuthenticationHeaderRequest(token));
+        await repository.fetchLayanan(AuthenticationHeaderRequest(token!));
     if (response is ResultSuccess) {
-      emit(LayananIsSuccess((response as ResultSuccess).data));
+      emit(LayananIsSuccess(data: (response as ResultSuccess).data));
     } else {
       emit(LayananIsError(message: (response as ResultError).message));
       print((response as ResultError).message);

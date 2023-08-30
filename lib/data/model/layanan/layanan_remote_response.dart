@@ -1,4 +1,5 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, non_constant_identifier_names
+
 import 'package:json_annotation/json_annotation.dart';
 import 'package:loginandsignup/domain/model/data/layanan/pickupData.dart';
 import '../../../domain/model/data/layanan/bankSampahData.dart';
@@ -26,14 +27,12 @@ class LayananResponse implements LayananResponseMapper {
   Map<String, dynamic> toJson() => _$LayananResponseToJson(this);
   @override
   LayananData toLayananData() {
-    List<BankSampahData> bankSampahDataList = bank_sampah?.map((response) {
-          return BankSampahData("", 0);
-        }).toList() ??
-        [];
-    List<PickUpData> listPickUp = pick_up?.map((response) {
-          return PickUpData("", 0, 0);
-        }).toList() ??
-        [];
+    List<BankSampahData> bankSampahDataList =
+        bank_sampah?.map((response) => response.toBankSampahData()).toList() ??
+            List.empty();
+    List<PickUpData> listPickUp =
+        pick_up?.map((response) => response.toPickUpData()).toList() ??
+            List.empty();
     return LayananData(bankSampahDataList, listPickUp);
   }
 }

@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
 part of 'home_cubit.dart';
 
 class HomeState extends Equatable {
@@ -14,13 +14,7 @@ class HomeIsLoading extends HomeState {}
 
 class HomeIsSuccess extends HomeState {
   HomeData data;
-  HomeIsSuccess({
-    required this.data,
-  });
-
-  // @override
-  // // TODO: implement props
-  // List<Object> get props => [data];
+  HomeIsSuccess({required this.data});
 }
 
 class HomeIsError extends HomeState {

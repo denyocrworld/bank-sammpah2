@@ -43,11 +43,11 @@ class _ArticleScreenState extends State<ArticleScreen> {
                           width: 150,
                         ),
                       ),
-                      Column(
+                      const Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(left: 10),
+                            padding: EdgeInsets.only(left: 10),
                             child: Text(
                               "Judul",
                               style: TextStyle(
@@ -57,7 +57,7 @@ class _ArticleScreenState extends State<ArticleScreen> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(left: 10),
+                            padding: EdgeInsets.only(left: 10),
                             child: Text(
                               "Content pappapappapppaapapapapapap\napappapapapapappap",
                               style: TextStyle(

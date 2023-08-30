@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 part of 'registrasi_cubit.dart';
 
 abstract class RegistrasiState extends Equatable {

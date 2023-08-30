@@ -17,7 +17,7 @@ class SplashScreen extends StatelessWidget {
               onTap: () {
                 context.go('/LoginScreen');
               },
-              child: Text(
+              child: const Text(
                 'Bank Sampah',
                 style: TextStyle(
                     fontSize: 50,

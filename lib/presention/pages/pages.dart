@@ -12,7 +12,6 @@ import 'package:loginandsignup/data/repository/home/home_repository_impl.dart';
 import 'package:loginandsignup/data/repository/login/login_repository_impl.dart';
 import 'package:loginandsignup/data/repository/registrasi/registrasi_repository_impl.dart';
 import 'package:loginandsignup/data/repository/tukar_point/tukar_point_repository_impl.dart';
-import 'package:loginandsignup/domain/base/authentication_header_request.dart';
 import 'package:loginandsignup/domain/model/request/Register/register_request.dart';
 import 'package:loginandsignup/domain/model/request/confirm_code_request/confirm_code.dart';
 import 'package:loginandsignup/domain/model/request/forgot_request/forgot_password.dart';
@@ -33,12 +32,16 @@ import 'package:rounded_expansion_tile/rounded_expansion_tile.dart';
 import 'package:loginandsignup/data/utilities/commons.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
+import '../../domain/model/data/home/home_profile_data.dart';
+import '../../domain/model/request/profile/profileRequest.dart';
 import '../../model/costum_shapes.dart';
 import 'package:readmore/readmore.dart';
 import 'dart:async';
 
-import 'bank_sampah/cubit/bank_sampah_cubit.dart';
+import '../navigasiton/route.dart';
+import 'layanan/cubit/layanan_cubit.dart';
 import 'profile/cubit/logout_cubit.dart';
+import 'profile/cubit/profile_change_cubit.dart';
 
 part 'home/home_page.dart';
 part 'login/login_screen.dart';

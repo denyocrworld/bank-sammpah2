@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loginandsignup/data/repository/autentikasi/autentikasi_repository_impl.dart';
-import 'package:loginandsignup/data/repository/bank_sampah/bank_sampah_repository_impl.dart';
 import 'package:loginandsignup/data/repository/config-code/config_code_repository_impl.dart';
 import 'package:loginandsignup/data/repository/detail_riwayat/detail_history_repository_impl.dart';
 import 'package:loginandsignup/data/repository/forgot-password/forgot_password_repository.impl.dart';
@@ -16,11 +15,14 @@ import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 import 'package:loginandsignup/presention/pages/login/cubit/login_cubit.dart';
 import 'package:loginandsignup/presention/pages/lupa_password/cubit/forgot_pass_cubit.dart';
 import 'package:loginandsignup/presention/pages/registrasi/cubit/registrasi_cubit.dart';
+import 'data/repository/change_profile/change_profile_repository_impl.dart';
+import 'data/utilities/auth_cubit.dart';
 import 'presention/pages/bank_sampah/cubit/bank_sampah_cubit.dart';
 import 'presention/pages/config_pass/cubit/config_pass_cubit.dart';
 import 'presention/pages/detail_riwayat/cubit/detal_history_cubit.dart';
+import 'presention/pages/layanan/cubit/layanan_cubit.dart';
+import 'presention/pages/profile/cubit/profile_change_cubit.dart';
 import 'presention/pages/tukar_poin/cubit/tukarpoint_cubit.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,6 +36,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (_) => AuthCubit(),
+        ),
         BlocProvider(
           create: (context) => LoginCubit(LoginRepositoryImpl()),
         ),
@@ -60,7 +65,14 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => AutentikasiCubit(AutentikasiRepositoryImpl()),
-        )
+        ),
+        BlocProvider(
+          create: (context) =>
+              ProfileChangeCubit(ChangeProfileRepositoryImpl()),
+        ),
+        BlocProvider(
+          create: (context) => LayananCubit(LayananRespositoryImpl()),
+        ),
       ],
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,

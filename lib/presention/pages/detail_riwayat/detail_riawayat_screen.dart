@@ -39,7 +39,7 @@ class _DetailRiwayatState extends State<DetailRiwayat> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
+                    const Text(
                       "Alamat Penjemputan",
                       style: TextStyle(
                         fontSize: 14.0,
@@ -50,13 +50,13 @@ class _DetailRiwayatState extends State<DetailRiwayat> {
                       padding: const EdgeInsets.only(left: 11, top: 10),
                       child: Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.location_on,
                             color: Color(0xFFA7ABB3),
                           ),
                           Text(
-                            '${detalHistoryState.data.pickup_address}',
-                            style: TextStyle(
+                            detalHistoryState.data.pickup_address,
+                            style: const TextStyle(
                               fontSize: 14.0,
                               fontWeight: FontWeight.w400,
                             ),
@@ -64,10 +64,10 @@ class _DetailRiwayatState extends State<DetailRiwayat> {
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 24,
                     ),
-                    Text(
+                    const Text(
                       "Tanggal Penjemputan",
                       style: TextStyle(
                         fontSize: 14.0,
@@ -78,10 +78,10 @@ class _DetailRiwayatState extends State<DetailRiwayat> {
                       padding: const EdgeInsets.only(left: 11, top: 10),
                       child: Row(
                         children: [
-                          Icon(Icons.date_range, color: Color(0xFFA7ABB3)),
+                          const Icon(Icons.date_range, color: Color(0xFFA7ABB3)),
                           Text(
-                            "${detalHistoryState.data.date}",
-                            style: TextStyle(
+                            detalHistoryState.data.date,
+                            style: const TextStyle(
                               fontSize: 14.0,
                               fontWeight: FontWeight.w400,
                             ),
@@ -89,25 +89,25 @@ class _DetailRiwayatState extends State<DetailRiwayat> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 24),
+                    const SizedBox(height: 24),
                     Row(
                       children: [
-                        Text(
+                        const Text(
                           "Berat Sampah:",
                           style: TextStyle(
                             fontSize: 16.0,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
-                        SizedBox(width: 5),
+                        const SizedBox(width: 5),
                         Text(
                           "${detalHistoryState.data.weight}",
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 16.0,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
-                        Text(
+                        const Text(
                           "kg",
                           style: TextStyle(
                             fontSize: 16.0,
@@ -116,8 +116,8 @@ class _DetailRiwayatState extends State<DetailRiwayat> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 16),
-                    Text(
+                    const SizedBox(height: 16),
+                    const Text(
                       "Waktu",
                       style: TextStyle(
                         fontSize: 14.0,
@@ -141,19 +141,19 @@ class _DetailRiwayatState extends State<DetailRiwayat> {
                                 }
                               },
                               decoration: InputDecoration(
-                                contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                 filled: true,
                                 fillColor: Colors.white,
                                 hintText: '00',
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(8),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     width: 0.5,
                                   ),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(8),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     width: 0.5,
                                   ),
                                 ),
@@ -166,8 +166,8 @@ class _DetailRiwayatState extends State<DetailRiwayat> {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 8, left: 6),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 8, left: 6),
                           child: Text(
                             ":",
                             style: TextStyle(
@@ -190,19 +190,19 @@ class _DetailRiwayatState extends State<DetailRiwayat> {
                                 }
                               },
                               decoration: InputDecoration(
-                                contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                                contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                                 filled: true,
                                 fillColor: Colors.white,
                                 hintText: '00',
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(8),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     width: 0.5,
                                   ),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(8),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                     width: 0.5,
                                   ),
                                 ),
@@ -237,10 +237,10 @@ class _DetailRiwayatState extends State<DetailRiwayat> {
                         decoration: BoxDecoration(
                           image: DecorationImage(
                               image: NetworkImage(
-                                  "${detalHistoryState.data.image}"),
+                                  detalHistoryState.data.image),
                               fit: BoxFit.fill),
                           color: Colors.blueAccent,
-                          borderRadius: BorderRadius.all(
+                          borderRadius: const BorderRadius.all(
                             Radius.circular(
                               8.0,
                             ),
@@ -253,7 +253,7 @@ class _DetailRiwayatState extends State<DetailRiwayat> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Flexible(
+                          const Flexible(
                             flex: 1,
                             child: Text(
                               "Total Biaya",
@@ -268,7 +268,7 @@ class _DetailRiwayatState extends State<DetailRiwayat> {
                               alignment: Alignment.centerRight,
                               child: Text(
                                 "Rp. ${detalHistoryState.data.price}",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 22.0, color: Color(0xFF019BF1)),
                               ),
                             ),
@@ -283,11 +283,11 @@ class _DetailRiwayatState extends State<DetailRiwayat> {
           } else if (detalHistoryState is DetalHistoryIsLoading) {
             return Container(
               alignment: Alignment.center,
-              child: CircularProgressIndicator(),
+              child: const CircularProgressIndicator(),
             );
           }
           return Container(
-            child: Text(
+            child: const Text(
               "Kosong",
               style: TextStyle(
                 fontSize: 10.0,

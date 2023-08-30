@@ -14,7 +14,7 @@ class DetalHistoryIsLoading extends DetalHistoryState {}
 
 class DetalHistoryIsSuccess extends DetalHistoryState {
   final DetailHistoryData data;
-  DetalHistoryIsSuccess(
+  const DetalHistoryIsSuccess(
     this.data,
   );
 }

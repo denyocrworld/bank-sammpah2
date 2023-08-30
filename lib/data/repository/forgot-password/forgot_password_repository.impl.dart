@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:loginandsignup/data/base/result_entity.dart';
 import 'package:loginandsignup/data/model/base_response/base_remote_response.dart';

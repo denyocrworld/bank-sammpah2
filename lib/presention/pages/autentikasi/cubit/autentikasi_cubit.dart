@@ -2,7 +2,6 @@ import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:loginandsignup/data/base/result_entity.dart';
 import 'package:loginandsignup/data/utilities/commons.dart';
-import 'package:loginandsignup/domain/base/authentication_header_request.dart';
 import 'package:loginandsignup/domain/model/request/autentikasi_request/autentikasi_request.dart';
 import 'package:loginandsignup/domain/repository/autentikasi/autentikasi_repository.dart';
 
@@ -20,16 +19,16 @@ class AutentikasiCubit extends Cubit<AutentikasiState> {
     if (response is ResultSuccess) {
       if (response.data == null) {
         emit(
-          AutentikasiIsSucess(message: 'Autentikasi Berhasi'),
+          const AutentikasiIsSucess(message: 'Autentikasi Berhasi'),
         );
       } else {
-        emit(AutentikasiIsSucess(message: (response as ResultSuccess).data));
+        emit(AutentikasiIsSucess(message: (response).data));
         final token = (state as AutentikasiIsSucess).message;
 
         Commons().setUid(token.toString());
       }
     } else if (response is ResultError) {
-      emit(AutentikasiIsError(message: 'Autentikasi Gagal'));
+      emit(const AutentikasiIsError(message: 'Autentikasi Gagal'));
     }
   }
 }

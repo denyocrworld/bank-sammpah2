@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:http/http.dart';
 import 'package:loginandsignup/data/base/result_entity.dart';
 import 'package:loginandsignup/data/utilities/commons.dart';
 import 'package:loginandsignup/domain/base/token_request_header.dart';
@@ -20,7 +19,7 @@ class ConfigPassCubit extends Cubit<ConfigPassState> {
     emit(ConfigPassIsLoading());
     final response = await repository.submitConfirmCode(request,TokenHeaderRequest('',''));
     final token = await Commons().getUid();
-    print('Token : ${token}');
+    print('Token : $token');
 
     if (response is ResultSuccess) {
       emit(

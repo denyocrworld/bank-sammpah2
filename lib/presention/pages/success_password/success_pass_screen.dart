@@ -41,7 +41,7 @@ class SuccesPass extends StatelessWidget {
                 height: 232,
                 width: MediaQuery.of(context).size.width * 1,
                 decoration: BoxDecoration(
-                    color: Color(0xFFF8FCFF),
+                    color: const Color(0xFFF8FCFF),
                     borderRadius: BorderRadius.circular(16)),
                 child: Column(
                   children: [
@@ -57,7 +57,7 @@ class SuccesPass extends StatelessWidget {
                       padding:
                           const EdgeInsets.only(top: 16, left: 16, right: 16),
                       child: RichText(
-                        text: TextSpan(
+                        text: const TextSpan(
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 14,
@@ -87,7 +87,7 @@ class SuccesPass extends StatelessWidget {
                         width: MediaQuery.of(context).size.width * 1,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFFFF7F33),
+                            backgroundColor: const Color(0xFFFF7F33),
                             shape: ContinuousRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                             ),

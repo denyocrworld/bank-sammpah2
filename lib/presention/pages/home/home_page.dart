@@ -8,19 +8,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late HomeCubit _homeCubit;
+  // late HomeCubit _homeCubit;
 
-  @override
-  void initState() {
-    super.initState();
-    _homeCubit = HomeCubit(HomeRespositoryImpl());
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _homeCubit = HomeCubit(HomeRespositoryImpl());
+  // }
 
-  @override
-  void dispose() {
-    _homeCubit.close();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   _homeCubit.close();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Colors.blue,
             ));
           } else if (homeState is HomeIsSuccess) {
+            final data = homeState.data;
             return Stack(
               children: <Widget>[
                 ClipPath(
@@ -106,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Padding(
                               padding: const EdgeInsets.only(top: 24, left: 16),
                               child: Text(
-                                "Hi,${homeState.data.profile.username}",
+                                "Hi,${data.profile.username}",
                                 style: const TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w500,
@@ -136,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         const EdgeInsets.only(top: 6, left: 8),
                                     // ignore: prefer_const_constructors
                                     child: Text(
-                                      '${homeState.data.profile.balance}',
+                                      '${data.profile.balance}',
                                       // ignore: prefer_const_constructors
                                       style: TextStyle(
                                           color: Colors.blue,
@@ -181,18 +182,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     onPressed: () {
                       context.go("/Profile");
                     },
-                    child: Container(
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: NetworkImage(
-                                '${homeState.data.profile.image}',
-                              ),
-                              fit: BoxFit.cover),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(50)),
-                          border: Border.all(color: Colors.white, width: 1.5)),
-                      //
-                    ),
                     // Image.network('${homeState.data.profile.image}'),
                     // Icon(
                     //   Icons.account_circle,
@@ -202,6 +191,18 @@ class _HomeScreenState extends State<HomeScreen> {
                     mini: true,
                     backgroundColor: Colors.white,
                     elevation: 1,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                homeState.data.profile.image,
+                              ),
+                              fit: BoxFit.cover),
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(50)),
+                          border: Border.all(color: Colors.white, width: 1.5)),
+                      //
+                    ),
                   ),
                 ),
                 Padding(
@@ -463,7 +464,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Padding(
                                   padding: const EdgeInsets.only(
                                       top: 10, right: 16, left: 16),
-                                  child: Container(
+                                  child: SizedBox(
                                     width:
                                         MediaQuery.of(context).size.width * 1,
                                     height: 40,
@@ -693,18 +694,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             );
-          } else if (homeState is HomeIsLoading) {
-            return Container(
-              alignment: Alignment.center,
-              child: const CircularProgressIndicator(),
-            );
           }
-          return Container(
-            child: const Text(
-              "Kosong",
-              style: TextStyle(
-                fontSize: 10.0,
-              ),
+
+          return const Center(
+            child: Text(
+              "Data Not Found",
             ),
           );
         },

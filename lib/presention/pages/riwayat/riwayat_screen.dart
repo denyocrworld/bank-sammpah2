@@ -49,25 +49,25 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
                   ),
                   child: Column(
                     children: [
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         // ignore: prefer_const_literals_to_create_immutables
                         children: [
                           // ignore: prefer_const_constructors
                           Padding(
-                            padding: const EdgeInsets.only(top: 16, left: 16),
+                            padding: EdgeInsets.only(top: 16, left: 16),
                             // ignore: prefer_const_constructors
                             child: Text(
                               '12-08-2023',
                               // ignore: prefer_const_constructors
                               style: TextStyle(
                                   fontSize: 12,
-                                  color: const Color(0xFFA7ABB3),
+                                  color: Color(0xFFA7ABB3),
                                   fontWeight: FontWeight.w400),
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(top: 16, right: 16),
+                            padding: EdgeInsets.only(top: 16, right: 16),
                             child: Text(
                               '+150pt',
                               style: TextStyle(
@@ -78,11 +78,11 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
                           ),
                         ],
                       ),
-                      Row(
+                      const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Padding(
-                            padding: const EdgeInsets.only(top: 4, left: 16),
+                            padding: EdgeInsets.only(top: 4, left: 16),
                             child: Text(
                               'Berat Sampah :',
                               style: TextStyle(
@@ -93,7 +93,7 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
                           ),
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.only(top: 4, left: 5),
+                              padding: EdgeInsets.only(top: 4, left: 5),
                               child: Text(
                                 '5kg',
                                 style: TextStyle(
@@ -104,7 +104,7 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
                             ),
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(
+                            padding: EdgeInsets.only(
                               top: 4,
                               right: 16,
                             ),
@@ -121,13 +121,13 @@ class _RiwayatScreenState extends State<RiwayatScreen> {
                       Padding(
                         padding:
                             const EdgeInsets.only(top: 10, right: 16, left: 16),
-                        child: Container(
+                        child: SizedBox(
                           width: MediaQuery.of(context).size.width * 1,
                           height: 40,
                           child: OutlinedButton(
                             style: OutlinedButton.styleFrom(
-                              side: BorderSide(color: Color(0xFFFF7F33)),
-                              foregroundColor: Color(0xFFFF7F33),
+                              side: const BorderSide(color: Color(0xFFFF7F33)),
+                              foregroundColor: const Color(0xFFFF7F33),
                               shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.circular(12), // <-- Radius

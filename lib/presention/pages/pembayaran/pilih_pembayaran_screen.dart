@@ -76,8 +76,8 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                     Column(
                       children: [
                         Row(children: [
-                          Text('Pembayaran Tunai', style: TextStyle(fontSize: 14, color : Color(0xff525252))),
-                          Icon((isTunai == false) ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down, color: Color(0xff525252)),
+                          const Text('Pembayaran Tunai', style: TextStyle(fontSize: 14, color : Color(0xff525252))),
+                          Icon((isTunai == false) ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down, color: const Color(0xff525252)),
                         ],),
                       ],
                     ),
@@ -85,9 +85,9 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                   Column(
                     children: [
                       (isTunai == false) ?
-                        Row(
+                        const Row(
                           children: [
-                            Padding(padding: const EdgeInsets.only(top: 8))
+                            Padding(padding: EdgeInsets.only(top: 8))
                           ],
                         ) 
                       : 
@@ -107,7 +107,7 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                                     child : Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Flexible(
+                                        const Flexible(
                                           flex : 1,
                                           child: Row(
                                             children: [
@@ -115,7 +115,7 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                                                 image: AssetImage(
                                                     'asset/images/Logo_BCA.png'),
                                               ),
-                                              Padding(padding: const EdgeInsets.only(right: 8,),),
+                                              Padding(padding: EdgeInsets.only(right: 8,),),
                                               Text ( 'Tunai', style: TextStyle(fontSize: 14),),
                                             ]
                                           ),
@@ -140,7 +140,7 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                                 ),
                               ]
                             ),
-                            Padding(padding: const EdgeInsets.only(top: 8,),),           
+                            const Padding(padding: EdgeInsets.only(top: 8,),),           
                           ]
                         ),
                     ],
@@ -159,8 +159,8 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                     Column(
                       children: [
                         Row(children: [
-                          Text('Bank Transfer', style: TextStyle(fontSize: 14, color : Color(0xff525252))),
-                          Icon((isBank == false) ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down, color: Color(0xff525252)),
+                          const Text('Bank Transfer', style: TextStyle(fontSize: 14, color : Color(0xff525252))),
+                          Icon((isBank == false) ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down, color: const Color(0xff525252)),
                         ],),
                         
                       ],
@@ -169,9 +169,9 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                   Column(
                     children: [
                       (isBank == false) ?
-                        Row(
+                        const Row(
                           children: [
-                            Padding(padding: const EdgeInsets.only(top: 8))
+                            Padding(padding: EdgeInsets.only(top: 8))
                           ],
                         ) 
                       : 
@@ -191,7 +191,7 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                                     child : Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Flexible(
+                                        const Flexible(
                                           flex : 1,
                                           child: Row(
                                             children: [
@@ -199,7 +199,7 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                                                 image: AssetImage(
                                                     'asset/images/Logo_BCA.png'),
                                               ),
-                                              Padding(padding: const EdgeInsets.only(right: 8,),),
+                                              Padding(padding: EdgeInsets.only(right: 8,),),
                                               Text ( 'BCA', style: TextStyle(fontSize: 14),),
                                             ]
                                           ),
@@ -224,7 +224,7 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                                 ),
                               ]
                             ),
-                            Padding(padding: const EdgeInsets.only(top: 8,),),
+                            const Padding(padding: EdgeInsets.only(top: 8,),),
                             Row(
                               children : [ 
                                   Container(
@@ -239,7 +239,7 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                                     child : Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Flexible(
+                                        const Flexible(
                                           flex : 1,
                                           child: Row(
                                             children: [
@@ -247,7 +247,7 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                                                 image: AssetImage(
                                                     'asset/images/Logo_BNI.png'),
                                               ),
-                                              Padding(padding: const EdgeInsets.only(right: 8,),),
+                                              Padding(padding: EdgeInsets.only(right: 8,),),
                                               Text ( 'BNI', style: TextStyle(fontSize: 14),),
                                             ]
                                           ),
@@ -272,7 +272,7 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                                 ),
                               ]
                             ),
-                            Padding(padding: const EdgeInsets.only(top: 8,),),
+                            const Padding(padding: EdgeInsets.only(top: 8,),),
                             Row(
                               children : [ 
                                   Container(
@@ -287,7 +287,7 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                                     child : Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Flexible(
+                                        const Flexible(
                                           flex : 1,
                                           child: Row(
                                             children: [
@@ -295,7 +295,7 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                                                 image: AssetImage(
                                                     'asset/images/Logo_BRI.png'),
                                               ),
-                                              Padding(padding: const EdgeInsets.only(right: 8,),),
+                                              Padding(padding: EdgeInsets.only(right: 8,),),
                                               Text ( 'BRI', style: TextStyle(fontSize: 14),),
                                             ]
                                           ),
@@ -320,7 +320,7 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                                 ),
                               ]
                             ),
-                            Padding(padding: const EdgeInsets.only(top: 8,),),
+                            const Padding(padding: EdgeInsets.only(top: 8,),),
                             Row(
                               children : [ 
                                   Container(
@@ -335,7 +335,7 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                                     child : Row(
                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Flexible(
+                                        const Flexible(
                                           flex : 1,
                                           child: Row(
                                             children: [
@@ -343,7 +343,7 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                                                 image: AssetImage(
                                                     'asset/images/Logo_Mandiri.png'),
                                               ),
-                                              Padding(padding: const EdgeInsets.only(right: 8,),),
+                                              Padding(padding: EdgeInsets.only(right: 8,),),
                                               Text ( 'Mandiri', style: TextStyle(fontSize: 14),),
                                             ]
                                           ),
@@ -375,12 +375,12 @@ class _PilihPembayaranScreenState extends State<PilihPembayaranScreen> {
                   Padding(
                     padding:
                         const EdgeInsets.only(top: 20, left: 0, right: 0),
-                    child: Container(
+                    child: SizedBox(
                       height: 40, 
                       width: MediaQuery.of(context).size.width * 1,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Color(0xFFFF7F33),
+                          backgroundColor: const Color(0xFFFF7F33),
                           shape: ContinuousRectangleBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
