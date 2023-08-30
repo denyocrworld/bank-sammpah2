@@ -22,7 +22,7 @@ class LoginCubit extends Cubit<LoginState> {
         LoginSucces(data: (response as ResultSuccess).data),
       );
       final data = (state as LoginSucces).data;
-      Commons().setUid(data.token.toString());
+      await Commons().setUid(data.token.toString());
     } else {
       emit(LoginIsError(message: (response as ResultError).message));
     }

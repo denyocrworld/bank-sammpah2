@@ -12,7 +12,12 @@ class HomeRemoteService {
         BaseConfig.BASE_DOMAIN, BaseConfig.BASE_PATH + BaseConfig.HOME_URL);
 
     print("URL : ${url.toString()}");
-    print("ini header request homme : ${header.toHeader()}");
-    return client.get(url, headers: header.toHeader());
+
+    return client.get(url, headers: header.toHeader(), 
+        // {
+        //   'Content-Type': 'application/json',
+        //   'Cookie': '${header.toHeader()}'
+        // }
+        );
   }
 }

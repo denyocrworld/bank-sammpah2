@@ -72,6 +72,13 @@ final GoRouter router = GoRouter(initialLocation: "/", routes: [
     builder: (context, state) => const RegisterScreen(),
   ),
   GoRoute(
+      path: "/NavigasiBar",
+      name: 'navbar',
+      builder: (context, state) {
+        BlocProvider.of<HomeCubit>(context).fecthHome();
+        return const NavigasiBar();
+      }),
+  GoRoute(
     path: "/LupaPassword",
     name: "lupa",
     builder: (context, state) => const LupaPassword(),

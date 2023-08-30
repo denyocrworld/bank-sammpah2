@@ -14,7 +14,7 @@ class LogoutCubit extends Cubit<LogoutState> {
       emit(
         LogoutIsSucces(message: (response as ResultSuccess).data),
       );
-    } else {
+    } else if (response is ResultError) {
       emit(LogoutIsError(message: (response as ResultError).message));
     }
   }
