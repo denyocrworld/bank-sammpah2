@@ -66,7 +66,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
               Padding(
                   padding: const EdgeInsets.only(top: 26, left: 20, right: 20),
                   child: Container(
-                    height: 456,
+                    height: 500,
                     width: MediaQuery.of(context).size.width * 1,
                     decoration: BoxDecoration(
                         color: Color(0xFFF8FCFF),
@@ -273,6 +273,33 @@ class _ChangeProfileState extends State<ChangeProfile> {
                                     fontSize: 16,
                                     color: Colors.white,
                                     fontWeight: FontWeight.w400),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 16, left: 16, right: 16),
+                          child: SizedBox(
+                            width: MediaQuery.of(context).size.width * 1,
+                            height: 40,
+                            child: OutlinedButton(
+                              style: OutlinedButton.styleFrom(
+                                side:
+                                    const BorderSide(color: Color(0xFFFF7F33)),
+                                foregroundColor: const Color(0xFFFF7F33),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.circular(8), // <-- Radius
+                                ),
+                              ),
+                              onPressed: () {
+                                context.go('/UbahPasswordScreen');
+                              },
+                              child: const Text(
+                                "Ubah Password",
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.w400),
                               ),
                             ),
                           ),
