@@ -288,7 +288,8 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                             onPressed: () {
                                               decrease(index);
                                             },
-                                            backgroundColor: const Color(0xFFFF7F33),
+                                            backgroundColor:
+                                                const Color(0xFFFF7F33),
                                             child: const Icon(
                                               CupertinoIcons.minus,
                                               size: 30.0,

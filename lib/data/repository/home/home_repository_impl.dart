@@ -21,7 +21,7 @@ class HomeRespositoryImpl implements HomeRepository {
       print("STATUS CODE :${response.statusCode} ");
       print("DATA :${response.body} ");
 
-      if (response.statusCode == 200 || response.statusCode == 401) {
+      if (response.statusCode == 200 || response.statusCode == 400) {
         BaseRemoteResponse<HomeRemoteResponse> baseResponseObject =
             BaseRemoteResponse<HomeRemoteResponse>.fromJson(
           jsonDecode(response.body),
@@ -44,11 +44,11 @@ class HomeRespositoryImpl implements HomeRepository {
           return ResultSuccess(baseResponseObject.data!.toHomeData());
         }
       } else {
-        print("ini error impl : ${response.toString()}");
+        print("Error Impl :${response.toString()}");
         return ResultError(message: response.toString());
       }
     } catch (e) {
-      print("ERROR IMPL catch: ${e.toString()}");
+      print("ERROR IMPL: ${e.toString()}");
       return ResultError(message: e.toString());
     }
   }

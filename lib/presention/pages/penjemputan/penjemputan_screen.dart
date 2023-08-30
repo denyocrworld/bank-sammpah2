@@ -49,7 +49,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Text(
+        title: const Text(
           "Detail Penjemputan",
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
@@ -57,16 +57,16 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
             onTap: () {
               context.go("/LayananScreen");
             },
-            child: Icon(CupertinoIcons.arrow_left, color: Colors.black)),
+            child: const Icon(CupertinoIcons.arrow_left, color: Colors.black)),
       ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Align(
+            const Align(
               alignment: Alignment.centerLeft,
               child: Padding(
-                padding: const EdgeInsets.only(top: 26, left: 20),
+                padding: EdgeInsets.only(top: 26, left: 20),
                 child: Text(
                   'Atur Lokasi',
                   style: TextStyle(fontSize: 14),
@@ -81,11 +81,11 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                 child: TextFormField(
                   controller: lokasiController,
                   keyboardType: TextInputType.name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 14,
                   ),
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                    contentPadding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                     suffixIcon: const Icon(Icons.location_on),
                     filled: true,
                     fillColor: Colors.white,
@@ -98,10 +98,10 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                 ),
               ),
             ),
-            Align(
+            const Align(
               alignment: Alignment.centerLeft,
               child: Padding(
-                padding: const EdgeInsets.only(top: 24, left: 20),
+                padding: EdgeInsets.only(top: 24, left: 20),
                 child: Text(
                   "Tanggal Penjemputan",
                   style: TextStyle(fontSize: 14),
@@ -187,7 +187,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                         }
                       },
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                         filled: true,
                         fillColor: Colors.white,
                         hintText: '00',
@@ -246,7 +246,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                         }
                       },
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                         filled: true,
                         fillColor: Colors.white,
                         hintText: '00',
@@ -325,7 +325,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                         }
                       },
                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                        contentPadding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                         filled: true,
                         fillColor: Colors.white,
                         hintText: '00',

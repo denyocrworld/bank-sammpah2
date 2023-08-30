@@ -7,7 +7,9 @@ class Commons {
   // final prefs = SharedPreferences.getInstance();
   final prefs = SharedPreferences.getInstance();
 
-  void setUid(String token) async {
+  Future setUid(
+    String token,
+  ) async {
     final storage = await prefs;
     await storage.setString("token", token);
   }
@@ -20,6 +22,11 @@ class Commons {
   Future<bool> removeUid() async {
     final storage = await prefs;
     return storage.remove("token");
+  }
+
+  Future<DateTime?> getTokenExpiration() async {
+    final storage = await prefs;
+    return DateTime.parse(storage.getString('tokenExpiration') ?? '');
   }
 
   void showSnackbarError(BuildContext context, String msg) {
