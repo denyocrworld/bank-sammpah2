@@ -47,7 +47,7 @@ class _ProfileState extends State<Profile> {
                           elevation: 0,
                         ),
                         onPressed: () {},
-                        child: Row(
+                        child: const Row(
                           children: [
                             Text('Logout'),
                             Icon(
