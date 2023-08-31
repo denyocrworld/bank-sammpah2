@@ -2,11 +2,13 @@
 import 'dart:io';
 
 class NewInquiryRequest {
+  String service_name;
   int weight;
   String pick_up;
   File? image;
   String pick_up_time;
   NewInquiryRequest(
+    this.service_name,
     this.weight,
     this.pick_up,
     this.image,

@@ -24,7 +24,7 @@ class NewInquiryService {
         request.image!.readAsBytesSync(),
       ),
     );
-
+    body["service_name"] = request.service_name;
     body["weighht"] = request.weight.toString();
     body["pick_up"] = request.pick_up;
     body["pick_up_time"] = request.pick_up_time;

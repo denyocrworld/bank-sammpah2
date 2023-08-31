@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, unused_field
 // ignore_for_file: prefer_const_constructors, non_constant_identifier_names
 
 part of '../pages.dart';
@@ -535,16 +535,15 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                       ),
                     ),
                     onPressed: () {
-                    
                       setState(() {
-                           _serviceName = widget.service_name;
-                             BlocProvider.of<NewInquiryCubit>(context)
-                          .addQuiry(NewInquiryRequest(
-                        int.parse(weightController.text),
-                        lokasiController.text,
-                        _image!,
-                        tanggalController.text,
-                      ));
+                        BlocProvider.of<NewInquiryCubit>(context)
+                            .addQuiry(NewInquiryRequest(
+                          widget.service_name,
+                          int.parse(weightController.text),
+                          lokasiController.text,
+                          _image!,
+                          tanggalController.text,
+                        ));
                       });
                     },
                     child: const Text("Proses Penjemputan"),
