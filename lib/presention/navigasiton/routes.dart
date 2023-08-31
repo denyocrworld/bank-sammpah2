@@ -178,4 +178,9 @@ final GoRouter router = GoRouter(initialLocation: "/", routes: [
     name: "PilihPembayaranScreen",
     builder: (context, state) => const PilihPembayaranScreen(),
   ),
+  GoRoute(
+    path: "/UbahPasswordScreen",
+    name: "ubahPasswordScreen",
+    builder: (context, state) => const UbahPasswordScreen(),
+  ),
 ]);

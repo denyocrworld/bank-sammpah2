@@ -64,4 +64,4 @@ part 'profile/profile_change_screen.dart';
 part 'profile/profile_screen.dart';
 part 'pembayaran/pilih_pembayaran_screen.dart';
 part 'pembayaran/konfirmasi_pembayaran_screen.dart';
-// part 'ubah_password/ubah_password_screen.dart';
+part 'ubah_password/ubah_password_screen.dart';

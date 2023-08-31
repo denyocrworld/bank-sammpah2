@@ -18,6 +18,7 @@ class _NavigasiBarState extends State<NavigasiBar> {
     //   textAlign: TextAlign.center,
     // ),
     const Profile(),
+    const UbahPasswordScreen(),
   ];
   @override
   Widget build(BuildContext context) {
