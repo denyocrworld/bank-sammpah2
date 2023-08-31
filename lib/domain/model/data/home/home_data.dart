@@ -2,8 +2,8 @@
 import 'package:loginandsignup/domain/model/data/home/home_profile_data.dart';
 
 class HomeData {
-  final HomeProfileData profile;
-  final List<dynamic> riwayat;
+  HomeProfileData profile;
+  List riwayat;
   HomeData(
     this.profile,
     this.riwayat,

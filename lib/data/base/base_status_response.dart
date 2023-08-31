@@ -15,6 +15,7 @@ abstract class BaseConfig {
   static const String BANK_SAMPAH = "/trash";
   static const String AUTENTIKASI = '/validate-otp';
   static const String fetchLayanan = '/layanan';
-
+  static const String fetchLogout = '/logout';
   static const String fetchChangeProfile = '/change-profile';
+  static const String fetchQuiry = '/new-inquiry';
 }

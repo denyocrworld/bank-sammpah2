@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable, avoid_print
+
 part of '../pages.dart';
 
 class Item {
@@ -225,6 +227,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                     itemCount: state.data.bank_sampah.length,
                     itemBuilder: (context, index) {
                       final data = state.data.bank_sampah[index];
+
                       return Padding(
                         padding:
                             const EdgeInsets.only(top: 20, left: 20, right: 20),

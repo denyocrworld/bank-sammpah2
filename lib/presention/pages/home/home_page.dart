@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   //   _homeCubit.close();
   //   super.dispose();
   // }
-
+  String urlImage = "";
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
@@ -36,6 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ));
           } else if (homeState is HomeIsSuccess) {
             final data = homeState.data;
+            urlImage = data.profile.image;
             return Stack(
               children: <Widget>[
                 ClipPath(
@@ -191,18 +192,34 @@ class _HomeScreenState extends State<HomeScreen> {
                     mini: true,
                     backgroundColor: Colors.white,
                     elevation: 1,
-                    child: Container(
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: NetworkImage(
-                                homeState.data.profile.image,
-                              ),
-                              fit: BoxFit.cover),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(50)),
-                          border: Border.all(color: Colors.white, width: 1.5)),
-                      //
+                    child: SizedBox(
+                      height: 40,
+                      width: 40,
+                      child: urlImage != ""
+                          ? CircleAvatar(
+                              backgroundImage: NetworkImage(data.profile.image),
+                              maxRadius: 50,
+                            )
+                          : Icon(
+                              Icons.account_circle,
+                              size: 40,
+                              color: Colors.white,
+                            ),
                     ),
+                    //  Container(
+                    //   decoration: BoxDecoration(
+                    //       image: DecorationImage(
+                    //           image: urlImage != "" ? :
+
+                    //           NetworkImage(
+                    //             homeState.data.profile.image,
+                    //           ),
+                    //           fit: BoxFit.cover),
+                    //       borderRadius:
+                    //           const BorderRadius.all(Radius.circular(50)),
+                    //       border: Border.all(color: Colors.white, width: 1.5)),
+                    //   //
+                    // ),
                   ),
                 ),
                 Padding(

@@ -67,7 +67,12 @@ class _LayananScreenState extends State<LayananScreen> {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                context.go("/PenjemputanScreen");
+                                setState(() {
+                                  context.goNamed(
+                                    Routes.PenjemputanScreen,
+                                    extra: data.layanan,
+                                  );
+                                });
                               },
                               child: Container(
                                 height: 80,

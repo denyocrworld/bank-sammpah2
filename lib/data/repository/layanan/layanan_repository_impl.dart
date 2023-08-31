@@ -27,7 +27,6 @@ class LayananRespositoryImpl implements LayananRepository {
           (json) => LayananResponse.fromJson(json as Map<String, dynamic>),
         );
 
-        // ignore: avoid_print
         print(baseResponseObject.data);
         if (baseResponseObject.status == null) {
           return ResultError(message: baseResponseObject.status!.message);

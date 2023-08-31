@@ -1,3 +1,5 @@
+// ignore_for_file: unused_field, prefer_typing_uninitialized_variables
+
 part of '../pages.dart';
 
 class SampahPenjemputan extends StatefulWidget {

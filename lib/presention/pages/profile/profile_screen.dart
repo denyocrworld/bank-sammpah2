@@ -10,6 +10,8 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  UserModel? _userModel;
+  String urlImage = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,6 +23,13 @@ class _ProfileState extends State<Profile> {
             color: Colors.blue,
           ));
         } else if (state is HomeIsSuccess) {
+          urlImage = state.data.profile.image;
+          _userModel = UserModel(
+              state.data.profile.image,
+              state.data.profile.username,
+              state.data.profile.address,
+              state.data.profile.phone,
+              state.data.profile.email);
           return Stack(
             children: <Widget>[
               ClipPath(
@@ -32,9 +41,27 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 76, left: 20, right: 21),
+                padding: const EdgeInsets.only(top: 45, left: 20, right: 21),
                 child: Column(
                   children: [
+                    Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                      const Text(
+                        "Logout",
+                        style: TextStyle(
+                            fontSize: 14,
+                            color: Color(0xFFF8FCFF),
+                            fontWeight: FontWeight.w400),
+                      ),
+                      SizedBox(width: 5),
+                      InkWell(
+                        onTap: () {
+                          context.read<AuthCubit>().logout();
+                          context.goNamed(Routes.LoginScreen);
+                        },
+                        child: Image.asset("asset/images/logout.png"),
+                      )
+                    ]),
+                    SizedBox(height: 25),
                     Padding(
                       padding: const EdgeInsets.only(),
                       child: Container(
@@ -53,10 +80,20 @@ class _ProfileState extends State<Profile> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Icon(
-                                      Icons.account_circle,
-                                      size: 40,
-                                      color: Colors.grey,
+                                    SizedBox(
+                                      height: 40,
+                                      width: 40,
+                                      child: urlImage != ""
+                                          ? CircleAvatar(
+                                              backgroundImage: NetworkImage(
+                                                  state.data.profile.image),
+                                              maxRadius: 50,
+                                            )
+                                          : Icon(
+                                              Icons.account_circle,
+                                              size: 40,
+                                              color: Colors.grey,
+                                            ),
                                     ),
                                     Expanded(
                                       child: Padding(
@@ -69,9 +106,8 @@ class _ProfileState extends State<Profile> {
                                     ),
                                     GestureDetector(
                                       onTap: () {
-                                        context.pushNamed(
-                                          Routes.ChangeProfile,
-                                        );
+                                        context.pushNamed(Routes.ChangeProfile,
+                                            extra: _userModel);
                                         setState(() {});
                                       },
                                       child: Icon(
@@ -196,36 +232,6 @@ class _ProfileState extends State<Profile> {
                                 ),
                               ]),
                             ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 15),
-                        width: MediaQuery.of(context).size.width,
-                        height: 40,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: Color(0xFFFF7F33))),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text("Keluar",
-                                style: TextStyle(
-                                    color: Color(0xFFFF7F33),
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w600)),
-                            GestureDetector(
-                              onTap: () {
-                                context.go('/LoginScreen');
-                                BlocProvider.of<LogoutCubit>(context)
-                                    .fetchLogout();
-                              },
-                              child: Icon(Icons.arrow_forward_ios_rounded,
-                                  size: 18, color: Color(0xFFFF7F33)),
-                            )
                           ],
                         ),
                       ),

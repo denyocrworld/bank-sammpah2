@@ -15,7 +15,7 @@ abstract class HomeRemoteResponseMapper {
 @JsonSerializable()
 class HomeRemoteResponse implements HomeRemoteResponseMapper {
   HomeProfileResponse? profile;
-  List<dynamic>? riwayat;
+  List? riwayat;
   HomeRemoteResponse({
     this.profile,
     this.riwayat,
@@ -29,7 +29,7 @@ class HomeRemoteResponse implements HomeRemoteResponseMapper {
   HomeData toHomeData() {
     return HomeData(
       profile?.toHomeProfileData() ?? HomeProfileData("", "", 0, "", "", ""),
-      [],
+      riwayat ?? [],
     );
   }
 }
