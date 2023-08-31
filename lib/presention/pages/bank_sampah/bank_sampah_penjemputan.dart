@@ -31,7 +31,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
 
   DateTime pickDate = DateTime.now();
 
-  TimeOfDay _timeOfDay = const TimeOfDay(hour: 8, minute: 30);
+  TimeOfDay timeOfDay = const TimeOfDay(hour: 8, minute: 30);
 
   void _showTimePicker() {
     showTimePicker(
@@ -39,7 +39,7 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
       initialTime: TimeOfDay.now(),
     ).then((value) {
       setState(() {
-        _timeOfDay = value!;
+        timeOfDay = value!;
       });
     });
   }
