@@ -13,11 +13,12 @@ class HomeRemoteService {
 
     print("URL : ${url.toString()}");
 
-    return client.get(url, headers: header.toHeader(), 
-        // {
-        //   'Content-Type': 'application/json',
-        //   'Cookie': '${header.toHeader()}'
-        // }
-        );
+    return client.get(
+      url, headers: header.toHeader(),
+      // {
+      //   'Content-Type': 'application/json',
+      //   'Cookie': '${header.toHeader()}'
+      // }
+    );
   }
 }

@@ -16,14 +16,14 @@ import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 import 'package:loginandsignup/presention/pages/layanan/cubit/layanan_cubit.dart';
 import 'package:loginandsignup/presention/pages/login/cubit/login_cubit.dart';
 import 'package:loginandsignup/presention/pages/lupa_password/cubit/forgot_pass_cubit.dart';
-import 'package:loginandsignup/presention/pages/pages.dart';
-import 'package:loginandsignup/presention/pages/profile/cubit/logout_cubit.dart';
 import 'package:loginandsignup/presention/pages/registrasi/cubit/registrasi_cubit.dart';
-
+import 'data/repository/change_profile/change_profile_repository_impl.dart';
+import 'data/repository/new-inquiry/new_inquiry_impl.dart';
 import 'data/utilities/auth_cubit.dart';
 import 'presention/pages/bank_sampah/cubit/bank_sampah_cubit.dart';
 import 'presention/pages/config_pass/cubit/config_pass_cubit.dart';
 import 'presention/pages/detail_riwayat/cubit/detal_history_cubit.dart';
+import 'presention/pages/penjemputan/cubit/new_inquiry_cubit.dart';
 import 'presention/pages/profile/cubit/profile_change_cubit.dart';
 import 'presention/pages/tukar_poin/cubit/tukarpoint_cubit.dart';
 
@@ -73,12 +73,11 @@ class MyApp extends StatelessWidget {
           create: (context) => LayananCubit(LayananRespositoryImpl()),
         ),
         BlocProvider(
-          create: (context) => LogoutCubit(),
-          child: const HomeScreen(),
-        ),
-        BlocProvider(
           create: (context) =>
               ProfileChangeCubit(ChangeProfileRepositoryImpl()),
+        ),
+        BlocProvider(
+          create: (context) => NewInquiryCubit(NewInquiryRepositoryImpl()),
         ),
       ],
       child: MaterialApp.router(

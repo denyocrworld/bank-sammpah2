@@ -13,9 +13,9 @@ class ProfileChangeInitial extends ProfileChangeState {}
 class ProfileChangeIsLoading extends ProfileChangeState {}
 
 class ProfileChangeIsSuccess extends ProfileChangeState {
-  final HomeData data;
-  const ProfileChangeIsSuccess({
-    required this.data,
+  String? message;
+  ProfileChangeIsSuccess({
+    this.message,
   });
 }
 

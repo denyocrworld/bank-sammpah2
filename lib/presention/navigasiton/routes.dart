@@ -1,13 +1,14 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers, non_constant_identifier_names
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:loginandsignup/domain/model/data/home/home_profile_data.dart';
 import 'package:loginandsignup/presention/pages/bank_sampah/cubit/bank_sampah_cubit.dart';
 import 'package:loginandsignup/presention/pages/detail_riwayat/cubit/detal_history_cubit.dart';
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 // import 'package:loginandsignup/pages/pages.dart';
 import 'package:loginandsignup/presention/pages/pages.dart';
-
 import '../pages/layanan/cubit/layanan_cubit.dart';
+import '../pages/profile/userModel.dart';
 import 'route.dart';
 // import 'package:loginandsignup/presention/pages/pembayaran/cubit/pilih_pembayaran_cubit.dart';
 
@@ -30,6 +31,11 @@ final GoRouter router = GoRouter(initialLocation: "/", routes: [
     //   }
     // },
   ),
+  // GoRoute(
+  //   path: "/NavigasiBar",
+  //   name: 'navbar',
+  //   builder: (context, state) => const NavigasiBar(),
+  // ),
   GoRoute(
     path: "/HomeScreen",
     name: Routes.HomeScreen,
@@ -88,11 +94,11 @@ final GoRouter router = GoRouter(initialLocation: "/", routes: [
     name: "succespass",
     builder: (context, state) => const SuccesPass(),
   ),
-  GoRoute(
-    path: "/LayananScreen",
-    name: "layananscreen",
-    builder: (context, state) => const SuccesPass(),
-  ),
+  // GoRoute(
+  //   path: "/LayananScreen",
+  //   name: "layananscreen",
+  //   builder: (context, state) => const SuccesPass(),
+  // ),
   GoRoute(
     path: "/BankSampahScreen",
     name: "bank",
@@ -110,10 +116,14 @@ final GoRouter router = GoRouter(initialLocation: "/", routes: [
     },
   ),
   GoRoute(
-    path: "/PenjemputanScreen",
-    name: "penjemputan",
-    builder: (context, state) => const PenjemputanScreen(),
-  ),
+      path: "/PenjemputanScreen",
+      name: "penjemputan",
+      builder: (context, state) {
+        final service_name = state.extra as String;
+        return PenjemputanScreen(
+          service_name: service_name,
+        );
+      }),
   GoRoute(
     path: "/SampahPenjemputan",
     name: "sampahpenjemputan",
@@ -152,11 +162,8 @@ final GoRouter router = GoRouter(initialLocation: "/", routes: [
     name: Routes.ChangeProfile,
     builder: (context, state) {
       BlocProvider.of<HomeCubit>(context).fecthHome();
-
-      return ChangeProfile(
-        profileData: HomeProfileData(
-            "image", 'username', 0, "email", 'phone', 'address'),
-      );
+      final _userModel = state.extra as UserModel;
+      return ChangeProfile(profileData: _userModel);
     },
   ),
   GoRoute(

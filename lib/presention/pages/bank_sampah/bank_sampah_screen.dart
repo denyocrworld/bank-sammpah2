@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable, avoid_print
+
 part of '../pages.dart';
 
 class Item {
@@ -225,6 +227,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                     itemCount: state.data.bank_sampah.length,
                     itemBuilder: (context, index) {
                       final data = state.data.bank_sampah[index];
+
                       return Padding(
                         padding:
                             const EdgeInsets.only(top: 20, left: 20, right: 20),
@@ -288,7 +291,8 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                                             onPressed: () {
                                               decrease(index);
                                             },
-                                            backgroundColor: const Color(0xFFFF7F33),
+                                            backgroundColor:
+                                                const Color(0xFFFF7F33),
                                             child: const Icon(
                                               CupertinoIcons.minus,
                                               size: 30.0,

@@ -1,10 +1,10 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, unused_field, unused_local_variable
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 part of '../pages.dart';
 
 class ChangeProfile extends StatefulWidget {
-  final HomeProfileData profileData;
+  final UserModel profileData;
   // final int? id;
   const ChangeProfile({
     Key? key,
@@ -17,52 +17,46 @@ class ChangeProfile extends StatefulWidget {
 }
 
 class _ChangeProfileState extends State<ChangeProfile> {
-  TextEditingController namaController = TextEditingController();
-  TextEditingController alamatController = TextEditingController();
-  TextEditingController noController = TextEditingController();
+  TextEditingController nameController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
   TextEditingController emailController = TextEditingController();
-  TextEditingController imageController = TextEditingController();
-
+  String urlImage = '';
   @override
   void initState() {
     // namaController.text = widget.id.toString();
-    // namaController.text = widget.profileData.username;
-    // alamatController.text = widget.profileData.address;
-    // noController.text = widget.profileData.phone;
-    // emailController.text = widget.profileData.email;
+    urlImage = widget.profileData.image;
+    nameController.text = widget.profileData.name;
+    emailController.text = widget.profileData.email;
+    phoneController.text = widget.profileData.phone_number;
+    addressController.text = widget.profileData.address;
     BlocProvider.of<HomeCubit>(context).fecthHome();
     super.initState();
   }
 
   @override
   void dispose() {
-    // namaController.text = widget.profileData.username;
-    // alamatController.text = widget.profileData.address;
-    // noController.text = widget.profileData.phone;
-    // emailController.text = widget.profileData.email;
+    urlImage = widget.profileData.image;
+    nameController.text = widget.profileData.name;
+    emailController.text = widget.profileData.email;
+    phoneController.text = widget.profileData.phone_number;
+    addressController.text = widget.profileData.address;
     super.dispose();
   }
 
-  File? _image;
-
-  Future<void> _getImageFromCamera(String? idRiwayat) async {
+  File? image;
+  Future<void> _getImageFromCamera() async {
     final picker = ImagePicker();
     final pickedImage = await picker.pickImage(source: ImageSource.camera);
 
-    // if (pickedImage != null) {
-    //   setState(
-    //     () {
-    //       _image = File(pickedImage.path);
-    //       context.goNamed(
-    //         // Routes.uploadImageScreen,
-    //         // extra: {
-    //         //   'image': _image,
-    //         //   'idRiwayat': idRiwayat,
-    //         // },
-    //       );
-    //     },
-    //   );
-    // }
+    if (pickedImage != null) {
+      setState(
+        () {
+          image = File(pickedImage.path);
+          urlImage = '';
+        },
+      );
+    }
   }
 
   @override
@@ -89,19 +83,11 @@ class _ChangeProfileState extends State<ChangeProfile> {
         body: BlocListener<ProfileChangeCubit, ProfileChangeState>(
           listener: (context, state) {
             if (state is ProfileChangeIsError) {
-              ((state.message == ""
-                  ? Commons()
-                      .showSnackbarError(context, "Username dan Password Salah")
-                  : Commons().showSnackbarError(context, state.message!)));
-
-              print(state.message);
+              Commons().showSnackbarError(context, state.message!);
             } else if (state is ProfileChangeIsSuccess) {
-              namaController.text = state.data.profile.username;
-              alamatController.text = state.data.profile.address;
-              noController.text = state.data.profile.phone;
-              emailController.text = state.data.profile.email;
-
               context.go('/NavigasiBar');
+              Commons().showSnackbarInfo(context, "Update Data Berhasil");
+              // context.read<ProfileChangeCubit>().fetchChangeProfile();
             }
           },
           child: SingleChildScrollView(
@@ -125,9 +111,23 @@ class _ChangeProfileState extends State<ChangeProfile> {
                               padding: const EdgeInsets.only(left: 9),
                               height: 45,
                               width: 45,
-                              child: CircleAvatar(
-                                radius: 50,
-                              ),
+                              child: urlImage != ''
+                                  ? CircleAvatar(
+                                      backgroundImage: NetworkImage(urlImage),
+                                      maxRadius: 50,
+                                    )
+                                  : CircleAvatar(
+                                      maxRadius: 50,
+                                      child: image != null
+                                          ? CircleAvatar(
+                                              maxRadius: 50,
+                                              backgroundImage: Image.memory(
+                                                image!.readAsBytesSync(),
+                                              ).image,
+                                            )
+                                          : Image.asset(
+                                              "asset/images/user-circle.png",
+                                              fit: BoxFit.cover)),
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 17),
@@ -138,9 +138,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                             ),
                             IconButton(
                                 onPressed: () {
-                                  // _getImageFromCamera(
-                                  //                   data.id.toString(),
-                                  //                 );
+                                  _getImageFromCamera();
                                   //                 context.pop();
                                 },
                                 icon: Icon(
@@ -170,7 +168,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                             height: 36,
                             width: MediaQuery.of(context).size.width * 1,
                             child: TextFormField(
-                              controller: namaController,
+                              controller: nameController,
                               keyboardType: TextInputType.multiline,
                               style: TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.w400),
@@ -179,7 +177,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                                     EdgeInsets.fromLTRB(10, 0, 0, 0),
                                 filled: true,
                                 fillColor: Colors.white,
-                                hintText: namaController.text,
+                                hintText: nameController.text,
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
@@ -208,7 +206,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                             height: 36,
                             width: MediaQuery.of(context).size.width * 1,
                             child: TextFormField(
-                              controller: alamatController,
+                              controller: addressController,
                               keyboardType: TextInputType.multiline,
                               style: TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.w400),
@@ -217,7 +215,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                                     EdgeInsets.fromLTRB(10, 0, 0, 0),
                                 filled: true,
                                 fillColor: Colors.white,
-                                hintText: alamatController.text,
+                                hintText: addressController.text,
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
@@ -246,7 +244,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                             height: 36,
                             width: MediaQuery.of(context).size.width * 1,
                             child: TextFormField(
-                              controller: noController,
+                              controller: phoneController,
                               keyboardType: TextInputType.multiline,
                               style: TextStyle(
                                   fontSize: 14, fontWeight: FontWeight.w400),
@@ -255,7 +253,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                                     EdgeInsets.fromLTRB(10, 0, 0, 0),
                                 filled: true,
                                 fillColor: Colors.white,
-                                hintText: noController.text,
+                                hintText: phoneController.text,
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                 ),
@@ -316,14 +314,14 @@ class _ChangeProfileState extends State<ChangeProfile> {
                                 ),
                               ),
                               onPressed: () {
-                                context.read<ProfileChangeCubit>().btnLogin(
-                                      ProfileRequest(
-                                          imageController.text,
-                                          namaController.text,
-                                          noController.text,
-                                          alamatController.text,
-                                          emailController.text),
-                                    );
+                                BlocProvider.of<ProfileChangeCubit>(context)
+                                    .fetchChangeProfile(ProfileRequest(
+                                  image!,
+                                  nameController.text,
+                                  emailController.text,
+                                  phoneController.text,
+                                  addressController.text,
+                                ));
                               },
                               child: const Text(
                                 "Simpan",

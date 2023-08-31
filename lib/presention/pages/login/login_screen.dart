@@ -42,17 +42,20 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
+  var logger = Logger(
+    printer: PrettyPrinter(),
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.blue,
         body: BlocConsumer<LoginCubit, LoginState>(
           listener: (context, state) {
-            // TODO: implement listener
             if (state is LoginIsError) {
               Commons().showSnackbarError(context, "Login Gagal");
             } else if (state is LoginSucces) {
               Commons().showSnackbarInfo(context, "Login Berhasil");
+
               context.go('/NavigasiBar');
             }
           },

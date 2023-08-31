@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, avoid_print, unnecessary_brace_in_string_interps,
+
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loginandsignup/data/base/result_entity.dart';

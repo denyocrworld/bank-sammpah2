@@ -1,27 +1,24 @@
 // ignore_for_file: avoid_print
-
 import 'dart:convert';
 
 import 'package:http/http.dart';
 import 'package:loginandsignup/domain/base/authentication_header_request.dart';
-import 'package:loginandsignup/domain/model/request/profile/profileRequest.dart';
-
-import '../../../domain/repository/changeProfile/change_profile_repository.dart';
+import '../../../domain/model/request/new-inquiry/new_inquiry_request.dart';
+import '../../../domain/repository/new-inquiry/new_inquiry_repository.dart';
 import '../../base/result_entity.dart';
 import '../../model/base_response/base_remote_response.dart';
-import '../../service/remote/cange_profile/change_profile_service.dart';
+import '../../service/remote/new-inquiry/new_inquiry_service.dart';
 
-class ChangeProfileRepositoryImpl implements ChangeProfileRepository {
-  final changeProfileService = ChangeProfileService();
+class NewInquiryRepositoryImpl implements NewInquiryRepository {
+  final newInquiryService = NewInquiryService();
 
   @override
-  Future<ResultEntity> fetchChangeProfile(
-      ProfileRequest request, AuthenticationHeaderRequest header) async {
+  Future<ResultEntity> addQuiry(
+      NewInquiryRequest request, AuthenticationHeaderRequest header) async {
     try {
-      final streamResponse =
-          await changeProfileService.fetchChangeProfile(request, header);
+      final streamResponse = await newInquiryService.addQuiry(request, header);
       var response = await Response.fromStream(streamResponse);
-      print("STATUS CODE: ${response.statusCode}");
+      print("STATUS CODE NEW QUIRY: ${response.statusCode}");
       print(response.body);
       if (response.statusCode == 200 || response.statusCode == 201) {
         BaseRemoteResponse.fromJson(jsonDecode(response.body), (json) => null);
@@ -29,11 +26,11 @@ class ChangeProfileRepositoryImpl implements ChangeProfileRepository {
         jsonDecode(response.body);
         return ResultSuccess("");
       } else {
-        print("Error Impl change profile :${response.toString()}");
+        print("Error Impl new-inquiry :${response.toString()}");
         return ResultError(message: response.toString());
       }
     } catch (e) {
-      print("ERROR IMPL change profile: ${e.toString()}");
+      print("ERROR IMPL e new-inquiry: ${e.toString()}");
       return ResultError(message: e.toString());
     }
   }
