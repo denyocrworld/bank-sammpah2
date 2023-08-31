@@ -31,11 +31,6 @@ final GoRouter router = GoRouter(initialLocation: "/", routes: [
     // },
   ),
   GoRoute(
-    path: "/NavigasiBar",
-    name: 'navbar',
-    builder: (context, state) => const NavigasiBar(),
-  ),
-  GoRoute(
     path: "/HomeScreen",
     name: Routes.HomeScreen,
     builder: (context, state) {

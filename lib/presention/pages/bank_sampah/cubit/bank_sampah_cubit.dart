@@ -1,9 +1,8 @@
-// ignore_for_file: prefer_const_constructors, avoid_print, unnecessary_brace_in_string_interps, unnecessary_brace_in_string_interps
-
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loginandsignup/data/base/result_entity.dart';
 import 'package:loginandsignup/domain/base/authentication_header_request.dart';
+
 import '../../../../data/utilities/commons.dart';
 import '../../../../domain/model/data/layanan/layananData.dart';
 import '../../../../domain/repository/layanan/layanan_repository.dart';
@@ -27,4 +26,15 @@ class BankSampahCubit extends Cubit<BankSampahState> {
       print((response as ResultError).message);
     }
   }
+  // double calculatePrice(double weightInKilograms, String jenisLayanan) {
+  //   final pickUpList = (state as BankSampahIsSuccess).data.pick_up;
+
+  //   final layananData = pickUpList.firstWhere(
+  //     (layanan) => layanan.layanan == jenisLayanan,
+  //     orElse: () => PickUpData(layanan: '', price:  0, point: 0),
+  //   );
+
+  //     return layananData.price.toDouble();
+
+  // }
 }

@@ -7,7 +7,7 @@ class Commons {
   // final prefs = SharedPreferences.getInstance();
   final prefs = SharedPreferences.getInstance();
 
-  Future setUid(
+  Future<void> setUid(
     String token,
   ) async {
     final storage = await prefs;
@@ -23,6 +23,7 @@ class Commons {
     final storage = await prefs;
     return storage.remove("token");
   }
+
   Future<DateTime?> getTokenExpiration() async {
     final storage = await prefs;
     return DateTime.parse(storage.getString('tokenExpiration') ?? '');

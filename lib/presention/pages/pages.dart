@@ -8,7 +8,7 @@ import 'package:loginandsignup/data/repository/autentikasi/autentikasi_repositor
 import 'package:loginandsignup/data/repository/config-code/config_code_repository_impl.dart';
 import 'package:loginandsignup/data/repository/forgot-password/forgot_password_repository.impl.dart';
 
-import 'package:loginandsignup/data/repository/home/home_repository_impl.dart';
+
 import 'package:loginandsignup/data/repository/login/login_repository_impl.dart';
 import 'package:loginandsignup/data/repository/registrasi/registrasi_repository_impl.dart';
 import 'package:loginandsignup/data/repository/tukar_point/tukar_point_repository_impl.dart';
@@ -16,6 +16,7 @@ import 'package:loginandsignup/domain/model/request/Register/register_request.da
 import 'package:loginandsignup/domain/model/request/confirm_code_request/confirm_code.dart';
 import 'package:loginandsignup/domain/model/request/forgot_request/forgot_password.dart';
 import 'package:loginandsignup/domain/model/request/login/login_request.dart';
+import 'package:loginandsignup/presention/navigasiton/route.dart';
 import 'package:loginandsignup/presention/pages/autentikasi/cubit/autentikasi_cubit.dart';
 import 'package:loginandsignup/presention/pages/bank_sampah/cubit/bank_sampah_cubit.dart';
 import 'package:loginandsignup/presention/pages/bank_sampah/radiotile.dart';
@@ -39,7 +40,7 @@ import '../../model/costum_shapes.dart';
 import 'package:readmore/readmore.dart';
 import 'dart:async';
 
-import 'profile/cubit/logout_cubit.dart';
+
 import 'profile/cubit/profile_change_cubit.dart';
 
 part 'home/home_page.dart';
