@@ -23,6 +23,6 @@ class PickUpResponse implements PickUpResponseMapper {
   Map<String, dynamic> toJson() => _$PickUpResponseToJson(this);
   @override
   PickUpData toPickUpData() {
-    return PickUpData(layanan ?? "", price!, point!);
+    return PickUpData(layanan ?? "", price ?? 0, point ?? 0);
   }
 }

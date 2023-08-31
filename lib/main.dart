@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loginandsignup/data/repository/autentikasi/autentikasi_repository_impl.dart';
+import 'package:loginandsignup/data/repository/change_profile/change_profile_repository_impl.dart';
 import 'package:loginandsignup/data/repository/config-code/config_code_repository_impl.dart';
 import 'package:loginandsignup/data/repository/detail_riwayat/detail_history_repository_impl.dart';
 import 'package:loginandsignup/data/repository/forgot-password/forgot_password_repository.impl.dart';

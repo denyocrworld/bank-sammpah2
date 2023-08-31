@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loginandsignup/data/base/result_entity.dart';
 import 'package:loginandsignup/data/utilities/commons.dart';
 import 'package:loginandsignup/domain/model/data/registrasi/registrasi__data.dart';

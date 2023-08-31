@@ -1,13 +1,12 @@
-// ignore_for_file: avoid_print
-
 import 'dart:convert';
-import '../../../domain/base/authentication_header_request.dart';
-import '../../../domain/model/data/layanan/layananData.dart';
-import '../../../domain/repository/layanan/layanan_repository.dart';
-import '../../base/result_entity.dart';
-import '../../model/base_response/base_remote_response.dart';
-import '../../model/layanan/layanan_remote_response.dart';
-import '../../service/remote/layanan/layanan_service.dart';
+
+import 'package:loginandsignup/data/base/result_entity.dart';
+import 'package:loginandsignup/data/model/base_response/base_remote_response.dart';
+import 'package:loginandsignup/data/model/layanan/layanan_remote_response.dart';
+import 'package:loginandsignup/data/service/remote/layanan/layanan_service.dart';
+import 'package:loginandsignup/domain/base/authentication_header_request.dart';
+import 'package:loginandsignup/domain/model/data/layanan/layananData.dart';
+import 'package:loginandsignup/domain/repository/layanan/layanan_repository.dart';
 
 class LayananRespositoryImpl implements LayananRepository {
   final layananService = LayananRemoteService();
@@ -26,7 +25,6 @@ class LayananRespositoryImpl implements LayananRepository {
           jsonDecode(response.body),
           (json) => LayananResponse.fromJson(json as Map<String, dynamic>),
         );
-
         print(baseResponseObject.data);
         if (baseResponseObject.status == null) {
           return ResultError(message: baseResponseObject.status!.message);
