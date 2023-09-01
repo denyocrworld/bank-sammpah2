@@ -10,45 +10,39 @@ import 'package:loginandsignup/domain/model/data/home/home_data.dart';
 import 'package:loginandsignup/domain/base/authentication_header_request.dart';
 import 'package:loginandsignup/domain/repository/home/home.repository.dart';
 
-class HomeRespositoryImpl implements HomeRepository {
-  final homeService = HomeRemoteService();
+class HomeProfileRespositoryImpl implements HomeRepository {
+  final homeProfileService = HomeRemoteService();
 
   @override
   Future<ResultEntity<HomeData>> fecthHome(
       AuthenticationHeaderRequest header) async {
     try {
-      final response = await homeService.fecthHome(header);
+      final response = await homeProfileService.fecthHome(header);
       print("STATUS CODE :${response.statusCode} ");
       print("DATA :${response.body} ");
 
-      if (response.statusCode == 200 || response.statusCode == 400) {
+      if (response.statusCode == 200 || response.statusCode == 401) {
         BaseRemoteResponse<HomeRemoteResponse> baseResponseObject =
             BaseRemoteResponse<HomeRemoteResponse>.fromJson(
           jsonDecode(response.body),
           (json) => HomeRemoteResponse.fromJson(json as Map<String, dynamic>),
         );
-
         print(baseResponseObject.data);
         if (baseResponseObject.status == null) {
           return ResultError(message: baseResponseObject.status!.message);
-        }
-
-        // else if (baseResponseObject.status?.code != 1) {
-        //   return ResultError(message: baseResponseObject.status?.message);
-
-        //   // return ResultError<HomeData>(message: "Error");
-        // }
-
-        else {
+        } else if (baseResponseObject.status?.code != 1) {
+          return ResultError(message: baseResponseObject.status?.message);
+          // return ResultError<HomeProfileData>(message: "Error");
+        } else {
           print(baseResponseObject.data);
           return ResultSuccess(baseResponseObject.data!.toHomeData());
         }
       } else {
-        print("Error Impl :${response.toString()}");
+        print("Error Impl HomeProfile:${response.toString()}");
         return ResultError(message: response.toString());
       }
     } catch (e) {
-      print("ERROR IMPL: ${e.toString()}");
+      print("ERROR IMPL HomeProfile: ${e.toString()}");
       return ResultError(message: e.toString());
     }
   }

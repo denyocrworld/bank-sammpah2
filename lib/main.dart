@@ -17,7 +17,6 @@ import 'package:loginandsignup/presention/pages/layanan/cubit/layanan_cubit.dart
 import 'package:loginandsignup/presention/pages/login/cubit/login_cubit.dart';
 import 'package:loginandsignup/presention/pages/lupa_password/cubit/forgot_pass_cubit.dart';
 import 'package:loginandsignup/presention/pages/registrasi/cubit/registrasi_cubit.dart';
-import 'data/repository/change_profile/change_profile_repository_impl.dart';
 import 'data/repository/new-inquiry/new_inquiry_impl.dart';
 import 'data/utilities/auth_cubit.dart';
 import 'presention/pages/bank_sampah/cubit/bank_sampah_cubit.dart';
@@ -46,7 +45,7 @@ class MyApp extends StatelessWidget {
           create: (context) => LoginCubit(LoginRepositoryImpl()),
         ),
         BlocProvider(
-          create: (context) => HomeCubit(HomeRespositoryImpl()),
+          create: (context) => HomeCubit(HomeProfileRespositoryImpl()),
         ),
         BlocProvider(
           create: (context) => ForgotPassCubit(ForgotPasswordRepositoryImpl()),

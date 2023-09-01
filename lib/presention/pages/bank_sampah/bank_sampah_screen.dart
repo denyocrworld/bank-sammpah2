@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: unused_local_variable, avoid_print
 
 part of '../pages.dart';
@@ -96,12 +97,6 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> name = [
-      "Plastik",
-      "Kaca/Beling",
-      "Kaleng/Besi",
-      "Kertas/Karton"
-    ];
     List<String> image = [
       "asset/images/botol_plastik.png",
       "asset/images/botol_kaca.png",
@@ -119,7 +114,7 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                   color: Color(0xFF001F29), fontWeight: FontWeight.w500)),
           leading: GestureDetector(
               onTap: () {
-                context.go("/NavigasiBar");
+                context.goNamed(Routes.NavigasiBar);
               },
               child: const Icon(CupertinoIcons.arrow_left,
                   color: Color(0xFF001F29)))),
@@ -196,7 +191,14 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
               ),
               BlocConsumer<BankSampahCubit, BankSampahState>(
                   listener: (context, state) {
-                if (state is BankSampahIsSuccess) {
+                if (state is BankSampahIsSuccess) {}
+              }, builder: (context, state) {
+                if (state is BankSampahIsLoading) {
+                  return const Center(
+                      child: CircularProgressIndicator(
+                    color: Colors.blue,
+                  ));
+                } else if (state is BankSampahIsSuccess) {
                   for (var element in state.data.bank_sampah) {
                     switch (element.point) {
                       case 1:
@@ -213,14 +215,6 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                         break;
                     }
                   }
-                }
-              }, builder: (context, state) {
-                if (state is BankSampahIsLoading) {
-                  return const Center(
-                      child: CircularProgressIndicator(
-                    color: Colors.blue,
-                  ));
-                } else if (state is BankSampahIsSuccess) {
                   return ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
@@ -349,12 +343,12 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                 }
                 return Container();
               }),
-              Padding(
-                padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
+              const Padding(
+                padding: EdgeInsets.only(left: 20, right: 20, top: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
+                    Text(
                       "Total point yang didapat :",
                       style: TextStyle(
                         fontSize: 14.0,
@@ -362,8 +356,8 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                       ),
                     ),
                     Text(
-                      '$point',
-                      style: const TextStyle(
+                      'point',
+                      style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.w400,
                           color: Color(0xFF019BF1)),
