@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 
 import 'package:loginandsignup/data/base/result_entity.dart';
@@ -36,12 +38,12 @@ class LayananRespositoryImpl implements LayananRepository {
           return ResultSuccess(baseResponseObject.data!.toLayananData());
         }
       } else {
-        return ResultError(message: "Terjadi kesalahan saat mengambil data");
+        print("Error Impl layanan:${response.toString()}");
+        return ResultError(message: response.toString());
       }
     } catch (e) {
-      print("ERROR IMPL: ${e.toString()}");
-      return ResultError(
-          message: 'Terjadi kesalahan saat mengambil data. Silakan coba lagi.');
+      print("ERROR IMPL layanan: ${e.toString()}");
+      return ResultError(message: e.toString());
     }
   }
 }

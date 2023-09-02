@@ -30,6 +30,8 @@ environment:
 dependencies:
   cookie_jar: ^4.0.5
   cupertino_icons: ^1.0.2
+  datetime_picker_formfield_new: ^2.1.0
+  dio: ^5.3.2
   equatable: ^2.0.5
   flutter:
     sdk: flutter
@@ -39,6 +41,7 @@ dependencies:
   image_picker: ^0.8.6+4
   intl: ^0.18.0
   json_annotation: ^4.8.0
+  jwt_decoder: ^2.0.1
   logger: ^2.0.1
   path_provider: ^2.0.15
   readmore: ^2.2.0
