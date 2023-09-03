@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loginandsignup/model/costum_shapes.dart';
+import 'package:loginandsignup/presention/navigasiton/route.dart';
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 import 'package:readmore/readmore.dart';
 
