@@ -1,3 +1,4 @@
+import 'package:datetime_picker_formfield_new/datetime_picker_formfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -41,6 +42,10 @@ import 'dart:async';
 import '../navigasiton/route.dart';
 import 'penjemputan/cubit/new_inquiry_cubit.dart';
 import 'profile/cubit/profile_change_cubit.dart';
+import 'profile/userModel.dart';
+part 'home/home_page.dart';
+part 'login/login_screen.dart';
+part 'autentikasi/autentikasi.dart';
 part 'registrasi/registrasi.dart';
 part 'layanan/layanan_screen.dart';
 part 'config_pass/config_pass_screen.dart';

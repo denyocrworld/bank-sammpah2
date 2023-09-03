@@ -15,3 +15,11 @@ class HomeProfileData {
     this.address,
   );
 }
+// profile
+//             image
+//           username
+//             balance
+//             email
+//             phone
+//             address
+//        riwayat

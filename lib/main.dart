@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
           create: (context) => LoginCubit(LoginRepositoryImpl()),
         ),
         BlocProvider(
-          create: (context) => HomeCubit(HomeRespositoryImpl()),
+          create: (context) => HomeCubit(HomeProfileRespositoryImpl()),
         ),
         BlocProvider(
           create: (context) => ForgotPassCubit(ForgotPasswordRepositoryImpl()),

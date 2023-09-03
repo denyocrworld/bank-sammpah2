@@ -30,7 +30,7 @@ class _LayananScreenState extends State<LayananScreen> {
         ),
         leading: GestureDetector(
             onTap: () {
-              context.go("/NavigasiBar");
+              context.goNamed(Routes.NavigasiBar);
             },
             child: const Icon(CupertinoIcons.arrow_left, color: Colors.black)),
       ),

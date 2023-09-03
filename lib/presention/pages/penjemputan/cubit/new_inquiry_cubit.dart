@@ -14,7 +14,7 @@ class NewInquiryCubit extends Cubit<NewInquiryState> {
 
   Future<void> addQuiry(NewInquiryRequest request) async {
     final token = await Commons().getUid();
-    print('ini token change profile = ${token}');
+    print('ini token new inquiry = ${token}');
     emit(NewInquiryIsLoading());
     final response =
         await repository.addQuiry(request, AuthenticationHeaderRequest(token!));

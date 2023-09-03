@@ -208,7 +208,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               backgroundImage: NetworkImage(data.profile.image),
                               maxRadius: 50,
                             )
-                          : Icon(
+                          : const Icon(
                               Icons.account_circle,
                               size: 40,
                               color: Colors.white,
@@ -257,7 +257,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Expanded(
                                   child: GestureDetector(
                                     onTap: () {
-                                      context.go("/LayananScreen");
+                                      context.goNamed(Routes.LayananScreen);
                                     },
                                     child: Container(
                                       height: 150,
@@ -308,7 +308,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 child: Expanded(
                                   child: GestureDetector(
                                     onTap: () {
-                                      context.go("/BankSampahScreen");
+                                      context.goNamed(Routes.BankSampahScreen);
                                     },
                                     child: Container(
                                       height: 150,

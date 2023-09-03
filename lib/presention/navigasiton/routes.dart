@@ -40,19 +40,7 @@ final GoRouter router = GoRouter(initialLocation: "/", routes: [
   //   name: 'navbar',
   //   builder: (context, state) => const NavigasiBar(),
   // ),
-  GoRoute(
-    path: "/HomeScreen",
-    name: Routes.HomeScreen,
-    builder: (context, state) {
-      BlocProvider.of<HomeCubit>(context).fecthHome();
-      return const HomeScreen();
-    },
-  ),
-  GoRoute(
-    path: "/Profile",
-    name: Routes.Profile,
-    builder: (context, state) => const Profile(),
-  ),
+
   GoRoute(
     path: "/AutentikasiScreen",
     name: "auten",
@@ -63,14 +51,7 @@ final GoRouter router = GoRouter(initialLocation: "/", routes: [
     name: "succes",
     builder: (context, state) => const SuccesScreen(),
   ),
-  GoRoute(
-      path: "/LayananScreen",
-      name: "layanan",
-      builder: (context, state) {
-        BlocProvider.of<LayananCubit>(context).fecthLayanan();
 
-        return const LayananScreen();
-      }),
   GoRoute(
     path: "/RegisterScreen",
     name: "resgis",
@@ -78,11 +59,59 @@ final GoRouter router = GoRouter(initialLocation: "/", routes: [
   ),
   GoRoute(
       path: "/NavigasiBar",
-      name: 'navbar',
+      name: Routes.NavigasiBar,
       builder: (context, state) {
         BlocProvider.of<HomeCubit>(context).fecthHome();
-        return const NavigasiBar();
-      }),
+        return const NavigasiBar(
+          indexScreen: 0,
+        );
+      },
+      routes: [
+        GoRoute(
+            path: "Profile",
+            name: Routes.Profile,
+            builder: (context, state) => const NavigasiBar(
+                  indexScreen: 1,
+                ),
+            routes: [
+              GoRoute(
+                path: "ChangeProfile",
+                name: Routes.ChangeProfile,
+                builder: (context, state) {
+                  BlocProvider.of<HomeCubit>(context).fecthHome();
+                  final _userModel = state.extra as UserModel;
+                  return ChangeProfile(profileData: _userModel);
+                },
+              ),
+            ]),
+        GoRoute(
+            path: "HomeScreen",
+            name: Routes.HomeScreen,
+            builder: (context, state) {
+              BlocProvider.of<HomeCubit>(context).fecthHome();
+              return const NavigasiBar(
+                indexScreen: 0,
+              );
+            },
+            routes: [
+              GoRoute(
+                  path: "LayananScreen",
+                  name: Routes.LayananScreen,
+                  builder: (context, state) {
+                    BlocProvider.of<LayananCubit>(context).fecthLayanan();
+
+                    return const LayananScreen();
+                  }),
+              GoRoute(
+                path: "BankSampahScreen",
+                name: Routes.BankSampahScreen,
+                builder: (context, state) {
+                  BlocProvider.of<BankSampahCubit>(context).fecthBankSampah();
+                  return const BankSampahScreen();
+                },
+              ),
+            ]),
+      ]),
   GoRoute(
     path: "/LupaPassword",
     name: "lupa",
@@ -103,14 +132,7 @@ final GoRouter router = GoRouter(initialLocation: "/", routes: [
   //   name: "layananscreen",
   //   builder: (context, state) => const SuccesPass(),
   // ),
-  GoRoute(
-    path: "/BankSampahScreen",
-    name: "bank",
-    builder: (context, state) {
-      BlocProvider.of<BankSampahCubit>(context).fecthBankSampah();
-      return const BankSampahScreen();
-    },
-  ),
+
   GoRoute(
     path: "/TukarPoint1",
     name: "point1",
@@ -161,15 +183,7 @@ final GoRouter router = GoRouter(initialLocation: "/", routes: [
     name: "detailarticle",
     builder: (context, state) => const DetailArticle(),
   ),
-  GoRoute(
-    path: "/ChangeProfile",
-    name: Routes.ChangeProfile,
-    builder: (context, state) {
-      BlocProvider.of<HomeCubit>(context).fecthHome();
-      final _userModel = state.extra as UserModel;
-      return ChangeProfile(profileData: _userModel);
-    },
-  ),
+
   GoRoute(
     path: "/KonfirmasiPembayaran",
     name: "KonfirmasiPembayaranScreen",

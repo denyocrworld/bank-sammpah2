@@ -55,7 +55,7 @@ class _ProfileState extends State<Profile> {
                       SizedBox(width: 5),
                       InkWell(
                         onTap: () {
-                          context.read<AuthCubit>().logout();
+                          context.read<AuthCubit>().logOut();
                           context.goNamed(Routes.LoginScreen);
                         },
                         child: Image.asset("asset/images/logout.png"),
@@ -134,6 +134,8 @@ class _ProfileState extends State<Profile> {
                                               size: 18,
                                               color: Colors.grey,
                                             ),
+
+                                            SizedBox(width: 3),
                                             Text(
                                               state.data.profile.address,
                                               style: TextStyle(fontSize: 14),
@@ -150,6 +152,7 @@ class _ProfileState extends State<Profile> {
                                               size: 18,
                                               color: Colors.grey,
                                             ),
+                                             SizedBox(width: 3),
                                             Text(
                                               state.data.profile.phone,
                                               style: TextStyle(fontSize: 14),
@@ -166,6 +169,7 @@ class _ProfileState extends State<Profile> {
                                               size: 18,
                                               color: Colors.grey,
                                             ),
+                                             SizedBox(width: 3),
                                             Text(
                                               state.data.profile.email,
                                               style: TextStyle(fontSize: 14),

@@ -84,7 +84,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
         ),
         leading: GestureDetector(
             onTap: () {
-              context.go("/LayananScreen");
+              context.goNamed(Routes.NavigasiBar);
             },
             child: const Icon(CupertinoIcons.arrow_left, color: Colors.black)),
       ),
@@ -93,9 +93,9 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
           if (state is NewInquiryIsError) {
             Commons().showSnackbarError(context, state.message!);
           } else if (state is NewInquiryIsSuccess) {
-            context.go('/NavigasiBar');
+            context.goNamed(Routes.NavigasiBar);
             Commons().showSnackbarInfo(context, "Add New Inquiry Berhasil");
-            // context.read<ProfileChangeCubit>().fetchChangeProfile();
+            context.read<HomeCubit>().fecthHome();
           }
         },
         child: SingleChildScrollView(
@@ -162,22 +162,45 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                       suffixIcon: IconButton(
-                        onPressed: () async {
-                          await showDatePicker(
-                                  context: context,
-                                  initialDate: pickDate,
-                                  firstDate: DateTime(1800),
-                                  lastDate: DateTime(2100))
-                              .then((value) {
-                            if (value != null) {
-                              setState(() {
-                                pickDate = value;
+                        onPressed: () {
+                          // await showDatePicker(
+
+                          //         context: context,
+                          //         initialDate: pickDate,
+                          //         firstDate: DateTime(1800),
+                          //         lastDate: DateTime(2100))
+                          //     .then((value) {
+                          //   if (value != null) {
+                          //     setState(() {
+                          //       pickDate = value;
+                          //     });
+                          //   }
+                          // });
+
+                          final dateFormat = DateFormat("yyyy-MM-dd HH:mm");
+                          tanggalController.text = pickDate.toString();
+                          DateTimeField(
+                            format: dateFormat,
+                            onShowPicker: (context, pickDate) async {
+                              return await showDatePicker(
+                                context: context,
+                                firstDate: DateTime(1900),
+                                initialDate: pickDate!,
+                                lastDate: DateTime(2100),
+                              ).then((DateTime? pickDate) async {
+                                if (pickDate != null) {
+                                  final time = await showTimePicker(
+                                    context: context,
+                                    initialTime:
+                                        TimeOfDay.fromDateTime(pickDate),
+                                  );
+                                  return DateTimeField.combine(pickDate, time);
+                                } else {
+                                  return pickDate;
+                                }
                               });
-                            }
-                          });
-                          String dateFormat =
-                              DateFormat("dd/MM/yyyy").format(pickDate);
-                          tanggalController.text = dateFormat.toString();
+                            },
+                          );
                         },
                         icon: const Icon(
                           Icons.calendar_month,
@@ -186,7 +209,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                       ),
                       filled: true,
                       fillColor: Colors.white,
-                      hintText: "dd/mm/yy",
+                      hintText: "yyyy-MM-dd HH:mm",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
@@ -409,7 +432,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 8, left: 20, right: 20),
+                padding: const EdgeInsets.only(top: 15, left: 20, right: 20),
                 child: GestureDetector(
                     onTap: () {
                       showModalBottomSheet(
@@ -465,10 +488,13 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                           });
                     },
                     child: _image != null
-                        ? Image.file(_image!,
-                            height: 125.0,
-                            width: MediaQuery.of(context).size.width,
-                            fit: BoxFit.fill)
+                        ? ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: Image.file(_image!,
+                                width: MediaQuery.of(context).size.width,
+                                height: 125.0,
+                                fit: BoxFit.cover),
+                          )
                         : Container(
                             height: 125.0,
                             decoration: const BoxDecoration(
@@ -478,7 +504,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                               color: Colors.blueAccent,
                               borderRadius: BorderRadius.all(
                                 Radius.circular(
-                                  8.0,
+                                  15,
                                 ),
                               ),
                             ),
@@ -490,7 +516,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                   Flexible(
                     flex: 1,
                     child: Padding(
-                      padding: EdgeInsets.only(top: 80, left: 20),
+                      padding: EdgeInsets.only(top: 70, left: 20),
                       child: Text(
                         "Total Biaya",
                         style: TextStyle(
@@ -504,7 +530,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: Padding(
-                        padding: EdgeInsets.only(top: 80, right: 20),
+                        padding: EdgeInsets.only(top: 70, right: 20),
                         child: Text(
                           "Rp. 25,000",
                           style: TextStyle(

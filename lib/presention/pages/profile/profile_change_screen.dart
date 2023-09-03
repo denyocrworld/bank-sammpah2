@@ -72,7 +72,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                   color: Color(0xFF001F29), fontWeight: FontWeight.w500)),
           leading: GestureDetector(
             onTap: () {
-              context.go('/NavigasiBar');
+              context.goNamed(Routes.Profile);
             },
             child: const Icon(
               CupertinoIcons.arrow_left,
@@ -85,7 +85,9 @@ class _ChangeProfileState extends State<ChangeProfile> {
             if (state is ProfileChangeIsError) {
               Commons().showSnackbarError(context, state.message!);
             } else if (state is ProfileChangeIsSuccess) {
-              context.go('/NavigasiBar');
+              context.goNamed(Routes.Profile);
+              //background: #578400; warna text pemberitahuan
+
               Commons().showSnackbarInfo(context, "Update Data Berhasil");
               // context.read<ProfileChangeCubit>().fetchChangeProfile();
             }
@@ -108,27 +110,38 @@ class _ChangeProfileState extends State<ChangeProfile> {
                               top: 30, left: 16, right: 16),
                           child: Row(children: [
                             Container(
-                              padding: const EdgeInsets.only(left: 9),
-                              height: 45,
-                              width: 45,
-                              child: urlImage != ''
-                                  ? CircleAvatar(
-                                      backgroundImage: NetworkImage(urlImage),
-                                      maxRadius: 50,
-                                    )
-                                  : CircleAvatar(
-                                      maxRadius: 50,
-                                      child: image != null
-                                          ? CircleAvatar(
-                                              maxRadius: 50,
-                                              backgroundImage: Image.memory(
-                                                image!.readAsBytesSync(),
-                                              ).image,
-                                            )
-                                          : Image.asset(
-                                              "asset/images/user-circle.png",
-                                              fit: BoxFit.cover)),
-                            ),
+                                padding: const EdgeInsets.only(left: 9),
+                                height: 45,
+                                width: 45,
+                                child:
+
+                                    // urlImage != ''
+                                    //     ? CircleAvatar(
+                                    //         backgroundImage: NetworkImage(urlImage),
+                                    //         maxRadius: 50,
+                                    //       )
+                                    //     :
+
+                                    CircleAvatar(
+                                        maxRadius: 50,
+                                        child: image != null
+                                            ? CircleAvatar(
+                                                maxRadius: 50,
+                                                backgroundImage: Image.memory(
+                                                  image!.readAsBytesSync(),
+                                                ).image,
+                                              )
+                                            : CircleAvatar(
+                                                maxRadius: 50,
+                                                backgroundImage: NetworkImage(
+                                                  "asset/images/user-circle.png",
+                                                ),
+                                              )
+
+                                        // Image.asset(
+                                        //   "asset/images/user-circle.png",
+                                        //   fit: BoxFit.contain)
+                                        )),
                             Padding(
                               padding: const EdgeInsets.only(left: 17),
                               child: Text(
@@ -333,33 +346,33 @@ class _ChangeProfileState extends State<ChangeProfile> {
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(
-                              top: 16, left: 16, right: 16),
-                          child: SizedBox(
-                            width: MediaQuery.of(context).size.width * 1,
-                            height: 40,
-                            child: OutlinedButton(
-                              style: OutlinedButton.styleFrom(
-                                side:
-                                    const BorderSide(color: Color(0xFFFF7F33)),
-                                foregroundColor: const Color(0xFFFF7F33),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.circular(8), // <-- Radius
-                                ),
-                              ),
-                              onPressed: () {
-                                context.go('/UbahPasswordScreen');
-                              },
-                              child: const Text(
-                                "Ubah Password",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.w400),
-                              ),
-                            ),
-                          ),
-                        ),
+                        // Padding(
+                        //   padding: const EdgeInsets.only(
+                        //       top: 16, left: 16, right: 16),
+                        //   child: SizedBox(
+                        //     width: MediaQuery.of(context).size.width * 1,
+                        //     height: 40,
+                        //     child: OutlinedButton(
+                        //       style: OutlinedButton.styleFrom(
+                        //         side:
+                        //             const BorderSide(color: Color(0xFFFF7F33)),
+                        //         foregroundColor: const Color(0xFFFF7F33),
+                        //         shape: RoundedRectangleBorder(
+                        //           borderRadius:
+                        //               BorderRadius.circular(8), // <-- Radius
+                        //         ),
+                        //       ),
+                        //       onPressed: () {
+                        //         context.go('/UbahPasswordScreen');
+                        //       },
+                        //       child: const Text(
+                        //         "Ubah Password",
+                        //         style: TextStyle(
+                        //             fontSize: 16, fontWeight: FontWeight.w400),
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ))
