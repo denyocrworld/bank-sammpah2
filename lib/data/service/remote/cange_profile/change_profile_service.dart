@@ -34,9 +34,9 @@ class ChangeProfileService {
     //     request.image!.path,
     //   ),
     // );
-    var imageFile = await MultipartFile.fromPath(
+    var imageFile = MultipartFile.fromBytes(
       'file',
-      request.image!.path,
+      request.image!.readAsBytesSync(),
     );
     multipartRequest.files.add(imageFile);
     body["name"] = request.name;

@@ -1,4 +1,8 @@
-part of 'pages.dart';
+
+
+import 'package:flutter/material.dart';
+import 'package:loginandsignup/presention/pages/home/home_page.dart';
+import 'package:loginandsignup/presention/pages/pages.dart';
 
 class NavigasiBar extends StatefulWidget {
   const NavigasiBar({super.key});
