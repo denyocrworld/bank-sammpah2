@@ -11,7 +11,7 @@ class AutentikasiRepositoryImpl implements AutentikasiRepository {
 
   @override
   Future<ResultEntity> autentikasi(Autentikasi request) async {
-    // TODO: implement autentikasi
+    
     try {
       final response = await autentikasiRemoteService.submitAutenikasi(request);
       print("STATUS CODE : ${response.statusCode}");

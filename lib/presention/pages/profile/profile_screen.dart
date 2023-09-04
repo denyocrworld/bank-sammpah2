@@ -9,9 +9,37 @@ class Profile extends StatefulWidget {
   State<Profile> createState() => _ProfileState();
 }
 
-class _ProfileState extends State<Profile> {
+class _ProfileState extends State<Profile> with WidgetsBindingObserver {
   UserModel? _userModel;
   String urlImage = "";
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    print("APP_STATE: $state");
+
+    if (state == AppLifecycleState.inactive) {
+      // user returned to our app
+      Profile();
+    } else if (state == AppLifecycleState.inactive) {
+      // app is inactive
+    } else if (state == AppLifecycleState.paused) {
+      // user quit our app temporally
+    } else if (state == AppLifecycleState.resumed) {
+      // app suspended
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -134,7 +162,6 @@ class _ProfileState extends State<Profile> {
                                               size: 18,
                                               color: Colors.grey,
                                             ),
-
                                             SizedBox(width: 3),
                                             Text(
                                               state.data.profile.address,
@@ -152,7 +179,7 @@ class _ProfileState extends State<Profile> {
                                               size: 18,
                                               color: Colors.grey,
                                             ),
-                                             SizedBox(width: 3),
+                                            const SizedBox(width: 3),
                                             Text(
                                               state.data.profile.phone,
                                               style: TextStyle(fontSize: 14),
@@ -169,7 +196,7 @@ class _ProfileState extends State<Profile> {
                                               size: 18,
                                               color: Colors.grey,
                                             ),
-                                             SizedBox(width: 3),
+                                            const SizedBox(width: 3),
                                             Text(
                                               state.data.profile.email,
                                               style: TextStyle(fontSize: 14),

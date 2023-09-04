@@ -17,20 +17,22 @@ class ChangeProfile extends StatefulWidget {
 }
 
 class _ChangeProfileState extends State<ChangeProfile> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController addressController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
+  TextEditingController nameController = TextEditingController(text: " ");
+  TextEditingController addressController = TextEditingController(text: " ");
+  TextEditingController phoneController = TextEditingController(text: " ");
+  TextEditingController emailController = TextEditingController(text: " ");
   String urlImage = '';
+
   @override
   void initState() {
+    super.initState();
     // namaController.text = widget.id.toString();
+    BlocProvider.of<HomeCubit>(context).fecthHome();
     urlImage = widget.profileData.image;
     nameController.text = widget.profileData.name;
     emailController.text = widget.profileData.email;
     phoneController.text = widget.profileData.phone_number;
     addressController.text = widget.profileData.address;
-    BlocProvider.of<HomeCubit>(context).fecthHome();
     super.initState();
   }
 
@@ -58,6 +60,8 @@ class _ChangeProfileState extends State<ChangeProfile> {
       );
     }
   }
+
+  bool isUpdate = false;
 
   @override
   Widget build(BuildContext context) {
@@ -327,14 +331,16 @@ class _ChangeProfileState extends State<ChangeProfile> {
                                 ),
                               ),
                               onPressed: () {
-                                BlocProvider.of<ProfileChangeCubit>(context)
-                                    .fetchChangeProfile(ProfileRequest(
-                                  image!,
-                                  nameController.text,
-                                  emailController.text,
-                                  phoneController.text,
-                                  addressController.text,
-                                ));
+                                setState(() {
+                                  BlocProvider.of<ProfileChangeCubit>(context)
+                                      .fetchChangeProfile(ProfileRequest(
+                                    image!,
+                                    nameController.text,
+                                    emailController.text,
+                                    phoneController.text,
+                                    addressController.text,
+                                  ));
+                                });
                               },
                               child: const Text(
                                 "Simpan",

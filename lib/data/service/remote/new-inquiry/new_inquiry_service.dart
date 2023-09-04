@@ -4,16 +4,18 @@ import 'dart:collection';
 import 'package:http/http.dart';
 import 'package:loginandsignup/domain/base/authentication_header_request.dart';
 import '../../../../domain/model/request/new-inquiry/new_inquiry_request.dart';
-import '../../../base/base_status_response.dart';
+
 
 class NewInquiryService {
   Client client = Client();
   Future<StreamedResponse> addQuiry(
       NewInquiryRequest request, AuthenticationHeaderRequest header) async {
-    final url = Uri.http(
-      BaseConfig.BASE_DOMAIN,
-      BaseConfig.BASE_PATH + BaseConfig.fetchQuiry,
-    );
+    final url =
+        Uri.parse("http://103-175-216-13.cprapid.com:8822/server/new-inquiry");
+    // final url = Uri.http(
+    //   BaseConfig.BASE_DOMAIN,
+    //   BaseConfig.BASE_PATH + BaseConfig.fetchQuiry,
+    // );
     print("URL : ${url.toString()}");
 
     var multipartRequest = MultipartRequest('POST', url);

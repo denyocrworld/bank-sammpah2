@@ -200,18 +200,22 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                   ));
                 } else if (state is BankSampahIsSuccess) {
                   for (var element in state.data.bank_sampah) {
-                    switch (element.point) {
-                      case 1:
+                    switch (element.layanan) {
+                      case "plastik":
                         itemPlastik.value = element.point;
+                        print("Plastik : ${element.point}");
                         break;
-                      case 2:
+                      case "kaca":
                         itemKaca.value = element.point;
+                        print("Kaca : ${element.point}");
                         break;
-                      case 3:
+                      case "besi":
                         itemBesi.value = element.point;
+                        print("Besi : ${element.point}");
                         break;
-                      case 4:
+                      case "kertas":
                         itemKertas.value = element.point;
+                        print("Kertas : ${element.point}");
                         break;
                     }
                   }

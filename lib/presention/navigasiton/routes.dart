@@ -6,7 +6,7 @@ import 'package:loginandsignup/presention/pages/autentikasi/autentikasi.dart';
 import 'package:loginandsignup/presention/pages/bank_sampah/cubit/bank_sampah_cubit.dart';
 import 'package:loginandsignup/presention/pages/detail_riwayat/cubit/detal_history_cubit.dart';
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
-import 'package:loginandsignup/presention/pages/home/home_page.dart';
+
 import 'package:loginandsignup/presention/pages/login/login_screen.dart';
 import 'package:loginandsignup/presention/pages/navigasibar.dart';
 // import 'package:loginandsignup/pages/pages.dart';

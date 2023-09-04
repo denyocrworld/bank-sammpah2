@@ -27,7 +27,6 @@ class BankSampahResponse implements BankSampahResponseMapper {
 
   @override
   BankSampahData toBankSampahData() {
-    // TODO: implement toBankSampahData
     return BankSampahData(type ?? 0, image ?? "", name ?? "", point ?? 0);
   }
 }
