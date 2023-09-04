@@ -16,6 +16,11 @@ class ChangeProfileRemoteService {
       BaseConfig.BASE_DOMAIN,
       BaseConfig.BASE_PATH + BaseConfig.fetchChangeProfile,
     );
+    if (request.image != null) {
+      print('tidak null');
+    } else {
+      print('null');
+    }
     print("URL : ${url.toString()}");
     var multipartRequest = MultipartRequest('POST', url);
 
@@ -44,16 +49,11 @@ class ChangeProfileRemoteService {
     body["address"] = request.address;
     body["phone_number"] = request.phone_number;
     body["email"] = request.email;
-    if (request.image != null) {
-      multipartRequest.files.add(
-        MultipartFile.fromBytes(
-          "file",
-          request.image!.readAsBytesSync(),
-        ),
-      );
-    }
 
-    multipartRequest.headers.addAll(header.toHeader());
+    var newHeader = header.toHeader();
+    newHeader['Content-Type'] = 'multipart/form-data';
+
+    multipartRequest.headers.addAll(newHeader);
     multipartRequest.fields.addAll(body);
 
     var streamedResponse = await multipartRequest.send();
