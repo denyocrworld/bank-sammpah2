@@ -43,6 +43,7 @@ class HomeProfileRespositoryImpl implements HomeRepository {
       }
     } catch (e) {
       print("ERROR IMPL HomeProfile: ${e.toString()}");
+      print(e);
       return ResultError(message: e.toString());
     }
   }

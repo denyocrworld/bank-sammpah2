@@ -1,5 +1,12 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-part of 'pages.dart';
+
+
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:loginandsignup/data/utilities/auth_cubit.dart';
+import 'package:loginandsignup/presention/navigasiton/route.dart';
+import 'package:loginandsignup/presention/pages/home/home_page.dart';
+import 'package:loginandsignup/presention/pages/pages.dart';
 
 class NavigasiBar extends StatefulWidget {
   final int indexScreen;

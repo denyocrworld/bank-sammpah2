@@ -387,15 +387,19 @@ class _SampahPenjemputanState extends State<SampahPenjemputan> {
                   //
                   //
                   child: _image != null
-                      ? Image.file(_image,
-                          height: 125.0,
-                          width: MediaQuery.of(context).size.width,
-                          fit: BoxFit.fill)
+                      // bungkus container
+                      ? Container(
+                          height: 150.0,
+                          child: Image.file(_image,
+                              height: 125.0,
+                              width: MediaQuery.of(context).size.width,
+                              fit: BoxFit.cover),
+                        )
                       : Container(
                           height: 150.0,
                           decoration: const BoxDecoration(
                             image: DecorationImage(
-                                image: AssetImage('asset/images/sampah.png'),
+                                image: AssetImage('asset/images/photo.png'),
                                 fit: BoxFit.cover),
                             color: Colors.blueAccent,
                             borderRadius: BorderRadius.all(

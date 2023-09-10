@@ -17,20 +17,22 @@ class ChangeProfile extends StatefulWidget {
 }
 
 class _ChangeProfileState extends State<ChangeProfile> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController addressController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
+  TextEditingController nameController = TextEditingController(text: " ");
+  TextEditingController addressController = TextEditingController(text: " ");
+  TextEditingController phoneController = TextEditingController(text: " ");
+  TextEditingController emailController = TextEditingController(text: " ");
   String urlImage = '';
+
   @override
   void initState() {
+    super.initState();
     // namaController.text = widget.id.toString();
+    BlocProvider.of<HomeCubit>(context).fecthHome();
     urlImage = widget.profileData.image;
     nameController.text = widget.profileData.name;
     emailController.text = widget.profileData.email;
     phoneController.text = widget.profileData.phone_number;
     addressController.text = widget.profileData.address;
-    BlocProvider.of<HomeCubit>(context).fecthHome();
     super.initState();
   }
 
@@ -60,6 +62,8 @@ class _ChangeProfileState extends State<ChangeProfile> {
     }
   }
 
+  bool isUpdate = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,38 +86,36 @@ class _ChangeProfileState extends State<ChangeProfile> {
           ),
         ),
         body: BlocListener<ProfileChangeCubit, ProfileChangeState>(
-          listener: (context, state) {
-            if (state is ProfileChangeIsError) {
-              Commons().showSnackbarError(context, state.message!);
-            } else if (state is ProfileChangeIsSuccess) {
-              context.goNamed(Routes.Profile);
-              //background: #578400; warna text pemberitahuan
+            listener: (context, state) {
+              if (state is ProfileChangeIsError) {
+                Commons().showSnackbarError(context, state.message!);
+              } else if (state is ProfileChangeIsSuccess) {
+                context.goNamed(Routes.Profile);
+                //background: #578400; warna text pemberitahuan
 
-              Commons().showSnackbarInfo(context, "Update Data Berhasil");
+                Commons().showSnackbarInfo(context, "Update Data Berhasil");
 
-              // context.read<TokenCubit>().fecthRefreshToken();
-              context.read<AuthCubit>().checkToken();
-            }
-          },
-          child: isUpdating
-              ? Center(
-                  child: CircularProgressIndicator(
-                  color: Colors.blue,
-                ))
-              : SingleChildScrollView(
-                  child: Column(
-                  children: [
+                // context.read<TokenCubit>().fecthRefreshToken();
+                context.read<AuthCubit>().checkToken();
+              }
+            },
+            child: isUpdating
+                ? Center(
+                    child: CircularProgressIndicator(
+                    color: Colors.blue,
+                  ))
+                : SingleChildScrollView(
+                    child: Column(children: [
                     Padding(
                         padding:
                             const EdgeInsets.only(top: 26, left: 20, right: 20),
                         child: Container(
-                          height: 500,
-                          width: MediaQuery.of(context).size.width * 1,
-                          decoration: BoxDecoration(
-                              color: Color(0xFFF8FCFF),
-                              borderRadius: BorderRadius.circular(16)),
-                          child: Column(
-                            children: [
+                            height: 500,
+                            width: MediaQuery.of(context).size.width * 1,
+                            decoration: BoxDecoration(
+                                color: Color(0xFFF8FCFF),
+                                borderRadius: BorderRadius.circular(16)),
+                            child: Column(children: [
                               Padding(
                                 padding: const EdgeInsets.only(
                                     top: 30, left: 16, right: 16),
@@ -369,38 +371,7 @@ class _ChangeProfileState extends State<ChangeProfile> {
                                   ),
                                 ),
                               ),
-                              // Padding(
-                              //   padding: const EdgeInsets.only(
-                              //       top: 16, left: 16, right: 16),
-                              //   child: SizedBox(
-                              //     width: MediaQuery.of(context).size.width * 1,
-                              //     height: 40,
-                              //     child: OutlinedButton(
-                              //       style: OutlinedButton.styleFrom(
-                              //         side:
-                              //             const BorderSide(color: Color(0xFFFF7F33)),
-                              //         foregroundColor: const Color(0xFFFF7F33),
-                              //         shape: RoundedRectangleBorder(
-                              //           borderRadius:
-                              //               BorderRadius.circular(8), // <-- Radius
-                              //         ),
-                              //       ),
-                              //       onPressed: () {
-                              //         context.go('/UbahPasswordScreen');
-                              //       },
-                              //       child: const Text(
-                              //         "Ubah Password",
-                              //         style: TextStyle(
-                              //             fontSize: 16, fontWeight: FontWeight.w400),
-                              //       ),
-                              //     ),
-                              //   ),
-                              // ),
-                            ],
-                          ),
-                        ))
-                  ],
-                )),
-        ));
+                            ]))),
+                  ]))));
   }
 }

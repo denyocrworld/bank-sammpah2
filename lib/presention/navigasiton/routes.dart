@@ -4,8 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loginandsignup/presention/pages/detail_riwayat/cubit/detal_history_cubit.dart';
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
+
+import 'package:loginandsignup/presention/pages/login/login_screen.dart';
+import 'package:loginandsignup/presention/pages/navigasibar.dart';
 // import 'package:loginandsignup/pages/pages.dart';
 import 'package:loginandsignup/presention/pages/pages.dart';
+import '../pages/autentikasi/autentikasi.dart';
 import '../pages/profile/userModel.dart';
 import 'route.dart';
 // import 'package:loginandsignup/presention/pages/pembayaran/cubit/pilih_pembayaran_cubit.dart';

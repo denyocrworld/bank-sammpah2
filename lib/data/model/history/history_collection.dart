@@ -19,7 +19,7 @@ class HistoryCollectionResponse implements HistoryCollectionResponseMapper {
 
   @override
   List toHomeRiwayatData() {
-    // TODO: implement toHistoryData
+    
     return history!.map((e) => e.toHomeRiwayatData()).toList();
   }
 }

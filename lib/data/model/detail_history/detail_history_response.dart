@@ -30,7 +30,7 @@ class DetailHistoryResponse implements DetailHistoryResponseMapper {
 
   @override
   DetailHistoryData toDetailHistoryData() {
-    // TODO: implement toDetailHistoryData
+    
     return DetailHistoryData(
         pickup_address ?? "", date ?? "", price ?? 0, weight ?? 0, image ?? "");
   }

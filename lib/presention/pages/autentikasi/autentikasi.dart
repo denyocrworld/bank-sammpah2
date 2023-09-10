@@ -1,4 +1,12 @@
-part of '../pages.dart';
+
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:loginandsignup/data/repository/autentikasi/autentikasi_repository_impl.dart';
+import 'package:loginandsignup/data/utilities/commons.dart';
+import 'package:loginandsignup/presention/pages/autentikasi/cubit/autentikasi_cubit.dart';
 
 class AutentikasiScreen extends StatefulWidget {
   const AutentikasiScreen({super.key});
