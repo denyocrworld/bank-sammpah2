@@ -32,6 +32,7 @@ import 'package:loginandsignup/data/utilities/commons.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 import '../../data/utilities/auth_cubit.dart';
+import '../../data/utilities/token/cubit/token_cubit.dart';
 import '../../domain/model/request/new-inquiry/new_inquiry_request.dart';
 import '../../domain/model/request/profile/profileRequest.dart';
 import '../../model/costum_shapes.dart';

@@ -2,6 +2,7 @@
 
 import 'dart:collection';
 import 'package:http/http.dart';
+import 'package:loginandsignup/data/utilities/commons.dart';
 import 'package:loginandsignup/domain/base/authentication_header_request.dart';
 import '../../../../domain/model/request/profile/profileRequest.dart';
 import '../../../base/base_status_response.dart';
@@ -32,8 +33,17 @@ class ChangeProfileRemoteService {
         ),
       );
     }
+    var token = header.accesToken;
 
-    multipartRequest.headers.addAll(header.toHeader());
+    // multipartRequest.headers.addAll(header.toHeader());
+    print("ini header change profile : $token");
+    multipartRequest.headers.addAll({
+      'Authorization': 'Bearer $token',
+      'Cookie': 'token=$token',
+      'Set-Cookie': 'token=$token',
+      'Content-Type': 'application/json'
+    });
+
     multipartRequest.fields.addAll(body);
 
     var streamedResponse = await multipartRequest.send();

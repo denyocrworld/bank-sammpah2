@@ -84,7 +84,11 @@ class _ProfileState extends State<Profile> {
                                       height: 40,
                                       width: 40,
                                       child: urlImage != ""
-                                          ? CircleAvatar(
+                                          ?
+                                          //   Image.asset(
+                                          //    state.data.profile.image)
+
+                                          CircleAvatar(
                                               backgroundImage: NetworkImage(
                                                   state.data.profile.image),
                                               maxRadius: 50,
@@ -134,7 +138,6 @@ class _ProfileState extends State<Profile> {
                                               size: 18,
                                               color: Colors.grey,
                                             ),
-
                                             SizedBox(width: 3),
                                             Text(
                                               state.data.profile.address,
@@ -152,7 +155,7 @@ class _ProfileState extends State<Profile> {
                                               size: 18,
                                               color: Colors.grey,
                                             ),
-                                             SizedBox(width: 3),
+                                            SizedBox(width: 3),
                                             Text(
                                               state.data.profile.phone,
                                               style: TextStyle(fontSize: 14),
@@ -169,7 +172,7 @@ class _ProfileState extends State<Profile> {
                                               size: 18,
                                               color: Colors.grey,
                                             ),
-                                             SizedBox(width: 3),
+                                            SizedBox(width: 3),
                                             Text(
                                               state.data.profile.email,
                                               style: TextStyle(fontSize: 14),

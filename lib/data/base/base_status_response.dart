@@ -18,4 +18,6 @@ abstract class BaseConfig {
   static const String fetchLogout = '/logout';
   static const String fetchChangeProfile = '/change-profile';
   static const String fetchQuiry = '/new-inquiry';
+
+  static const String fetchToken = '/refresh';
 }

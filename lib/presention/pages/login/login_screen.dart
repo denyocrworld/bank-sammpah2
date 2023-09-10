@@ -55,7 +55,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Commons().showSnackbarError(context, "Login Gagal");
             } else if (state is LoginSucces) {
               Commons().showSnackbarInfo(context, "Login Berhasil");
-
+     context.read<AuthCubit>().checkToken();
               context.go('/NavigasiBar');
             }
           },
@@ -206,18 +206,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                 ),
                                 onPressed: isProfileCompleted()
-                                    ? () {
-                                        context.read<LoginCubit>().btnLogin(
-                                            LoginRequest(
-                                                whatssapController.text,
-                                                passwordController.text));
-                                      }
+                                    ? () 
                                     // {
-                                    //     BlocProvider.of<LoginCubit>(context)
-                                    //         .btnLogin(LoginRequest(
+                                    //     context.read<LoginCubit>().btnLogin(
+                                    //         LoginRequest(
                                     //             whatssapController.text,
                                     //             passwordController.text));
                                     //   }
+                                    {
+                                        BlocProvider.of<LoginCubit>(context)
+                                            .btnLogin(LoginRequest(
+                                                whatssapController.text,
+                                                passwordController.text));
+                                      }
                                     : null,
                                 child: const Text(
                                   "Masuk",

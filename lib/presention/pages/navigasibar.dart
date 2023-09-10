@@ -33,7 +33,7 @@ class _NavigasiBarState extends State<NavigasiBar> {
           if (state == AuthState.unauthenticated) {
             context.go('/');
           } else if (state == AuthState.tokenExpired) {
-            // context.read<RefreshTokenCubit>().refreshToken();
+            context.read<TokenCubit>().fecthRefreshToken();
             context.goNamed(Routes.HomeScreen);
           }
         },

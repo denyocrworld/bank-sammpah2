@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable
+// ignore_for_file: public_member_api_docs, sort_constructors_first, must_be_immutable, prefer_const_constructors_in_immutables
 part of 'profile_change_cubit.dart';
 
 abstract class ProfileChangeState extends Equatable {
@@ -13,9 +13,10 @@ class ProfileChangeInitial extends ProfileChangeState {}
 class ProfileChangeIsLoading extends ProfileChangeState {}
 
 class ProfileChangeIsSuccess extends ProfileChangeState {
-  String? message;
+  final TokenData data;
+
   ProfileChangeIsSuccess({
-    this.message,
+    required this.data,
   });
 }
 

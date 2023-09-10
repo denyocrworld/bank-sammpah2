@@ -18,7 +18,9 @@ import 'package:loginandsignup/presention/pages/login/cubit/login_cubit.dart';
 import 'package:loginandsignup/presention/pages/lupa_password/cubit/forgot_pass_cubit.dart';
 import 'package:loginandsignup/presention/pages/registrasi/cubit/registrasi_cubit.dart';
 import 'data/repository/new-inquiry/new_inquiry_impl.dart';
+import 'data/repository/token/token_repository_impl.dart';
 import 'data/utilities/auth_cubit.dart';
+import 'data/utilities/token/cubit/token_cubit.dart';
 import 'presention/pages/bank_sampah/cubit/bank_sampah_cubit.dart';
 import 'presention/pages/config_pass/cubit/config_pass_cubit.dart';
 import 'presention/pages/detail_riwayat/cubit/detal_history_cubit.dart';
@@ -40,6 +42,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (_) => AuthCubit(),
+        ),
+        BlocProvider(
+          create: (_) => TokenCubit(TokenRepositoryImpl()),
         ),
         BlocProvider(
           create: (context) => LoginCubit(LoginRepositoryImpl()),
@@ -79,12 +84,56 @@ class MyApp extends StatelessWidget {
           create: (context) => NewInquiryCubit(NewInquiryRepositoryImpl()),
         ),
       ],
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        routerDelegate: router.routerDelegate,
-        routeInformationParser: router.routeInformationParser,
-        routeInformationProvider: router.routeInformationProvider,
+      child: BlocBuilder<AuthCubit, AuthState>(
+        builder: (context, authStatus) {
+          if (authStatus == AuthState.isLoading) {
+            return Container(
+              color: Colors.white,
+              child: const Center(
+                child: CircularProgressIndicator(
+                  color: Colors.blue,
+                ),
+              ),
+            );
+          } else if (authStatus == AuthState.authenticated) {
+            return const MateriapAppRouter(path: 'NavigasiBar');
+          } else if (authStatus == AuthState.unauthenticated) {
+            return const MateriapAppRouter(path: 'login');
+          } else if (authStatus == AuthState.tokenExpired) {
+            context.read<TokenCubit>().fecthRefreshToken();
+            BlocBuilder<TokenCubit, TokenState>(
+              builder: (context, refreshTokenstate) {
+                if (refreshTokenstate is TokenIsLoading) {
+                  return const CircularProgressIndicator(
+                    color: Colors.blue,
+                  );
+                } else if (refreshTokenstate is TokenIsSucces) {
+                  context.read<AuthCubit>().checkToken();
+                  return const MateriapAppRouter(path: 'NavigasiBar');
+                }
+                return Container();
+              },
+            );
+          }
+          return Container();
+        },
       ),
+    );
+  }
+}
+
+class MateriapAppRouter extends StatelessWidget {
+  final String path;
+  const MateriapAppRouter({
+    Key? key,
+    required this.path,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      routerConfig: appRouter(path),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
