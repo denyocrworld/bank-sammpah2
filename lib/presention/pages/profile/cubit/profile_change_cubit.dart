@@ -5,6 +5,7 @@ import 'package:equatable/equatable.dart';
 import '../../../../data/base/result_entity.dart';
 import '../../../../data/utilities/commons.dart';
 import '../../../../domain/base/authentication_header_request.dart';
+import '../../../../domain/model/data/token/token_data.dart';
 import '../../../../domain/model/request/profile/profileRequest.dart';
 import '../../../../domain/repository/changeProfile/change_profile_repository.dart';
 part 'profile_change_state.dart';
@@ -23,11 +24,13 @@ class ProfileChangeCubit extends Cubit<ProfileChangeState> {
     print(response);
     if (response is ResultSuccess) {
       emit(
-        ProfileChangeIsSuccess(message: (response).data),
+        ProfileChangeIsSuccess(data: (response as ResultSuccess).data),
       );
+      var data = (state as ProfileChangeIsSuccess).data;
+      await Commons().setUid(data.token.toString());
     } else {
       emit(ProfileChangeIsError(message: (response as ResultError).message));
-      print((response).message);
+      print((response).toString());
     }
   }
 }

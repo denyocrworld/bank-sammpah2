@@ -1,7 +1,10 @@
 // ignore_for_file: avoid_print, unused_import
 
 import 'dart:collection';
+import 'dart:io';
+import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart';
+import 'package:loginandsignup/data/utilities/commons.dart';
 import 'package:loginandsignup/domain/base/authentication_header_request.dart';
 import '../../../../domain/model/request/profile/profileRequest.dart';
 import '../../../base/base_status_response.dart';
@@ -35,34 +38,54 @@ class ChangeProfileRemoteService {
     // }
 
     // multipartRequest.files.add(
-    //   MultipartFile.fromString(
-    //     "file",
+    //   await MultipartFile.fromPath(
+    //     "jpg",
     //     request.image!.path,
     //   ),
     // );
-    var imageFile = MultipartFile.fromBytes(
-      'file',
-      request.image!.readAsBytesSync(),
-    );
-    multipartRequest.files.add(imageFile);
+    // var imageFile = MultipartFile.fromBytes(
+    //   'file',
+    //   request.image!.readAsBytesSync(),
+    // );
+    // multipartRequest.files.add(imageFile);
     body["name"] = request.name;
     body["address"] = request.address;
     body["phone_number"] = request.phone_number;
     body["email"] = request.email;
+    //begini succes image tidak ke send
+    if (request.image != null) {
+      multipartRequest.files.add(MultipartFile.fromString(
+          "jpg",
+          request.image!
+              .readAsStringSync(encoding: jsonDecode(jsonEncode(request))),
+          filename: request.image!.path.split("/").last));
+    }
+    //begini error forbidden extension file
+    // /
 
-    var newHeader = header.toHeader();
-    newHeader['Content-Type'] = 'multipart/form-data';
+    // multipartRequest.files.add(MultipartFile(
+    //     'jpg',
+    //     File(request.image!.path).readAsBytes().asStream(),
+    //     File(request.image!.path).lengthSync(),
+    //     filename: request.image!.path.split("/").last));
 
-    multipartRequest.headers.addAll(newHeader);
+    var token = header.accesToken;
+    print("ini header change profile : $token");
+    multipartRequest.headers.addAll({
+      'Authorization': 'Bearer $token',
+      'Cookie': 'token=$token',
+      'Set-Cookie': 'token=$token',
+      'Content-Type': 'application/json'
+    });
+
     multipartRequest.fields.addAll(body);
-
+    // multipartRequest.headers.addAll(header.toHeader());
     var streamedResponse = await multipartRequest.send();
     var response = await Response.fromStream(streamedResponse);
 
     return response;
   }
 }
-
 
 // class ChangeProfileService {
 //   Client client = Client();
