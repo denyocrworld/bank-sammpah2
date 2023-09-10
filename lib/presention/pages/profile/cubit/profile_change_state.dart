@@ -14,6 +14,7 @@ class ProfileChangeIsLoading extends ProfileChangeState {}
 
 class ProfileChangeIsSuccess extends ProfileChangeState {
   String? message;
+
   ProfileChangeIsSuccess({
     this.message,
   });

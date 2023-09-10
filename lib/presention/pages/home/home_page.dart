@@ -16,7 +16,7 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   // late HomeCubit _homeCubit;
 
   // @override
@@ -31,6 +31,34 @@ class _HomeScreenState extends State<HomeScreen> {
   //   super.dispose();
   // }
   String urlImage = "";
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    print("APP_STATE: $state");
+
+    if (state == AppLifecycleState.inactive) {
+      // user returned to our app
+      HomeScreen();
+    } else if (state == AppLifecycleState.inactive) {
+      // app is inactive
+    } else if (state == AppLifecycleState.paused) {
+      // user quit our app temporally
+    } else if (state == AppLifecycleState.resumed) {
+      // app suspended
+    }
+  }
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors

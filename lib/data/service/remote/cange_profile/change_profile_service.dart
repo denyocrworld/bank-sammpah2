@@ -50,10 +50,15 @@ class ChangeProfileRemoteService {
     body["phone_number"] = request.phone_number;
     body["email"] = request.email;
 
-    var newHeader = header.toHeader();
-    newHeader['Content-Type'] = 'multipart/form-data';
+    var token = header.accesToken;
 
-    multipartRequest.headers.addAll(newHeader);
+    print("ini header change profile : $token");
+
+    multipartRequest.headers.addAll({
+      'Authorization': 'Bearer $token',
+      'Cookie': 'token=$token',
+      'Content-Type': 'application/json'
+    });
     multipartRequest.fields.addAll(body);
 
     var streamedResponse = await multipartRequest.send();

@@ -9,13 +9,13 @@ class Item {
   int? count;
   int? tPoint;
 
-  Item({this.itemName, this.value, this.count = 0, this.tPoint = 0});
+  Item({this.itemName = '', this.value = 0, this.count = 0, this.tPoint = 0});
 }
 
-var itemPlastik = Item(itemName: 'plastik', value: 100, count: 0, tPoint: 0);
-var itemKaca = Item(itemName: 'beling', value: 200, count: 0, tPoint: 0);
-var itemBesi = Item(itemName: 'besi', value: 300, count: 0, tPoint: 0);
-var itemKertas = Item(itemName: 'karton', value: 400, count: 0, tPoint: 0);
+final itemPlastik = Item(itemName: 'plastik', value: 100, count: 0, tPoint: 0);
+final itemKaca = Item(itemName: 'beling', value: 200, count: 0, tPoint: 0);
+final itemBesi = Item(itemName: 'besi', value: 300, count: 0, tPoint: 0);
+final itemKertas = Item(itemName: 'karton', value: 400, count: 0, tPoint: 0);
 
 class BankSampahScreen extends StatefulWidget {
   const BankSampahScreen({super.key});
@@ -43,54 +43,74 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
     super.dispose();
   }
 
-  //cara 1 -----------------------------------------------
-  // List<Item> item = [item1, item2, item3, item4];
-  void grow1(index, name) {
-    print(items[index].count);
-    setState(() {
-      items[index!].count = items[index].count! + 1;
-      items[index!].tPoint = items[index].count! * items[index].value!;
-    });
-    print(items[index].count);
-    var allPoint = items.fold(0, (sum, e) => sum + e.tPoint!);
+  // Perlu diperhatikan bahwa dalam parameter fungsi, Anda dapat menentukan tipe data untuk 'index' dan 'name' untuk menghindari masalah tipe data yang tidak aman.
+
+  void grow1(int index, String name) {
+  setState(() {
+    if (items[index].count == null || items[index].value == null) {
+      // Tangani nilai null di sini jika diperlukan.
+      return;
+    }
+
+    if (items[index].value == 0) {
+      // Reset count dan tPoint ke 0 jika value adalah 0.
+      items[index].count = 0;
+      items[index].tPoint = 0;
+    } else {
+      items[index].count = items[index].count! + 1;
+      items[index].tPoint = items[index].count! * items[index].value!;
+    }
+    
+    // Perhitungan ulang total poin
+    var allPoint = items.fold(0, (sum, e) => (e.tPoint ?? 0) + sum);
     setState(() {
       point = allPoint;
     });
-  }
+  });
+}
 
-  void decrease(int index) {
-    setState(() {
-      if (items[index].count! > 0) {
-        items[index].count = items[index].count! - 1;
-        point = point - items[index].value!;
-      }
-    });
-    // setState(() {
-    //   point = point - items[index].value!;
-    // });
-  }
+void decrease(int index) {
+  setState(() {
+    if (items[index].count == null || items[index].value == null) {
+      // Tangani nilai null di sini jika diperlukan.
+      return;
+    }
+    
+    if (items[index].count! > 0) {
+      items[index].count = items[index].count! - 1;
+      items[index].tPoint = items[index].count! * items[index].value!;
+      point = point - items[index].value!;
+    }
+  });
+}
 
-  //cara 2 -----------------------------------------------
-  List<dynamic> size = [
-    {'Platik': 0},
-    {'Kaca/Beling': 0},
-    {'Kaleng/Besi': 0},
-    {'Kertas/Karton': 0}
-  ];
 
-  void grow(index, item) {
-    setState(() {
-      size[index][item] += 1;
-    });
-//     print(index);
-  }
+  // //cara 1 -----------------------------------------------
+  // // List<Item> item = [item1, item2, item3, item4];
+  // void grow1(index, name) {
+  //   print(items[index].count);
+  //   setState(() {
+  //     items[index!].count = items[index].count! + 1;
+  //     items[index!].tPoint = items[index].count! * items[index].value!;
+  //   });
+  //   print(items[index].count);
+  //   var allPoint = items.fold(0, (sum, e) => sum + e.tPoint!);
+  //   setState(() {
+  //     point = allPoint;
+  //   });
+  // }
 
-  void decreament(index, item) {
-    setState(() {
-      size[index][item] -= 1;
-    });
-//     print(index);
-  }
+  // void decrease(int index) {
+  //   setState(() {
+  //     if (items[index].count! > 0) {
+  //       items[index].count = items[index].count! - 1;
+  //       point = point - items[index].value!;
+  //     }
+  //   });
+  //   // setState(() {
+  //   //   point = point - items[index].value!;
+  //   // });
+  // }
 
   bool _isRadioSelected = false;
   String? groupValue;
@@ -347,12 +367,12 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                 }
                 return Container();
               }),
-              const Padding(
-                padding: EdgeInsets.only(left: 20, right: 20, top: 20),
+              Padding(
+                padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "Total point yang didapat :",
                       style: TextStyle(
                         fontSize: 14.0,
@@ -360,8 +380,8 @@ class _BankSampahScreenState extends State<BankSampahScreen> {
                       ),
                     ),
                     Text(
-                      'point',
-                      style: TextStyle(
+                      "$point",
+                      style: const TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.w400,
                           color: Color(0xFF019BF1)),

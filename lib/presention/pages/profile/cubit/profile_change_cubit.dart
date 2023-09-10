@@ -2,6 +2,7 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:loginandsignup/domain/model/data/login/login_data.dart';
 import '../../../../data/base/result_entity.dart';
 import '../../../../data/utilities/commons.dart';
 import '../../../../domain/base/authentication_header_request.dart';
@@ -24,7 +25,9 @@ class ProfileChangeCubit extends Cubit<ProfileChangeState> {
     if (response is ResultSuccess) {
       emit(
         ProfileChangeIsSuccess(message: (response).data),
+        
       );
+      
     } else {
       emit(ProfileChangeIsError(message: (response as ResultError).message));
       print((response).message);
