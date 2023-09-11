@@ -1,13 +1,12 @@
+// ignore_for_file: unnecessary_null_comparison
 
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:loginandsignup/model/costum_shapes.dart';
 import 'package:loginandsignup/presention/navigasiton/route.dart';
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
-import 'package:readmore/readmore.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -48,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   void didChangeAppLifecycleState(AppLifecycleState state) {
     print("APP_STATE: $state");
 
-    if (state == AppLifecycleState.resumed) {
+    if (state == AppLifecycleState.inactive) {
       // user returned to our app
       const HomeScreen();
     } else if (state == AppLifecycleState.inactive) {
@@ -59,6 +58,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
       // app suspended
     }
   }
+
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
@@ -230,19 +230,19 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     backgroundColor: Colors.white,
                     elevation: 1,
                     child: SizedBox(
-                      height: 40,
-                      width: 40,
-                      child: urlImage != ""
-                          ? CircleAvatar(
-                              backgroundImage: NetworkImage(data.profile.image),
-                              maxRadius: 50,
-                            )
-                          : const Icon(
-                              Icons.account_circle,
-                              size: 40,
-                              color: Colors.white,
-                            ),
-                    ),
+                        height: 40,
+                        width: 40,
+                        child: urlImage == null
+                            ? const Icon(
+                                Icons.account_circle,
+                                size: 40,
+                                color: Colors.white,
+                              )
+                            : CircleAvatar(
+                                backgroundImage:
+                                    NetworkImage(data.profile.image),
+                                maxRadius: 50,
+                              )),
                     //  Container(
                     //   decoration: BoxDecoration(
                     //       image: DecorationImage(
@@ -284,7 +284,7 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                 padding:
                                     const EdgeInsets.only(top: 8, left: 20),
                                 child: Expanded(
-                                  child: GestureDetector(
+                                  child: InkWell(
                                     onTap: () {
                                       context.goNamed(Routes.LayananScreen);
                                     },
@@ -428,125 +428,142 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                           ],
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(left: 20, right: 20),
-                          child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: 120,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFFAFDFF),
-                              borderRadius: BorderRadius.circular(16),
-                              border:
-                                  Border.all(color: Colors.black, width: 0.1),
-                            ),
-                            child: Column(
-                              children: [
-                                const Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  // ignore: prefer_const_literals_to_create_immutables
-                                  children: [
-                                    // ignore: prefer_const_constructors
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 16, left: 16),
-                                      // ignore: prefer_const_constructors
-                                      child: Text(
-                                        "12-04-2023",
-                                        // ignore: prefer_const_constructors
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            color: Color(0xFFA7ABB3),
-                                            fontWeight: FontWeight.w400),
-                                      ),
+                            padding: const EdgeInsets.only(left: 20, right: 20),
+                            child: homeState.data.riwayat == null
+                                ? Container(
+                                    width: MediaQuery.of(context).size.width,
+                                    height: 120,
+                                    decoration: BoxDecoration(
+                                      color: const Color(0xFFFAFDFF),
+                                      borderRadius: BorderRadius.circular(16),
+                                      border: Border.all(
+                                          color: Colors.black, width: 0.1),
                                     ),
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 16, right: 16),
-                                      child: Text(
-                                        '+150pt',
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            color: Color(0xFFA7ABB3),
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                const Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Padding(
-                                      padding:
-                                          EdgeInsets.only(top: 4, left: 16),
-                                      child: Text(
-                                        'Berat Sampah :',
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            color: Color(0xFF001F29),
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                    ),
-                                    Expanded(
-                                      child: Padding(
-                                        padding:
-                                            EdgeInsets.only(top: 4, left: 5),
-                                        child: Text(
-                                          '6kg',
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: Color(0xFF001F29),
-                                              fontWeight: FontWeight.w400),
+                                    child: Column(
+                                      children: [
+                                        const Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          // ignore: prefer_const_literals_to_create_immutables
+                                          children: [
+                                            // ignore: prefer_const_constructors
+                                            Padding(
+                                              padding: EdgeInsets.only(
+                                                  top: 16, left: 16),
+                                              // ignore: prefer_const_constructors
+                                              child: Text(
+                                                "12-04-2023",
+                                                // ignore: prefer_const_constructors
+                                                style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Color(0xFFA7ABB3),
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(
+                                                  top: 16, right: 16),
+                                              child: Text(
+                                                '+150pt',
+                                                style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Color(0xFFA7ABB3),
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsets.only(
-                                        top: 4,
-                                        right: 16,
-                                      ),
-                                      child: Text(
-                                        'Rp150000',
-                                        style: TextStyle(
-                                            fontSize: 16,
-                                            color: Color(0xFF019BF1),
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 10, right: 16, left: 16),
-                                  child: SizedBox(
-                                    width:
-                                        MediaQuery.of(context).size.width * 1,
-                                    height: 40,
-                                    child: OutlinedButton(
-                                      style: OutlinedButton.styleFrom(
-                                        side: const BorderSide(
-                                            color: Color(0xFFFF7F33)),
-                                        foregroundColor:
-                                            const Color(0xFFFF7F33),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(
-                                              12), // <-- Radius
+                                        const Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsets.only(
+                                                  top: 4, left: 16),
+                                              child: Text(
+                                                'Berat Sampah :',
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    color: Color(0xFF001F29),
+                                                    fontWeight:
+                                                        FontWeight.w400),
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: Padding(
+                                                padding: EdgeInsets.only(
+                                                    top: 4, left: 5),
+                                                child: Text(
+                                                  '6kg',
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      color: Color(0xFF001F29),
+                                                      fontWeight:
+                                                          FontWeight.w400),
+                                                ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(
+                                                top: 4,
+                                                right: 16,
+                                              ),
+                                              child: Text(
+                                                'Rp150000',
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    color: Color(0xFF019BF1),
+                                                    fontWeight:
+                                                        FontWeight.w500),
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ),
-                                      onPressed: () {
-                                        context.go('/DetailRiwayat');
-                                      },
-                                      child: const Text("Lihat Detail",
-                                          style: TextStyle(
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w400)),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              top: 10, right: 16, left: 16),
+                                          child: SizedBox(
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                1,
+                                            height: 40,
+                                            child: OutlinedButton(
+                                              style: OutlinedButton.styleFrom(
+                                                side: const BorderSide(
+                                                    color: Color(0xFFFF7F33)),
+                                                foregroundColor:
+                                                    const Color(0xFFFF7F33),
+                                                shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          12), // <-- Radius
+                                                ),
+                                              ),
+                                              onPressed: () {
+                                                context.go('/DetailRiwayat');
+                                              },
+                                              child: const Text("Lihat Detail",
+                                                  style: TextStyle(
+                                                      fontSize: 12,
+                                                      fontWeight:
+                                                          FontWeight.w400)),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
+                                  )
+                                : const Center(
+                                    child: Text(
+                                      'Belum ada riwayat anatar jemput\nYuk mulai bereskan sampah mu',
+                                      style: TextStyle(
+                                          color: Colors.grey,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  ),),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -592,153 +609,116 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                             padding: EdgeInsets.zero,
                             shrinkWrap: true,
                             physics: const NeverScrollableScrollPhysics(),
-                            itemCount: 3,
+                            itemCount: 1,
                             itemBuilder: (context, index) {
                               return SingleChildScrollView(
                                 scrollDirection: Axis.horizontal,
                                 physics: const BouncingScrollPhysics(),
-                                child: Row(
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 20),
-                                      child: Expanded(
-                                        child: Container(
-                                          height: 200,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.5,
-                                          decoration: BoxDecoration(
-                                            color: const Color(0xFFFAFDFF),
-                                            borderRadius:
-                                                BorderRadius.circular(16),
-                                            border: Border.all(
-                                                color: Colors.black,
-                                                width: 0.1),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 20),
+                                  child: Row(
+                                    children: [
+                                      Container(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.5,
+                                        height: 200,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(
+                                            16,
                                           ),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.stretch,
-                                            children: [
-                                              Image.asset(
-                                                  'asset/images/pencuci.png',
-                                                  height: 100,
-                                                  fit: BoxFit.fill),
-                                              const Padding(
-                                                padding: EdgeInsets.only(
-                                                    top: 16, left: 16),
-                                                child: ReadMoreText(
-                                                  'Bank Sampah',
-                                                  trimLines: 1,
-                                                  colorClickableText:
-                                                      Colors.grey,
-                                                  trimMode: TrimMode.Line,
-                                                  trimCollapsedText: '',
-                                                  trimExpandedText: 'Show less',
-                                                  moreStyle: TextStyle(
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.bold),
+                                          color: Colors.white,
+                                        ),
+                                        child: Column(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  const BorderRadius.vertical(
+                                                top: Radius.circular(
+                                                  16,
                                                 ),
                                               ),
-                                              const Padding(
-                                                padding: EdgeInsets.only(
-                                                    top: 8, left: 16),
-                                                child: ReadMoreText(
-                                                  'Bank sampah adalah aplikasi pengelolaan ',
-                                                  trimLines: 2,
-                                                  colorClickableText:
-                                                      Colors.grey,
-                                                  trimMode: TrimMode.Line,
-                                                  trimCollapsedText:
-                                                      'Show more',
-                                                  trimExpandedText: 'Show less',
-                                                  moreStyle: TextStyle(
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                ),
-                                              )
-                                            ],
-                                          ),
+                                              child: Image.asset(
+                                                'asset/images/pencuci.png',
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.5,
+                                                height: 110,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 12,
+                                            ),
+                                            const Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 12),
+                                              child: Text(
+                                                '5 Tips to clean your home easily',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.w500,
+                                                    overflow:
+                                                        TextOverflow.ellipsis),
+                                                maxLines: 2,
+                                              ),
+                                            )
+                                          ],
                                         ),
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(left: 20),
-                                      child: Expanded(
-                                        child: Container(
-                                          height: 200,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.5,
-                                          decoration: BoxDecoration(
-                                            color: const Color(0xFFFAFDFF),
-                                            borderRadius:
-                                                BorderRadius.circular(16),
-                                            border: Border.all(
-                                                color: Colors.black,
-                                                width: 0.1),
+                                      const SizedBox(
+                                        width: 20,
+                                      ),
+                                      Container(
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.5,
+                                        height: 200,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(
+                                            16,
                                           ),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.stretch,
-                                            children: [
-                                              Image.asset(
-                                                  'asset/images/pencuci.png',
-                                                  height: 100,
-                                                  fit: BoxFit.fill),
-                                              // ignore: prefer_const_constructors
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 16, left: 16),
-                                                // ignore: prefer_const_constructors
-                                                child: ReadMoreText(
-                                                  'Bank sampah',
-                                                  trimLines: 1,
-                                                  colorClickableText:
-                                                      Colors.grey,
-                                                  trimMode: TrimMode.Line,
-                                                  trimCollapsedText: '',
-                                                  trimExpandedText: 'Show less',
-                                                  moreStyle: const TextStyle(
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.bold),
+                                          color: Colors.white,
+                                        ),
+                                        child: Column(
+                                          children: [
+                                            ClipRRect(
+                                              borderRadius:
+                                                  const BorderRadius.vertical(
+                                                top: Radius.circular(
+                                                  16,
                                                 ),
                                               ),
-                                              // ignore: prefer_const_constructors
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 8, left: 16),
-                                                // ignore: prefer_const_constructors
-                                                child: ReadMoreText(
-                                                  'bank sampah adalah',
-                                                  trimLines: 2,
-                                                  colorClickableText:
-                                                      Colors.grey,
-                                                  trimMode: TrimMode.Line,
-                                                  trimCollapsedText:
-                                                      'Show more',
-                                                  trimExpandedText: 'Show less',
-                                                  moreStyle: const TextStyle(
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.bold),
-                                                  // ignore: prefer_const_constructors
-                                                ),
-                                              )
-                                            ],
-                                          ),
+                                              child: Image.asset(
+                                                'asset/images/pencuci.png',
+                                                width: MediaQuery.of(context)
+                                                        .size
+                                                        .width *
+                                                    0.5,
+                                                height: 110,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 12,
+                                            ),
+                                            const Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 12),
+                                              child: Text(
+                                                '5 Tips to clean your home easily',
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.w500,
+                                                    overflow:
+                                                        TextOverflow.ellipsis),
+                                                maxLines: 2,
+                                              ),
+                                            )
+                                          ],
                                         ),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               );
                             })

@@ -64,6 +64,14 @@ class _ChangeProfileState extends State<ChangeProfile> {
 
   bool isUpdate = false;
 
+  bool validate() {
+    if (image == null) {
+      Commons().showSnackbarError(context, 'Photo Profile Tidak Boleh Kosong');
+      return false;
+    }
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -348,17 +356,20 @@ class _ChangeProfileState extends State<ChangeProfile> {
                                       ),
                                     ),
                                     onPressed: () {
-                                      setState(() {
-                                        BlocProvider.of<ProfileChangeCubit>(
-                                                context)
-                                            .fetchChangeProfile(ProfileRequest(
-                                          image!,
-                                          nameController.text,
-                                          emailController.text,
-                                          phoneController.text,
-                                          addressController.text,
-                                        ));
-                                      });
+                                      if (validate()) {
+                                        setState(() {
+                                          BlocProvider.of<ProfileChangeCubit>(
+                                                  context)
+                                              .fetchChangeProfile(
+                                                  ProfileRequest(
+                                            image!,
+                                            nameController.text,
+                                            emailController.text,
+                                            phoneController.text,
+                                            addressController.text,
+                                          ));
+                                        });
+                                      }
                                     },
                                     child: const Text(
                                       "Simpan",

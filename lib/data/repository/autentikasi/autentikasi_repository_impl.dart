@@ -14,6 +14,7 @@ class AutentikasiRepositoryImpl implements AutentikasiRepository {
     
     try {
       final response = await autentikasiRemoteService.submitAutenikasi(request);
+      
       print("STATUS CODE : ${response.statusCode}");
       print(response.body);
       if (response.statusCode == 201) {

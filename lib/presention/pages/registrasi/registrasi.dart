@@ -49,6 +49,39 @@ class _RegisterScreenState extends State<RegisterScreen> {
     }
   }
 
+  // bool validate() {
+  //   if (whatssapController.text.isEmpty ||
+  //       namaController.text.isEmpty ||
+  //       emailController.text.isEmpty ||
+  //       passController.text.length < 6 ||
+  //       configpassController.text != passController.text) {
+  //     return false;
+  //   }
+  //   return true;
+  // }
+
+  bool validate() {
+    if (whatssapController.text.isEmpty ||
+        namaController.text.isEmpty ||
+        emailController.text.isEmpty ||
+        passController.text.isEmpty ||
+        configpassController.text.isEmpty) {
+      Commons().showSnackbarError(context, "Semua field harus diisi.");
+      return false;
+    }
+    if (passController.text.length < 6) {
+      Commons().showSnackbarError(
+          context, "Password harus memiliki setidaknya 6 digit.");
+      return false;
+    }
+    if (configpassController.text != passController.text) {
+      Commons().showSnackbarError(context, "Konfirmasi password tidak cocok.");
+      return false;
+    }
+
+    return true;
+  }
+
   changeConfirmPasswordVisibility() {
     setState(() {
       hideConfirmPassword = !hideConfirmPassword;
@@ -380,20 +413,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   borderRadius: BorderRadius.circular(16),
                                 ),
                               ),
-                              onPressed: isProfileCompleted()
-                                  ? () {
-                                      context
-                                          .read<RegistrasiCubit>()
-                                          .btnRegisteer(RegisterRequest(
-                                            namaController.text,
-                                            whatssapController.text,
-                                            emailController.text,
-                                            jeniskelaminValue,
-                                            passwordController.text,
-                                            confirmController.text,
-                                          ));
-                                    }
-                                  : null,
+                              onPressed: () {
+                                if (validate()) {
+                                  context
+                                      .read<RegistrasiCubit>()
+                                      .btnRegisteer(RegisterRequest(
+                                        namaController.text,
+                                        whatssapController.text,
+                                        emailController.text,
+                                        jeniskelaminValue,
+                                        passwordController.text,
+                                        confirmController.text,
+                                      ));
+                                }
+                              },
                               child: const Text("Daftar"),
                             ),
                           ),

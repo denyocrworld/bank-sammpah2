@@ -52,6 +52,13 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
+  bool validate() {
+    if (whatssapController.text.isEmpty || passwordController.text.length < 5) {
+      return false;
+    }
+    return true;
+  }
+
   var logger = Logger(
     printer: PrettyPrinter(),
   );
@@ -215,21 +222,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                     borderRadius: BorderRadius.circular(16),
                                   ),
                                 ),
-                                onPressed: isProfileCompleted()
-                                    ? ()
-                                        // {
-                                        //     context.read<LoginCubit>().btnLogin(
-                                        //         LoginRequest(
-                                        //             whatssapController.text,
-                                        //             passwordController.text));
-                                        //   }
-                                        {
-                                        BlocProvider.of<LoginCubit>(context)
-                                            .btnLogin(LoginRequest(
-                                                whatssapController.text,
-                                                passwordController.text));
-                                      }
-                                    : null,
+                                onPressed: () {
+                                  if (validate()) {
+                                    BlocProvider.of<LoginCubit>(context)
+                                        .btnLogin(LoginRequest(
+                                            whatssapController.text,
+                                            passwordController.text));
+                                  } else {
+                                    Commons().showSnackbarError(context,
+                                        'Semua field harus diisi dan PIN harus 6 digit');
+                                  }
+                                },
                                 child: const Text(
                                   "Masuk",
                                   style: TextStyle(
