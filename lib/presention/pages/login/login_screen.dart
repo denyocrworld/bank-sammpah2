@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,6 +7,8 @@ import 'package:loginandsignup/data/repository/login/login_repository_impl.dart'
 import 'package:loginandsignup/data/utilities/commons.dart';
 import 'package:loginandsignup/domain/model/request/login/login_request.dart';
 import 'package:loginandsignup/presention/pages/login/cubit/login_cubit.dart';
+
+import '../../../data/utilities/auth_cubit.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -65,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Commons().showSnackbarError(context, "Login Gagal");
             } else if (state is LoginSucces) {
               Commons().showSnackbarInfo(context, "Login Berhasil");
-
+              context.read<AuthCubit>().checkToken();
               context.go('/NavigasiBar');
             }
           },
@@ -216,18 +216,19 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                 ),
                                 onPressed: isProfileCompleted()
-                                    ? () {
-                                        context.read<LoginCubit>().btnLogin(
-                                            LoginRequest(
+                                    ? ()
+                                        // {
+                                        //     context.read<LoginCubit>().btnLogin(
+                                        //         LoginRequest(
+                                        //             whatssapController.text,
+                                        //             passwordController.text));
+                                        //   }
+                                        {
+                                        BlocProvider.of<LoginCubit>(context)
+                                            .btnLogin(LoginRequest(
                                                 whatssapController.text,
                                                 passwordController.text));
                                       }
-                                    // {
-                                    //     BlocProvider.of<LoginCubit>(context)
-                                    //         .btnLogin(LoginRequest(
-                                    //             whatssapController.text,
-                                    //             passwordController.text));
-                                    //   }
                                     : null,
                                 child: const Text(
                                   "Masuk",

@@ -9,7 +9,7 @@ class AuthenticationHeaderRequest {
   Map<String, String> toHeader() {
     return {
       'Authorization': 'Bearer $accesToken',
-      // 'Cookie': 'token=$accesToken',
+
       // 'Content-Type': 'application/json',
       // 'Date': '${DateTime.now()}'
     };

@@ -46,10 +46,11 @@ class _ChangeProfileState extends State<ChangeProfile> {
     super.dispose();
   }
 
+  bool isUpdating = false;
   File? image;
   Future<void> _getImageFromCamera() async {
     final picker = ImagePicker();
-    final pickedImage = await picker.pickImage(source: ImageSource.camera);
+    final pickedImage = await picker.pickImage(source: ImageSource.gallery);
 
     if (pickedImage != null) {
       setState(
@@ -93,13 +94,16 @@ class _ChangeProfileState extends State<ChangeProfile> {
               //background: #578400; warna text pemberitahuan
 
               Commons().showSnackbarInfo(context, "Update Data Berhasil");
-              // context.read<ProfileChangeCubit>().fetchChangeProfile();
+
+              // context.read<TokenCubit>().fecthRefreshToken();
+              context.read<AuthCubit>().checkToken();
             }
           },
-          child: isUpdate
+          child: isUpdating
               ? Center(
-                  child: CircularProgressIndicator(),
-                )
+                  child: CircularProgressIndicator(
+                  color: Colors.blue,
+                ))
               : SingleChildScrollView(
                   child: Column(
                   children: [

@@ -48,9 +48,9 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
   void didChangeAppLifecycleState(AppLifecycleState state) {
     print("APP_STATE: $state");
 
-    if (state == AppLifecycleState.inactive) {
+    if (state == AppLifecycleState.resumed) {
       // user returned to our app
-      HomeScreen();
+      const HomeScreen();
     } else if (state == AppLifecycleState.inactive) {
       // app is inactive
     } else if (state == AppLifecycleState.paused) {

@@ -21,6 +21,7 @@ class AuthCubit extends Cubit<AuthState> {
       DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(
         timestampInMilliseconds,
       );
+
       if (validationExp(dateTime)) {
         emit(AuthState.authenticated);
       } else {

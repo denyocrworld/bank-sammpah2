@@ -9,13 +9,42 @@ class LayananScreen extends StatefulWidget {
   State<LayananScreen> createState() => _LayananScreenState();
 }
 
-class _LayananScreenState extends State<LayananScreen> {
+class _LayananScreenState extends State<LayananScreen>
+    with WidgetsBindingObserver {
   List<String> image = [
     "asset/images/langganan.png",
     "asset/images/hajatan.png",
     "asset/images/sekali_angkut.png",
     "asset/images/acara_lainnya.png",
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    print("APP_STATE: $state");
+
+    if (state == AppLifecycleState.inactive) {
+      // user returned to our app
+      const LayananScreen();
+    } else if (state == AppLifecycleState.inactive) {
+      // app is inactive
+    } else if (state == AppLifecycleState.paused) {
+      // user quit our app temporally
+    } else if (state == AppLifecycleState.resumed) {
+      // app suspended
+    }
+  }
 
   @override
   Widget build(BuildContext context) {

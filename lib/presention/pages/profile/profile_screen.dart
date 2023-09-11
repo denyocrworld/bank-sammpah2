@@ -112,7 +112,11 @@ class _ProfileState extends State<Profile> with WidgetsBindingObserver {
                                       height: 40,
                                       width: 40,
                                       child: urlImage != ""
-                                          ? CircleAvatar(
+                                          ?
+                                          //   Image.asset(
+                                          //    state.data.profile.image)
+
+                                          CircleAvatar(
                                               backgroundImage: NetworkImage(
                                                   state.data.profile.image),
                                               maxRadius: 50,
