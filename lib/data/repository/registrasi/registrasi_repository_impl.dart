@@ -17,6 +17,7 @@ class RegistrasiRepositoryImpl implements RegistrasiRepository {
     // TODO: implement submitRegister
     try {
       final response = await registrasiRemoteService.postRegister(request);
+
       print("STATUS CODE: ${response.statusCode}");
       print(response.body);
 
@@ -44,7 +45,7 @@ class RegistrasiRepositoryImpl implements RegistrasiRepository {
         return ResultError(message: response.body);
       }
     } catch (e) {
-      return ResultError(message: '');
+      return ResultError(message: e.toString());
     }
   }
 }

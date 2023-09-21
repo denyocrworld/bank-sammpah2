@@ -148,12 +148,8 @@ class _ChangeProfileState extends State<ChangeProfile> {
                                               child: image != null
                                                   ? CircleAvatar(
                                                       maxRadius: 50,
-                                                      backgroundImage:
-                                                          Image.memory(
-                                                        image!
-                                                            .readAsBytesSync(),
-                                                      ).image,
-                                                    )
+                                                      backgroundImage: AssetImage(
+                                                          'asset/images/user-circle.png'))
                                                   : CircleAvatar(
                                                       maxRadius: 50,
                                                       backgroundImage:

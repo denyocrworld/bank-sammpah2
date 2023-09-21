@@ -4,6 +4,6 @@ import 'package:loginandsignup/domain/model/request/Register/register_request.da
 
 abstract class RegistrasiRepository {
   Future<ResultEntity<RegisterData>> submitRegister(
-    RegisterRequest request,
+    RegisterRequest request, 
   );
 }

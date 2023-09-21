@@ -44,7 +44,7 @@ class LoginRepositoryImpl implements LoginRepository {
         return ResultError(message: response.body);
       }
     } catch (e) {
-      return ResultError(message: '');
+      return ResultError(message: e.toString());
     }
   }
 }

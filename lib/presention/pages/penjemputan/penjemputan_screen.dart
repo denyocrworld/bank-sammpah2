@@ -162,7 +162,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                     decoration: InputDecoration(
                       contentPadding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                       suffixIcon: IconButton(
-                        onPressed: () {
+                        onPressed: () async {
                           // await showDatePicker(
 
                           //         context: context,
@@ -202,6 +202,21 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                             },
                           );
                         },
+                        //   final DateFormat dateFormat =
+                        //       DateFormat("yyyy-MM-dd");
+                        //   final DateTime? pickedDateTime = await showDatePicker(
+                        //     context: context,
+                        //     firstDate: DateTime(1900),
+                        //     initialDate: pickDate,
+                        //     lastDate: DateTime(2100),
+                        //   );
+
+                        //   if (pickedDateTime != null) {
+                        //     pickDate = pickedDateTime;
+                        //     tanggalController.text =
+                        //         dateFormat.format(pickedDateTime);
+                        //   }
+                        // },
                         icon: const Icon(
                           Icons.calendar_month,
                           color: Colors.grey,
@@ -209,7 +224,7 @@ class _PenjemputanScreenState extends State<PenjemputanScreen> {
                       ),
                       filled: true,
                       fillColor: Colors.white,
-                      hintText: "yyyy-MM-dd HH:mm",
+                      hintText: "Tanggal Penjemputan",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),

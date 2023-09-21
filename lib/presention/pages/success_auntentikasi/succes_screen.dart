@@ -49,8 +49,7 @@ class _SuccesScreenState extends State<SuccesScreen> {
                         ),
                       ),
                       const Padding(
-                        padding:
-                            EdgeInsets.only(top: 16, left: 32, right: 32),
+                        padding: EdgeInsets.only(top: 16, left: 32, right: 32),
                         child: Text(
                           'Selamat Pendaftaran Kamu Berhasil!',
                           style: TextStyle(fontSize: 22),
@@ -58,8 +57,7 @@ class _SuccesScreenState extends State<SuccesScreen> {
                         ),
                       ),
                       const Padding(
-                        padding:
-                            EdgeInsets.only(top: 8, left: 32, right: 32),
+                        padding: EdgeInsets.only(top: 8, left: 32, right: 32),
                         child: Text(
                           'Sebentar lagi kamu akan dialihkan menuju halaman utama',
                           style: TextStyle(fontSize: 14, color: Colors.grey),

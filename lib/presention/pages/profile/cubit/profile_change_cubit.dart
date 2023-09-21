@@ -2,12 +2,12 @@
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import '../../../../data/base/result_entity.dart';
-import '../../../../data/utilities/commons.dart';
-import '../../../../domain/base/authentication_header_request.dart';
-import '../../../../domain/model/data/token/token_data.dart';
-import '../../../../domain/model/request/profile/profileRequest.dart';
-import '../../../../domain/repository/changeProfile/change_profile_repository.dart';
+import 'package:loginandsignup/data/base/result_entity.dart';
+import 'package:loginandsignup/data/utilities/commons.dart';
+import 'package:loginandsignup/domain/base/authentication_header_request.dart';
+import 'package:loginandsignup/domain/model/data/token/token_data.dart';
+import 'package:loginandsignup/domain/model/request/profile/profileRequest.dart';
+import 'package:loginandsignup/domain/repository/changeProfile/change_profile_repository.dart';
 part 'profile_change_state.dart';
 
 class ProfileChangeCubit extends Cubit<ProfileChangeState> {

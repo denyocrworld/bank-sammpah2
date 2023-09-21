@@ -16,8 +16,9 @@ class NewInquiryRepositoryImpl implements NewInquiryRepository {
   Future<ResultEntity> addQuiry(
       NewInquiryRequest request, AuthenticationHeaderRequest header) async {
     try {
-      final streamResponse = await newInquiryService.addQuiry(request, header);
-      var response = await Response.fromStream(streamResponse);
+      final response = await newInquiryService.addQuiry(request, header);
+      // var streamedResponse = await multipartRequest.send();
+      // var response = await Response.fromStream(streamedResponse);
       print("STATUS CODE NEW QUIRY: ${response.statusCode}");
       print(response.body);
       if (response.statusCode == 200 || response.statusCode == 201) {

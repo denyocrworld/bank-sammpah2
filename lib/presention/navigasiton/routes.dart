@@ -2,8 +2,10 @@
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:loginandsignup/presention/pages/bank_sampah/cubit/bank_sampah_cubit.dart';
 import 'package:loginandsignup/presention/pages/detail_riwayat/cubit/detal_history_cubit.dart';
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
+import 'package:loginandsignup/presention/pages/layanan/cubit/layanan_cubit.dart';
 
 import 'package:loginandsignup/presention/pages/login/login_screen.dart';
 import 'package:loginandsignup/presention/pages/navigasibar.dart';
@@ -79,7 +81,7 @@ GoRouter appRouter(String path) {
                     path: "LayananScreen",
                     name: Routes.LayananScreen,
                     builder: (context, state) {
-                      // BlocProvider.of<LayananCubit>(context).fecthLayanan();
+                      BlocProvider.of<LayananCubit>(context).fecthLayanan();
 
                       return const LayananScreen();
                     }),
@@ -87,7 +89,7 @@ GoRouter appRouter(String path) {
                   path: "BankSampahScreen",
                   name: Routes.BankSampahScreen,
                   builder: (context, state) {
-                    // BlocProvider.of<BankSampahCubit>(context).fecthBankSampah();
+                    BlocProvider.of<BankSampahCubit>(context).fecthBankSampah();
                     return const BankSampahScreen();
                   },
                 ),

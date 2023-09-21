@@ -111,20 +111,19 @@ class _ProfileState extends State<Profile> with WidgetsBindingObserver {
                                     SizedBox(
                                       height: 40,
                                       width: 40,
-                                      child: urlImage != ""
-                                          ?
+                                      child: urlImage != null
+                                          ? CircleAvatar(
+                                              backgroundImage: AssetImage(
+                                                  "asset/images/user-circle.png"),
+                                              maxRadius: 50,
+                                            )
                                           //   Image.asset(
                                           //    state.data.profile.image)
 
-                                          CircleAvatar(
+                                          : CircleAvatar(
                                               backgroundImage: NetworkImage(
                                                   state.data.profile.image),
                                               maxRadius: 50,
-                                            )
-                                          : Icon(
-                                              Icons.account_circle,
-                                              size: 40,
-                                              color: Colors.grey,
                                             ),
                                     ),
                                     Expanded(

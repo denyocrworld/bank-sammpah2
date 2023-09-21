@@ -7,7 +7,6 @@ import 'package:loginandsignup/model/costum_shapes.dart';
 import 'package:loginandsignup/presention/navigasiton/route.dart';
 import 'package:loginandsignup/presention/pages/home/cubit/home_cubit.dart';
 
-
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -232,11 +231,11 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                     child: SizedBox(
                         height: 40,
                         width: 40,
-                        child: urlImage == null
-                            ? const Icon(
-                                Icons.account_circle,
-                                size: 40,
-                                color: Colors.white,
+                        child: urlImage != null
+                            ? const CircleAvatar(
+                                backgroundImage:
+                                    AssetImage('asset/images/user-circle.png'),
+                                maxRadius: 50,
                               )
                             : CircleAvatar(
                                 backgroundImage:
@@ -428,62 +427,72 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                           ],
                         ),
                         Padding(
-                            padding: const EdgeInsets.only(left: 20, right: 20),
-                            child: homeState.data.riwayat == null
-                                ? Container(
-                                    width: MediaQuery.of(context).size.width,
-                                    height: 120,
-                                    decoration: BoxDecoration(
-                                      color: const Color(0xFFFAFDFF),
-                                      borderRadius: BorderRadius.circular(16),
-                                      border: Border.all(
-                                          color: Colors.black, width: 0.1),
-                                    ),
-                                    child: Column(
-                                      children: [
-                                        const Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          // ignore: prefer_const_literals_to_create_immutables
-                                          children: [
+                          padding: const EdgeInsets.only(left: 20, right: 20),
+                          child: homeState.data.riwayat == null
+                              ? Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  height: 120,
+                                  decoration: BoxDecoration(
+                                    color: const Color(0xFFFAFDFF),
+                                    borderRadius: BorderRadius.circular(16),
+                                    border: Border.all(
+                                        color: Colors.black, width: 0.1),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      const Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        // ignore: prefer_const_literals_to_create_immutables
+                                        children: [
+                                          // ignore: prefer_const_constructors
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                top: 16, left: 16),
                                             // ignore: prefer_const_constructors
-                                            Padding(
-                                              padding: EdgeInsets.only(
-                                                  top: 16, left: 16),
+                                            child: Text(
+                                              "12-04-2023",
                                               // ignore: prefer_const_constructors
-                                              child: Text(
-                                                "12-04-2023",
-                                                // ignore: prefer_const_constructors
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    color: Color(0xFFA7ABB3),
-                                                    fontWeight:
-                                                        FontWeight.w400),
-                                              ),
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Color(0xFFA7ABB3),
+                                                  fontWeight: FontWeight.w400),
                                             ),
-                                            Padding(
-                                              padding: EdgeInsets.only(
-                                                  top: 16, right: 16),
-                                              child: Text(
-                                                '+150pt',
-                                                style: TextStyle(
-                                                    fontSize: 12,
-                                                    color: Color(0xFFA7ABB3),
-                                                    fontWeight:
-                                                        FontWeight.w400),
-                                              ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                top: 16, right: 16),
+                                            child: Text(
+                                              '+150pt',
+                                              style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Color(0xFFA7ABB3),
+                                                  fontWeight: FontWeight.w400),
                                             ),
-                                          ],
-                                        ),
-                                        const Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
+                                          ),
+                                        ],
+                                      ),
+                                      const Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                top: 4, left: 16),
+                                            child: Text(
+                                              'Berat Sampah :',
+                                              style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: Color(0xFF001F29),
+                                                  fontWeight: FontWeight.w400),
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: Padding(
                                               padding: EdgeInsets.only(
-                                                  top: 4, left: 16),
+                                                  top: 4, left: 5),
                                               child: Text(
-                                                'Berat Sampah :',
+                                                '6kg',
                                                 style: TextStyle(
                                                     fontSize: 16,
                                                     color: Color(0xFF001F29),
@@ -491,79 +500,66 @@ class _HomeScreenState extends State<HomeScreen> with WidgetsBindingObserver {
                                                         FontWeight.w400),
                                               ),
                                             ),
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsets.only(
-                                                    top: 4, left: 5),
-                                                child: Text(
-                                                  '6kg',
-                                                  style: TextStyle(
-                                                      fontSize: 16,
-                                                      color: Color(0xFF001F29),
-                                                      fontWeight:
-                                                          FontWeight.w400),
-                                                ),
-                                              ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                              top: 4,
+                                              right: 16,
                                             ),
-                                            Padding(
-                                              padding: EdgeInsets.only(
-                                                top: 4,
-                                                right: 16,
-                                              ),
-                                              child: Text(
-                                                'Rp150000',
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    color: Color(0xFF019BF1),
-                                                    fontWeight:
-                                                        FontWeight.w500),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(
-                                              top: 10, right: 16, left: 16),
-                                          child: SizedBox(
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                1,
-                                            height: 40,
-                                            child: OutlinedButton(
-                                              style: OutlinedButton.styleFrom(
-                                                side: const BorderSide(
-                                                    color: Color(0xFFFF7F33)),
-                                                foregroundColor:
-                                                    const Color(0xFFFF7F33),
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          12), // <-- Radius
-                                                ),
-                                              ),
-                                              onPressed: () {
-                                                context.go('/DetailRiwayat');
-                                              },
-                                              child: const Text("Lihat Detail",
-                                                  style: TextStyle(
-                                                      fontSize: 12,
-                                                      fontWeight:
-                                                          FontWeight.w400)),
+                                            child: Text(
+                                              'Rp150000',
+                                              style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: Color(0xFF019BF1),
+                                                  fontWeight: FontWeight.w500),
                                             ),
                                           ),
+                                        ],
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(
+                                            top: 10, right: 16, left: 16),
+                                        child: SizedBox(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              1,
+                                          height: 40,
+                                          child: OutlinedButton(
+                                            style: OutlinedButton.styleFrom(
+                                              side: const BorderSide(
+                                                  color: Color(0xFFFF7F33)),
+                                              foregroundColor:
+                                                  const Color(0xFFFF7F33),
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        12), // <-- Radius
+                                              ),
+                                            ),
+                                            onPressed: () {
+                                              context.go('/DetailRiwayat');
+                                            },
+                                            child: const Text("Lihat Detail",
+                                                style: TextStyle(
+                                                    fontSize: 12,
+                                                    fontWeight:
+                                                        FontWeight.w400)),
+                                          ),
                                         ),
-                                      ],
-                                    ),
-                                  )
-                                : const Center(
-                                    child: Text(
-                                      'Belum ada riwayat anatar jemput\nYuk mulai bereskan sampah mu',
-                                      style: TextStyle(
-                                          color: Colors.grey,
-                                          fontWeight: FontWeight.w400),
-                                    ),
-                                  ),),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              : const Center(
+                                  child: Text(
+                                    'Belum ada riwayat anatar jemput\nYuk mulai bereskan sampah mu',
+                                    style: TextStyle(
+                                        color: Colors.grey,
+                                        fontWeight: FontWeight.w400),
+                                  ),
+                                ),
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [

@@ -3,11 +3,10 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loginandsignup/data/base/result_entity.dart';
+import 'package:loginandsignup/data/utilities/commons.dart';
 import 'package:loginandsignup/domain/base/authentication_header_request.dart';
-
-import '../../../../data/utilities/commons.dart';
-import '../../../../domain/model/data/layanan/layananData.dart';
-import '../../../../domain/repository/layanan/layanan_repository.dart';
+import 'package:loginandsignup/domain/model/data/layanan/layananData.dart';
+import 'package:loginandsignup/domain/repository/layanan/layanan_repository.dart';
 
 part 'bank_sampah_state.dart';
 
