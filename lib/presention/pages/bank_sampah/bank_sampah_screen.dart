@@ -1,0 +1,459 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: unused_local_variable, avoid_print
+
+part of '../pages.dart';
+
+class Item {
+  String? itemName;
+  int? value;
+  int? count;
+  int? tPoint;
+
+  Item({this.itemName = '', this.value = 0, this.count = 0, this.tPoint = 0});
+}
+
+final itemPlastik = Item(itemName: 'plastik', value: 100, count: 0, tPoint: 0);
+final itemKaca = Item(itemName: 'beling', value: 200, count: 0, tPoint: 0);
+final itemBesi = Item(itemName: 'besi', value: 300, count: 0, tPoint: 0);
+final itemKertas = Item(itemName: 'karton', value: 400, count: 0, tPoint: 0);
+
+class BankSampahScreen extends StatefulWidget {
+  BankSampahScreen({super.key});
+
+  @override
+  State<BankSampahScreen> createState() => _BankSampahScreenState();
+}
+
+class _BankSampahScreenState extends State<BankSampahScreen> {
+  int point = 0;
+  List<Item> items = [];
+
+  @override
+  void initState() {
+    super.initState();
+    // items = [itemPlastik, itemKaca, itemBesi, itemKertas];
+    BlocProvider.of<BankSampahCubit>(context).fecthBankSampah();
+  }
+
+  @override
+  void dispose() {
+    for (var item in items) {
+      item.count = 0;
+      item.tPoint = 0;
+    }
+    super.dispose();
+  }
+
+  // Perlu diperhatikan bahwa dalam parameter fungsi, Anda dapat menentukan tipe data untuk 'index' dan 'name' untuk menghindari masalah tipe data yang tidak aman.
+
+  void grow1(int index, String name) {
+    setState(() {
+      if (items[index].count == null || items[index].value == null) {
+        // Tangani nilai null di sini jika diperlukan.
+        return;
+      }
+
+      if (items[index].value == 0) {
+        // Reset count dan tPoint ke 0 jika value adalah 0.
+        items[index].count = 0;
+        items[index].tPoint = 0;
+      } else {
+        items[index].count = items[index].count! + 1;
+        items[index].tPoint = items[index].count! * items[index].value!;
+      }
+
+      // Perhitungan ulang total poin
+      var allPoint = items.fold(0, (sum, e) => (e.tPoint ?? 0) + sum);
+      setState(() {
+        point = allPoint;
+      });
+    });
+  }
+
+  void decrease(int index) {
+    setState(() {
+      if (items[index].count == null || items[index].value == null) {
+        // Tangani nilai null di sini jika diperlukan.
+        return;
+      }
+
+      if (items[index].count! > 0) {
+        items[index].count = items[index].count! - 1;
+        items[index].tPoint = items[index].count! * items[index].value!;
+        point = point - items[index].value!;
+      }
+    });
+  }
+
+  // //cara 1 -----------------------------------------------
+  // // List<Item> item = [item1, item2, item3, item4];
+  // void grow1(index, name) {
+  //   print(items[index].count);
+  //   setState(() {
+  //     items[index!].count = items[index].count! + 1;
+  //     items[index!].tPoint = items[index].count! * items[index].value!;
+  //   });
+  //   print(items[index].count);
+  //   var allPoint = items.fold(0, (sum, e) => sum + e.tPoint!);
+  //   setState(() {
+  //     point = allPoint;
+  //   });
+  // }
+
+  // void decrease(int index) {
+  //   setState(() {
+  //     if (items[index].count! > 0) {
+  //       items[index].count = items[index].count! - 1;
+  //       point = point - items[index].value!;
+  //     }
+  //   });
+  //   // setState(() {
+  //   //   point = point - items[index].value!;
+  //   // });
+  // }
+
+  bool _isRadioSelected = false;
+  String? groupValue;
+
+  @override
+  Widget build(BuildContext context) {
+    final cubit = BlocProvider.of<BankSampahCubit>(context);
+    List<String> image = [
+      "asset/images/botol_plastik.png",
+      "asset/images/botol_kaca.png",
+      "asset/images/botol_kaleng.png",
+      "asset/images/kertas.png"
+    ];
+    return Scaffold(
+      backgroundColor: Color(0xFFF5F5F5),
+      appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Color(0xFFF5F5F5),
+          centerTitle: true,
+          title: Text('Bank Sampah',
+              style: TextStyle(
+                  color: Color(0xFF001F29), fontWeight: FontWeight.w500)),
+          leading: GestureDetector(
+              onTap: () {
+                context.goNamed(Routes.NavigasiBar);
+              },
+              child:
+                  Icon(CupertinoIcons.arrow_left, color: Color(0xFF001F29)))),
+      body: SingleChildScrollView(
+        controller: ScrollController(),
+        child: Center(
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top: 26, left: 20, right: 20),
+                child: Container(
+                  height: 64,
+                  width: MediaQuery.of(context).size.width * 1,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16),
+                      color: Color(0xFFF5F5F5),
+                      border: Border.all(color: Colors.grey, width: 0.3)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 16),
+                        child: Text(
+                          "Poin anda :",
+                          style: TextStyle(
+                              fontSize: 14.0, fontWeight: FontWeight.w500),
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 8),
+                          child: Text(
+                            "25.000",
+                            style: TextStyle(
+                                fontSize: 16.0,
+                                color: Color(0xFF019BF1),
+                                fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(right: 16),
+                        child: SizedBox(
+                          width: 100,
+                          height: 32,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Color(0xFFFF7F33),
+                              shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.circular(8), // <-- Radius
+                              ),
+                            ),
+                            onPressed: () {
+                              context.go('/TukarPoint1');
+                            },
+                            child: Text(
+                              "Tukar Point",
+                              style: TextStyle(fontSize: 12),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 24),
+                child: Text(
+                  "Jumlah Sampah",
+                  style: TextStyle(fontSize: 22.0, fontWeight: FontWeight.w400),
+                ),
+              ),
+              BlocConsumer<BankSampahCubit, BankSampahState>(
+                  listener: (context, state) {
+                if (state is BankSampahIsSuccess) {}
+              }, builder: (context, state) {
+                if (state is BankSampahIsLoading) {
+                  return Center(
+                      child: CircularProgressIndicator(
+                    color: Colors.blue,
+                  ));
+                } else if (state is BankSampahIsSuccess) {
+                  for (var element in state.data.bank_sampah) {
+                    switch (element.layanan) {
+                      case "plastik":
+                        itemPlastik.value = element.point;
+                        print("Plastik : ${element.point}");
+                        break;
+                      case "kaca":
+                        itemKaca.value = element.point;
+                        print("Kaca : ${element.point}");
+                        break;
+                      case "besi":
+                        itemBesi.value = element.point;
+                        print("Besi : ${element.point}");
+                        break;
+                      case "kertas":
+                        itemKertas.value = element.point;
+                        print("Kertas : ${element.point}");
+                        break;
+                    }
+                  }
+
+                  return Column(
+                    children: [
+                      Text("${state.data.bank_sampah.length}"),
+                      ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
+                        shrinkWrap: true,
+                        itemCount: state.data.bank_sampah.length,
+                        itemBuilder: (context, index) {
+                          final data = state.data.bank_sampah[index];
+
+                          return Padding(
+                            padding:
+                                EdgeInsets.only(top: 20, left: 20, right: 20),
+                            child: Container(
+                              height: 75,
+                              // width: MediaQuery.of(context).size.width * 1,
+                              decoration: BoxDecoration(
+                                color: Color(0xFFFAFDFF),
+                                borderRadius: BorderRadius.circular(16),
+                                border: Border.all(
+                                  width: 0.5,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(left: 15),
+                                    child: Image.asset(
+                                      image[index],
+                                      width: 40,
+                                      height: 40,
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Padding(
+                                      padding: EdgeInsets.only(left: 16),
+                                      child: Text(
+                                        data.layanan,
+                                        style: TextStyle(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                        textAlign: TextAlign.start,
+                                      ),
+                                    ),
+                                  ),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(bottom: 5),
+                                        child: Text(
+                                          "Berat/KG",
+                                          style: TextStyle(
+                                              fontSize: 12.0,
+                                              fontWeight: FontWeight.w500,
+                                              color: Color(0xFF5A5F66)),
+                                        ),
+                                      ),
+                                      Row(
+                                        children: [
+                                          SizedBox(
+                                            width: 25,
+                                            height: 25,
+                                            child: FittedBox(
+                                              child: FloatingActionButton(
+                                                heroTag: null,
+                                                // onPressed: () {
+                                                //   decrease(index);
+                                                // },
+                                                onPressed: () =>
+                                                    cubit.decrementQty(index),
+                                                backgroundColor:
+                                                    Color(0xFFFF7F33),
+                                                child: Icon(
+                                                  CupertinoIcons.minus,
+                                                  size: 30.0,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                left: 22, right: 22),
+                                            child: Text(
+                                              // "${items[index].count}",
+                                              "${data.qty}",
+                                              style: TextStyle(
+                                                fontSize: 16.0,
+                                                fontWeight: FontWeight.w400,
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(right: 20),
+                                            child: SizedBox(
+                                              width: 25,
+                                              height: 25,
+                                              child: FittedBox(
+                                                child: FloatingActionButton(
+                                                  heroTag: null,
+                                                  // onPressed: () {
+                                                  //   grow1(index,
+                                                  //       items[index].itemName!);
+                                                  // },
+                                                  onPressed: () =>
+                                                      cubit.incrementQty(index),
+                                                  backgroundColor:
+                                                      Color(0xFFFF7F33),
+                                                  child: Icon(
+                                                    CupertinoIcons.plus,
+                                                    size: 30.0,
+                                                    color: Colors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 20, right: 20, top: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Total point yang didapat :",
+                              style: TextStyle(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
+                            Text(
+                              "${cubit.total}",
+                              style: TextStyle(
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFF019BF1)),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 10, right: 10.0),
+                        child: LinkedLabelRadio(
+                          label: 'Tukar di titik antar',
+                          padding: EdgeInsets.symmetric(horizontal: 5.0),
+                          value: false,
+                          groupValue: _isRadioSelected,
+                          onChanged: (bool newValue) {
+                            setState(() {
+                              _isRadioSelected = newValue;
+                            });
+                          },
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 10, right: 10.0),
+                        child: LinkedLabelRadio(
+                          label: 'Tukar di titik antar (Drop Point)',
+                          padding: EdgeInsets.symmetric(horizontal: 5.0),
+                          value: true,
+                          groupValue: _isRadioSelected,
+                          onChanged: (bool newValue) {
+                            setState(() {
+                              _isRadioSelected = newValue;
+                            });
+                          },
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            EdgeInsets.only(left: 16, right: 16, bottom: 16),
+                        child: SizedBox(
+                          height: 40,
+                          width: MediaQuery.of(context).size.width * 1,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Color(0xFFFF7F33),
+                              shape: ContinuousRectangleBorder(
+                                borderRadius: BorderRadius.circular(16),
+                              ),
+                            ),
+                            onPressed: () {
+                              context.go("/SampahPenjemputan");
+                            },
+                            child: Text("Selanjutnya"),
+                          ),
+                        ),
+                      ),
+                    ],
+                  );
+                }
+                return Container();
+              }),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
