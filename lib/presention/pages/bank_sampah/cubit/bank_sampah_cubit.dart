@@ -29,6 +29,16 @@ class BankSampahCubit extends Cubit<BankSampahState> {
     }
   }
 
+  /*
+  incrementQty(int index) async {
+    var data = (state as BankSampahIsSuccess).data;
+    data.bank_sampah[index].qty++;
+    emit(state.copyWith(
+      data: data,
+    ));
+  }
+  */
+
   incrementQty(int index) async {
     var data = (state as BankSampahIsSuccess).data;
 
